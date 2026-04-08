@@ -9,11 +9,37 @@ on:
       - 'v*'
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+# Ensure tag creation and release publishing work
+permissions:
+  contents: write
+
 jobs:
+  # Create the tag once, before platform builds start.
+  # This prevents multiple jobs from racing to force-push the same tag.
+  prepare-tag:
+    runs-on: ubuntu-latest
+    if: github.ref_type != 'tag'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Create continuous build tag
+        if: github.ref_name == 'master'
+        run: |
+          git tag -f latest
+          git push -f origin latest
+      - name: Create dev build tag
+        if: github.ref_name == 'dev'
+        run: |
+          git tag -f devel
+          git push -f origin devel
+
   mac:
+    needs: [prepare-tag]
+    if: always() && !failure() && !cancelled()
     strategy:
       matrix:
         ui: [cli, gui]
@@ -75,11 +101,6 @@ jobs:
         with:
           name: macos-${{ matrix.arch }}-${{ matrix.ui }}.zip
           path: screenshot.png
-      - name: Tag for Continuous Build
-        if: github.ref_name == 'master'
-        run: |
-          git tag -f latest
-          git push -f origin latest
       - name: Upload to Continuous Build
         if: github.ref_name == 'master'
         uses: softprops/action-gh-release@v2
@@ -89,11 +110,6 @@ jobs:
           name: "Continuous Build"
           tag_name: latest
           files: ${{ steps.dist.outputs.archive }}
-      - name: Tag for Dev Build
-        if: github.ref_name == 'dev'
-        run: |
-          git tag -f devel
-          git push -f origin devel
       - name: Upload to Dev Build
         if: github.ref_name == 'dev'
         uses: softprops/action-gh-release@v2
@@ -115,6 +131,8 @@ jobs:
           files: ${{ steps.dist.outputs.archive }}
 
   win:
+    needs: [prepare-tag]
+    if: always() && !failure() && !cancelled()
     runs-on: windows-latest
     strategy:
       matrix:
@@ -163,11 +181,6 @@ jobs:
         run: |
           cd dist
           dvdisaster.exe --version
-      - name: Tag for Continuous Build
-        if: github.ref_name == 'master'
-        run: |
-          git tag -f latest
-          git push -f origin latest
       - name: Upload to Continuous Build
         if: github.ref_name == 'master'
         uses: softprops/action-gh-release@v2
@@ -177,11 +190,6 @@ jobs:
           name: "Continuous Build"
           tag_name: latest
           files: ${{ steps.dist.outputs.archive }}
-      - name: Tag for Dev Build
-        if: github.ref_name == 'dev'
-        run: |
-          git tag -f devel
-          git push -f origin devel
       - name: Upload to Dev Build
         if: github.ref_name == 'dev'
         uses: softprops/action-gh-release@v2
@@ -203,6 +211,8 @@ jobs:
           files: ${{ steps.dist.outputs.archive }}
 
   linux64-cli:
+    needs: [prepare-tag]
+    if: always() && !failure() && !cancelled()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -220,11 +230,6 @@ jobs:
       - name: build dist
         run: ./.github/workflows/make-dist.sh ${{ github.ref }}
         id: dist
-      - name: Tag for Continuous Build
-        if: github.ref_name == 'master'
-        run: |
-          git tag -f latest
-          git push -f origin latest
       - name: Upload to Continuous Build
         if: github.ref_name == 'master'
         uses: softprops/action-gh-release@v2
@@ -234,11 +239,6 @@ jobs:
           name: "Continuous Build"
           tag_name: latest
           files: ${{ steps.dist.outputs.archive }}
-      - name: Tag for Dev Build
-        if: github.ref_name == 'dev'
-        run: |
-          git tag -f devel
-          git push -f origin devel
       - name: Upload to Dev Build
         if: github.ref_name == 'dev'
         uses: softprops/action-gh-release@v2
@@ -260,11 +260,27 @@ jobs:
           files: ${{ steps.dist.outputs.archive }}
 
   linux64-appimage:
+    needs: [prepare-tag]
+    if: always() && !failure() && !cancelled()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - name: install prerequisites on host
         run: sudo apt-get update && sudo apt-get install -y fuse
+      - name: cache AppImage tools
+        uses: actions/cache@v4
+        id: appimage-cache
+        with:
+          path: |
+            linuxdeploy-x86_64.AppImage
+            appimagetool-x86_64.AppImage
+          key: appimage-tools-v1
+      - name: download AppImage tools
+        if: steps.appimage-cache.outputs.cache-hit != 'true'
+        run: |
+          wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+          wget -q https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
+          chmod 755 linuxdeploy-x86_64.AppImage appimagetool-x86_64.AppImage
       - name: docker
         run: |
           mkdir -p /tmp/dist
@@ -291,7 +307,6 @@ jobs:
           sudo sed -i -re 's=^"/.+/loaders/(.+)="'$PIX_BASEPATH'/loaders/\1=' $(find /tmp/dist/ -name loaders.cache)
       - name: build appimage in docker with linuxdeploy
         run: |
-          wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
           chmod 755 linuxdeploy-x86_64.AppImage
           docker exec -e LINUXDEPLOY_OUTPUT_VERSION=$(echo "${{ github.ref }}" | grep -Eo '[^/]+$') -e ARCH=x86_64 uu sh -c 'cd /dvdisaster && ./linuxdeploy-x86_64.AppImage -d contrib/dvdisaster.desktop -i contrib/dvdisaster64.png -i contrib/dvdisaster48.png -i contrib/dvdisaster32.png -i contrib/dvdisaster16.png --icon-filename dvdisaster --custom-apprun=contrib/AppRun.sh --appdir /dist/ --output appimage'
       - name: fix perms
@@ -300,7 +315,6 @@ jobs:
         env:
           ARCH: x86_64
         run: |
-          wget -q https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
           chmod 755 appimagetool-x86_64.AppImage
           exe=$(ls -1 dvdisaster*.AppImage)
           chmod 755 $exe
@@ -317,11 +331,6 @@ jobs:
           archive=$(ls -1 dvdisaster*.AppImage)
           echo "archive=$archive" >> "$GITHUB_OUTPUT"
           echo "appimage is <$archive>"
-      - name: Tag for Continuous Build
-        if: github.ref_name == 'master'
-        run: |
-          git tag -f latest
-          git push -f origin latest
       - name: Upload to Continuous Build
         if: github.ref_name == 'master'
         uses: softprops/action-gh-release@v2
@@ -331,11 +340,6 @@ jobs:
           name: "Continuous Build"
           tag_name: latest
           files: ${{ steps.dist.outputs.archive }}
-      - name: Tag for Dev Build
-        if: github.ref_name == 'dev'
-        run: |
-          git tag -f devel
-          git push -f origin devel
       - name: Upload to Dev Build
         if: github.ref_name == 'dev'
         uses: softprops/action-gh-release@v2
@@ -355,3 +359,67 @@ jobs:
           name: ${{ github.ref_name }}
           tag_name: ${{ github.ref_name }}
           files: ${{ steps.dist.outputs.archive }}
+
+  linux64-deb:
+    needs: [prepare-tag]
+    if: always() && !failure() && !cancelled()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: install build dependencies
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential devscripts debhelper \
+            gettext libbz2-dev libgtk-3-dev libglib2.0-dev libpng-dev pkg-config \
+            texlive-fonts-recommended texlive-latex-base texlive-latex-extra man
+      - name: build deb package
+        run: |
+          dpkg-buildpackage -us -uc -b
+          mkdir -p debs
+          mv -v ../*.deb debs/
+          ls -la debs/
+      - name: set output
+        id: dist
+        run: |
+          archive=$(ls -1 debs/dvdisaster_*.deb | head -n1)
+          echo "archive=$archive" >> "$GITHUB_OUTPUT"
+          echo "deb package: $archive"
+      - name: test deb install
+        run: |
+          sudo dpkg -i debs/dvdisaster_*.deb || sudo apt-get install -f -y
+          dvdisaster --version
+      - name: upload deb artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: debian-packages
+          path: debs/*.deb
+      - name: Upload to Continuous Build
+        if: github.ref_name == 'master'
+        uses: softprops/action-gh-release@v2
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          name: "Continuous Build"
+          tag_name: latest
+          files: debs/*.deb
+      - name: Upload to Dev Build
+        if: github.ref_name == 'dev'
+        uses: softprops/action-gh-release@v2
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          draft: true
+          name: "Dev Build"
+          tag_name: devel
+          files: debs/*.deb
+      - name: Upload to Draft Release
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v2
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          draft: true
+          name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          files: debs/*.deb
