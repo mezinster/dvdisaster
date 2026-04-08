@@ -71,7 +71,7 @@ override_dh_auto_install-indep:
 # automatically decompress text files.
 override_dh_compress-arch:
 	dh_compress -p dvdisaster \
-		-Xchangelog -XCREDITS -XREADME.MODIFYING -XTODO
+		-Xchangelog -XCREDITS -XTODO
 	gzip -9n debian/dvdisaster/usr/share/doc/dvdisaster/changelog.Debian
 
 override_dh_installchangelogs-arch:
