@@ -372,14 +372,16 @@ static void free_recognize_context(recognize_context *rc)
 
 static int search_crc_blocks_for_layer_size(Image *image, guint64 image_sectors,
 					    guint64 layer_size, gint64 maxtries,
-					    gint64 *trynumber_inout)
+					    gint64 *trynumber_inout, int quiet)
 {  recognize_context *rc = g_malloc0(sizeof(recognize_context));
    int untested_layers;
    int layer, layer_sector;
    int i;
 
-   Verbose(".. trying layer size %" PRId64 "\n", (gint64)layer_size);
-   Verbose("Scanning layers for signatures.\n");
+   if(!quiet)
+   {  Verbose(".. trying layer size %" PRId64 "\n", (gint64)layer_size);
+      Verbose("Scanning layers for signatures.\n");
+   }
 
    /* Prepare layout for all possible cases (8..170 roots) */
 
@@ -407,7 +409,7 @@ static int search_crc_blocks_for_layer_size(Image *image, guint64 image_sectors,
    for(layer_sector = 0; layer_sector < layer_size; layer_sector++)
    {  CrcBlock *cb = (CrcBlock*)rc->ab->buf;
 
-      Verbose("- layer slice %d\n", layer_sector);
+      if(!quiet) Verbose("- layer slice %d\n", layer_sector);
       for(layer = 84; layer <= 247; layer++)
       {  if(!rc->layer_checked[layer])
 	 {  gint64 sector;
@@ -420,15 +422,16 @@ static int search_crc_blocks_for_layer_size(Image *image, guint64 image_sectors,
 	      goto mark_invalid_layer;
 
             if (++(*trynumber_inout) > maxtries && maxtries > 0) {
-                Verbose("RS03: max tries reached, stopping search\n");
+                if(!quiet) Verbose("RS03: max tries reached, stopping search\n");
                 free_recognize_context(rc);
                 return FALSE;
             }
 
-            Verbose("RS03: %s = %" PRId64 ", reading sector %" PRId64 "\n",
-		    maxtries < 0 ? "try number" : "tries left",
-		    maxtries < 0 ? *trynumber_inout : maxtries - *trynumber_inout,
-		    sector);
+            if(!quiet)
+	       Verbose("RS03: %s = %" PRId64 ", reading sector %" PRId64 "\n",
+		       maxtries < 0 ? "try number" : "tries left",
+		       maxtries < 0 ? *trynumber_inout : maxtries - *trynumber_inout,
+		       sector);
 
 	    switch(image->type)
 	    {  case IMAGE_FILE:
@@ -470,17 +473,17 @@ mark_invalid_layer:
 	       untested_layers--;
 	    }
 	    if(untested_layers <= 0)
-	    {  Verbose("** All layers tested -> no RS03 data found\n");
+	    {  if(!quiet) Verbose("** All layers tested -> no RS03 data found\n");
 	       free_recognize_context(rc);
 	       return FALSE;
 	    }
 	 }
       }
-      Verbose("-> %d untested layers remaining\n", untested_layers);
+      if(!quiet) Verbose("-> %d untested layers remaining\n", untested_layers);
    }
 
-   Verbose("-- layer size %" PRId64 " exhausted; %d layers remain untested\n",
-	   (gint64)layer_size, untested_layers);
+   if(!quiet) Verbose("-- layer size %" PRId64 " exhausted; %d layers remain untested\n",
+		      (gint64)layer_size, untested_layers);
    free_recognize_context(rc);
    return FALSE;
 }
@@ -760,7 +763,7 @@ int RS03RecognizeImage(Image *image)
 	      Closure->mediumSize, layer_size);
 
       trynumber = 0;
-      if(search_crc_blocks_for_layer_size(image, image_sectors, layer_size, maxtries, &trynumber))
+      if(search_crc_blocks_for_layer_size(image, image_sectors, layer_size, maxtries, &trynumber, FALSE))
 	 return TRUE;
    }
    else
@@ -784,7 +787,9 @@ int RS03RecognizeImage(Image *image)
       }
       else
       {  /* Exhaustive mode for file images: try all known sizes */
-	 /* Image-derived is a strong heuristic for complete images */
+	 /* Heuristic first — matches old single-guess behavior for standard images */
+	 add_candidate(candidates, &n_candidates, heuristic_layer_size(image_sectors));
+	 /* Image-derived for exact-size images */
 	 add_candidate(candidates, &n_candidates, image_sectors/GF_FIELDMAX);
 	 if(image_sectors > 0)
 	 {  add_candidate(candidates, &n_candidates, image_sectors/GF_FIELDMAX - 1);
@@ -807,8 +812,12 @@ int RS03RecognizeImage(Image *image)
 
       for(i = 0; i < n_candidates && i < max_to_try; i++)
       {  trynumber = 0;
-	 if(search_crc_blocks_for_layer_size(image, image_sectors, candidates[i], maxtries, &trynumber))
+	 if(search_crc_blocks_for_layer_size(image, image_sectors, candidates[i], maxtries, &trynumber, i > 0))
+	 {  if(i > 0)
+	       Verbose("RS03RecognizeImage: found data with candidate layer size %" PRId64 "\n",
+		       (gint64)candidates[i]);
 	    return TRUE;
+	 }
       }
    }
 
