@@ -638,6 +638,46 @@ static int bruteforce_scan_for_crc_blocks(Image *image, guint64 image_sectors)
    return found;
 }
 
+/*
+ * Multi-candidate layer size search helpers.
+ * Instead of guessing a single layer size from the image sector count,
+ * we try all known medium sizes (DM and NODM) plus image-derived sizes.
+ * search_crc_blocks_for_layer_size() validates each candidate via CRC,
+ * so wrong guesses fail fast and cheaply.
+ */
+
+#define MAX_CANDIDATES 16
+
+static void add_candidate(guint64 *candidates, int *n, guint64 layer_size)
+{  int i;
+
+   if(layer_size == 0 || *n >= MAX_CANDIDATES)
+      return;
+
+   /* Deduplicate: skip if already present */
+   for(i = 0; i < *n; i++)
+      if(candidates[i] == layer_size)
+         return;
+
+   candidates[(*n)++] = layer_size;
+}
+
+/*
+ * Original heuristic: pick layer size from total image sectors using
+ * strict-less-than thresholds. This is the best first guess for optical
+ * media where READ CAPACITY matches the medium type.
+ */
+static guint64 heuristic_layer_size(guint64 image_sectors)
+{
+   if(image_sectors < CDR_SIZE)         return CDR_SIZE/GF_FIELDMAX;
+   else if(image_sectors < DVD_SL_SIZE) return DVD_SL_SIZE/GF_FIELDMAX;
+   else if(image_sectors < DVD_DL_SIZE) return DVD_DL_SIZE/GF_FIELDMAX;
+   else if(image_sectors < BD_SL_SIZE)  return BD_SL_SIZE/GF_FIELDMAX;
+   else if(image_sectors < BD_DL_SIZE)  return BD_DL_SIZE/GF_FIELDMAX;
+   else if(image_sectors < BDXL_TL_SIZE) return BDXL_TL_SIZE/GF_FIELDMAX;
+   else                                  return BDXL_QL_SIZE/GF_FIELDMAX;
+}
+
 int RS03RecognizeImage(Image *image)
 {  guint64 image_sectors;
    guint64 layer_size;
@@ -706,55 +746,68 @@ int RS03RecognizeImage(Image *image)
       Verbose("RS03RecognizeImage: No EH, entering exhaustive search\n");
    }
 
-   /* Determine image size in augmented case and try known medium sizes. */
-
-   trynumber = 0;
+   /* Try all known medium sizes as candidates.
+      For optical media in quick mode, we limit to a few likely candidates
+      to avoid excessive reads on slow drives.
+      For file images (exhaustive mode), we try all known sizes.
+      search_crc_blocks_for_layer_size() validates via CRC, so wrong
+      guesses are rejected definitively and cheaply. */
 
    if(Closure->mediumSize >= GF_FIELDMAX)
-   {  layer_size = Closure->mediumSize/GF_FIELDMAX;
+   {  /* User override via -n: try only this size */
+      layer_size = Closure->mediumSize/GF_FIELDMAX;
       Verbose("Image size set to %" PRId64 " (layer size %" PRId64 ")\n",
 	      Closure->mediumSize, layer_size);
+
+      trynumber = 0;
+      if(search_crc_blocks_for_layer_size(image, image_sectors, layer_size, maxtries, &trynumber))
+	 return TRUE;
    }
    else
-   {
-      const guint64 bd_sl_sz = (Closure->noBdrDefectManagement ? BD_SL_SIZE_NODM : BD_SL_SIZE);
-      const guint64 bd_dl_sz = (Closure->noBdrDefectManagement ? BD_DL_SIZE_NODM : BD_DL_SIZE);
-      const guint64 bd_tl_sz = (Closure->noBdrDefectManagement ? BDXL_TL_SIZE_NODM : BDXL_TL_SIZE);
-      const guint64 bd_ql_sz = (Closure->noBdrDefectManagement ? BDXL_QL_SIZE_NODM : BDXL_QL_SIZE);
-      if(image_sectors < CDR_SIZE)         layer_size = CDR_SIZE/GF_FIELDMAX;
-      else if(image_sectors < DVD_SL_SIZE) layer_size = DVD_SL_SIZE/GF_FIELDMAX;
-      else if(image_sectors < DVD_DL_SIZE) layer_size = DVD_DL_SIZE/GF_FIELDMAX;
-      else if(image_sectors < bd_sl_sz)
-         layer_size = bd_sl_sz/GF_FIELDMAX;
-      else if(image_sectors < bd_dl_sz)
-         layer_size = bd_dl_sz/GF_FIELDMAX;
-      else if(image_sectors < bd_tl_sz)
-         layer_size = bd_tl_sz/GF_FIELDMAX;
-      else layer_size = bd_ql_sz/GF_FIELDMAX;
-   }
+   {  guint64 candidates[MAX_CANDIDATES];
+      int n_candidates = 0;
+      int max_to_try;
+      int i;
 
-   if(search_crc_blocks_for_layer_size(image, image_sectors, layer_size, maxtries, &trynumber))
-      return TRUE;
+      if(image->type == IMAGE_MEDIUM && maxtries > 0)
+      {  /* Quick mode for optical media: heuristic first, then alternatives */
+	 guint64 heuristic = heuristic_layer_size(image_sectors);
+	 add_candidate(candidates, &n_candidates, heuristic);
+	 /* Try the NODM counterpart of the heuristic's BD tier */
+	 add_candidate(candidates, &n_candidates, BD_SL_SIZE_NODM/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, BD_DL_SIZE_NODM/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, BDXL_TL_SIZE_NODM/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, BDXL_QL_SIZE_NODM/GF_FIELDMAX);
+	 /* Image-derived as fallback */
+	 add_candidate(candidates, &n_candidates, image_sectors/GF_FIELDMAX);
+	 max_to_try = 3; /* limit candidates in quick mode */
+      }
+      else
+      {  /* Exhaustive mode for file images: try all known sizes */
+	 /* Image-derived is a strong heuristic for complete images */
+	 add_candidate(candidates, &n_candidates, image_sectors/GF_FIELDMAX);
+	 if(image_sectors > 0)
+	 {  add_candidate(candidates, &n_candidates, image_sectors/GF_FIELDMAX - 1);
+	    add_candidate(candidates, &n_candidates, image_sectors/GF_FIELDMAX + 1);
+	 }
+	 /* All standard medium sizes */
+	 add_candidate(candidates, &n_candidates, DVD_DL_SIZE/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, BD_SL_SIZE/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, BD_SL_SIZE_NODM/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, DVD_SL_SIZE/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, BD_DL_SIZE/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, BD_DL_SIZE_NODM/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, CDR_SIZE/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, BDXL_TL_SIZE/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, BDXL_TL_SIZE_NODM/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, BDXL_QL_SIZE/GF_FIELDMAX);
+	 add_candidate(candidates, &n_candidates, BDXL_QL_SIZE_NODM/GF_FIELDMAX);
+	 max_to_try = n_candidates; /* try all in exhaustive mode */
+      }
 
-   /* Phase 1: If the known medium size didn't work and we're in exhaustive mode,
-      try deriving layer_size directly from the image file size.
-      For a complete RS03 augmented image, totalSectors = 255 * sectorsPerLayer,
-      so sectorsPerLayer = image_sectors / 255. This handles images created with
-      a custom -n value. Try the computed value and ±1 for rounding. */
-
-   if(maxtries < 0)  /* only in exhaustive mode */
-   {  guint64 derived_layer_size = image_sectors / GF_FIELDMAX;
-      int offset;
-
-      Verbose("RS03RecognizeImage: trying image-derived layer sizes\n");
-
-      for(offset = -1; offset <= 1; offset++)
-      {  guint64 try_size = derived_layer_size + offset;
-
-	 if(try_size == 0 || try_size == layer_size)
-	    continue;  /* skip zero or already-tried size */
-
-	 if(search_crc_blocks_for_layer_size(image, image_sectors, try_size, maxtries, &trynumber))
+      for(i = 0; i < n_candidates && i < max_to_try; i++)
+      {  trynumber = 0;
+	 if(search_crc_blocks_for_layer_size(image, image_sectors, candidates[i], maxtries, &trynumber))
 	    return TRUE;
       }
    }
