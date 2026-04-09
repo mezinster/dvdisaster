@@ -73,9 +73,11 @@ if [ "$os" != "linux64" ]; then
   find dist -type f -name "*.a" -print -delete
 
   echo "!> Copy and rename text files"
-  for file in CHANGELOG TODO COPYING CREDITS.* TODO
+  for file in CHANGELOG TODO COPYING CREDITS.*
   do
     cp -va "$file" "dist/$file.txt"
+    # Also copy without .txt so the GUI can find them via find_file()
+    cp -va "$file" "dist/$file"
   done
 
   echo "!> Copy other files"

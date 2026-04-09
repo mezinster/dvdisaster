@@ -23,11 +23,18 @@
 0.79.10.patchlevel-6 06-04-2026 *UNOFFICIAL*
 - feat: add --bruteforce-rs03-search: new option to recover RS03-augmented images when the custom -n (redundancy) size used during creation has been forgotten. The default search algorithm has also been improved: it now tests the medium size matching the image being worked on, even if it doesn't match a well-known standard medium size.
 - feat: macOS: native ARM64 build
+- feat: add --medium-size CLI flag to explicitly set target medium for RS03 augmented images (CD, DVD, DVD9, BD, BD2, BDXL3, BDXL4, and NODM variants), addressing upstream issues where auto-detection always picks the smallest fitting medium with no obvious override.
 - gui: RS03 medium size override: users can now override medium size detection for RS03 directly in the GUI preferences (previously only available via the -n CLI option, and only with --debug). The GUI preferences page also now displays the resulting augmented image size in bytes and the amount of padding used when a custom sector count is specified.
 - enh: --redundancy / -n: unified roots syntax for all codecs: A suffix of 'r' is now the standard way to specify a number of roots for all codecs. The previous hidden behaviour of interpreting a small raw number as a root count for RS03 has been removed. Small raw numbers (number of sectors) are now explicitly rejected to avoid ambiguity.
+- enh: RS03 auto-detection now prints selected medium name and hint to use --medium-size to override in verbose output.
+- fix: -n with medium size aliases (e.g. -n BD) no longer errors out in ECC file mode; falls back to default redundancy.
+- fix: RS03 recognize now tries all known medium sizes (DM and NODM) as candidates, improving recognition of images created with non-default medium sizes.
+- fix: Windows: changelog and other text files now visible in the GUI Help menu (files were renamed to .txt in dist but the GUI expected the original names).
 - fix: Windows: filename handling under non-UTF8 systems
 - fix: regression in adaptive scanning when using an RS03 error correction file
 - fix: various reported issues under macOS have been fixed (icon fix, locale directory path bug, ...)
+- fix: removed stale duplicate manual.pdf copy from dist packaging.
+- chore: deb CI build no longer installs texlive; builds arch-only packages (-B) for faster CI.
 
 0.79.10.patchlevel-5 11-05-2025 *UNOFFICIAL*
 - fix: GUI fileopen dialog crash
