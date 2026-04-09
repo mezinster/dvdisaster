@@ -14,13 +14,23 @@ NO_FILE=$TMPDIR/none.file
 
 ISO_PLUS137=$ISODIR/rs02-plus137.iso
 
+RAWISO=$ISODIR/rs02-raw.iso
+
 CODEC_PREFIX=RS02
 init_regtest_cleanup
+
+# Create raw (unaugmented) image for fast per-test copies
+
+if ! file_exists $RAWISO; then
+    $NEWVER --regtest --debug -i$RAWISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+    echo -e "$FILE_MSG"
+    FILE_MSG=""
+fi
 
 # Create master image
 
 if ! file_exists $MASTERISO; then
-    $NEWVER --regtest --debug -i$MASTERISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+    cp $RAWISO $MASTERISO
     echo "$NEWVER --regtest --debug --set-version $SETVERSION -i$MASTERISO -mRS02 -n$ECCSIZE -c" >>$LOGFILE
     $NEWVER --regtest --debug --set-version $SETVERSION -i$MASTERISO -mRS02 -n$ECCSIZE -c >>$LOGFILE 2>&1
     echo -e "$FILE_MSG"
@@ -30,8 +40,7 @@ fi
 # Create master image with 137 trailing bytes
 
 if ! file_exists $ISO_PLUS137; then
-    echo "$NEWVER --regtest --debug -i$ISO_PLUS137 --random-image $ISOSIZE" >>$LOGFILE
-    $NEWVER --regtest --debug -i$ISO_PLUS137 --random-image $ISOSIZE >>$LOGFILE 2>&1
+    cp $RAWISO $ISO_PLUS137
     echo "dd if="$RNDSEQ" count=1 bs=137 >>$ISO_PLUS137"  >>$LOGFILE
     dd if="$RNDSEQ" count=1 bs=137 >>$ISO_PLUS137 2>/dev/null
     echo "$NEWVER --regtest --debug --set-version $SETVERSION -i$ISO_PLUS137 -mRS02 -n$ECCSIZE -c" >>$LOGFILE
@@ -225,7 +234,7 @@ if try "good image, no ECC offset" good_0_offset; then (
 # Image is good with ECC header following after the user data with 150 sectors padding
 
 if try "good image, 150 sectors ECC offset" good_150_offset; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
 #   dd if=/dev/zero bs=2048 count=150 >>$TMPISO 2>/dev/null
    $NEWVER --debug -i$TMPISO --byteset 16,80,198 >>$LOGFILE 2>&1  # fake 150 more sectors in vss
    $NEWVER --debug -i$TMPISO --byteset 16,87,198 >>$LOGFILE 2>&1
@@ -494,7 +503,7 @@ REGTEST_SECTION="Creation tests"
 # Create test image
 
 if try "augmented image creation" ecc_create; then (
-  $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $TMPISO
 
   replace_config method-name RS02
   replace_config medium-size 35000
@@ -515,7 +524,7 @@ if try "ecc creating with missing image" ecc_missing_image; then (
 # Create with no read permission on image
 
 if try "ecc creating with no read permission" ecc_no_read_perm; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    chmod 000 $TMPISO
 
   replace_config method-name RS02
@@ -527,7 +536,7 @@ if try "ecc creating with no read permission" ecc_no_read_perm; then (
 # Create with no write permission on image
 
 if try "ecc creating with no write permission" ecc_no_write_perm; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    chmod 400 $TMPISO
 
   replace_config method-name RS02
@@ -550,7 +559,7 @@ if try "ecc creating from RS02-augmented image" ecc_from_rs02; then (
 # Create with already RS03-augmented image 
 
 if try "ecc creating from RS03-augmented image" ecc_from_rs03; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    $NEWVER --debug --set-version $SETVERSION -i$TMPISO -mRS03 -n$ECCSIZE -c >>$LOGFILE 2>&1
 
    replace_config method-name RS02
@@ -562,7 +571,7 @@ if try "ecc creating from RS03-augmented image" ecc_from_rs03; then (
 # Create with already RS02-augmented image having a larger redundancy 
 
 if try "ecc creating from RS02-augmented image w/ higher red." ecc_from_larger_rs02; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    $NEWVER --debug --set-version $SETVERSION -i$TMPISO -mRS02 -n$((ECCSIZE+5000)) -c >>$LOGFILE 2>&1
 
   replace_config method-name RS02
@@ -574,7 +583,7 @@ if try "ecc creating from RS02-augmented image w/ higher red." ecc_from_larger_r
 # Create with already RS02-augmented image of a non-2048 multiple size
 
 if try "ecc creating from RS02-augmented image w/ non-block size" ecc_from_rs02_non_blocksize; then (
-  $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $TMPISO
   for i in $(seq 56); do echo -n "1" >>$TMPISO; done
   $NEWVER --debug --set-version $SETVERSION -i$TMPISO -mRS02 -n$ECCSIZE -c >>$LOGFILE 2>&1
 
@@ -588,7 +597,7 @@ if try "ecc creating from RS02-augmented image w/ non-block size" ecc_from_rs02_
 # Create with already RS03-augmented image of a non-2048 multiple size
 
 if try "ecc creating from RS03-augmented image w/ non-block size" ecc_from_rs03_non_blocksize; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >/dev/null 2>&1
+   cp $RAWISO $TMPISO
    dd if="$RNDSEQ" count=1 bs=137 >>$TMPISO 2>/dev/null
    $NEWVER --debug --set-version $SETVERSION -i$TMPISO -mRS03 -n$ECCSIZE -c >/dev/null 2>&1
    
@@ -602,7 +611,7 @@ if try "ecc creating from RS03-augmented image w/ non-block size" ecc_from_rs03_
 # Create with already RS02-augmented image of a non-2048 multiple size, larger redundancy.
 
 if try "ecc creating from RS02-augmented image w/ non-block size, larger red." ecc_from_larger_rs02_non_blocksize; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    for i in $(seq 56); do echo -n "1" >>$TMPISO; done
    $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS02 -n$((ECCSIZE+5000)) -c >>$LOGFILE 2>&1
 
@@ -616,7 +625,7 @@ if try "ecc creating from RS02-augmented image w/ non-block size, larger red." e
 # Create with size not being a multiple of 2048
 
 if try "ecc creating from non-blocksize image" ecc_non_blocksize; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    dd if=/dev/zero count=1 bs=137 >>$TMPISO 2>/dev/null
 
   replace_config method-name RS02
@@ -628,7 +637,7 @@ if try "ecc creating from non-blocksize image" ecc_non_blocksize; then (
 # Create test image with unreadable sectors 
 
 if try "ecc creating with unreadable sectors" ecc_missing_sectors; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    $NEWVER --debug -i$TMPISO --erase 719 >>$LOGFILE 2>&1
 
   replace_config method-name RS02
@@ -643,7 +652,7 @@ if try "ecc creating with unreadable sectors" ecc_missing_sectors; then (
 # Note: GUI mode will NOT automatically augment the image.
 
 if try "ecc creating after reading image" ecc_create_after_read; then (
-   $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $SIMISO
 
    replace_config method-name RS02
    replace_config medium-size 35000
@@ -658,7 +667,7 @@ if try "ecc creating after reading image" ecc_create_after_read; then (
 # Note: GUI mode will NOT automatically augment the image.
 
 if try "ecc creating after completing image" ecc_create_after_partial_read; then (
-   $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $SIMISO
 
    cp $SIMISO $TMPISO
    $NEWVER --debug -i$TMPISO --erase 3000-3999 >>$LOGFILE 2>&1
@@ -674,7 +683,7 @@ if try "ecc creating after completing image" ecc_create_after_partial_read; then
 # Tests whether CRC and ECC information is handed over correctly.
 
 if try "read image with ecc (RS01) and create new ecc" ecc_recreate_after_read_rs01; then (
-   $NEWVER --regtest --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $SIMISO
    $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -e$TMPECC -c $REDUNDANCY >>$LOGFILE 2>&1
 
    replace_config method-name RS02
@@ -688,7 +697,7 @@ if try "read image with ecc (RS01) and create new ecc" ecc_recreate_after_read_r
 # Tests whether CRC and ECC information is handed over correctly.
 
 if try "read image with ecc (RS02) and create new ecc" ecc_recreate_after_read_rs02; then (
-   $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $SIMISO
    $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS02 -n50000 -c >>$LOGFILE 2>&1
 
    replace_config method-name RS02
@@ -702,7 +711,7 @@ if try "read image with ecc (RS02) and create new ecc" ecc_recreate_after_read_r
 # Tests whether CRC and ECC information is handed over correctly.
 
 if try "read image with ecc (RS03i) and create new ecc" ecc_recreate_after_read_rs03i; then (
-   $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $SIMISO
    $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS03 -n$((ISOSIZE+7000)) -c >>$LOGFILE 2>&1
 
    replace_config method-name RS02
@@ -718,7 +727,7 @@ if try "read image with ecc (RS03i) and create new ecc" ecc_recreate_after_read_
 # Otherwise you will compare against the old ecc file and get bad image results.
 
 if try "read image with ecc (RS03f) and create new ecc" ecc_recreate_after_read_rs03f; then (
-   $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $SIMISO
    $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -e$TMPECC -c -n 9r -mRS03 -o file >>$LOGFILE 2>&1
 
    replace_config method-name RS02
@@ -735,7 +744,7 @@ REGTEST_SECTION="Fixing tests"
 # Fix with no read permission on image
 
 if try "trying fix with no read permission" fix_no_read_perm; then (
-  $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $TMPISO
   chmod 000 $TMPISO
 
   run_regtest fix_no_read_perm "--debug --set-version $SETVERSION -f" $TMPISO $NO_FILE
@@ -744,7 +753,7 @@ if try "trying fix with no read permission" fix_no_read_perm; then (
 # Fix with no write permission on image
 
 if try "trying fix with no write permission" fix_no_write_perm; then (
-  $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $TMPISO
   chmod 400 $TMPISO
 
   run_regtest fix_no_write_perm "--debug --set-version $SETVERSION -f" $TMPISO $NO_FILE
@@ -959,7 +968,7 @@ if try "good image, no ECC offset" fix_good_0_offset; then (
 # the codec does not really care about the contents of the padding area.
 
 if try "good image, 150 sectors ECC offset" fix_good_150_offset; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    $NEWVER --debug -i$TMPISO --byteset 16,80,198 >>$LOGFILE 2>&1  # fake 150 more sectors in vss
    $NEWVER --debug -i$TMPISO --byteset 16,87,198 >>$LOGFILE 2>&1
    $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS02 -n$ECCSIZE -c >>$LOGFILE 2>&1
@@ -1780,7 +1789,7 @@ if try "re-reading medium with CRC error" read_second_pass_with_crc_error; then 
 if try "reading medium in 3 passes; 3rd pass recovers some" read_multipass_ecc_partial_success; then (
 
   # Prepare an image matching the algorithm for simulating the defects
-  $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $SIMISO
   $NEWVER --debug -i$SIMISO --erase 15900-16099 --fill-unreadable=64 >>$LOGFILE 2>&1
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS02 -n$ECCSIZE -c >>$LOGFILE 2>&1
 

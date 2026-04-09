@@ -20,13 +20,44 @@ LMI_HEADER=235219
 LMI_LAYER_SIZE=1409
 LMI_FIRSTCRC=235303
 
+RAWISO=$ISODIR/rs03i-raw.iso
+RAWISO_LMI246=$ISODIR/rs03i-raw-lmi246.iso
+RAWISO_LMI84=$ISODIR/rs03i-raw-lmi84.iso
+RAWISO_LMI84S=$ISODIR/rs03i-raw-lmi84s.iso
+
 CODEC_PREFIX=RS03i
 init_regtest_cleanup
+
+# Create raw (unaugmented) images for fast per-test copies
+
+if ! file_exists $RAWISO; then
+    $NEWVER --regtest --debug -i$RAWISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+    echo -e "$FILE_MSG"
+    FILE_MSG=""
+fi
+
+if ! file_exists $RAWISO_LMI246; then
+    $NEWVER --debug -i$RAWISO_LMI246 --random-image $((LMI_LAYER_SIZE*246-2)) >>$LOGFILE 2>&1
+    echo -e "$FILE_MSG"
+    FILE_MSG=""
+fi
+
+if ! file_exists $RAWISO_LMI84; then
+    $NEWVER --debug -i$RAWISO_LMI84 --random-image $((LMI_LAYER_SIZE*84-2)) >>$LOGFILE 2>&1
+    echo -e "$FILE_MSG"
+    FILE_MSG=""
+fi
+
+if ! file_exists $RAWISO_LMI84S; then
+    $NEWVER --debug -i$RAWISO_LMI84S --random-image $((LMI_LAYER_SIZE*84-2-6000)) >>$LOGFILE 2>&1
+    echo -e "$FILE_MSG"
+    FILE_MSG=""
+fi
 
 # Create master image
 
 if ! file_exists $MASTERISO; then
-    $NEWVER --regtest --debug -i$MASTERISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+    cp $RAWISO $MASTERISO
     $NEWVER --regtest --debug --set-version $SETVERSION -i$MASTERISO -mRS03 -n$ECCSIZE -c >>$LOGFILE 2>&1
     echo -e "$FILE_MSG"
     FILE_MSG=""
@@ -44,7 +75,7 @@ fi
 # Create custom medium size master image (non-standard -n value)
 
 if ! file_exists $CUSTOM_MASTERISO; then
-    $NEWVER --regtest --debug -i$CUSTOM_MASTERISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+    cp $RAWISO $CUSTOM_MASTERISO
     $NEWVER --regtest --debug --set-version $SETVERSION -i$CUSTOM_MASTERISO -mRS03 -n$CUSTOM_ECCSIZE -c >>$LOGFILE 2>&1
     echo -e "$FILE_MSG"
     FILE_MSG=""
@@ -127,7 +158,7 @@ if try "image with 17 extra sectors" plus17; then (
 if try "image with 56 extra bytes" plus_56_bytes; then (
 
   # recreate image to get rid of the ecc portion
-  $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $TMPISO
   for i in $(seq 56); do echo -n "1" >>$TMPISO; done
   $NEWVER --regtest --debug -i$TMPISO --set-version $SETVERSION -mRS03 -n$ECCSIZE -c >>$LOGFILE 2>&1
 
@@ -548,7 +579,7 @@ if try "image with no ecc at all" random_image; then (
 
 if try "image with 8 roots, no ecc header" rediscover_8_roots; then (
 
-  $NEWVER --debug -i$TMPISO --random-image $((LMI_LAYER_SIZE*246-2)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI246 $TMPISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
   # delete the header
   $NEWVER --debug -i$TMPISO --erase 346612 >>$LOGFILE 2>&1
@@ -560,7 +591,7 @@ if try "image with 8 roots, no ecc header" rediscover_8_roots; then (
 
 if try "image with 8 roots, no ecc header (2)" rediscover_8_roots2; then (
 
-  $NEWVER --debug -i$TMPISO --random-image $((LMI_LAYER_SIZE*246-2)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI246 $TMPISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
   # delete the header and some more CRC sectors
   $NEWVER --debug -i$TMPISO --erase 346612-346620 >>$LOGFILE 2>&1
@@ -572,7 +603,7 @@ if try "image with 8 roots, no ecc header (2)" rediscover_8_roots2; then (
 
 if try "image with 170 roots, no ecc header" rediscover_170_roots; then (
 
-  $NEWVER --debug -i$TMPISO --random-image $((LMI_LAYER_SIZE*84-2)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI84 $TMPISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
   # delete the header
   $NEWVER --debug -i$TMPISO --erase 118354 >>$LOGFILE 2>&1
@@ -584,7 +615,7 @@ if try "image with 170 roots, no ecc header" rediscover_170_roots; then (
 
 if try "image with 170 roots, no ecc header (2)" rediscover_170_roots2; then (
 
-  $NEWVER --debug -i$TMPISO --random-image $((LMI_LAYER_SIZE*84-2)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI84 $TMPISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
   # delete the header and some more CRC sectors
   $NEWVER --debug -i$TMPISO --erase 118354-118360 >>$LOGFILE 2>&1
@@ -597,7 +628,7 @@ if try "image with 170 roots, no ecc header (2)" rediscover_170_roots2; then (
 
 if try "image with 170 roots, padding" rediscover_170_roots_padding; then (
 
-  $NEWVER --debug -i$TMPISO --random-image $((LMI_LAYER_SIZE*84-2-6000)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI84S $TMPISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
 
   run_regtest rediscover_170_roots-padding "-tq -v" $TMPISO $NO_FILE
@@ -607,7 +638,7 @@ if try "image with 170 roots, padding" rediscover_170_roots_padding; then (
 
 if try "image with 170 roots, no ecc header, padding" rediscover_170_roots_padding2; then (
 
-  $NEWVER --debug -i$TMPISO --random-image $((LMI_LAYER_SIZE*84-2-6000)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI84S $TMPISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
   # delete the header and some more CRC sectors
   $NEWVER --debug -i$TMPISO --erase 112354 >>$LOGFILE 2>&1
@@ -712,7 +743,7 @@ REGTEST_SECTION="Creation tests"
 # Create ecc file
 
 if try "augmented image creation" ecc_create; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
 
    IGNORE_LOG_LINE="^Avg performance|^Augmenting image with Method RS03"
    replace_config method-name RS03
@@ -734,7 +765,7 @@ if try "creating augmented image with missing image" ecc_missing_image; then (
 # Create with no read permission on image
 
 if try "creating augmented image with no read permission" ecc_no_read_perm; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    chmod 000 $TMPISO
 
    replace_config method-name RS03
@@ -746,7 +777,7 @@ if try "creating augmented image with no read permission" ecc_no_read_perm; then
 # Create with no write permission on image
 
 if try "creating augmented image with no write permission" ecc_no_write_perm; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    chmod 400 $TMPISO
 
    replace_config method-name RS03
@@ -770,7 +801,7 @@ if try "ecc creating from RS03-augmented image" ecc_from_rs03; then (
 # Create with already RS02-augmented image 
 
 if try "ecc creating from RS02-augmented image" ecc_from_rs02; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS02 -n$((ECCSIZE+5000)) -c >>$LOGFILE 2>&1
 
    IGNORE_LOG_LINE="^Avg performance|^Augmenting image with Method RS03"
@@ -783,7 +814,7 @@ if try "ecc creating from RS02-augmented image" ecc_from_rs02; then (
 # Create with already RS03-augmented image having a larger redundancy 
 
 if try "ecc creating from RS03-augmented image w/ higher red." ecc_from_larger_rs03; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS03 -n$((ECCSIZE+5000)) -c >>$LOGFILE 2>&1
 
    IGNORE_LOG_LINE="^Avg performance|^Augmenting image with Method RS03"
@@ -796,7 +827,7 @@ if try "ecc creating from RS03-augmented image w/ higher red." ecc_from_larger_r
 # Create with already RS02-augmented image of a non-2048 multiple size
 
 if try "ecc creating from RS02-augmented image w/ non block size." ecc_from_rs02_non_blocksize; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    for i in $(seq 56); do echo -n "1" >>$TMPISO; done
    $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS02 -n$ECCSIZE -c >>$LOGFILE 2>&1
 
@@ -810,7 +841,7 @@ if try "ecc creating from RS02-augmented image w/ non block size." ecc_from_rs02
 # Create with already RS03-augmented image of a non-2048 multiple size
 
 if try "ecc creating from RS03-augmented image w/ non block size." ecc_from_rs03_non_blocksize; then (
-   $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+   cp $RAWISO $TMPISO
    for i in $(seq 56); do echo -n "1" >>$TMPISO; done
    $NEWVER --regtest --debug --set-version $SETVERSION -i$TMPISO -mRS03 -n$ECCSIZE -c >>$LOGFILE 2>&1
 
@@ -840,7 +871,7 @@ if try "ecc creating from RS03-augmented image w/ non block size, larger red." e
 
 if try "image with 56 extra bytes" ecc_non_blocksize; then (
   # recreate image to get rid of the ecc portion
-  $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $TMPISO
   for i in $(seq 56); do echo -n "1" >>$TMPISO; done
 
   IGNORE_LOG_LINE="^Avg performance|^Augmenting image with Method RS03"
@@ -853,7 +884,7 @@ if try "image with 56 extra bytes" ecc_non_blocksize; then (
 # Try to create ecc file from image with missing sectors
 
 if try "creating ecc from image with missing sectors" ecc_missing_sectors; then (
-  $NEWVER --debug -i $TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $TMPISO
   $NEWVER --debug -i $TMPISO --erase 500-524 >>$LOGFILE 2>&1
   
   IGNORE_LOG_LINE="^Avg performance|^Augmenting image with Method RS03"
@@ -896,7 +927,7 @@ if try "creating ecc crafted to have no padding" ecc_no_padding; then (
 # Note: GUI mode will NOT automatically augment the image.
 
 if try "read image and create ecc in one call" ecc_create_after_read; then (
-  $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $SIMISO
 
   IGNORE_LOG_LINE="^Avg performance|^Augmenting image with Method RS03"
   replace_config method-name RS03
@@ -910,7 +941,7 @@ if try "read image and create ecc in one call" ecc_create_after_read; then (
 # Cached checksums must be discarded before creating the ecc.
 
 if try "create ecc after completing partial image" ecc_create_after_partial_read; then (
-  $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $SIMISO
   cp $SIMISO $TMPISO
   $NEWVER --debug -i$TMPISO --erase 1000-1500 >>$LOGFILE 2>&1
 
@@ -925,7 +956,7 @@ if try "create ecc after completing partial image" ecc_create_after_partial_read
 # Tests whether CRC and ECC information is handed over correctly.
 
 if try "read image with ecc (RS01) and create new ecc" ecc_recreate_after_read_rs01; then (
-  $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $SIMISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -e $TMPECC -mRS01 -c -n 10r >>$LOGFILE 2>&1
 
   IGNORE_LOG_LINE="^Avg performance|^Augmenting image with Method RS03"
@@ -940,7 +971,7 @@ if try "read image with ecc (RS01) and create new ecc" ecc_recreate_after_read_r
 # Tests whether CRC and ECC information is handed over correctly.
 
 if try "read image with ecc (RS02) and create new ecc" ecc_recreate_after_read_rs02; then (
-  $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $SIMISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS02 -c -n24000 >>$LOGFILE 2>&1
 
   IGNORE_LOG_LINE="^Avg performance|^Augmenting image with Method RS03"
@@ -955,7 +986,7 @@ if try "read image with ecc (RS02) and create new ecc" ecc_recreate_after_read_r
 # Tests whether CRC and ECC information is handed over correctly.
 
 if try "read image with ecc (RS03i) and create new ecc" ecc_recreate_after_read_rs03i; then (
-  $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $SIMISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS03 -c -n23000 >>$LOGFILE 2>&1
 
   IGNORE_LOG_LINE="^Avg performance|^Augmenting image with Method RS03"
@@ -970,7 +1001,7 @@ if try "read image with ecc (RS03i) and create new ecc" ecc_recreate_after_read_
 # Tests whether CRC and ECC information is handed over correctly.
 
 if try "read image with ecc (RS03f) and create new ecc" ecc_recreate_after_read_rs03f; then (
-  $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $SIMISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -e $TMPECC -mRS03 -c -n 10r -o file >>$LOGFILE 2>&1
 
   IGNORE_LOG_LINE="^Avg performance|^Augmenting image with Method RS03"
@@ -988,7 +1019,7 @@ REGTEST_SECTION="Fixing tests"
 # Fix with no read permission on image
 
 if try "trying fix with no read permission" fix_no_read_perm; then (
-  $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $TMPISO
   chmod 000 $TMPISO
 
   run_regtest fix_no_read_perm "-f" $TMPISO  $NO_FILE
@@ -997,7 +1028,7 @@ if try "trying fix with no read permission" fix_no_read_perm; then (
 # Fix with no write permission on image
 
 if try "trying fix with no write permission" fix_no_write_perm; then (
-  $NEWVER --debug -i$TMPISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $TMPISO
   chmod 400 $TMPISO
 
   run_regtest fix_no_write_perm "-f" $TMPISO $NO_FILE
@@ -1748,7 +1779,7 @@ if try "scanning with no ecc at all" scan_random_image; then (
 
 if try "scanning with 8 roots, no ecc header" scan_rediscover_8_roots; then (
 
-  $NEWVER --debug -i$SIMISO --random-image $((LMI_LAYER_SIZE*246-2)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI246 $SIMISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
   # delete the header
   $NEWVER --debug -i$SIMISO --erase 346612 >>$LOGFILE 2>&1
@@ -1764,7 +1795,7 @@ if try "scanning with 8 roots, no ecc header" scan_rediscover_8_roots; then (
 
 if try "scanning with 8 roots, no ecc header (2)" scan_rediscover_8_roots2; then (
 
-  $NEWVER --debug -i$SIMISO --random-image $((LMI_LAYER_SIZE*246-2)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI246 $SIMISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
   # delete the header and some more CRC sectors
   $NEWVER --debug -i$SIMISO --erase 346612-346620 >>$LOGFILE 2>&1
@@ -1780,7 +1811,7 @@ if try "scanning with 8 roots, no ecc header (2)" scan_rediscover_8_roots2; then
 
 if try "scanning with 170 roots, no ecc header" scan_rediscover_170_roots; then (
 
-  $NEWVER --debug -i$SIMISO --random-image $((LMI_LAYER_SIZE*84-2)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI84 $SIMISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
   # delete the header
   $NEWVER --debug -i$SIMISO --erase 118354 >>$LOGFILE 2>&1
@@ -1796,7 +1827,7 @@ if try "scanning with 170 roots, no ecc header" scan_rediscover_170_roots; then 
 
 if try "scanning with 170 roots, no ecc header (2)" scan_rediscover_170_roots2; then (
 
-  $NEWVER --debug -i$SIMISO --random-image $((LMI_LAYER_SIZE*84-2)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI84 $SIMISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
   # delete the header and some more CRC sectors
   $NEWVER --debug -i$SIMISO --erase 118354-118360 >>$LOGFILE 2>&1
@@ -1813,7 +1844,7 @@ if try "scanning with 170 roots, no ecc header (2)" scan_rediscover_170_roots2; 
 
 if try "scanning with 170 roots, padding" scan_rediscover_170_roots_padding; then (
 
-  $NEWVER --debug -i$SIMISO --random-image $((LMI_LAYER_SIZE*84-2-6000)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI84S $SIMISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
 
   replace_config examine-rs03 1
@@ -1827,7 +1858,7 @@ if try "scanning with 170 roots, padding" scan_rediscover_170_roots_padding; the
 
 if try "scanning with 170 roots, no ecc header, padding" scan_rediscover_170_roots_padding2; then (
 
-  $NEWVER --debug -i$SIMISO --random-image $((LMI_LAYER_SIZE*84-2-6000)) >>$LOGFILE 2>&1
+  cp $RAWISO_LMI84S $SIMISO
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS03 -c -x 2 >>$LOGFILE 2>&1
   # delete the header and some more CRC sectors
   $NEWVER --debug -i$SIMISO --erase 112354 >>$LOGFILE 2>&1
@@ -2268,7 +2299,7 @@ if try "re-reading medium with CRC error" read_second_pass_with_crc_error; then 
 if try "reading medium w/ ecc in 3 passes; 3rd pass recovers some" read_multipass_ecc_partial_success; then (
 
   # Prepare an image matching the algorithm for simulating the defects
-  $NEWVER --debug -i$SIMISO --random-image $ISOSIZE >>$LOGFILE 2>&1
+  cp $RAWISO $SIMISO
   $NEWVER --debug -i$SIMISO --erase 15900-16099 --fill-unreadable=64 >>$LOGFILE 2>&1
   $NEWVER --regtest --debug --set-version $SETVERSION -i$SIMISO -mRS03 -n$ECCSIZE -c >>$LOGFILE 2>&1
 

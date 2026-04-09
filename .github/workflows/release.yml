@@ -375,6 +375,8 @@ jobs:
             gettext libbz2-dev libgtk-3-dev libglib2.0-dev libpng-dev pkg-config man
       - name: build deb package
         run: |
+          mkdir -p documentation/user-manual
+          touch documentation/user-manual/manual.pdf
           dpkg-buildpackage -us -uc -B
           mkdir -p debs
           mv -v ../*.deb debs/
