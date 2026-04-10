@@ -78,7 +78,7 @@ class GoldenTestSuite:
     codec: str                         # e.g., "RS01"
     codec_prefix: str                  # for golden file lookup (e.g., "RS01")
     master: str                        # master image filename
-    ecc_master: str = None             # pre-built ecc file (if needed)
+    master_ecc: str = None             # pre-built ecc file (if needed)
     tests: list                        # list of GoldenTest instances
 ```
 
