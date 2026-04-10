@@ -1,6 +1,8 @@
 # Hybrid Test Framework Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+**Status:** ✅ Complete (2026-04-10)
+
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Build a declarative Python test framework and migrate all 144 RS01 bash tests to it.
 
@@ -16,7 +18,7 @@
 - Create: `tests/framework.py`
 - Test: `tests/test_framework.py`
 
-- [ ] **Step 1: Write tests for damage operation CLI argument generation**
+- [x] **Step 1: Write tests for damage operation CLI argument generation**
 
 ```python
 # tests/test_framework.py
@@ -59,12 +61,12 @@ class TestDamageOps:
         assert op.pad_size == 17 * 2048
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `python3 -m pytest tests/test_framework.py -v`
 Expected: FAIL — `framework` module doesn't exist yet
 
-- [ ] **Step 3: Implement damage operations**
+- [x] **Step 3: Implement damage operations**
 
 ```python
 # tests/framework.py
@@ -142,12 +144,12 @@ class PadSectors:
         return self.count * 2048
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `python3 -m pytest tests/test_framework.py::TestDamageOps -v`
 Expected: All 8 tests PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add tests/framework.py tests/test_framework.py
@@ -162,7 +164,7 @@ git commit -m "test: add damage operation dataclasses for test framework"
 - Modify: `tests/framework.py`
 - Modify: `tests/test_framework.py`
 
-- [ ] **Step 1: Write tests for golden file parsing**
+- [x] **Step 1: Write tests for golden file parsing**
 
 ```python
 # append to tests/test_framework.py
@@ -225,12 +227,12 @@ class TestGoldenFileParsing:
             assert result == str(base)
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `python3 -m pytest tests/test_framework.py::TestGoldenFileParsing -v`
 Expected: FAIL — `GoldenFile`, `parse_golden_file` not defined
 
-- [ ] **Step 3: Implement golden file parsing**
+- [x] **Step 3: Implement golden file parsing**
 
 ```python
 # append to tests/framework.py
@@ -291,12 +293,12 @@ def parse_golden_file(path: str) -> GoldenFile:
     )
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `python3 -m pytest tests/test_framework.py::TestGoldenFileParsing -v`
 Expected: All 3 tests PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add tests/framework.py tests/test_framework.py
@@ -311,7 +313,7 @@ git commit -m "test: add golden file parser for regtest database files"
 - Modify: `tests/framework.py`
 - Modify: `tests/test_framework.py`
 
-- [ ] **Step 1: Write tests for output cleaning**
+- [x] **Step 1: Write tests for output cleaning**
 
 The bash `run_regtest` strips:
 - `dvdisaster: No memory leaks found.` lines
@@ -360,12 +362,12 @@ class TestOutputCleaning:
         assert "This software comes with" in result
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `python3 -m pytest tests/test_framework.py::TestOutputCleaning -v`
 Expected: FAIL — `clean_output` not defined
 
-- [ ] **Step 3: Implement output cleaning**
+- [x] **Step 3: Implement output cleaning**
 
 ```python
 # append to tests/framework.py
@@ -406,12 +408,12 @@ def clean_output(text: str, tmp_dirs: Optional[List[str]] = None,
     return text
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `python3 -m pytest tests/test_framework.py::TestOutputCleaning -v`
 Expected: All 6 tests PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add tests/framework.py tests/test_framework.py
@@ -426,7 +428,7 @@ git commit -m "test: add output cleaning for golden file comparison"
 - Modify: `tests/framework.py`
 - Modify: `tests/test_framework.py`
 
-- [ ] **Step 1: Write tests for GoldenTest construction**
+- [x] **Step 1: Write tests for GoldenTest construction**
 
 ```python
 # append to tests/test_framework.py
@@ -465,12 +467,12 @@ class TestGoldenTestDataclass:
         assert s.damage is None
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `python3 -m pytest tests/test_framework.py::TestGoldenTestDataclass -v`
 Expected: FAIL — `GoldenTest`, `SimCD`, `CreateECC` not defined
 
-- [ ] **Step 3: Implement the dataclasses**
+- [x] **Step 3: Implement the dataclasses**
 
 ```python
 # append to tests/framework.py
@@ -509,12 +511,12 @@ class GoldenTest:
     skip_on_windows: bool = False                # skip on Windows (chmod tests)
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `python3 -m pytest tests/test_framework.py::TestGoldenTestDataclass -v`
 Expected: All 5 tests PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add tests/framework.py tests/test_framework.py
@@ -531,7 +533,7 @@ This is the core: the base class that converts `GoldenTest` entries into paramet
 - Modify: `tests/framework.py`
 - Create: `tests/test_rs01_verify_smoke.py` (small smoke test with 3 real tests)
 
-- [ ] **Step 1: Write a smoke test using 3 real RS01 verify tests**
+- [x] **Step 1: Write a smoke test using 3 real RS01 verify tests**
 
 These tests use real golden files from `regtest/database/` and the real dvdisaster binary.
 
@@ -562,12 +564,12 @@ class TestRS01VerifySmoke(GoldenTestSuite):
     ]
 ```
 
-- [ ] **Step 2: Run to verify it fails**
+- [x] **Step 2: Run to verify it fails**
 
 Run: `python3 -m pytest tests/test_rs01_verify_smoke.py -v`
 Expected: FAIL — `GoldenTestSuite` not implemented
 
-- [ ] **Step 3: Implement GoldenTestSuite**
+- [x] **Step 3: Implement GoldenTestSuite**
 
 ```python
 # append to tests/framework.py
@@ -884,12 +886,12 @@ And add `test_golden` as a method on `GoldenTestSuite`:
         self._run_golden_test(golden_test)
 ```
 
-- [ ] **Step 4: Run smoke tests to verify they pass**
+- [x] **Step 4: Run smoke tests to verify they pass**
 
 Run: `python3 -m pytest tests/test_rs01_verify_smoke.py -v`
 Expected: 3 tests PASS (good, no_image, crc_errors_with_ecc)
 
-- [ ] **Step 5: Debug and fix output comparison issues**
+- [x] **Step 5: Debug and fix output comparison issues**
 
 The golden file format needs careful alignment with output cleaning. The bash framework:
 1. Runs dvdisaster with `tail -n +4` equivalent (strips 3-line version header)
@@ -899,7 +901,7 @@ The golden file format needs careful alignment with output cleaning. The bash fr
 
 Iterate on `clean_output` and `parse_golden_file` until the smoke tests pass. Adjust path stripping, header line counts, and trailing newlines.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add tests/framework.py tests/test_rs01_verify_smoke.py
@@ -915,7 +917,7 @@ The `pytest_generate_tests` hook in `framework.py` won't be auto-discovered by p
 **Files:**
 - Modify: `tests/conftest.py`
 
-- [ ] **Step 1: Add the hook import to conftest.py**
+- [x] **Step 1: Add the hook import to conftest.py**
 
 ```python
 # append to tests/conftest.py
@@ -924,12 +926,12 @@ The `pytest_generate_tests` hook in `framework.py` won't be auto-discovered by p
 from framework import pytest_generate_tests  # noqa: F401
 ```
 
-- [ ] **Step 2: Verify the smoke test still passes with the hook in conftest**
+- [x] **Step 2: Verify the smoke test still passes with the hook in conftest**
 
 Run: `python3 -m pytest tests/test_rs01_verify_smoke.py -v`
 Expected: 3 tests PASS
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add tests/conftest.py
@@ -952,7 +954,7 @@ Migrate all 28 verify tests from `regtest/rs01.bash` to the framework.
 - `truncated_by_bytes` uses `dd` to create a partial copy — use a custom `TruncateToBytes` damage op or handle inline.
 - `uncorrectable_dsm_in_image*` tests have complex multi-step erase+byteset sequences.
 
-- [ ] **Step 1: Add session-scoped fixtures for plus56 images**
+- [x] **Step 1: Add session-scoped fixtures for plus56 images**
 
 ```python
 # tests/test_rs01.py
@@ -1007,7 +1009,7 @@ def rs01_plus56_images():
     return iso_path, ecc_path
 ```
 
-- [ ] **Step 2: Define all 28 verify tests**
+- [x] **Step 2: Define all 28 verify tests**
 
 ```python
 class TestRS01Verify(GoldenTestSuite):
@@ -1086,7 +1088,7 @@ class TestRS01Verify(GoldenTestSuite):
     ]
 ```
 
-- [ ] **Step 3: Add plus56 and padding tests as plain methods**
+- [x] **Step 3: Add plus56 and padding tests as plain methods**
 
 These tests use pre-built images that differ from master. They are better expressed as methods with the `rs01_plus56_images` fixture.
 
@@ -1169,25 +1171,25 @@ These tests use pre-built images that differ from master. They are better expres
         ))
 ```
 
-- [ ] **Step 4: Run all verify tests**
+- [x] **Step 4: Run all verify tests**
 
 Run: `python3 -m pytest tests/test_rs01.py::TestRS01Verify -v`
 Expected: All 28 tests PASS
 
-- [ ] **Step 5: Fix any output comparison issues**
+- [x] **Step 5: Fix any output comparison issues**
 
 Iterate on path stripping and golden file line alignment until all tests pass. Common issues:
 - Trailing newline differences
 - Path components not fully stripped
 - `TEST_TMPDIR` subpath appearing in output
 
-- [ ] **Step 6: Remove smoke test file**
+- [x] **Step 6: Remove smoke test file**
 
 ```bash
 rm tests/test_rs01_verify_smoke.py
 ```
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add tests/test_rs01.py
@@ -1204,7 +1206,7 @@ git commit -m "test: migrate all 28 RS01 verify tests to Python framework"
 
 There are 12 creation tests. Several use `extra_args="--debug --set-version $SETVERSION"` and sim-cd for "read and create" tests.
 
-- [ ] **Step 1: Define creation tests**
+- [x] **Step 1: Define creation tests**
 
 ```python
 class TestRS01Create(GoldenTestSuite):
@@ -1234,7 +1236,7 @@ class TestRS01Create(GoldenTestSuite):
     ]
 ```
 
-- [ ] **Step 2: Add plus56 creation and read-and-create tests as methods**
+- [x] **Step 2: Add plus56 creation and read-and-create tests as methods**
 
 The `ecc_create_plus56` test needs the plus56 image. The `ecc_create_after_read` and `ecc_recreate_after_read_*` tests use sim-cd with `--set-version` — these are reading-then-creating tests.
 
@@ -1259,12 +1261,12 @@ The `ecc_create_plus56` test needs the plus56 image. The `ecc_create_after_read`
     # ecc_create_after_partial_read — each with their specific setup
 ```
 
-- [ ] **Step 3: Run creation tests**
+- [x] **Step 3: Run creation tests**
 
 Run: `python3 -m pytest tests/test_rs01.py::TestRS01Create -v`
 Expected: All creation tests PASS
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add tests/test_rs01.py
@@ -1280,7 +1282,7 @@ git commit -m "test: migrate RS01 creation tests to Python framework"
 
 18 repair tests: fix_good, fix_no_read_perm, fix_missing_sectors, fix_crc_errors, fix_additional_sector, fix_plus17, fix_truncated, and the plus56 variants.
 
-- [ ] **Step 1: Define repair tests**
+- [x] **Step 1: Define repair tests**
 
 ```python
 class TestRS01Repair(GoldenTestSuite):
@@ -1320,7 +1322,7 @@ class TestRS01Repair(GoldenTestSuite):
     ]
 ```
 
-- [ ] **Step 2: Add plus56 repair tests as methods**
+- [x] **Step 2: Add plus56 repair tests as methods**
 
 ```python
     def test_fix_plus56_bytes(self, rs01_plus56_images):
@@ -1344,12 +1346,12 @@ class TestRS01Repair(GoldenTestSuite):
     # fix_plus56_truncated, fix_plus56_little_truncated
 ```
 
-- [ ] **Step 3: Run repair tests**
+- [x] **Step 3: Run repair tests**
 
 Run: `python3 -m pytest tests/test_rs01.py::TestRS01Repair -v`
 Expected: All 18 tests PASS
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add tests/test_rs01.py
@@ -1365,7 +1367,7 @@ git commit -m "test: migrate RS01 repair tests to Python framework"
 
 22 scanning tests. Most use `extra_args="--debug --sim-cd=... --fixed-speed-values"` and scan to `$ISODIR/no.iso` / `$ISODIR/no.ecc`.
 
-- [ ] **Step 1: Define scanning tests**
+- [x] **Step 1: Define scanning tests**
 
 The scanning tests use `sim_cd` for the disc simulation and write to a non-existent image path.
 
@@ -1420,7 +1422,7 @@ class TestRS01Scan(GoldenTestSuite):
     ]
 ```
 
-- [ ] **Step 2: Add device-error and range scan tests as methods**
+- [x] **Step 2: Add device-error and range scan tests as methods**
 
 Tests like `scan_no_device`, `scan_no_device_access`, and `scan_new_with_range_no_ecc` use non-standard flags (`-d /dev/sdz`, `-s10000-15000`) that don't fit the sim_cd pattern cleanly.
 
@@ -1439,12 +1441,12 @@ Tests like `scan_no_device`, `scan_no_device_access`, and `scan_new_with_range_n
         ))
 ```
 
-- [ ] **Step 3: Run scanning tests**
+- [x] **Step 3: Run scanning tests**
 
 Run: `python3 -m pytest tests/test_rs01.py::TestRS01Scan -v`
 Expected: All 22 tests PASS
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add tests/test_rs01.py
@@ -1460,7 +1462,7 @@ git commit -m "test: migrate RS01 scanning tests to Python framework"
 
 39 linear reading tests. These all use sim-cd and write to a tmp image. Some have complex multi-step setups (multipass, DSM markers).
 
-- [ ] **Step 1: Define linear reading tests**
+- [x] **Step 1: Define linear reading tests**
 
 ```python
 class TestRS01ReadLinear(GoldenTestSuite):
@@ -1486,16 +1488,16 @@ class TestRS01ReadLinear(GoldenTestSuite):
     ]
 ```
 
-- [ ] **Step 2: Add multipass and DSM tests as semantic methods**
+- [x] **Step 2: Add multipass and DSM tests as semantic methods**
 
 The `read_multipass_ecc_partial_success` test is already in `test_multipass_read.py`. The DSM tests have complex setup but stable output — use `_run_golden_test` with inline damage lists.
 
-- [ ] **Step 3: Run reading tests**
+- [x] **Step 3: Run reading tests**
 
 Run: `python3 -m pytest tests/test_rs01.py::TestRS01ReadLinear -v`
 Expected: All 39 tests PASS
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add tests/test_rs01.py
@@ -1511,7 +1513,7 @@ git commit -m "test: migrate RS01 linear reading tests to Python framework"
 
 25 adaptive reading tests. Similar to linear but with `--adaptive-read`.
 
-- [ ] **Step 1: Define adaptive reading tests**
+- [x] **Step 1: Define adaptive reading tests**
 
 ```python
 class TestRS01ReadAdaptive(GoldenTestSuite):
@@ -1537,12 +1539,12 @@ class TestRS01ReadAdaptive(GoldenTestSuite):
     ]
 ```
 
-- [ ] **Step 2: Run adaptive tests**
+- [x] **Step 2: Run adaptive tests**
 
 Run: `python3 -m pytest tests/test_rs01.py::TestRS01ReadAdaptive -v`
 Expected: All 25 tests PASS
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add tests/test_rs01.py
@@ -1558,12 +1560,12 @@ Once all 144 RS01 tests pass in Python, disable the bash tests.
 **Files:**
 - Modify: `regtest/config.txt` — set all `RS01_*` entries to `no`
 
-- [ ] **Step 1: Run the full Python test suite to confirm everything passes**
+- [x] **Step 1: Run the full Python test suite to confirm everything passes**
 
 Run: `python3 -m pytest tests/ -v`
 Expected: All tests PASS (RS01 + existing RS03 recognize + multipass)
 
-- [ ] **Step 2: Disable RS01 bash tests in config**
+- [x] **Step 2: Disable RS01 bash tests in config**
 
 Set all `RS01_*` lines in `regtest/config.txt` to `no`:
 
@@ -1571,14 +1573,14 @@ Set all `RS01_*` lines in `regtest/config.txt` to `no`:
 sed -i 's/^RS01_\(.*\) yes$/RS01_\1 no/' regtest/config.txt
 ```
 
-- [ ] **Step 3: Verify bash tests skip RS01**
+- [x] **Step 3: Verify bash tests skip RS01**
 
 ```bash
 cd regtest && bash rs01.bash all 2>&1 | tail -5
 ```
 Expected: All tests show SKIPPED
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add tests/test_rs01.py regtest/config.txt
@@ -1593,20 +1595,20 @@ git commit -m "test: complete RS01 migration to Python, disable bash tests"
 - Remove: `tests/test_rs01_verify_smoke.py` (if not already removed)
 - Verify: `.github/workflows/tests.yml` runs pytest
 
-- [ ] **Step 1: Run full test suite one more time**
+- [x] **Step 1: Run full test suite one more time**
 
 ```bash
 python3 -m pytest tests/ -v --tb=short
 ```
 
-- [ ] **Step 2: Verify CI will pick up the new tests**
+- [x] **Step 2: Verify CI will pick up the new tests**
 
 Check that `tests.yml` has the pytest step and doesn't need changes:
 ```bash
 grep -A3 'pytest' .github/workflows/tests.yml
 ```
 
-- [ ] **Step 3: Commit and push**
+- [x] **Step 3: Commit and push**
 
 ```bash
 git push
