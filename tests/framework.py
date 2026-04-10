@@ -410,7 +410,9 @@ class GoldenTestSuite:
             # 4. Apply ecc_damage: copy ecc first, then damage
             ecc_work_path = ecc_path
             if test.ecc_damage and ecc_path:
-                ecc_tmp = os.path.join(work_dir, os.path.basename(ecc_path))
+                # Use "tmp" name to match bash regtest convention ($TMPECC)
+                ecc_basename = os.path.basename(ecc_path).replace("master", "tmp")
+                ecc_tmp = os.path.join(work_dir, ecc_basename)
                 shutil.copy2(ecc_path, ecc_tmp)
                 ecc_work_path = ecc_tmp
                 _apply_damage(ecc_work_path, test.ecc_damage)
