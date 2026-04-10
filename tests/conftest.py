@@ -20,6 +20,8 @@ import tempfile
 
 import pytest
 
+from framework import pytest_generate_tests  # noqa: F401
+
 # Project root: one level up from tests/
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DVDISASTER = os.path.join(PROJECT_ROOT, "dvdisaster")
