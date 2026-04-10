@@ -170,8 +170,11 @@ def clean_output(text, tmp_dirs=None, strip_header=False):
             text = text.replace(d + "\\", "")
 
     # Remove ISODIR and TMPDIR paths (``sed "s=$TMPDIR/*==g;s=$ISODIR/*==g"``)
+    # The bash ``/*`` means zero or more slashes, so match with or without trailing /
     for d in [_ISODIR, _TMPDIR]:
+        d = d.rstrip("/")
         text = text.replace(d + "/", "")
+        text = text.replace(d, "")
 
     # Remove GitHub Actions temp paths
     text = _RE_GH_ACTIONS_TMP.sub("", text)
@@ -452,6 +455,10 @@ class GoldenTestSuite:
                     cmd_args.extend(["-m{}".format(test.create_ecc.method)])
                 if test.create_ecc.redundancy:
                     cmd_args.extend(["-n", test.create_ecc.redundancy])
+                if test.create_ecc.output:
+                    cmd_args.extend(["-o", test.create_ecc.output])
+                if test.create_ecc.ecc_size is not None:
+                    cmd_args.extend(["-n", str(test.create_ecc.ecc_size)])
 
             # 9. Add action
             cmd_args.extend(test.action.split())
