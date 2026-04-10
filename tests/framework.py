@@ -218,6 +218,7 @@ class GoldenTest:
     ecc_damage: Optional[List] = None
     chmod_image: Optional[int] = None
     chmod_ecc: Optional[int] = None
+    new_image: bool = False
 
 
 # ---------------------------------------------------------------------------
@@ -261,6 +262,7 @@ def _run_dvdisaster(*args, **kwargs):
     cmd = [binary] + list(args)
     result = subprocess.run(
         cmd,
+        stdin=subprocess.DEVNULL,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         timeout=300,
@@ -307,7 +309,6 @@ class GoldenTestSuite:
     redundancy = None   # type: Optional[str]
     tests = []          # type: List[GoldenTest]
 
-    _master_cache = {}  # type: dict  # class-level cache of created masters
 
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
@@ -362,6 +363,11 @@ class GoldenTestSuite:
             return self._ensure_master(), False
         if test.image is not None:
             return os.path.join(_ISODIR, test.image), False
+        if test.new_image:
+            # For reading tests: provide path but don't create the file
+            tmp_name = self.master.replace("master", "tmp")
+            dest = os.path.join(work_dir, tmp_name)
+            return dest, True
         # Default: copy master to work_dir
         master = self._ensure_master()
         tmp_name = self.master.replace("master", "tmp")
@@ -431,7 +437,12 @@ class GoldenTestSuite:
             if ecc_work_path:
                 cmd_args.append("-e{}".format(ecc_work_path))
 
-            # 7. Handle sim_cd
+            # 7. Extra args (added early so --debug is set before
+            #    --fixed-speed-values which requires debug mode)
+            if test.extra_args:
+                cmd_args.extend(test.extra_args)
+
+            # 8. Handle sim_cd
             if test.sim_cd is not None:
                 if test.sim_cd.source == "master":
                     sim_src = self._ensure_master()
@@ -447,7 +458,7 @@ class GoldenTestSuite:
                     "--spinup-delay=0",
                 ])
 
-            # 8. Handle create_ecc
+            # 9. Handle create_ecc
             if test.create_ecc is not None:
                 cmd_args.extend(["--debug", "--set-version", "0.80"])
                 if test.create_ecc.method:
@@ -455,16 +466,12 @@ class GoldenTestSuite:
                 if test.create_ecc.redundancy:
                     cmd_args.extend(["-n", test.create_ecc.redundancy])
 
-            # 9. Add action
+            # 10. Add action
             cmd_args.extend(test.action.split())
 
-            # 10. Redundancy (for create actions like -c)
+            # 11. Redundancy (for create actions like -c)
             if self.redundancy and "-c" in test.action and test.create_ecc is None:
                 cmd_args.extend(["-n", self.redundancy])
-
-            # 11. Extra args
-            if test.extra_args:
-                cmd_args.extend(test.extra_args)
 
             # 12. Run
             returncode, raw_output = _run_dvdisaster(*cmd_args)
