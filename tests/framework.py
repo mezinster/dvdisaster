@@ -83,6 +83,12 @@ class PadSectors:
         return self.count * 2048
 
 
+@dataclass
+class AppendFile:
+    """Append contents of a file to the image (Python-level, not CLI)."""
+    path: str
+
+
 # ---------------------------------------------------------------------------
 # 2. Golden File Parser
 # ---------------------------------------------------------------------------
@@ -140,11 +146,15 @@ _RE_WIN_PATH = re.compile(r"[A-Z]:/[A-Za-z0-9_/-]+/")
 _RE_GH_ACTIONS_TMP = re.compile(r"[-A-Za-z0-9_~]+/AppData/Local/Temp/")
 
 
-def clean_output(text, tmp_dirs=None, strip_header=False):
-    # type: (str, Optional[List[str]], bool) -> str
+def clean_output(text, tmp_dirs=None, strip_header=False, ignore_lines=None):
+    # type: (str, Optional[List[str]], bool, Optional[List[str]]) -> str
     """Clean dvdisaster output to match golden-file comparison.
 
     Mirrors the filtering done by ``run_regtest`` in ``regtest/common.bash``.
+
+    Args:
+        ignore_lines: regex patterns; lines matching any pattern are removed
+            (mirrors bash ``IGNORE_LOG_LINE``).
     """
     if strip_header:
         # Remove first 3 lines (version/copyright header) — matches ``tail -n +4``
@@ -181,6 +191,14 @@ def clean_output(text, tmp_dirs=None, strip_header=False):
 
     # Remove 'regtest/' prefix
     text = text.replace("regtest/", "")
+
+    # Remove lines matching ignore patterns (mirrors bash IGNORE_LOG_LINE)
+    if ignore_lines:
+        import re as _re
+        compiled = [_re.compile(p) for p in ignore_lines]
+        lines = text.split("\n")
+        lines = [l for l in lines if not any(r.search(l) for r in compiled)]
+        text = "\n".join(lines)
 
     return text
 
@@ -282,7 +300,10 @@ def _apply_damage(image_path, damage_ops):
     # type: (str, List) -> None
     """Apply damage operations to an image file."""
     for op in damage_ops:
-        if isinstance(op, (PadBytes, PadSectors)):
+        if isinstance(op, AppendFile):
+            with open(op.path, "rb") as src, open(image_path, "ab") as dst:
+                dst.write(src.read())
+        elif isinstance(op, (PadBytes, PadSectors)):
             with open(image_path, "ab") as f:
                 f.write(b"\x00" * op.pad_size)
         elif isinstance(op, (Erase, Byteset, Truncate)):
@@ -456,6 +477,7 @@ class GoldenTestSuite:
                 if test.sim_cd.damage:
                     _apply_damage(sim_path, test.sim_cd.damage)
                 cmd_args.extend([
+                    "--debug",
                     "--sim-cd={}".format(sim_path),
                     "--fixed-speed-values",
                     "--spinup-delay=0",
