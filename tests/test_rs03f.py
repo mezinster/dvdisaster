@@ -5,11 +5,12 @@ RS03f is the file-based ECC mode: ECC data is stored in a separate .ecc file
 (like RS01), but uses the RS03 codec with configurable redundancy roots.
 
 Tests are grouped into:
-  - TestRS03fVerify: 34 verify tests
+  - TestRS03fVerify: 39 verify tests
 """
 
 import difflib
 import os
+import re
 import shutil
 
 import pytest
@@ -133,7 +134,8 @@ _DAMAGE_DSM2 = [
 # ---------------------------------------------------------------------------
 
 def _run_golden_compare(test_name, cmd_args, tmp_path,
-                        image_path=None, ecc_path=None):
+                        image_path=None, ecc_path=None,
+                        ignore_line_re=None):
     """Run dvdisaster, clean output, compare against golden file.
 
     Args:
@@ -142,6 +144,7 @@ def _run_golden_compare(test_name, cmd_args, tmp_path,
         tmp_path: pytest tmp_path for cleaning
         image_path: path to image file for MD5 check (or None)
         ecc_path: path to ecc file for MD5 check (or None)
+        ignore_line_re: regex pattern for lines to strip from output
     """
     golden_base = os.path.join(_DATABASE, "RS03f_{}".format(test_name))
     golden_path = resolve_golden_path(golden_base)
@@ -158,6 +161,12 @@ def _run_golden_compare(test_name, cmd_args, tmp_path,
         tmp_dirs=[work_dir, _TMPDIR, _ISODIR],
         strip_header=True,
     )
+
+    # Filter ignored lines
+    if ignore_line_re:
+        lines = cleaned.split("\n")
+        lines = [l for l in lines if not re.match(ignore_line_re, l)]
+        cleaned = "\n".join(lines)
 
     if cleaned != expected_output:
         diff = difflib.unified_diff(
@@ -806,4 +815,309 @@ class TestRS03fVerify(GoldenTestSuite):
             ["--regtest", "--no-progress",
              "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc), "-t"],
             tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+        )
+
+
+# ---------------------------------------------------------------------------
+# Test Suite: Creation
+# ---------------------------------------------------------------------------
+
+# Common ignore pattern for creation tests: filter performance stats and
+# method registration lines that vary between runs.
+_CREATE_IGNORE_RE = r"^Avg performance|^Creating the error correction file with Method RS03"
+
+
+class TestRS03fCreate(GoldenTestSuite):
+    codec = "RS03"
+    codec_prefix = "RS03f"
+    master = "rs03f-master.iso"
+    master_ecc = "rs03f-master.ecc"
+    image_size = ISOSIZE
+    redundancy = REDUNDANCY
+    tests = []
+
+    def _ensure_master(self):
+        return _ensure_master()
+
+    def _ensure_master_ecc(self):
+        return _ensure_master_ecc()
+
+    # 1. ecc_create -- basic ecc file creation
+    def test_ecc_create(self, tmp_path):
+        """Basic ecc file creation."""
+        master = self._ensure_master()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        _run_golden_compare(
+            "ecc_create",
+            ["--regtest", "--no-progress",
+             "--debug", "--set-version", SETVERSION,
+             "-i{}".format(master), "-e{}".format(tmp_ecc),
+             "-mRS03", "-n{}".format(REDUNDANCY), "-o", "file", "-c"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+            ignore_line_re=_CREATE_IGNORE_RE,
+        )
+
+    # 2. ecc_missing_image -- missing image
+    def test_ecc_missing_image(self, tmp_path):
+        """ECC creation with missing image."""
+        no_file = os.path.join(_ISODIR, "none.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        _run_golden_compare(
+            "ecc_missing_image",
+            ["--regtest", "--no-progress",
+             "--debug", "--set-version", SETVERSION,
+             "-i{}".format(no_file), "-e{}".format(tmp_ecc),
+             "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c"],
+            tmp_path, ecc_path=tmp_ecc,
+        )
+
+    # 3. ecc_existing_file -- create over existing ecc with different redundancy
+    def test_ecc_existing_file(self, tmp_path):
+        """ECC creation with already existing ecc file (different redundancy)."""
+        master = self._ensure_master()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        # First create ecc with higher redundancy (REDUNDANCY_ROOTS + 10 = 30r)
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(master), "-e{}".format(tmp_ecc),
+            "-mRS03", "-n{}r".format(REDUNDANCY_ROOTS + 10),
+            "-o", "file", "-c",
+        )
+        # Then create again with original redundancy
+        _run_golden_compare(
+            "ecc_existing_file",
+            ["--regtest", "--no-progress",
+             "--debug", "--set-version", SETVERSION,
+             "-i{}".format(master), "-e{}".format(tmp_ecc),
+             "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+            ignore_line_re=_CREATE_IGNORE_RE,
+        )
+
+    # 4. ecc_no_read_perm -- no read permission on image
+    def test_ecc_no_read_perm(self, tmp_path):
+        """ECC creation with no read permission on image."""
+        master = self._ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, tmp_iso)
+        os.chmod(tmp_iso, 0o000)
+        try:
+            _run_golden_compare(
+                "ecc_no_read_perm",
+                ["--regtest", "--no-progress",
+                 "--debug", "--set-version", SETVERSION,
+                 "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+                 "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c"],
+                tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+            )
+        finally:
+            os.chmod(tmp_iso, 0o644)
+
+    # 5. ecc_no_write_perm -- no write permission on ecc file
+    def test_ecc_no_write_perm(self, tmp_path):
+        """ECC creation with no write permission on ecc file."""
+        master = self._ensure_master()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        # Create ecc file with no permissions
+        with open(tmp_ecc, "w"):
+            pass
+        os.chmod(tmp_ecc, 0o000)
+        try:
+            _run_golden_compare(
+                "ecc_no_write_perm",
+                ["--regtest", "--no-progress",
+                 "--debug", "--set-version", SETVERSION,
+                 "-i{}".format(master), "-e{}".format(tmp_ecc),
+                 "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c"],
+                tmp_path, image_path=master, ecc_path=tmp_ecc,
+                ignore_line_re=_CREATE_IGNORE_RE,
+            )
+        finally:
+            if os.path.exists(tmp_ecc):
+                os.chmod(tmp_ecc, 0o644)
+
+    # 6. ecc_create_plus56 -- image with 56 extra bytes
+    def test_ecc_create_plus56(self, tmp_path):
+        """ECC creation for image with 56 additional bytes."""
+        master = self._ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, tmp_iso)
+        with open(_FIXED_RANDOM_SEQ, "rb") as f:
+            data = f.read(56)
+        with open(tmp_iso, "ab") as f:
+            f.write(data)
+        _run_golden_compare(
+            "ecc_create_plus56",
+            ["--regtest", "--no-progress",
+             "--debug", "--set-version", SETVERSION,
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+             "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+            ignore_line_re=_CREATE_IGNORE_RE,
+        )
+
+    # 7. ecc_missing_sectors -- image with erased sectors 500-524
+    def test_ecc_missing_sectors(self, tmp_path):
+        """ECC creation from image with missing sectors."""
+        master = self._ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, tmp_iso)
+        _run_dvdisaster("--debug", "-i", tmp_iso, "--erase", "500-524")
+        _run_golden_compare(
+            "ecc_missing_sectors",
+            ["--regtest", "--no-progress",
+             "--debug", "--set-version", SETVERSION,
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+             "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+            ignore_line_re=_CREATE_IGNORE_RE,
+        )
+
+    # 8. ecc_create_after_read -- read + create in one call
+    def test_ecc_create_after_read(self, tmp_path):
+        """Read image and create ecc in one call."""
+        master = self._ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "rs03f-sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        _run_golden_compare(
+            "ecc_create_after_read",
+            ["--regtest", "--no-progress",
+             "--debug", "--set-version", SETVERSION,
+             "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+             "-r", "-c", "-mRS03", "-o", "file",
+             "-n{}".format(REDUNDANCY), "-v"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+            ignore_line_re=_CREATE_IGNORE_RE,
+        )
+
+    # 9. ecc_recreate_after_read_rs01 -- read with RS01 ecc, create RS03f ecc
+    def test_ecc_recreate_after_read_rs01(self, tmp_path):
+        """Read image with RS01 ECC and create RS03f ECC."""
+        master = self._ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "rs03f-sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        # Create RS01 ecc (8r) for the sim image
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(sim_iso), "-e{}".format(tmp_ecc),
+            "-c", "-n", "8r",
+        )
+        _run_golden_compare(
+            "ecc_recreate_after_read_rs01",
+            ["--regtest", "--no-progress",
+             "--debug", "--set-version", SETVERSION,
+             "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+             "-r", "-c", "-mRS03", "-o", "file",
+             "-n{}".format(REDUNDANCY), "-v"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+            ignore_line_re=_CREATE_IGNORE_RE,
+        )
+
+    # 10. ecc_recreate_after_read_rs02 -- read RS02-augmented image, create RS03f ecc
+    def test_ecc_recreate_after_read_rs02(self, tmp_path):
+        """Read image with RS02 ECC and create RS03f ECC."""
+        master = self._ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "rs03f-sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        # Augment with RS02 (n = ISOSIZE + 3000 = 24000)
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(sim_iso), "-mRS02",
+            "-c", "-n{}".format(ISOSIZE + 3000),
+        )
+        _run_golden_compare(
+            "ecc_recreate_after_read_rs02",
+            ["--regtest", "--no-progress",
+             "--debug", "--set-version", SETVERSION,
+             "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+             "-r", "-c", "-mRS03", "-o", "file",
+             "-n{}".format(REDUNDANCY), "-v"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+            ignore_line_re=_CREATE_IGNORE_RE,
+        )
+
+    # 11. ecc_recreate_after_read_rs03i -- read RS03 image-augmented, create RS03f ecc
+    def test_ecc_recreate_after_read_rs03i(self, tmp_path):
+        """Read image with RS03i ECC and create RS03f ECC."""
+        master = self._ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "rs03f-sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        # Augment with RS03 image mode (n = ISOSIZE + 3000 = 24000)
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(sim_iso), "-mRS03",
+            "-c", "-n{}".format(ISOSIZE + 3000),
+        )
+        _run_golden_compare(
+            "ecc_recreate_after_read_rs03i",
+            ["--regtest", "--no-progress",
+             "--debug", "--set-version", SETVERSION,
+             "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+             "-r", "-c", "-mRS03", "-o", "file",
+             "-n{}".format(REDUNDANCY), "-v"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+            ignore_line_re=_CREATE_IGNORE_RE,
+        )
+
+    # 12. ecc_recreate_after_read_rs03f -- read with RS03f ecc (9r), create new (20r)
+    def test_ecc_recreate_after_read_rs03f(self, tmp_path):
+        """Read image with RS03f ECC and create new RS03f ECC."""
+        master = self._ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "rs03f-sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        # Create RS03f ecc with 9r redundancy
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(sim_iso), "-e{}".format(tmp_ecc),
+            "-mRS03", "-o", "file", "-c", "-n", "9r",
+        )
+        _run_golden_compare(
+            "ecc_recreate_after_read_rs03f",
+            ["--regtest", "--no-progress",
+             "--debug", "--set-version", SETVERSION,
+             "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+             "-r", "-c", "-mRS03", "-o", "file",
+             "-n{}".format(REDUNDANCY), "-v"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+            ignore_line_re=_CREATE_IGNORE_RE,
+        )
+
+    # 13. ecc_create_after_partial_read -- complete partial image then create ecc
+    def test_ecc_create_after_partial_read(self, tmp_path):
+        """Create ecc after completing partial image in reading pass."""
+        master = self._ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, tmp_iso)
+        # Erase sectors 1000-1500
+        _run_dvdisaster("--debug", "-i{}".format(tmp_iso),
+                        "--erase", "1000-1500")
+        _run_golden_compare(
+            "ecc_create_after_partial_read",
+            ["--regtest", "--no-progress",
+             "--debug", "--set-version", SETVERSION,
+             "--sim-cd={}".format(master), "--fixed-speed-values",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+             "-r", "-c", "-mRS03", "-o", "file",
+             "-n{}".format(REDUNDANCY), "-v"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+            ignore_line_re=_CREATE_IGNORE_RE,
         )
