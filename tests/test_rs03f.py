@@ -1,0 +1,809 @@
+"""
+RS03f regression tests -- verify tests from regtest/rs03f.bash lines 48-517.
+
+RS03f is the file-based ECC mode: ECC data is stored in a separate .ecc file
+(like RS01), but uses the RS03 codec with configurable redundancy roots.
+
+Tests are grouped into:
+  - TestRS03fVerify: 34 verify tests
+"""
+
+import difflib
+import os
+import shutil
+
+import pytest
+
+from framework import (
+    Byteset,
+    Erase,
+    GoldenTest,
+    GoldenTestSuite,
+    PadSectors,
+    Truncate,
+    _ISODIR,
+    _TMPDIR,
+    _find_binary,
+    _md5_file,
+    _run_dvdisaster,
+    _apply_damage,
+    clean_output,
+    parse_golden_file,
+    resolve_golden_path,
+)
+
+_PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_DATABASE = os.path.join(_PROJECT_ROOT, "regtest", "database")
+_FIXED_RANDOM_SEQ = os.path.join(_PROJECT_ROOT, "regtest", "fixed-random-sequence")
+
+# Constants matching the bash variables
+ISOSIZE = 21000
+SETVERSION = "0.80"
+REDUNDANCY_ROOTS = 20
+REDUNDANCY = "{}r".format(REDUNDANCY_ROOTS)
+
+
+# ---------------------------------------------------------------------------
+# Session fixture: create plus56 setup images (shared across all tests)
+# ---------------------------------------------------------------------------
+
+@pytest.fixture(scope="session")
+def plus56_images():
+    """Create rs03f-plus56_bytes.iso and .ecc in ISODIR if they don't exist.
+
+    These mirror the bash preamble that creates ISO_PLUS56 and ECC_PLUS56.
+    Note: RS03f uses bytes from the fixed-random-sequence file (not zeros).
+    """
+    os.makedirs(_ISODIR, exist_ok=True)
+    master_iso = os.path.join(_ISODIR, "rs03f-master.iso")
+    iso_plus56 = os.path.join(_ISODIR, "rs03f-plus56_bytes.iso")
+    ecc_plus56 = os.path.join(_ISODIR, "rs03f-plus56_bytes.ecc")
+
+    # Ensure master exists
+    if not os.path.isfile(master_iso):
+        _run_dvdisaster(
+            "--regtest", "--debug",
+            "-i{}".format(master_iso),
+            "--random-image", str(ISOSIZE),
+            check=True,
+        )
+
+    # Create plus56 ISO: master + 56 bytes from fixed-random-sequence
+    if not os.path.isfile(iso_plus56):
+        shutil.copy2(master_iso, iso_plus56)
+        with open(_FIXED_RANDOM_SEQ, "rb") as f:
+            data = f.read(56)
+        with open(iso_plus56, "ab") as f:
+            f.write(data)
+
+    # Create plus56 ECC
+    if not os.path.isfile(ecc_plus56):
+        # Ensure master ECC exists too
+        master_ecc = os.path.join(_ISODIR, "rs03f-master.ecc")
+        if not os.path.isfile(master_ecc):
+            _run_dvdisaster(
+                "--regtest", "--debug", "--set-version", SETVERSION,
+                "-i{}".format(master_iso),
+                "-e{}".format(master_ecc),
+                "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c",
+                check=True,
+            )
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(iso_plus56),
+            "-e{}".format(ecc_plus56),
+            "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c",
+            check=True,
+        )
+
+    return iso_plus56, ecc_plus56
+
+
+# ---------------------------------------------------------------------------
+# Common damage patterns (reused by multiple tests)
+# ---------------------------------------------------------------------------
+
+_DAMAGE_DSM1 = [
+    Erase("3030"),
+    Byteset(3030, 353, 49),
+    Erase("4400"),
+    Byteset(4400, 353, 53),
+    Erase("4411"),
+    Byteset(4411, 353, 53),
+]
+
+_DAMAGE_DSM2 = [
+    Erase("3030"),
+    Byteset(3030, 416, 55),
+    Byteset(3030, 556, 32),
+    Byteset(3030, 557, 50),
+    Erase("4400"),
+    Byteset(4400, 416, 53),
+    Byteset(4400, 556, 32),
+    Byteset(4400, 557, 50),
+    Erase("4411"),
+    Byteset(4411, 416, 53),
+    Byteset(4411, 556, 32),
+    Byteset(4411, 557, 50),
+]
+
+
+# ---------------------------------------------------------------------------
+# Helper: run a golden-file test with prepared image/ecc paths
+# ---------------------------------------------------------------------------
+
+def _run_golden_compare(test_name, cmd_args, tmp_path,
+                        image_path=None, ecc_path=None):
+    """Run dvdisaster, clean output, compare against golden file.
+
+    Args:
+        test_name: name matching the golden file (e.g. 'good')
+        cmd_args: list of CLI arguments
+        tmp_path: pytest tmp_path for cleaning
+        image_path: path to image file for MD5 check (or None)
+        ecc_path: path to ecc file for MD5 check (or None)
+    """
+    golden_base = os.path.join(_DATABASE, "RS03f_{}".format(test_name))
+    golden_path = resolve_golden_path(golden_base)
+    if not os.path.isfile(golden_path):
+        pytest.skip("Golden file not found: {}".format(golden_path))
+
+    expected_image_md5, expected_ecc_md5, expected_output = parse_golden_file(golden_path)
+
+    _, raw_output = _run_dvdisaster(*cmd_args)
+
+    work_dir = str(tmp_path)
+    cleaned = clean_output(
+        raw_output,
+        tmp_dirs=[work_dir, _TMPDIR, _ISODIR],
+        strip_header=True,
+    )
+
+    if cleaned != expected_output:
+        diff = difflib.unified_diff(
+            expected_output.splitlines(keepends=True),
+            cleaned.splitlines(keepends=True),
+            fromfile="expected (golden)",
+            tofile="actual (cleaned)",
+        )
+        diff_text = "".join(diff)
+        assert cleaned == expected_output, (
+            "Output mismatch for test '{}':\n{}".format(test_name, diff_text)
+        )
+
+    if expected_image_md5 is not None and image_path and os.path.isfile(image_path):
+        actual_md5 = _md5_file(image_path)
+        assert actual_md5 == expected_image_md5, (
+            "Image MD5 mismatch for '{}': expected {}, got {}".format(
+                test_name, expected_image_md5, actual_md5)
+        )
+
+    if expected_ecc_md5 is not None and ecc_path and os.path.isfile(ecc_path):
+        actual_md5 = _md5_file(ecc_path)
+        assert actual_md5 == expected_ecc_md5, (
+            "ECC MD5 mismatch for '{}': expected {}, got {}".format(
+                test_name, expected_ecc_md5, actual_md5)
+        )
+
+
+def _ensure_master():
+    """Ensure the RS03f master image exists and return its path."""
+    os.makedirs(_ISODIR, exist_ok=True)
+    path = os.path.join(_ISODIR, "rs03f-master.iso")
+    if not os.path.isfile(path):
+        _run_dvdisaster(
+            "--regtest", "--debug",
+            "-i{}".format(path),
+            "--random-image", str(ISOSIZE),
+            check=True,
+        )
+    return path
+
+
+def _ensure_master_ecc():
+    """Ensure the RS03f master ECC exists and return its path."""
+    master_iso = _ensure_master()
+    path = os.path.join(_ISODIR, "rs03f-master.ecc")
+    if not os.path.isfile(path):
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(master_iso),
+            "-e{}".format(path),
+            "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c",
+            check=True,
+        )
+    return path
+
+
+# ---------------------------------------------------------------------------
+# Test Suite: Verify
+# ---------------------------------------------------------------------------
+
+class TestRS03fVerify(GoldenTestSuite):
+    codec = "RS03"
+    codec_prefix = "RS03f"
+    master = "rs03f-master.iso"
+    master_ecc = "rs03f-master.ecc"
+    image_size = ISOSIZE
+    redundancy = REDUNDANCY
+
+    def _ensure_master(self):
+        """Override: RS03f master image creation."""
+        return _ensure_master()
+
+    def _ensure_master_ecc(self):
+        """Override: RS03f needs -mRS03 -o file flags."""
+        return _ensure_master_ecc()
+
+    # ------------------------------------------------------------------
+    # Declarative tests (auto-parametrized via test_golden)
+    # ------------------------------------------------------------------
+    tests = [
+        # 1. good
+        GoldenTest("good", action="-t", use_master=True, ecc="master_ecc"),
+        # 2. good_quick
+        GoldenTest("good_quick", action="-tq", use_master=True, ecc="master_ecc"),
+        # 3. no_image (bash uses $MASTERECC, not no.ecc)
+        GoldenTest("no_image", action="-t", image="no.iso", ecc="master_ecc"),
+        # 4. image_truncated_by5
+        GoldenTest("image_truncated_by5", action="-t",
+                   damage=[Truncate(ISOSIZE - 5)], ecc="master_ecc"),
+        # 5. 17_extra_sectors (bash uses /dev/zero)
+        GoldenTest("17_extra_sectors", action="-t",
+                   damage=[PadSectors(17)], ecc="master_ecc"),
+        # 6. missing_sectors
+        GoldenTest("missing_sectors", action="-t",
+                   damage=[Erase("500-524")], ecc="master_ecc"),
+        # 7. crc_errors
+        GoldenTest("crc_errors", action="-t",
+                   damage=[Byteset(670, 50, 50), Byteset(770, 50, 50),
+                           Byteset(771, 50, 50), Byteset(772, 50, 50)],
+                   ecc="master_ecc"),
+        # 8. mixed_errors
+        GoldenTest("mixed_errors", action="-t",
+                   damage=[Erase("500-524"), Byteset(670, 50, 50),
+                           Erase("699"), Byteset(770, 50, 50),
+                           Byteset(771, 50, 50), Byteset(772, 50, 50),
+                           Erase("978-1001")],
+                   ecc="master_ecc"),
+        # 9. crc_error_in_fingerprint
+        GoldenTest("crc_error_in_fingerprint", action="-t",
+                   damage=[Byteset(16, 450, 17)], ecc="master_ecc"),
+        # 10. fingerprint_unreadable
+        GoldenTest("fingerprint_unreadable", action="-t",
+                   damage=[Erase("16")], ecc="master_ecc"),
+        # 11. uncorrectable_dsm_in_image
+        GoldenTest("uncorrectable_dsm_in_image", action="-t",
+                   damage=_DAMAGE_DSM1, ecc="master_ecc"),
+        # 12. uncorrectable_dsm_in_image_verbose
+        GoldenTest("uncorrectable_dsm_in_image_verbose", action="-t -v",
+                   damage=_DAMAGE_DSM1, ecc="master_ecc"),
+        # 13. uncorrectable_dsm_in_image2
+        GoldenTest("uncorrectable_dsm_in_image2", action="-t",
+                   damage=_DAMAGE_DSM2, ecc="master_ecc"),
+        # 14. uncorrectable_dsm_in_image2_verbose
+        GoldenTest("uncorrectable_dsm_in_image2_verbose", action="-t -v",
+                   damage=_DAMAGE_DSM2, ecc="master_ecc"),
+    ]
+
+    # ------------------------------------------------------------------
+    # Manual tests: plus56 and related (need fresh ecc creation)
+    # ------------------------------------------------------------------
+
+    def test_plus56_bytes(self, tmp_path):
+        """Verify image with 56 extra random bytes and its own ecc."""
+        master = self._ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master, tmp_iso)
+        with open(_FIXED_RANDOM_SEQ, "rb") as f:
+            data = f.read(56)
+        with open(tmp_iso, "ab") as f:
+            f.write(data)
+
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c",
+            check=True,
+        )
+
+        _run_golden_compare(
+            "plus56_bytes",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+        )
+
+    def test_no_image_plus56_bytes(self, tmp_path):
+        """No image; ecc for image with 56 extra bytes."""
+        master = self._ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master, tmp_iso)
+        with open(_FIXED_RANDOM_SEQ, "rb") as f:
+            data = f.read(56)
+        with open(tmp_iso, "ab") as f:
+            f.write(data)
+
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c",
+            check=True,
+        )
+
+        no_iso = os.path.join(_ISODIR, "no.iso")
+        _run_golden_compare(
+            "no_image_plus56_bytes",
+            ["--regtest", "--no-progress",
+             "-i{}".format(no_iso), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, ecc_path=tmp_ecc,
+        )
+
+    def test_special_padding(self, tmp_path):
+        """Image with special padding situation (20124 sectors, divisible by layer size)."""
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        _run_dvdisaster(
+            "--debug",
+            "-i{}".format(tmp_iso),
+            "--random-image", "20124",
+            check=True,
+        )
+
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c",
+            check=True,
+        )
+
+        _run_golden_compare(
+            "special_padding",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc), "-v", "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+        )
+
+    def test_special_padding_plus56(self, tmp_path):
+        """Image with special padding plus 56 bytes (20123 sectors + 56 bytes)."""
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        _run_dvdisaster(
+            "--debug",
+            "-i{}".format(tmp_iso),
+            "--random-image", "20123",
+            check=True,
+        )
+
+        with open(_FIXED_RANDOM_SEQ, "rb") as f:
+            data = f.read(56)
+        with open(tmp_iso, "ab") as f:
+            f.write(data)
+
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c",
+            check=True,
+        )
+
+        _run_golden_compare(
+            "special_padding_plus56",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc), "-v", "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+        )
+
+    def test_normal_image_ecc_plus56_bytes(self, tmp_path):
+        """Normal master image verified against ecc from plus56 image."""
+        master = self._ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master, tmp_iso)
+        with open(_FIXED_RANDOM_SEQ, "rb") as f:
+            data = f.read(56)
+        with open(tmp_iso, "ab") as f:
+            f.write(data)
+
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c",
+            check=True,
+        )
+
+        _run_golden_compare(
+            "normal_image_ecc_plus56_bytes",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_image_plus56_normal_ecc(self, tmp_path):
+        """Image with 56 extra bytes verified against normal master ecc."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+
+        shutil.copy2(master, tmp_iso)
+        with open(_FIXED_RANDOM_SEQ, "rb") as f:
+            data = f.read(56)
+        with open(tmp_iso, "ab") as f:
+            f.write(data)
+
+        _run_golden_compare(
+            "image_plus56_normal_ecc",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(master_ecc), "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=master_ecc,
+        )
+
+    def test_few_bytes_shorter(self, tmp_path):
+        """Image a few bytes shorter than expected; both not multiple of 2048."""
+        master = self._ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        long_iso = os.path.join(str(tmp_path), "rs03f-plus390-bytes.iso")
+
+        # Create +56 image
+        shutil.copy2(master, tmp_iso)
+        with open(_FIXED_RANDOM_SEQ, "rb") as f:
+            rnd = f.read(390)
+        with open(tmp_iso, "ab") as f:
+            f.write(rnd[:56])
+
+        # Create +390 image and its ecc
+        shutil.copy2(master, long_iso)
+        with open(long_iso, "ab") as f:
+            f.write(rnd[:390])
+
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(long_iso), "-e{}".format(tmp_ecc),
+            "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c",
+            check=True,
+        )
+
+        _run_golden_compare(
+            "few_bytes_shorter",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+        )
+
+    def test_few_bytes_longer(self, tmp_path):
+        """Image a few bytes longer than expected; both not multiple of 2048."""
+        master = self._ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        short_iso = os.path.join(str(tmp_path), "rs03f-plus56-bytes.iso")
+
+        with open(_FIXED_RANDOM_SEQ, "rb") as f:
+            rnd = f.read(390)
+
+        # Create +56 image and its ecc
+        shutil.copy2(master, short_iso)
+        with open(short_iso, "ab") as f:
+            f.write(rnd[:56])
+
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(short_iso), "-e{}".format(tmp_ecc),
+            "-mRS03", "-n", REDUNDANCY, "-o", "file", "-c",
+            check=True,
+        )
+
+        # Create +390 image
+        shutil.copy2(master, tmp_iso)
+        with open(tmp_iso, "ab") as f:
+            f.write(rnd[:390])
+
+        _run_golden_compare(
+            "few_bytes_longer",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+        )
+
+    def test_few_bytes_shorter2(self, tmp_path):
+        """Image few bytes shorter than multiple of 2048."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        truncated_size = 2048 * ISOSIZE - 104
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+
+        with open(master, "rb") as src, open(tmp_iso, "wb") as dst:
+            dst.write(src.read(truncated_size))
+
+        _run_golden_compare(
+            "few_bytes_shorter2",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(master_ecc), "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=master_ecc,
+        )
+
+    def test_one_extra_sector(self, tmp_path):
+        """Image with 1 extra sector (random data from fixed-random-sequence)."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+
+        shutil.copy2(master, tmp_iso)
+        with open(_FIXED_RANDOM_SEQ, "rb") as f:
+            data = f.read(2048)
+        with open(tmp_iso, "ab") as f:
+            f.write(data)
+
+        _run_golden_compare(
+            "one_extra_sector",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(master_ecc), "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=master_ecc,
+        )
+
+    # ------------------------------------------------------------------
+    # ECC file manipulation tests
+    # ------------------------------------------------------------------
+
+    def test_missing_ecc_header(self, tmp_path):
+        """Ecc header is missing."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("0")])
+
+        _run_golden_compare(
+            "missing_ecc_header",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t", "-v"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_missing_ecc_header_and_crc(self, tmp_path):
+        """Ecc header and some CRC blocks are missing."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("0-16")])
+
+        _run_golden_compare(
+            "missing_ecc_header_and_crc",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t", "-v"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_missing_ecc_header_and_defective_crc(self, tmp_path):
+        """Ecc header missing, first CRC block defective."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("0"), Byteset(2, 50, 107)])
+
+        _run_golden_compare(
+            "missing_ecc_header_and_defective_crc",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t", "-v"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_ecc_header_crc_error(self, tmp_path):
+        """Checksum error in ecc header."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Byteset(0, 32, 107)])
+
+        _run_golden_compare(
+            "ecc_header_crc_error",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t", "-v"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_ecc_file_truncated(self, tmp_path):
+        """Truncated ecc file (1788 sectors)."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        # dd if=$MASTERECC of=$TMPECC bs=2048 count=1788
+        with open(master_ecc, "rb") as src, open(tmp_ecc, "wb") as dst:
+            dst.write(src.read(2048 * 1788))
+
+        _run_golden_compare(
+            "ecc_file_truncated",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_ecc_file_plus_garbage(self, tmp_path):
+        """Ecc file with trailing garbage (3980 random bytes)."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        with open(_FIXED_RANDOM_SEQ, "rb") as f:
+            data = f.read(3980)
+        with open(tmp_ecc, "ab") as f:
+            f.write(data)
+
+        _run_golden_compare(
+            "ecc_file_plus_garbage",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_ecc_file_cookieless_crc(self, tmp_path):
+        """Ecc file with cookie-less CRC sector."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Byteset(2, 1024, 70)])
+
+        _run_golden_compare(
+            "ecc_file_cookieless_crc",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_ecc_file_defective_crc(self, tmp_path):
+        """Ecc file with byte errors in CRC sectors."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Byteset(4, 101, 70), Byteset(5, 908, 23)])
+
+        _run_golden_compare(
+            "ecc_file_defective_crc",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_ecc_file_defective_ecc(self, tmp_path):
+        """Ecc file with byte error in ECC portion."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Byteset(1040, 101, 70)])
+
+        _run_golden_compare(
+            "ecc_file_defective_ecc",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_ecc_file_missing_crc(self, tmp_path):
+        """Ecc file with missing CRC sectors."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("10-19")])
+
+        _run_golden_compare(
+            "ecc_file_missing_crc",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_ecc_file_missing_ecc(self, tmp_path):
+        """Ecc file with missing ECC sectors."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("1000-1014")])
+
+        _run_golden_compare(
+            "ecc_file_missing_ecc",
+            ["--regtest", "--no-progress",
+             "-i{}".format(master), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=master, ecc_path=tmp_ecc,
+        )
+
+    def test_ecc_file_missing_crc2(self, tmp_path):
+        """Ecc file with missing CRC sector and CRC error in data."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [Byteset(91, 10, 10)])
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("2")])
+
+        _run_golden_compare(
+            "ecc_file_missing_crc2",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+        )
+
+    def test_ecc_file_missing_crc3(self, tmp_path):
+        """Ecc file with corrupted CRC sector and CRC error in data."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [Byteset(91, 10, 10)])
+
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Byteset(2, 123, 97)])
+
+        _run_golden_compare(
+            "ecc_file_missing_crc3",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+        )
+
+    def test_crc_section_with_uncorrectable_dsm(self, tmp_path):
+        """CRC section with uncorrectable dead sector markers."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master, tmp_iso)
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("10"), Erase("15"), Erase("16")])
+
+        _run_golden_compare(
+            "crc_section_with_uncorrectable_dsm",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+        )
+
+    def test_ecc_section_with_uncorrectable_dsm(self, tmp_path):
+        """ECC section with uncorrectable dead sector markers."""
+        master = self._ensure_master()
+        master_ecc = self._ensure_master_ecc()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+
+        shutil.copy2(master, tmp_iso)
+        shutil.copy2(master_ecc, tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("200"), Erase("240"), Erase("241")])
+
+        _run_golden_compare(
+            "ecc_section_with_uncorrectable_dsm",
+            ["--regtest", "--no-progress",
+             "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc), "-t"],
+            tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
+        )
