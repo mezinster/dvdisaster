@@ -1,11 +1,13 @@
 """
-RS03f regression tests -- verify tests from regtest/rs03f.bash lines 48-517.
+RS03f regression tests -- from regtest/rs03f.bash.
 
 RS03f is the file-based ECC mode: ECC data is stored in a separate .ecc file
 (like RS01), but uses the RS03 codec with configurable redundancy roots.
 
 Tests are grouped into:
   - TestRS03fVerify: 39 verify tests
+  - TestRS03fCreate: 14 creation tests
+  - TestRS03fRepair: 25 repair/fix tests
 """
 
 import difflib
@@ -1121,3 +1123,287 @@ class TestRS03fCreate(GoldenTestSuite):
             tmp_path, image_path=tmp_iso, ecc_path=tmp_ecc,
             ignore_line_re=_CREATE_IGNORE_RE,
         )
+
+
+# ---------------------------------------------------------------------------
+# Test Suite: Repair
+# ---------------------------------------------------------------------------
+
+class TestRS03fRepair(GoldenTestSuite):
+    codec = "RS03"
+    codec_prefix = "RS03f"
+    master = "rs03f-master.iso"
+    master_ecc = "rs03f-master.ecc"
+    image_size = ISOSIZE
+    redundancy = REDUNDANCY
+
+    def _ensure_master(self):
+        return _ensure_master()
+
+    def _ensure_master_ecc(self):
+        return _ensure_master_ecc()
+
+    # ------------------------------------------------------------------
+    # Declarative tests
+    # ------------------------------------------------------------------
+    tests = [
+        # fix_good: fix good image (no damage)
+        GoldenTest("fix_good", action="-f", ecc="master_ecc"),
+        # fix_missing_data_sectors: erase sectors in image
+        GoldenTest("fix_missing_data_sectors", action="-f",
+                   damage=[Erase("900-924"), Erase("73")],
+                   ecc="master_ecc"),
+        # fix_missing_crc_sectors: erase CRC sectors in ecc
+        GoldenTest("fix_missing_crc_sectors", action="-f",
+                   ecc="master_ecc",
+                   ecc_damage=[Erase("5-9")]),
+        # fix_missing_ecc_sectors: erase ECC sectors in ecc
+        GoldenTest("fix_missing_ecc_sectors", action="-f",
+                   ecc="master_ecc",
+                   ecc_damage=[Erase("115-119")]),
+        # fix_border_cases_erasures: erase sectors across layers in both image and ecc
+        GoldenTest("fix_border_cases_erasures", action="-f",
+                   damage=[
+                       Erase("0"), Erase("90"), Erase("180"), Erase("20970"),
+                       Erase("89"), Erase("179"), Erase("269"), Erase("20999"),
+                   ],
+                   ecc="master_ecc",
+                   ecc_damage=[
+                       Erase("2"), Erase("92"), Erase("182"), Erase("1802"),
+                       Erase("91"), Erase("181"), Erase("271"), Erase("1891"),
+                   ]),
+        # fix_border_cases_crc_errors: byteset across layers in both image and ecc
+        GoldenTest("fix_border_cases_crc_errors", action="-f",
+                   damage=[
+                       Byteset(0, 0, 1), Byteset(90, 0, 0), Byteset(180, 0, 0),
+                       Byteset(20970, 0, 0),
+                       Byteset(89, 0, 0), Byteset(179, 0, 0), Byteset(269, 0, 0),
+                       Byteset(20999, 0, 0),
+                   ],
+                   ecc="master_ecc",
+                   ecc_damage=[
+                       Byteset(2, 0, 0), Byteset(92, 0, 0), Byteset(182, 0, 0),
+                       Byteset(1802, 0, 0),
+                       Byteset(91, 0, 0), Byteset(181, 0, 0), Byteset(271, 0, 0),
+                       Byteset(1891, 0, 0),
+                   ]),
+        # fix_no_read_perm: no read permission on image
+        GoldenTest("fix_no_read_perm", action="-f",
+                   chmod_image=0o000, ecc="master_ecc"),
+        # fix_no_write_perm: no write permission on image
+        GoldenTest("fix_no_write_perm", action="-f",
+                   chmod_image=0o400, ecc="master_ecc"),
+        # fix_additional_sector: image with 1 extra sector (TAO case)
+        GoldenTest("fix_additional_sector", action="-f",
+                   damage=[PadSectors(1)], ecc="master_ecc"),
+        # fix_plus17: image with 17 additional sectors
+        GoldenTest("fix_plus17", action="-f",
+                   damage=[PadSectors(17)], ecc="master_ecc"),
+        # fix_plus17_truncate: with --truncate
+        GoldenTest("fix_plus17_truncate", action="-f --truncate",
+                   damage=[PadSectors(17)], ecc="master_ecc"),
+        # fix_truncated: truncated image
+        GoldenTest("fix_truncated", action="-f",
+                   damage=[Truncate(ISOSIZE - 269)], ecc="master_ecc"),
+        # fix_ecc_file_truncated: truncated ecc file (uses master image directly)
+        GoldenTest("fix_ecc_file_truncated", action="-f",
+                   use_master=True,
+                   ecc="master_ecc",
+                   ecc_damage=[Truncate(1788)]),
+        # fix_missing_ecc_header: erase sector 0 of ecc (uses master image directly)
+        GoldenTest("fix_missing_ecc_header", action="-f -v",
+                   use_master=True,
+                   ecc="master_ecc",
+                   ecc_damage=[Erase("0")]),
+    ]
+
+    # ------------------------------------------------------------------
+    # Permission tests on ecc requiring manual copy + chmod
+    # ------------------------------------------------------------------
+
+    def test_fix_no_read_perm_ecc(self, tmp_path):
+        """Fix image without read permission on ecc."""
+        master = _ensure_master()
+        master_ecc = _ensure_master_ecc()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, tmp_iso)
+        shutil.copy2(master_ecc, tmp_ecc)
+        os.chmod(tmp_ecc, 0o000)
+        try:
+            cmd = [
+                "--regtest", "--no-progress",
+                "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+                "-f",
+            ]
+            _run_golden_compare("fix_no_read_perm_ecc", cmd, tmp_path,
+                                image_path=tmp_iso, ecc_path=tmp_ecc)
+        finally:
+            os.chmod(tmp_ecc, 0o644)
+
+    def test_fix_no_write_perm_ecc(self, tmp_path):
+        """Fix image without write permission for ecc."""
+        master = _ensure_master()
+        master_ecc = _ensure_master_ecc()
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, tmp_iso)
+        shutil.copy2(master_ecc, tmp_ecc)
+        os.chmod(tmp_ecc, 0o400)
+        try:
+            cmd = [
+                "--regtest", "--no-progress",
+                "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+                "-f",
+            ]
+            _run_golden_compare("fix_no_write_perm_ecc", cmd, tmp_path,
+                                image_path=tmp_iso, ecc_path=tmp_ecc)
+        finally:
+            os.chmod(tmp_ecc, 0o644)
+
+    # ------------------------------------------------------------------
+    # Plus56 repair tests (require plus56_images fixture)
+    # ------------------------------------------------------------------
+
+    def test_fix_good_plus56(self, plus56_images, tmp_path):
+        """Fix good image not multiple of 2048."""
+        iso_plus56, ecc_plus56 = plus56_images
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(iso_plus56, tmp_iso)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(ecc_plus56),
+            "-f",
+        ]
+        _run_golden_compare("fix_good_plus56", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=ecc_plus56)
+
+    def test_fix_plus56(self, plus56_images, tmp_path):
+        """Fix image with CRC error in 56 additional bytes."""
+        iso_plus56, ecc_plus56 = plus56_images
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(iso_plus56, tmp_iso)
+        _apply_damage(tmp_iso, [Byteset(ISOSIZE, 28, 90)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(ecc_plus56),
+            "-f",
+        ]
+        _run_golden_compare("fix_plus56", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=ecc_plus56)
+
+    def test_fix_plus56_plus17(self, plus56_images, tmp_path):
+        """Fix image with CRC error in 56 additional bytes + few bytes more."""
+        iso_plus56, ecc_plus56 = plus56_images
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(iso_plus56, tmp_iso)
+        with open(tmp_iso, "ab") as f:
+            f.write(b"0123456789abcdef\n")
+        _apply_damage(tmp_iso, [Byteset(ISOSIZE, 55, 90)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(ecc_plus56),
+            "-f",
+        ]
+        _run_golden_compare("fix_plus56_plus17", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=ecc_plus56)
+
+    def test_fix_plus56_plus17_truncate(self, plus56_images, tmp_path):
+        """Fix image with CRC error in 56 additional bytes + few bytes more w/ truncate."""
+        iso_plus56, ecc_plus56 = plus56_images
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(iso_plus56, tmp_iso)
+        with open(tmp_iso, "ab") as f:
+            f.write(b"0123456789abcdef\n")
+        _apply_damage(tmp_iso, [Byteset(ISOSIZE, 55, 90)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(ecc_plus56),
+            "-f", "--truncate",
+        ]
+        _run_golden_compare("fix_plus56_plus17_truncate", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=ecc_plus56)
+
+    def test_fix_plus56_plus1s(self, plus56_images, tmp_path):
+        """Fix image with CRC error in 56 additional bytes + one sector more."""
+        iso_plus56, ecc_plus56 = plus56_images
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(iso_plus56, tmp_iso)
+        with open(_FIXED_RANDOM_SEQ, "rb") as src:
+            data = src.read(2048)
+        with open(tmp_iso, "ab") as f:
+            f.write(data)
+        _apply_damage(tmp_iso, [Byteset(21000, 55, 90)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(ecc_plus56),
+            "-f", "--truncate",
+        ]
+        _run_golden_compare("fix_plus56_plus1s", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=ecc_plus56)
+
+    def test_fix_plus56_plus2s(self, plus56_images, tmp_path):
+        """Fix image with CRC error in 56 additional bytes + two sectors more."""
+        iso_plus56, ecc_plus56 = plus56_images
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(iso_plus56, tmp_iso)
+        with open(_FIXED_RANDOM_SEQ, "rb") as src:
+            data = src.read(4096)
+        with open(tmp_iso, "ab") as f:
+            f.write(data)
+        _apply_damage(tmp_iso, [Byteset(21000, 55, 90)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(ecc_plus56),
+            "-f", "--truncate",
+        ]
+        _run_golden_compare("fix_plus56_plus2s", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=ecc_plus56)
+
+    def test_fix_plus56_plus17500(self, plus56_images, tmp_path):
+        """Fix image with CRC error in 56 additional bytes + more sectors."""
+        iso_plus56, ecc_plus56 = plus56_images
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(iso_plus56, tmp_iso)
+        with open(tmp_iso, "ab") as f:
+            f.write(b"\x00" * 17500)
+        _apply_damage(tmp_iso, [Byteset(21000, 55, 90)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(ecc_plus56),
+            "-f", "--truncate",
+        ]
+        _run_golden_compare("fix_plus56_plus17500", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=ecc_plus56)
+
+    def test_fix_plus56_truncated(self, plus56_images, tmp_path):
+        """Fix truncated image not a multiple of 2048."""
+        iso_plus56, ecc_plus56 = plus56_images
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(iso_plus56, tmp_iso)
+        _apply_damage(tmp_iso, [Truncate(ISOSIZE - 28)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(ecc_plus56),
+            "-f",
+        ]
+        _run_golden_compare("fix_plus56_truncated", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=ecc_plus56)
+
+    def test_fix_plus56_little_truncated(self, plus56_images, tmp_path):
+        """Fix image not a multiple of 2048 missing a few bytes."""
+        master = _ensure_master()
+        _, ecc_plus56 = plus56_images
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        with open(_FIXED_RANDOM_SEQ, "rb") as src:
+            data = src.read(50)
+        with open(tmp_iso, "ab") as f:
+            f.write(data)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(ecc_plus56),
+            "-f",
+        ]
+        _run_golden_compare("fix_plus56_little_truncated", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=ecc_plus56)
