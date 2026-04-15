@@ -1756,7 +1756,8 @@ class TestRS03fReadLinear:
             "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
             "--spinup-delay=0", "-r",
         ]
-        _run_golden_compare("read_good", cmd, tmp_path, image_path=tmp_iso)
+        _run_golden_compare("read_good", cmd, tmp_path, image_path=tmp_iso,
+                            ecc_path=master_ecc)
 
     def test_read_good_verbose(self, tmp_path):
         """Read complete / optimal image, verbose output."""
@@ -1812,7 +1813,7 @@ class TestRS03fReadLinear:
         sim_iso = os.path.join(str(tmp_path), "sim.iso")
         tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
         shutil.copy2(master, sim_iso)
-        _append_fixed_random_sequence(sim_iso, times=23)
+        _append_fixed_random_sequence(sim_iso, 23)
         cmd = [
             "--regtest", "--no-progress",
             "-i{}".format(tmp_iso), "-e{}".format(master_ecc),
@@ -1828,7 +1829,7 @@ class TestRS03fReadLinear:
         sim_iso = os.path.join(str(tmp_path), "sim.iso")
         tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
         shutil.copy2(master, sim_iso)
-        _append_fixed_random_sequence(sim_iso, times=1)
+        _append_fixed_random_sequence(sim_iso, 1)
         _apply_damage(sim_iso, [Erase("21000-21001")])
         cmd = [
             "--regtest", "--no-progress",
@@ -1845,7 +1846,7 @@ class TestRS03fReadLinear:
         sim_iso = os.path.join(str(tmp_path), "sim.iso")
         tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
         shutil.copy2(master, sim_iso)
-        _append_fixed_random_sequence(sim_iso, times=1)
+        _append_fixed_random_sequence(sim_iso, 1)
         _apply_damage(sim_iso, [Erase("20998-20999")])
         cmd = [
             "--regtest", "--no-progress",
@@ -1878,7 +1879,7 @@ class TestRS03fReadLinear:
         ]
         _run_golden_compare("read_incompatible_ecc", cmd, tmp_path,
                             image_path=tmp_iso, ecc_path=tmp_ecc,
-                            ignore_line_re=r"^\*          $")
+                            ignore_line_re=r'^\*          $')
 
     def test_read_bad_header(self, tmp_path):
         """Read image with a defective ECC header."""
@@ -2066,4 +2067,5 @@ class TestRS03fReadAdaptive:
             "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
             "--spinup-delay=0", "-r", "--adaptive-read",
         ]
-        _run_golden_compare("adaptive_good", cmd, tmp_path, image_path=tmp_iso)
+        _run_golden_compare("adaptive_good", cmd, tmp_path, image_path=tmp_iso,
+                            ecc_path=master_ecc)
