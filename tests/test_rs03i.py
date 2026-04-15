@@ -6,7 +6,7 @@ RS03i is the image-embedded ECC mode: ECC data is embedded directly in the image
 
 Tests are grouped into:
   - TestRS03iStrip: 2 strip tests
-  - TestRS03iVerify: 50 verify tests
+  - TestRS03iVerify: 48 verify tests
 """
 
 import difflib
@@ -310,7 +310,7 @@ class TestRS03iStrip(GoldenTestSuite):
 
 
 # ===========================================================================
-# Verify tests (50)
+# Verify tests (48)
 # ===========================================================================
 
 class TestRS03iVerify(GoldenTestSuite):
