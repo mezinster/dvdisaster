@@ -8,6 +8,7 @@ Tests are grouped into:
   - TestRS03fVerify: 39 verify tests
   - TestRS03fCreate: 14 creation tests
   - TestRS03fRepair: 25 repair/fix tests
+  - TestRS03fScan: 19 scanning tests
 """
 
 import difflib
@@ -1407,3 +1408,327 @@ class TestRS03fRepair(GoldenTestSuite):
         ]
         _run_golden_compare("fix_plus56_little_truncated", cmd, tmp_path,
                             image_path=tmp_iso, ecc_path=ecc_plus56)
+
+
+# ---------------------------------------------------------------------------
+# Helper: append fixed-random-sequence
+# ---------------------------------------------------------------------------
+
+def _append_fixed_random_sequence(path, times=1):
+    """Append the fixed-random-sequence file content to path, `times` times."""
+    with open(_FIXED_RANDOM_SEQ, "rb") as f:
+        seq_data = f.read()
+    with open(path, "ab") as f:
+        for _ in range(times):
+            f.write(seq_data)
+
+
+# ---------------------------------------------------------------------------
+# Test Suite: Scanning
+# ---------------------------------------------------------------------------
+
+class TestRS03fScan:
+    """RS03f scanning tests migrated from regtest/rs03f.bash lines 1011-1253."""
+
+    def test_scan_good(self, tmp_path):
+        """Scan complete / optimal image."""
+        master = _ensure_master()
+        master_ecc = _ensure_master_ecc()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(master, sim_iso)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(master_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s",
+        ]
+        _run_golden_compare("scan_good", cmd, tmp_path)
+
+    def test_scan_good_verbose(self, tmp_path):
+        """Scan complete / optimal image, verbose output."""
+        master = _ensure_master()
+        master_ecc = _ensure_master_ecc()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(master, sim_iso)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(master_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s", "-v",
+        ]
+        _run_golden_compare("scan_good_verbose", cmd, tmp_path)
+
+    def test_scan_shorter(self, tmp_path):
+        """Scan image which is shorter than expected."""
+        master = _ensure_master()
+        master_ecc = _ensure_master_ecc()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(master, sim_iso)
+        _apply_damage(sim_iso, [Truncate(ISOSIZE - 44)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(master_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s",
+        ]
+        _run_golden_compare("scan_shorter", cmd, tmp_path)
+
+    def test_scan_longer(self, tmp_path):
+        """Scan image which is longer than expected."""
+        master = _ensure_master()
+        master_ecc = _ensure_master_ecc()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(master, sim_iso)
+        _append_fixed_random_sequence(sim_iso, 23)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(master_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s", "-v",
+        ]
+        _run_golden_compare("scan_longer", cmd, tmp_path)
+
+    def test_scan_tao_tail(self, tmp_path):
+        """Scan image with two multisession link sectors appended."""
+        master = _ensure_master()
+        master_ecc = _ensure_master_ecc()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(master, sim_iso)
+        _append_fixed_random_sequence(sim_iso, 1)
+        _apply_damage(sim_iso, [Erase("21000-21001")])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(master_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s",
+        ]
+        _run_golden_compare("scan_tao_tail", cmd, tmp_path)
+
+    def test_scan_no_tao_tail(self, tmp_path):
+        """Scan image with two real sectors missing at the end."""
+        master = _ensure_master()
+        master_ecc = _ensure_master_ecc()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(master, sim_iso)
+        _append_fixed_random_sequence(sim_iso, 1)
+        _apply_damage(sim_iso, [Erase("20998-20999")])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(master_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s", "--dao",
+        ]
+        _run_golden_compare("scan_no_tao_tail", cmd, tmp_path)
+
+    def test_scan_incompatible_ecc(self, tmp_path):
+        """Scan image requiring a newer dvdisaster version."""
+        master = _ensure_master()
+        master_ecc = _ensure_master_ecc()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        shutil.copy2(master_ecc, tmp_ecc)
+        # Creator version 99.99 + version info 99.99 + patched selfcrc
+        for sector, offset, val in [
+            (0, 84, 220), (0, 85, 65), (0, 86, 15),
+            (0, 88, 220), (0, 89, 65), (0, 90, 15),
+            (0, 96, 123), (0, 97, 99), (0, 98, 62), (0, 99, 9),
+        ]:
+            _run_dvdisaster("--debug", "-i{}".format(tmp_ecc),
+                            "--byteset", "{},{},{}".format(sector, offset, val))
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s",
+        ]
+        _run_golden_compare("scan_incompatible_ecc", cmd, tmp_path,
+                            ignore_line_re=r'^\*          $')
+
+    def test_scan_bad_header(self, tmp_path):
+        """Scan image with a defective ECC header."""
+        master = _ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        shutil.copy2(_ensure_master_ecc(), tmp_ecc)
+        _apply_damage(tmp_ecc, [Byteset(0, 1, 1)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s", "-v",
+        ]
+        _run_golden_compare("scan_bad_header", cmd, tmp_path)
+
+    def test_scan_missing_data_sectors(self, tmp_path):
+        """Scan image with missing data sectors."""
+        master = _ensure_master()
+        master_ecc = _ensure_master_ecc()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(master, sim_iso)
+        _apply_damage(sim_iso, [
+            Erase("1000-1049"), Erase("11230"), Erase("12450-12457"),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(master_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s",
+        ]
+        _run_golden_compare("scan_missing_data_sectors", cmd, tmp_path)
+
+    def test_scan_missing_crc_sectors(self, tmp_path):
+        """Scan image with missing CRC sectors in ecc file."""
+        master = _ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        shutil.copy2(_ensure_master_ecc(), tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("5"), Erase("77-86")])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s",
+        ]
+        _run_golden_compare("scan_missing_crc_sectors", cmd, tmp_path)
+
+    def test_scan_missing_ecc_sectors(self, tmp_path):
+        """Scan image with missing ECC sectors in ecc file."""
+        master = _ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        shutil.copy2(_ensure_master_ecc(), tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("120"), Erase("134-190")])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s",
+        ]
+        _run_golden_compare("scan_missing_ecc_sectors", cmd, tmp_path)
+
+    def test_scan_data_bad_byte(self, tmp_path):
+        """Scan image with bad byte in the data section."""
+        master = _ensure_master()
+        master_ecc = _ensure_master_ecc()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        shutil.copy2(master, sim_iso)
+        _apply_damage(sim_iso, [Byteset(1235, 50, 10)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(master_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s",
+        ]
+        _run_golden_compare("scan_data_bad_byte", cmd, tmp_path)
+
+    def test_scan_crc_bad_byte(self, tmp_path):
+        """Scan image with bad byte in the CRC section of ecc file."""
+        master = _ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        shutil.copy2(_ensure_master_ecc(), tmp_ecc)
+        _apply_damage(tmp_ecc, [Byteset(77, 50, 10)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s",
+        ]
+        _run_golden_compare("scan_crc_bad_byte", cmd, tmp_path)
+
+    def test_scan_ecc_bad_byte(self, tmp_path):
+        """Scan image with bad byte in the ECC section of ecc file."""
+        master = _ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03f-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        shutil.copy2(_ensure_master_ecc(), tmp_ecc)
+        _apply_damage(tmp_ecc, [Byteset(200, 50, 10)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s",
+        ]
+        _run_golden_compare("scan_ecc_bad_byte", cmd, tmp_path)
+
+    def test_scan_missing_ecc_header(self, tmp_path):
+        """Scan image with missing ecc header."""
+        master = _ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        shutil.copy2(_ensure_master_ecc(), tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("0")])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(master), "-e{}".format(tmp_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s", "-v",
+        ]
+        _run_golden_compare("scan_missing_ecc_header", cmd, tmp_path)
+
+    def test_scan_missing_ecc_header_and_crc(self, tmp_path):
+        """Scan image with missing ecc header and CRC blocks."""
+        master = _ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        shutil.copy2(_ensure_master_ecc(), tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("0-16")])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(master), "-e{}".format(tmp_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s", "-v",
+        ]
+        _run_golden_compare("scan_missing_ecc_header_and_crc", cmd, tmp_path)
+
+    def test_scan_missing_ecc_header_and_defective_crc(self, tmp_path):
+        """Scan image with ecc header missing, first CRC block defective."""
+        master = _ensure_master()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(master, sim_iso)
+        shutil.copy2(_ensure_master_ecc(), tmp_ecc)
+        _apply_damage(tmp_ecc, [Erase("0"), Byteset(2, 50, 107)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(master), "-e{}".format(tmp_ecc),
+            "--debug", "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "--spinup-delay=0", "-s", "-v",
+        ]
+        _run_golden_compare("scan_missing_ecc_header_and_defective_crc", cmd, tmp_path)
+
+    def test_scan_ecc_header_crc_error(self, tmp_path):
+        """Checksum error in ecc header."""
+        master = _ensure_master()
+        tmp_ecc = os.path.join(str(tmp_path), "rs03f-tmp.ecc")
+        shutil.copy2(_ensure_master_ecc(), tmp_ecc)
+        _apply_damage(tmp_ecc, [Byteset(0, 32, 107)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(master), "-e{}".format(tmp_ecc),
+            "--debug", "--sim-cd={}".format(master), "--fixed-speed-values",
+            "--spinup-delay=0", "-s", "-v",
+        ]
+        _run_golden_compare("scan_ecc_header_crc_error", cmd, tmp_path)
