@@ -7,6 +7,7 @@ RS03i is the image-embedded ECC mode: ECC data is embedded directly in the image
 Tests are grouped into:
   - TestRS03iStrip: 2 strip tests
   - TestRS03iVerify: 48 verify tests
+  - TestRS03iCreate: 20 creation tests
 """
 
 import difflib
@@ -984,3 +985,406 @@ class TestRS03iVerify(GoldenTestSuite):
              "-i{}".format(tmp_iso), "-t"],
             tmp_path, image_path=tmp_iso,
         )
+
+
+# ---------------------------------------------------------------------------
+# Creation tests
+# ---------------------------------------------------------------------------
+
+class TestRS03iCreate:
+    """RS03i creation tests -- from regtest/rs03i.bash lines 739-1013."""
+
+    _CREATE_IGNORE_RE = r'^Avg performance|^Augmenting image with Method RS03'
+
+    def test_ecc_create(self, tmp_path):
+        """Basic augmented image creation."""
+        raw = _ensure_raw_image()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, tmp_iso)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n{}".format(ECCSIZE), "-c",
+        ]
+        _run_golden_compare("ecc_create", cmd, tmp_path, image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_missing_image(self, tmp_path):
+        """Create augmented image with missing image."""
+        no_iso = os.path.join(_ISODIR, "no.iso")
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(no_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n{}".format(ECCSIZE), "-c",
+        ]
+        _run_golden_compare("ecc_missing_image", cmd, tmp_path,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_no_read_perm(self, tmp_path):
+        """Create augmented image with no read permission on image."""
+        raw = _ensure_raw_image()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, tmp_iso)
+        os.chmod(tmp_iso, 0o000)
+        try:
+            cmd = [
+                "--regtest", "--no-progress",
+                "-i{}".format(tmp_iso),
+                "--debug", "--set-version", SETVERSION,
+                "-mRS03", "-n{}".format(ECCSIZE), "-c",
+            ]
+            _run_golden_compare("ecc_no_read_perm", cmd, tmp_path,
+                                ignore_line_re=self._CREATE_IGNORE_RE)
+        finally:
+            os.chmod(tmp_iso, 0o644)
+
+    def test_ecc_no_write_perm(self, tmp_path):
+        """Create augmented image with no write permission on image."""
+        raw = _ensure_raw_image()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, tmp_iso)
+        os.chmod(tmp_iso, 0o400)
+        try:
+            cmd = [
+                "--regtest", "--no-progress",
+                "-i{}".format(tmp_iso),
+                "--debug", "--set-version", SETVERSION,
+                "-mRS03", "-n{}".format(ECCSIZE), "-c",
+            ]
+            _run_golden_compare("ecc_no_write_perm", cmd, tmp_path,
+                                ignore_line_re=self._CREATE_IGNORE_RE)
+        finally:
+            os.chmod(tmp_iso, 0o644)
+
+    def test_ecc_from_rs03(self, tmp_path):
+        """Create augmented image from already RS03-augmented image."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n{}".format(ECCSIZE), "-c",
+        ]
+        _run_golden_compare("ecc_from_rs03", cmd, tmp_path, image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_from_rs02(self, tmp_path):
+        """Create augmented image from already RS02-augmented image."""
+        raw = _ensure_raw_image()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, tmp_iso)
+        # Augment with RS02 first
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(tmp_iso),
+            "-mRS02", "-n{}".format(ECCSIZE + 5000), "-c",
+        )
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n{}".format(ECCSIZE), "-c",
+        ]
+        _run_golden_compare("ecc_from_rs02", cmd, tmp_path, image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_from_larger_rs03(self, tmp_path):
+        """Create augmented image from RS03-augmented image with higher redundancy."""
+        raw = _ensure_raw_image()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, tmp_iso)
+        # Augment with RS03 larger first
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(tmp_iso),
+            "-mRS03", "-n{}".format(ECCSIZE + 5000), "-c",
+        )
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n{}".format(ECCSIZE), "-c",
+        ]
+        _run_golden_compare("ecc_from_larger_rs03", cmd, tmp_path, image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_from_rs02_non_blocksize(self, tmp_path):
+        """Create augmented image from RS02-augmented image with non-block size."""
+        raw = _ensure_raw_image()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, tmp_iso)
+        # Append 56 bytes
+        with open(tmp_iso, "ab") as f:
+            f.write(b"1" * 56)
+        # Augment with RS02
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(tmp_iso),
+            "-mRS02", "-n{}".format(ECCSIZE), "-c",
+        )
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n{}".format(ECCSIZE), "-c", "-a", "RS03",
+        ]
+        _run_golden_compare("ecc_from_rs02_non_blocksize", cmd, tmp_path, image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_from_rs03_non_blocksize(self, tmp_path):
+        """Create augmented image from RS03-augmented image with non-block size."""
+        raw = _ensure_raw_image()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, tmp_iso)
+        # Append 56 bytes
+        with open(tmp_iso, "ab") as f:
+            f.write(b"1" * 56)
+        # Augment with RS03
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(tmp_iso),
+            "-mRS03", "-n{}".format(ECCSIZE), "-c",
+        )
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n{}".format(ECCSIZE), "-c", "-a", "RS03",
+        ]
+        _run_golden_compare("ecc_from_rs03_non_blocksize", cmd, tmp_path, image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_from_larger_rs03_non_blocksize(self, tmp_path):
+        """Create augmented image from RS03-augmented image with non-block size, larger redundancy."""
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        # Create fresh random image of ISOSIZE+1 sectors, then truncate
+        _run_dvdisaster(
+            "--debug",
+            "-i{}".format(tmp_iso),
+            "--random-image", str(ISOSIZE + 1),
+        )
+        _run_dvdisaster(
+            "--debug",
+            "-i{}".format(tmp_iso),
+            "--truncate={}".format(ISOSIZE),
+        )
+        # Append 56 bytes
+        with open(tmp_iso, "ab") as f:
+            f.write(b"1" * 56)
+        # Augment with RS03 larger
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(tmp_iso),
+            "-mRS03", "-n{}".format(ECCSIZE + 5000), "-c",
+        )
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n{}".format(ECCSIZE), "-c",
+        ]
+        _run_golden_compare("ecc_from_larger_rs03_non_blocksize", cmd, tmp_path, image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_non_blocksize(self, tmp_path):
+        """Create augmented image from image with 56 extra bytes."""
+        raw = _ensure_raw_image()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, tmp_iso)
+        # Append 56 bytes
+        with open(tmp_iso, "ab") as f:
+            f.write(b"1" * 56)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n{}".format(ECCSIZE), "-c",
+        ]
+        _run_golden_compare("ecc_non_blocksize", cmd, tmp_path, image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_missing_sectors(self, tmp_path):
+        """Create augmented image from image with missing sectors."""
+        raw = _ensure_raw_image()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, tmp_iso)
+        _apply_damage(tmp_iso, [Erase("500-524")])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n{}".format(ECCSIZE), "-c",
+        ]
+        _run_golden_compare("ecc_missing_sectors", cmd, tmp_path, image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_layer_multiple(self, tmp_path):
+        """Create augmented image where image size is exact multiple of layer size."""
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        _run_dvdisaster(
+            "--debug",
+            "-i{}".format(tmp_iso),
+            "--random-image", "14508",
+        )
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n20000", "-c",
+        ]
+        _run_golden_compare("ecc_layer_multiple", cmd, tmp_path, image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_no_padding(self, tmp_path):
+        """Create augmented image crafted to have no padding."""
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        _run_dvdisaster(
+            "--debug",
+            "-i{}".format(tmp_iso),
+            "--random-image", "14506",
+        )
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "-mRS03", "-n20000", "-c",
+        ]
+        _run_golden_compare("ecc_no_padding", cmd, tmp_path, image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_create_after_read(self, tmp_path):
+        """Read image and create ecc in one call."""
+        raw = _ensure_raw_image()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, sim_iso)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "--set-version", SETVERSION,
+            "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "-r", "-mRS03", "-c", "-n{}".format(ECCSIZE), "-v", "--spinup-delay=0",
+        ]
+        _run_golden_compare("ecc_create_after_read", cmd, tmp_path,
+                            image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_create_after_partial_read(self, tmp_path):
+        """Create ecc after completing partial image."""
+        raw = _ensure_raw_image()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03i-tmp.ecc")
+        shutil.copy2(raw, sim_iso)
+        shutil.copy2(sim_iso, tmp_iso)
+        _apply_damage(tmp_iso, [Erase("1000-1500")])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "--debug", "--set-version", SETVERSION,
+            "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "-r", "-mRS03", "-c", "-n{}".format(ECCSIZE), "-v", "--spinup-delay=0",
+        ]
+        _run_golden_compare("ecc_create_after_partial_read", cmd, tmp_path,
+                            image_path=tmp_iso,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_recreate_after_read_rs01(self, tmp_path):
+        """Read RS01-protected image, create RS03i augmentation."""
+        raw = _ensure_raw_image()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03i-tmp.ecc")
+        shutil.copy2(raw, sim_iso)
+        # Create RS01 ecc for the sim image
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(sim_iso), "-e{}".format(tmp_ecc),
+            "-mRS01", "-c", "-n", "10r",
+        )
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "--debug", "--set-version", SETVERSION,
+            "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "-r", "-mRS03", "-c", "-n{}".format(ECCSIZE), "-v", "--spinup-delay=0",
+        ]
+        _run_golden_compare("ecc_recreate_after_read_rs01", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=tmp_ecc,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_recreate_after_read_rs02(self, tmp_path):
+        """Read RS02-protected image, create RS03i augmentation."""
+        raw = _ensure_raw_image()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03i-tmp.ecc")
+        shutil.copy2(raw, sim_iso)
+        # Augment sim image with RS02
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(sim_iso),
+            "-mRS02", "-c", "-n24000",
+        )
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "--debug", "--set-version", SETVERSION,
+            "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "-r", "-mRS03", "-c", "-n{}".format(ECCSIZE), "-v", "--spinup-delay=0",
+        ]
+        _run_golden_compare("ecc_recreate_after_read_rs02", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=tmp_ecc,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_recreate_after_read_rs03i(self, tmp_path):
+        """Read RS03i-protected image, create new RS03i augmentation."""
+        raw = _ensure_raw_image()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03i-tmp.ecc")
+        shutil.copy2(raw, sim_iso)
+        # Augment sim image with RS03i
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(sim_iso),
+            "-mRS03", "-c", "-n23000",
+        )
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "--debug", "--set-version", SETVERSION,
+            "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "-r", "-mRS03", "-c", "-n{}".format(ECCSIZE), "-v", "--spinup-delay=0",
+        ]
+        _run_golden_compare("ecc_recreate_after_read_rs03i", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=tmp_ecc,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
+
+    def test_ecc_recreate_after_read_rs03f(self, tmp_path):
+        """Read RS03f-protected image, create RS03i augmentation."""
+        raw = _ensure_raw_image()
+        sim_iso = os.path.join(str(tmp_path), "sim.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03i-tmp.ecc")
+        shutil.copy2(raw, sim_iso)
+        # Create RS03f ecc file for the sim image
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(sim_iso), "-e{}".format(tmp_ecc),
+            "-mRS03", "-c", "-n", "10r", "-o", "file",
+        )
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "--debug", "--set-version", SETVERSION,
+            "--sim-cd={}".format(sim_iso), "--fixed-speed-values",
+            "-r", "-mRS03", "-c", "-n{}".format(ECCSIZE), "-v", "--spinup-delay=0",
+        ]
+        _run_golden_compare("ecc_recreate_after_read_rs03f", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=tmp_ecc,
+                            ignore_line_re=self._CREATE_IGNORE_RE)
