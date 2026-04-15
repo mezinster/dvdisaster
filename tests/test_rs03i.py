@@ -8,6 +8,7 @@ Tests are grouped into:
   - TestRS03iStrip: 2 strip tests
   - TestRS03iVerify: 48 verify tests
   - TestRS03iCreate: 20 creation tests
+  - TestRS03iFix: 27 fixing tests
 """
 
 import difflib
@@ -1388,3 +1389,486 @@ class TestRS03iCreate:
         _run_golden_compare("ecc_recreate_after_read_rs03f", cmd, tmp_path,
                             image_path=tmp_iso, ecc_path=tmp_ecc,
                             ignore_line_re=self._CREATE_IGNORE_RE)
+
+
+# ---------------------------------------------------------------------------
+# Fix tests
+# ---------------------------------------------------------------------------
+
+class TestRS03iFix:
+    """RS03i fix (repair) tests -- from regtest/rs03i.bash lines 1015-1369."""
+
+    def test_fix_no_read_perm(self, tmp_path):
+        """Fix fails when image is not readable."""
+        raw = _ensure_raw_image()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, tmp_iso)
+        os.chmod(tmp_iso, 0o000)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        try:
+            _run_golden_compare("fix_no_read_perm", cmd, tmp_path,
+                                image_path=tmp_iso)
+        finally:
+            os.chmod(tmp_iso, 0o644)
+
+    def test_fix_no_write_perm(self, tmp_path):
+        """Fix fails when image is read-only."""
+        raw = _ensure_raw_image()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(raw, tmp_iso)
+        os.chmod(tmp_iso, 0o400)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        try:
+            _run_golden_compare("fix_no_write_perm", cmd, tmp_path,
+                                image_path=tmp_iso)
+        finally:
+            os.chmod(tmp_iso, 0o644)
+
+    def test_fix_good_image(self, tmp_path):
+        """Fix already good image."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_good_image", cmd, tmp_path, image_path=tmp_iso)
+
+    def test_fix_truncated_image(self, tmp_path):
+        """Fix truncated image (REAL_ECCSIZE-210 = 24780 sectors)."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [Truncate(REAL_ECCSIZE - 210)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_truncated_image", cmd, tmp_path, image_path=tmp_iso)
+
+    def test_fix_trailing_bytes(self, tmp_path):
+        """Fix image with trailing garbage bytes appended."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        with open(tmp_iso, "ab") as f:
+            f.write(b"some trailing garbage appended for testing\n")
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_trailing_bytes", cmd, tmp_path, image_path=tmp_iso)
+
+    def test_fix_trailing_tao(self, tmp_path):
+        """Fix image with 2 trailing zero sectors (TAO)."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        with open(tmp_iso, "ab") as f:
+            f.write(b'\x00' * (2 * 2048))
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_trailing_tao", cmd, tmp_path, image_path=tmp_iso)
+
+    def test_fix_trailing_garbage(self, tmp_path):
+        """Fix image with 23 trailing zero sectors."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        with open(tmp_iso, "ab") as f:
+            f.write(b'\x00' * (23 * 2048))
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_trailing_garbage", cmd, tmp_path, image_path=tmp_iso)
+
+    def test_fix_trailing_garbage2(self, tmp_path):
+        """Fix image with 23 trailing zero sectors using --truncate."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        with open(tmp_iso, "ab") as f:
+            f.write(b'\x00' * (23 * 2048))
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f", "--truncate",
+        ]
+        _run_golden_compare("fix_trailing_garbage2", cmd, tmp_path, image_path=tmp_iso)
+
+    def test_fix_correctable(self, tmp_path):
+        """Fix image with correctable errors."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Erase("500-524"),
+            Erase("1000"),
+            Byteset(2000, 0, 111),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_correctable", cmd, tmp_path, image_path=tmp_iso)
+
+    def test_fix_border_cases_erasures(self, tmp_path):
+        """Fix image with erasures at border sectors."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Erase("0"), Erase("98"), Erase("196"), Erase("20972"),
+            Erase("21070"), Erase("21168"), Erase("21266"), Erase("24892"),
+            Erase("97"), Erase("195"), Erase("293"), Erase("20999"),
+            Erase("21167"), Erase("21265"), Erase("21363"), Erase("24989"),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_border_cases_erasures", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_border_cases_crc_errors(self, tmp_path):
+        """Fix image with CRC errors at border sectors."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Byteset(0, 0, 1), Byteset(98, 0, 0), Byteset(196, 0, 0),
+            Byteset(20972, 0, 0), Byteset(21070, 0, 0), Byteset(21168, 0, 0),
+            Byteset(21266, 0, 0), Byteset(24892, 0, 0),
+            Byteset(97, 0, 0), Byteset(195, 0, 0), Byteset(293, 0, 0),
+            Byteset(20999, 0, 0), Byteset(21167, 0, 0), Byteset(21265, 0, 0),
+            Byteset(21363, 0, 0), Byteset(24989, 0, 0),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_border_cases_crc_errors", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_layer_multiple(self, tmp_path):
+        """Fix image where ISO size is a layer multiple."""
+        raw_path = os.path.join(str(tmp_path), "rs03i-lm-raw.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        _run_dvdisaster(
+            "--regtest", "--debug",
+            "-i{}".format(raw_path),
+            "--random-image", "14508",
+            check=True,
+        )
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(raw_path),
+            "-mRS03", "-c", "-n20000",
+            check=True,
+        )
+        shutil.copy2(raw_path, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Erase("500-524"),
+            Erase("14510-14520"),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_layer_multiple", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_no_padding(self, tmp_path):
+        """Fix image without padding (ISO size not a layer multiple)."""
+        raw_path = os.path.join(str(tmp_path), "rs03i-np-raw.iso")
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        _run_dvdisaster(
+            "--regtest", "--debug",
+            "-i{}".format(raw_path),
+            "--random-image", "14506",
+            check=True,
+        )
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(raw_path),
+            "-mRS03", "-c", "-n20000",
+            check=True,
+        )
+        shutil.copy2(raw_path, tmp_iso)
+        _apply_damage(tmp_iso, [Erase("500-524")])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_no_padding", cmd, tmp_path, image_path=tmp_iso)
+
+    def test_fix_with_rs01_file(self, tmp_path):
+        """Fix RS03i image with outer RS01 ecc file."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03i-tmp.ecc")
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(master), "-e{}".format(tmp_ecc),
+            "-c", "-n", "normal",
+        )
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [Byteset(24989, 0, 1)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "-f",
+        ]
+        _run_golden_compare("fix_with_rs01_file", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=tmp_ecc)
+
+    def test_fix_with_rs03_file(self, tmp_path):
+        """Fix RS03i image with outer RS03f ecc file."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        tmp_ecc = os.path.join(str(tmp_path), "rs03i-tmp.ecc")
+        _run_dvdisaster(
+            "--regtest", "--debug", "--set-version", SETVERSION,
+            "-i{}".format(master), "-e{}".format(tmp_ecc),
+            "-mRS03", "-c", "-n", "20r", "-o", "file",
+        )
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [Byteset(24989, 0, 1)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso), "-e{}".format(tmp_ecc),
+            "-f",
+        ]
+        _run_golden_compare("fix_with_rs03_file", cmd, tmp_path,
+                            image_path=tmp_iso, ecc_path=tmp_ecc)
+
+    def test_fix_with_missing_header(self, tmp_path):
+        """Fix image with missing RS03 header sector."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [Erase(str(ISOSIZE))])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "-n{}".format(ECCSIZE),
+            "-f", "-v",
+        ]
+        _run_golden_compare("fix_with_missing_header", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_with_missing_iso_header(self, tmp_path):
+        """Fix image with missing ISO header (sector 16)."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [Erase("16")])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "-n{}".format(ECCSIZE),
+            "-f", "-v",
+        ]
+        _run_golden_compare("fix_with_missing_iso_header", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_with_ecc_file_header(self, tmp_path):
+        """Fix image where header has ecc-file bit set."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Byteset(ISOSIZE, 16, 2),
+            Byteset(ISOSIZE, 96, 142),
+            Byteset(ISOSIZE, 97, 43),
+            Byteset(ISOSIZE, 98, 137),
+            Byteset(ISOSIZE, 99, 29),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "-n{}".format(ECCSIZE),
+            "-f", "-v",
+        ]
+        _run_golden_compare("fix_with_ecc_file_header", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_with_ecc_file_crc_block(self, tmp_path):
+        """Fix image where CRC block has ecc-file bit set."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Erase(str(ISOSIZE)),
+            Byteset(21070, 1040, 2),
+            Byteset(21070, 1120, 208),
+            Byteset(21070, 1121, 250),
+            Byteset(21070, 1122, 142),
+            Byteset(21070, 1123, 101),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "-n{}".format(ECCSIZE),
+            "-f", "-v",
+        ]
+        _run_golden_compare("fix_with_ecc_file_crc_block", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_with_crc_error_in_padding(self, tmp_path):
+        """Fix image with CRC error in padding area."""
+        master = _ensure_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [Byteset(21020, 400, 255)])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "-n{}".format(ECCSIZE),
+            "-f",
+        ]
+        _run_golden_compare("fix_with_crc_error_in_padding", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_custom_n_good(self, tmp_path):
+        """Fix already good custom-size image."""
+        master = _ensure_custom_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_custom_n_good", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_custom_n_bad_header_with_n(self, tmp_path):
+        """Fix custom-size image with bad header, providing -n."""
+        master = _ensure_custom_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Byteset(ISOSIZE, 1, 1),
+            Erase("500-524"),
+            Erase("1000"),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "-n{}".format(CUSTOM_ECCSIZE),
+            "-f",
+        ]
+        _run_golden_compare("fix_custom_n_bad_header_with_n", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_custom_n_bad_header_no_n(self, tmp_path):
+        """Fix custom-size image with bad header, no -n provided."""
+        master = _ensure_custom_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Byteset(ISOSIZE, 1, 1),
+            Erase("500-524"),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_custom_n_bad_header_no_n", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_custom_n_bad_header_bruteforce(self, tmp_path):
+        """Fix custom-size image with bad header using bruteforce search."""
+        master = _ensure_custom_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Byteset(ISOSIZE, 1, 1),
+            Erase("500-524"),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--bruteforce-rs03-search", "-f",
+        ]
+        _run_golden_compare("fix_custom_n_bad_header_bruteforce", cmd,
+                            tmp_path, image_path=tmp_iso)
+
+    def test_fix_custom_n_truncated_with_n(self, tmp_path):
+        """Fix truncated custom-size image with bad header, providing -n."""
+        master = _ensure_custom_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Byteset(ISOSIZE, 1, 1),
+            Erase("500-524"),
+            Truncate(21500),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--debug", "-n{}".format(CUSTOM_ECCSIZE),
+            "-f",
+        ]
+        _run_golden_compare("fix_custom_n_truncated_with_n", cmd, tmp_path,
+                            image_path=tmp_iso)
+
+    def test_fix_custom_n_truncated_no_bruteforce(self, tmp_path):
+        """Fix truncated custom-size image with bad header, no -n, no bruteforce (expected to fail)."""
+        master = _ensure_custom_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Byteset(ISOSIZE, 1, 1),
+            Erase("500-524"),
+            Truncate(21500),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "-f",
+        ]
+        _run_golden_compare("fix_custom_n_truncated_no_bruteforce", cmd,
+                            tmp_path, image_path=tmp_iso)
+
+    def test_fix_custom_n_truncated_bruteforce(self, tmp_path):
+        """Fix truncated custom-size image with bad header using bruteforce."""
+        master = _ensure_custom_master()
+        tmp_iso = os.path.join(str(tmp_path), "rs03i-tmp.iso")
+        shutil.copy2(master, tmp_iso)
+        _apply_damage(tmp_iso, [
+            Byteset(ISOSIZE, 1, 1),
+            Erase("500-524"),
+            Truncate(21500),
+        ])
+        cmd = [
+            "--regtest", "--no-progress",
+            "-i{}".format(tmp_iso),
+            "--bruteforce-rs03-search", "-f",
+        ]
+        _run_golden_compare("fix_custom_n_truncated_bruteforce", cmd,
+                            tmp_path, image_path=tmp_iso)
