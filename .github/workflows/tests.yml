@@ -70,7 +70,7 @@ jobs:
     - name: pytest integration tests
       if: matrix.printf == 'normal'
       run: |
-        pip install --break-system-packages pytest
+        python3 -m pip install --break-system-packages pytest
         python3 -m pytest tests/ -v
   win:
     runs-on: windows-latest
