@@ -1,6 +1,6 @@
 # dvdisaster Test Suite
 
-This directory contains the Python/pytest integration test suite for dvdisaster. It is replacing the legacy bash-based regression tests in `regtest/` with a declarative, maintainable framework.
+This directory contains the Python/pytest integration test suite for dvdisaster. All regression tests have been migrated from the legacy bash-based framework in `regtest/` to this declarative, maintainable Python framework. The bash tests in `regtest/config.txt` are all disabled; the golden reference files in `regtest/database/` are still used by the Python tests.
 
 ## Quick Start
 
@@ -28,14 +28,14 @@ Master images are cached in `/var/tmp/regtest/` (created on first run, reused th
 
 | File | Tests | Status |
 |------|------:|--------|
-| `test_rs01.py` | 145 | Migrated from bash (143 pass, 2 skip) |
-| `test_rs02.py` | 149 | Migrated from bash (147 pass, 2 skip) |
+| `test_rs01.py` | 85 | Migrated from bash |
+| `test_rs02.py` | 76 | Migrated from bash |
+| `test_rs03f.py` | 85 | Migrated from bash |
+| `test_rs03i.py` | 142 | Migrated from bash |
 | `test_multipass_read.py` | 4 | Semantic tests (all codecs) |
 | `test_rs03_recognize.py` | 4 | Semantic tests (RS03 recognition) |
 | `test_framework.py` | 28 | Unit tests for the framework itself |
-| **Total** | **330** | |
-
-Skipped tests are placeholder entries (`golden_test0`) in classes that define no declarative golden tests -- they have no effect and will be removed when the framework drops the placeholder requirement.
+| **Total** | **424** | |
 
 ## Architecture
 
@@ -164,6 +164,38 @@ Notable test patterns:
 - **Large file test**: Creates a 223456-sector (~450MB) image to test repair across all three RS02 sections (data, CRC, ECC)
 - **Cross-codec creation**: Tests creating RS02 ECC on images that already have RS01/RS03 ECC data
 
+### `test_rs03f.py` -- RS03f (File-Based ECC, RS03 Algorithm)
+
+RS03f creates a separate `.ecc` file (like RS01) but uses the RS03 algorithm. Tests use a 21000-sector master image with 20-root redundancy.
+
+| Class | Tests | What it covers |
+|-------|------:|----------------|
+| `TestRS03fVerify` | 34 | Image+ECC verification: good, truncated, padded, plus56 bytes, CRC errors, missing sectors, DSM, ecc file manipulation |
+| `TestRS03fCreate` | 14 | ECC creation: normal, missing image, permissions, plus56, after read, cross-codec (RS01/RS02/RS03i/RS03f) |
+| `TestRS03fRepair` | 26 | Image repair: good, missing sectors, border cases, plus56 variants, extra sectors, truncation, ecc damage |
+| `TestRS03fScan` | 18 | Simulated CD scanning: good/defective media, TAO tail, incompatible ecc, header damage, cross-section errors |
+| `TestRS03fReadLinear` | 18 | Linear reading: good/defective media, TAO tail, incompatible ecc, CRC errors, DSM, multipass |
+| `TestRS03fReadAdaptive` | 1 | Adaptive reading: good media baseline |
+
+### `test_rs03i.py` -- RS03i (Image-Embedded ECC, RS03 Algorithm)
+
+RS03i embeds ECC data directly in the image (like RS02) using the RS03 algorithm. Tests use a 21000-sector raw image augmented to ~25000 sectors. Includes resource-intensive tests with large master images (~460MB) for header recovery and root discovery.
+
+| Class | Tests | What it covers |
+|-------|------:|----------------|
+| `TestRS03iStrip` | 2 | Stripping ECC data from augmented images |
+| `TestRS03iVerify` | 48 | Image verification: good, truncated, padded, plus56, CRC errors, missing sectors, DSM, header recovery, root discovery, cross-codec, custom -n |
+| `TestRS03iCreate` | 20 | ECC creation: normal, permissions, from other codecs, non-blocksize, layer multiple, no padding, after read |
+| `TestRS03iFix` | 27 | Image repair: good, truncated, trailing bytes/TAO/garbage, border cases, cross-codec, header recovery, custom -n with bruteforce |
+| `TestRS03iScan` | 33 | Simulated CD scanning: good/defective, TAO tail, header recovery, root discovery, cross-codec, padding errors |
+| `TestRS03iReadLinear` | 29 | Linear reading: good/defective, header recovery (exhaustive), cross-codec, DSM, multipass, padding errors |
+
+Notable RS03i-specific patterns:
+- **Large master images**: 235219-sector (~460MB) images for header recovery and root discovery tests
+- **Root discovery**: Tests that verify dvdisaster can determine the ECC root count (8 or 170) from a damaged image
+- **Custom -n**: Tests with explicit `-n` override for ECC size, including bruteforce header recovery
+- **Layer multiple / no padding**: Edge cases where image size aligns exactly with RS03 internal layout
+
 ### `test_multipass_read.py` -- Multipass Reading (All Codecs)
 
 Semantic tests (not golden-file) for multipass reading across RS01, RS02, RS03f (file mode), and RS03i (image mode). These replace flaky bash tests where golden-file comparison was unreliable due to timing-dependent output ordering.
@@ -223,8 +255,8 @@ GoldenTest("scan_defective_no_ecc", action="-s",
 
 | Aspect | Bash (`regtest/`) | Python (`tests/`) |
 |--------|-------------------|-------------------|
-| **Test count** | 569 (145 RS01 + 150 RS02 + 160 RS03i + 114 RS03f) | 330 (145 RS01 + 149 RS02 + 8 semantic + 28 framework) |
-| **Migration status** | RS01/RS02 disabled | RS01/RS02 migrated; RS03f/RS03i pending |
+| **Test count** | 569 (145 RS01 + 150 RS02 + 160 RS03i + 114 RS03f) | 424 (85 RS01 + 76 RS02 + 85 RS03f + 142 RS03i + 8 semantic + 28 framework) |
+| **Migration status** | All disabled | All codecs migrated |
 | **Test declaration** | Imperative shell scripts (~100-300 LOC each) | Declarative DSL (data + base class) |
 | **Lines per test** | 5-15 lines of bash | 2-5 lines of Python (golden tests) |
 | **Assertion style** | Golden-file diff only | Hybrid: golden-file + semantic assertions |
@@ -259,16 +291,19 @@ GoldenTest("scan_defective_no_ecc", action="-s",
 
 ## Migration Status
 
-| Codec | Bash Tests | Python Tests | Status |
-|-------|-----------|-------------|--------|
-| RS01 | 145 (disabled) | 145 | Migrated |
-| RS02 | 150 (disabled) | 149 | Migrated |
-| RS03i | 160 (active) | -- | Pending |
-| RS03f | 114 (active) | -- | Pending |
+All codecs have been fully migrated from bash to Python. All bash tests are disabled in `regtest/config.txt`.
 
-The 1-test difference in RS02 is because 2 bash entries (`adaptive_with_rs03_file`, `adaptive_with_wrong_rs03_file`) were discovered to be linear read tests (not adaptive) already covered by `read_with_rs03_file` and `read_with_wrong_rs03_file`, plus `read_multipass_ecc_partial_success` lives in `test_multipass_read.py`.
+| Codec | Bash Tests (disabled) | Python Tests | Status |
+|-------|----------------------|-------------|--------|
+| RS01 | 145 | 85 | Migrated |
+| RS02 | 150 | 76 | Migrated |
+| RS03f | 114 | 85 | Migrated |
+| RS03i | 160 | 142 | Migrated |
 
-During migration, both bash and Python tests can coexist. Migrated codecs have their bash tests disabled in `regtest/config.txt` and annotated with a comment pointing to the Python replacement.
+Python test counts differ from bash because:
+- Many bash tests that used multi-step setup map to compact declarative `GoldenTest` entries (fewer methods, same coverage)
+- Some duplicate bash entries were consolidated
+- `read_multipass_ecc_partial_success` tests live in the shared `test_multipass_read.py`
 
 ## Adding New Tests
 

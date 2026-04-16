@@ -33,23 +33,28 @@ make show
 
 ## Running Tests
 
-Regression tests live in `regtest/` and are bash-based, comparing output against known-good database files in `regtest/database/`.
+The test suite is Python/pytest-based, living in `tests/`. All 424 tests have been migrated from the legacy bash framework. Golden reference files in `regtest/database/` are still used for output comparison.
 
 ```bash
-# Run all regression tests
-mkdir -p /var/tmp/regtest
-./regtest/runtests.sh
+# Run all tests
+pip install pytest  # one-time setup
+python3 -m pytest tests/ -v
 
-# Control parallelism (default: auto-detected)
-MAX_JOBS=4 ./regtest/runtests.sh
+# Run a single codec
+python3 -m pytest tests/test_rs01.py -v
 
-# Disable UTF-8 in test output (used in CI)
-REGTEST_NO_UTF8=1 ./regtest/runtests.sh
+# Run a specific test class
+python3 -m pytest tests/test_rs03i.py::TestRS03iVerify -v
+
+# Run a specific test
+python3 -m pytest "tests/test_rs01.py::TestRS01Verify::test_golden[good]" -v
 ```
 
-Test configuration is in `regtest/config.txt` — each test can be toggled yes/no. Tests are grouped by codec: `regtest/rs01.bash`, `regtest/rs02.bash`, `regtest/rs03f.bash` (RS03 file mode), `regtest/rs03i.bash` (RS03 image mode). Common helpers are in `regtest/common.bash`.
+Master images are cached in `/var/tmp/regtest/` (created on first run, reused thereafter). The first run is slower (~3GB of master images created). See `tests/README.md` for full framework documentation.
 
-When adding a new test: run it, then copy/modify `/dev/shm/newlog.txt` as the database reference file (see `regtest/README` for format details).
+### Legacy bash tests (disabled)
+
+The original bash regression tests in `regtest/` are all disabled in `regtest/config.txt`. The bash scripts and `regtest/common.bash` helpers remain as reference. Golden files in `regtest/database/` are shared between both frameworks.
 
 ## Architecture
 
