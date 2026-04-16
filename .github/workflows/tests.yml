@@ -74,7 +74,7 @@ jobs:
     - name: pytest integration tests
       if: matrix.printf == 'normal'
       run: |
-        pip install pytest
+        pip install --break-system-packages pytest
         python3 -m pytest tests/ -v
   win:
     runs-on: windows-latest
@@ -95,7 +95,7 @@ jobs:
       with:
         msystem: MINGW64
         update: false
-        install: git diffutils make pkg-config mingw-w64-x86_64-glib2 mingw-w64-x86_64-gcc mingw-w64-x86_64-ntldd-git mingw-w64-x86_64-python man zip
+        install: git diffutils make pkg-config mingw-w64-x86_64-glib2 mingw-w64-x86_64-gcc mingw-w64-x86_64-ntldd-git mingw-w64-x86_64-python mingw-w64-x86_64-python-pytest man zip
     - name: install GUI prereqs
       if: matrix.ui == 'gui'
       run: pacman -S --noconfirm mingw-w64-x86_64-gtk3 mingw-w64-x86_64-librsvg
@@ -142,7 +142,6 @@ jobs:
     - name: pytest integration tests
       if: matrix.printf == 'normal'
       run: |
-        pip install pytest
         python3 -m pytest tests/ -v
 
   linux:
