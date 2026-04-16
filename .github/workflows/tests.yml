@@ -58,7 +58,7 @@ jobs:
           ./dvdisaster --version | grep NOGUI
     - name: prepare dist
       run: ./.github/workflows/make-mac-app.sh ${{ github.ref }} ${{ matrix.arch }}
-    - name: regression tests
+    - name: regression tests (bash, legacy)
       if: matrix.printf == 'normal'
       env:
         REGTEST_NO_UTF8: 1
@@ -67,6 +67,11 @@ jobs:
         mkdir -p /var/tmp/regtest
         echo "Number of available processors: $(sysctl -n hw.ncpu || echo U)"
         ./regtest/runtests.sh
+    - name: pytest integration tests
+      if: matrix.printf == 'normal'
+      run: |
+        pip install pytest
+        python3 -m pytest tests/ -v
   win:
     runs-on: windows-latest
     strategy:
@@ -86,7 +91,7 @@ jobs:
       with:
         msystem: MINGW64
         update: false
-        install: git diffutils make pkg-config mingw-w64-x86_64-glib2 mingw-w64-x86_64-gcc mingw-w64-x86_64-ntldd-git man zip
+        install: git diffutils make pkg-config mingw-w64-x86_64-glib2 mingw-w64-x86_64-gcc mingw-w64-x86_64-ntldd-git mingw-w64-x86_64-python man zip
     - name: install GUI prereqs
       if: matrix.ui == 'gui'
       run: pacman -S --noconfirm mingw-w64-x86_64-gtk3 mingw-w64-x86_64-librsvg
@@ -121,7 +126,7 @@ jobs:
           ./dvdisaster.exe --version | grep NOGUI
     - name: try to prepare dist
       run: ./.github/workflows/make-dist.sh ${{ github.ref }}
-    - name: run regression tests
+    - name: run regression tests (bash, legacy)
       if: matrix.printf == 'normal'
       env:
         REGTEST_NO_UTF8: 1
@@ -130,6 +135,11 @@ jobs:
         mkdir -p /var/tmp/regtest
         echo "Number of available processors: $(nproc || echo U)"
         ./regtest/runtests.sh
+    - name: pytest integration tests
+      if: matrix.printf == 'normal'
+      run: |
+        pip install pytest
+        python3 -m pytest tests/ -v
 
   linux:
     runs-on: ubuntu-latest
@@ -175,7 +185,7 @@ jobs:
           ./dvdisaster --version | grep NOGUI
     - name: prepare dist
       run: ./.github/workflows/make-dist.sh ${{ github.ref }}
-    - name: regression tests
+    - name: regression tests (bash, legacy)
       if: matrix.printf == 'normal'
       env:
         REGTEST_NO_UTF8: 1
