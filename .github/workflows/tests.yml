@@ -58,6 +58,13 @@ jobs:
           ./dvdisaster --version | grep NOGUI
     - name: prepare dist
       run: ./.github/workflows/make-mac-app.sh ${{ github.ref }} ${{ matrix.arch }}
+    - name: cache master images
+      if: matrix.printf == 'normal'
+      uses: actions/cache@v4
+      with:
+        path: /var/tmp/regtest
+        key: regtest-${{ runner.os }}-${{ matrix.arch }}-${{ hashFiles('tests/test_*.py', 'tests/framework.py') }}
+        restore-keys: regtest-${{ runner.os }}-${{ matrix.arch }}-
     - name: regression tests (bash, legacy)
       if: matrix.printf == 'normal'
       env:
@@ -126,6 +133,13 @@ jobs:
           ./dvdisaster.exe --version | grep NOGUI
     - name: try to prepare dist
       run: ./.github/workflows/make-dist.sh ${{ github.ref }}
+    - name: cache master images
+      if: matrix.printf == 'normal'
+      uses: actions/cache@v4
+      with:
+        path: C:\msys64\var\tmp\regtest
+        key: regtest-${{ runner.os }}-${{ hashFiles('tests/test_*.py', 'tests/framework.py') }}
+        restore-keys: regtest-${{ runner.os }}-
     - name: run regression tests (bash, legacy)
       if: matrix.printf == 'normal'
       env:
@@ -184,6 +198,13 @@ jobs:
           ./dvdisaster --version | grep NOGUI
     - name: prepare dist
       run: ./.github/workflows/make-dist.sh ${{ github.ref }}
+    - name: cache master images
+      if: matrix.printf == 'normal'
+      uses: actions/cache@v4
+      with:
+        path: /var/tmp/regtest
+        key: regtest-${{ runner.os }}-${{ hashFiles('tests/test_*.py', 'tests/framework.py') }}
+        restore-keys: regtest-${{ runner.os }}-
     - name: regression tests (bash, legacy)
       if: matrix.printf == 'normal'
       env:
