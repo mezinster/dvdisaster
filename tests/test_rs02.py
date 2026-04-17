@@ -359,6 +359,7 @@ class TestRS02Verify(GoldenTestSuite):
                              "-i{}".format(tmp_iso), "-v", "-t"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_modulo_glitch(self, tmp_path):
         """Header modulo glitch, post 0.79.5 style header."""
         hmg_path = _ensure_hmg_master()
@@ -367,6 +368,7 @@ class TestRS02Verify(GoldenTestSuite):
                              "-i{}".format(hmg_path), "-v", "-t"],
                             tmp_path)
 
+    @pytest.mark.slow
     def test_modulo_glitch2(self, tmp_path):
         """Header modulo glitch, old style, complete image."""
         hmg_path = _ensure_hmg_master()
@@ -378,6 +380,7 @@ class TestRS02Verify(GoldenTestSuite):
                              "-i{}".format(tmp_iso), "-v", "-t"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_modulo_glitch3(self, tmp_path):
         """Header modulo glitch, old style, truncated image."""
         hmg_path = _ensure_hmg_master()
@@ -390,6 +393,7 @@ class TestRS02Verify(GoldenTestSuite):
                              "-i{}".format(tmp_iso), "-v", "-t"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_modulo_glitch4(self, tmp_path):
         """Header modulo glitch, old style, truncated, missing ref sectors."""
         hmg_path = _ensure_hmg_master()
@@ -974,6 +978,7 @@ class TestRS02Repair(GoldenTestSuite):
                              "-f", "--truncate"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_fix_large_file(self, tmp_path):
         """Large image with missing sectors in all three sections."""
         tmp_iso = os.path.join(str(tmp_path), "rs02-tmp.iso")
@@ -1161,6 +1166,7 @@ class TestRS02Scan(GoldenTestSuite):
                             tmp_path, image_path=tmp_iso,
                             ignore_line=r'^\*          $')
 
+    @pytest.mark.slow
     def test_scan_modulo_glitch(self, tmp_path):
         """Scan with header modulo glitch, post 0.79.5 style."""
         hmg_path = _ensure_hmg_master()
@@ -1174,6 +1180,7 @@ class TestRS02Scan(GoldenTestSuite):
                              "--spinup-delay=0", "-s", "-v"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_scan_modulo_glitch2(self, tmp_path):
         """Scan with header modulo glitch, old style, complete image."""
         hmg_path = _ensure_hmg_master()
@@ -1190,6 +1197,7 @@ class TestRS02Scan(GoldenTestSuite):
                              "--spinup-delay=0", "-s", "-v"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_scan_modulo_glitch3(self, tmp_path):
         """Scan with header modulo glitch, old style, truncated."""
         hmg_path = _ensure_hmg_master()
@@ -1207,6 +1215,7 @@ class TestRS02Scan(GoldenTestSuite):
                              "--spinup-delay=0", "-s", "-v"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_scan_modulo_glitch4(self, tmp_path):
         """Scan with header modulo glitch, old style, truncated, missing ref sectors."""
         hmg_path = _ensure_hmg_master()
@@ -1484,6 +1493,7 @@ class TestRS02ReadLinear(GoldenTestSuite):
                              "-a", "RS02"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_read_modulo_glitch(self, tmp_path):
         """Read with header modulo glitch, post 0.79.5 style."""
         hmg_path = _ensure_hmg_master()
@@ -1497,6 +1507,7 @@ class TestRS02ReadLinear(GoldenTestSuite):
                              "--spinup-delay=0", "-r", "-v"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_read_modulo_glitch2(self, tmp_path):
         """Read with header modulo glitch, old style, complete image."""
         hmg_path = _ensure_hmg_master()
@@ -1513,6 +1524,7 @@ class TestRS02ReadLinear(GoldenTestSuite):
                              "--spinup-delay=0", "-r", "-v"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_read_modulo_glitch3(self, tmp_path):
         """Read with header modulo glitch, old style, truncated."""
         hmg_path = _ensure_hmg_master()
@@ -1530,6 +1542,7 @@ class TestRS02ReadLinear(GoldenTestSuite):
                              "--spinup-delay=0", "-r", "-v"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_read_modulo_glitch4(self, tmp_path):
         """Read with header modulo glitch, old style, truncated, missing ref sectors."""
         hmg_path = _ensure_hmg_master()
@@ -1803,6 +1816,7 @@ class TestRS02ReadAdaptive(GoldenTestSuite):
                              "--spinup-delay=0", "-r", "--adaptive-read"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_adaptive_modulo_glitch(self, tmp_path):
         """Read with header modulo glitch, post 0.79.5 (adaptive)."""
         hmg_path = _ensure_hmg_master()
@@ -1817,6 +1831,7 @@ class TestRS02ReadAdaptive(GoldenTestSuite):
                              "--adaptive-read"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_adaptive_modulo_glitch2(self, tmp_path):
         """Read with header modulo glitch, old style, complete (adaptive)."""
         hmg_path = _ensure_hmg_master()
@@ -1834,6 +1849,7 @@ class TestRS02ReadAdaptive(GoldenTestSuite):
                              "--adaptive-read"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_adaptive_modulo_glitch3(self, tmp_path):
         """Read with header modulo glitch, old style, truncated (adaptive)."""
         hmg_path = _ensure_hmg_master()
@@ -1852,6 +1868,7 @@ class TestRS02ReadAdaptive(GoldenTestSuite):
                              "--adaptive-read"],
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_adaptive_modulo_glitch4(self, tmp_path):
         """Read with header modulo glitch, old style, truncated, missing ref (adaptive)."""
         hmg_path = _ensure_hmg_master()
