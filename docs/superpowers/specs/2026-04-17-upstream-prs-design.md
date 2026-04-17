@@ -33,12 +33,11 @@ Land mezinster/dvdisaster's accumulated work back into speed47/dvdisaster as a c
 **Branch:** `upstream/rs03-recognize-fix` based on `speed47/master`.
 
 **Source commits (cherry-picked in order):**
-- `f8d747f` — fix: RS03 recognize tries all known medium sizes as candidates
-- `e8d34fd` — fix: suppress verbose noise from RS03 candidate loop *(drop deb-build hunk if mixed in)*
-- `cc00e5e` — fix: wire CreateECC output/ecc_size fields, fix path stripping fidelity *(confirmed in scope)*
-- `ab4b11d` — fix: update regtest golden files for multi-candidate RS03 recognize *(only bash-test golden file changes)*
+- `f8d747f` — fix: RS03 recognize tries all known medium sizes as candidates *(touches src/rs03-recognize.c only)*
+- `e8d34fd` — fix: suppress verbose noise from RS03 candidate loop *(drop the `debian/rules +3` hunk; keep src/rs03-recognize.c)*
+- `ab4b11d` — fix: update regtest golden files for multi-candidate RS03 recognize *(many `regtest/database/` golden file updates needed because the candidate loop changed verbose output across the bash test suite)*
 
-**Files touched:** `src/rs03-recognize.c`, `src/rs03-common.c`, `src/dvdisaster.c`, `src/dvdisaster.h`, selected `regtest/database/RS03i_*` golden files.
+**Files touched:** `src/rs03-recognize.c`, many `regtest/database/*` golden files (RS01/RS02/RS03 — all were affected by the verbose-output change), small `debian/rules` edit from `ab4b11d`.
 
 **Docs:** PR description only. Explains the bug (single-medium-size recognition fails when image is augmented to a different size), the fix (try all known sizes as candidates), and backward-compat (existing single-size images still recognized).
 
@@ -46,7 +45,7 @@ Land mezinster/dvdisaster's accumulated work back into speed47/dvdisaster as a c
 
 **Branch:** `upstream/pytest-framework` based on `upstream/rs03-recognize-fix`.
 
-**Source commits (~20):** From `2e2dd60` (initial pytest framework) through `d42a840` (final tests/README + CLAUDE.md update). The CLAUDE.md hunk must be stripped from the cherry-pick.
+**Source commits (~21):** All test-framework + test-migration commits from `2e2dd60` (initial pytest framework) through `d42a840` (final tests/README + CLAUDE.md update). Includes `cc00e5e` (relocated here from PR #1 — it's a 7-line wiring fix in `tests/framework.py`, not a src/ fix). Includes the `tests/test_rs03_recognize.py +60` hunk from `f1ebd28` (split commit). The `CLAUDE.md` hunks in `d42a840` and `f1ebd28` must be stripped.
 
 **Files touched:** New `tests/` directory (framework.py, conftest.py, test_rs01.py, test_rs02.py, test_rs03f.py, test_rs03i.py, test_rs03_recognize.py, test_multipass_read.py, test_framework.py, README.md). `regtest/config.txt` edits to disable bash tests. Deletion of large bash-only golden files no longer referenced.
 
@@ -65,19 +64,21 @@ Land mezinster/dvdisaster's accumulated work back into speed47/dvdisaster as a c
 - Inline YAML comments on the non-obvious bits (already present from prior commits).
 - PR description flags the new `docs/` directory as an intentional convention.
 
-### PR #4 — `enh: misc improvements (--medium-size flag, deb build, Windows GUI changelog)`
+### PR #4 — `enh: --medium-size CLI flag and macro precedence fix`
 
 **Branch:** `upstream/misc-improvements` based on `speed47/master` (independent of #1, #2, #3).
 
 **Source commits (split / partial cherry-picks):**
-- `6fbeb0d` — keep `--medium-size` CLI flag and dist-duplicate fix; drop deb-build-speedup hunk (covered by `7e96fa1`).
-- `7e96fa1` — keep deb build pdflatex fix and regtest image creation optimization; drop `regtest/` hunk (covered by PR #2's full bash-test removal).
-- `8202182` — keep Windows GUI changelog visibility fix; drop CHANGELOG hunk (mezinster-specific).
-- `ef0c847` — split: keep the `src/` macro-precedence half; drop "CI/CD improvements for fork" half.
+- `6fbeb0d` — keep only the `src/dvdisaster.c +42` and `src/rs03-common.c +31` hunks (the `--medium-size` CLI flag implementation). Drop the `.github/workflows/make-dist.sh` and `.github/workflows/release.yml` hunks (mezinster-fork CI).
+- `ef0c847` — keep only the `src/dvdisaster.h +8` hunk (the macro precedence fix). Optionally include `debian/control +3` if upstream's debian packaging benefits. Drop `.github/workflows/*` and `CLAUDE.md` (all fork-specific).
 
-**Files touched:** `src/` files (macro fix, --medium-size flag, Windows GUI fix), packaging files (deb build).
+**Excluded entirely** (no usable upstream content):
+- `7e96fa1` — pdflatex fix is in `.github/workflows/release.yml` (fork-only); regtest bash optimizations are in files PR #2 removes anyway.
+- `8202182` — Windows-GUI changelog visibility fix is in `.github/workflows/make-dist.sh` (fork-only); CHANGELOG hunk is mezinster-specific.
 
-**Docs:** PR description only — itemized list of what's bundled and why each item is small enough to share a PR.
+**Files touched:** `src/dvdisaster.c`, `src/rs03-common.c`, `src/dvdisaster.h`, optionally `debian/control`.
+
+**Docs:** PR description only — explains the two unrelated improvements bundled together for review economy.
 
 ## Verification (per branch, before push)
 
@@ -117,7 +118,9 @@ User explicitly confirms before any push:
 - Modifications to `documentation/` (the upstream PDFs).
 - Any changes to upstream repo settings, labels, or CI beyond what the four PRs introduce.
 - Mezinster-specific CI/CD improvements that aren't relevant to upstream's build matrix.
-- A 5th PR for `ef0c847`'s "CI/CD improvements for fork" half — those are fork-specific.
+- `7e96fa1` and `8202182` in their entirety — both commits' content is fork-CI infrastructure with no upstream equivalent.
+- The "CI/CD improvements for fork" half of `ef0c847` — fork-specific.
+- Mezinster's CHANGELOG entries — fork-specific.
 
 ## Open Questions
 
