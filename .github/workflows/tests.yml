@@ -5,6 +5,11 @@ on:
   push:
     branches:
       - master
+    tags:
+      - 'v*'
+  schedule:
+    - cron: '0 3 * * 1'   # every Monday 3am UTC
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -225,4 +230,4 @@ jobs:
       if: matrix.printf == 'normal' && matrix.ui == 'cli'
       run: |
         pip install pytest
-        python3 -m pytest tests/ -v --run-slow
+        python3 -m pytest tests/ -v ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/v')) && '--run-slow' || '' }}
