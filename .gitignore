@@ -16,3 +16,4 @@ dvdisaster
 build.h
 dvdisaster.mo
 locale/messages.pot
+.worktrees/
