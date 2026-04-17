@@ -27,6 +27,7 @@ jobs:
           - arch: arm64
             runs-on: macos-15
     runs-on: ${{ matrix.runs-on }}
+    timeout-minutes: 120
     steps:
     - uses: actions/checkout@v5
       with:
@@ -63,7 +64,7 @@ jobs:
     - name: prepare dist
       run: ./.github/workflows/make-mac-app.sh ${{ github.ref }} ${{ matrix.arch }}
     - name: cache master images
-      if: matrix.printf == 'normal'
+      if: matrix.printf == 'normal' && matrix.ui == 'cli'
       uses: actions/cache@v4
       with:
         path: /var/tmp/regtest
@@ -79,12 +80,13 @@ jobs:
         echo "Number of available processors: $(sysctl -n hw.ncpu || echo U)"
         ./regtest/runtests.sh
     - name: pytest integration tests
-      if: matrix.printf == 'normal'
+      if: matrix.printf == 'normal' && matrix.ui == 'cli'
       run: |
         python3 -m pip install --break-system-packages pytest
         python3 -m pytest tests/ -v
   win:
     runs-on: windows-latest
+    timeout-minutes: 120
     strategy:
       matrix:
         ui: [cli, gui]
@@ -138,7 +140,7 @@ jobs:
     - name: try to prepare dist
       run: ./.github/workflows/make-dist.sh ${{ github.ref }}
     - name: cache master images
-      if: matrix.printf == 'normal'
+      if: matrix.printf == 'normal' && matrix.ui == 'cli'
       uses: actions/cache@v4
       with:
         path: C:\msys64\var\tmp\regtest
@@ -154,12 +156,13 @@ jobs:
         echo "Number of available processors: $(nproc || echo U)"
         ./regtest/runtests.sh
     - name: pytest integration tests
-      if: matrix.printf == 'normal'
+      if: matrix.printf == 'normal' && matrix.ui == 'cli'
       run: |
         python3 -m pytest tests/ -v
 
   linux:
     runs-on: ubuntu-latest
+    timeout-minutes: 180
     strategy:
       matrix:
         ui: [cli, gui]
@@ -203,7 +206,7 @@ jobs:
     - name: prepare dist
       run: ./.github/workflows/make-dist.sh ${{ github.ref }}
     - name: cache master images
-      if: matrix.printf == 'normal'
+      if: matrix.printf == 'normal' && matrix.ui == 'cli'
       uses: actions/cache@v4
       with:
         path: /var/tmp/regtest
@@ -219,7 +222,7 @@ jobs:
         echo "Number of available processors: $(nproc || echo U)"
         ./regtest/runtests.sh
     - name: pytest integration tests
-      if: matrix.printf == 'normal'
+      if: matrix.printf == 'normal' && matrix.ui == 'cli'
       run: |
         pip install pytest
-        python3 -m pytest tests/ -v
+        python3 -m pytest tests/ -v --run-slow
