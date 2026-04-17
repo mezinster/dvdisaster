@@ -332,3 +332,32 @@ def test_my_complex_scenario(self, tmp_path):
 ### Framework test
 
 Add to `test_framework.py` for testing framework internals (damage ops, parsing, cleaning).
+
+## Slow Tests and CI Strategy
+
+Tests that create large master images (200+ MB) are marked with `@pytest.mark.slow` and skipped by default. Run them with:
+
+```bash
+python3 -m pytest tests/ -v --run-slow
+```
+
+### What counts as slow
+
+Tests are marked slow if they create or depend on large master images that take 2+ minutes to generate:
+- RS03i large-image tests (header recovery, root discovery): 235219-sector (~460MB) image
+- RS02 modulo-glitch tests: 274300-sector (~535MB) image
+- RS02 large-file repair test: 223456-sector (~436MB) image
+
+Currently 41 tests are marked slow (24 in RS03i, 17 in RS02).
+
+### CI strategy
+
+| Platform | Pytest runs on | Slow tests | Cache |
+|----------|---------------|------------|-------|
+| Linux | CLI build only | Yes (`--run-slow`) | `/var/tmp/regtest` |
+| macOS | CLI build only | No (skipped) | `/var/tmp/regtest` |
+| Windows | CLI build only | No (skipped) | `C:\msys64\var\tmp\regtest` |
+
+GUI and CLI builds produce identical regression test output (tests use `--regtest` mode), so we only run pytest on CLI builds to halve CI time.
+
+Slow tests run only on Linux because it's the fastest CI platform. Master images are cached via `actions/cache` to avoid recreating them on every run.
