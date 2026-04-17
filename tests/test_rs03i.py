@@ -783,6 +783,7 @@ class TestRS03iVerify(GoldenTestSuite):
             tmp_path, image_path=tmp_iso,
         )
 
+    @pytest.mark.slow
     def test_rediscover_8_roots(self, tmp_path):
         """Image with 8 roots, no ECC header (first sector erased)."""
         raw_path = _ensure_raw_lmi246()
@@ -802,6 +803,7 @@ class TestRS03iVerify(GoldenTestSuite):
             tmp_path, image_path=tmp_iso,
         )
 
+    @pytest.mark.slow
     def test_rediscover_8_roots2(self, tmp_path):
         """Image with 8 roots, no ECC header and some CRC sectors erased."""
         raw_path = _ensure_raw_lmi246()
@@ -821,6 +823,7 @@ class TestRS03iVerify(GoldenTestSuite):
             tmp_path, image_path=tmp_iso,
         )
 
+    @pytest.mark.slow
     def test_rediscover_170_roots(self, tmp_path):
         """Image with 170 roots, no ECC header (first sector erased)."""
         raw_path = _ensure_raw_lmi84()
@@ -840,6 +843,7 @@ class TestRS03iVerify(GoldenTestSuite):
             tmp_path, image_path=tmp_iso,
         )
 
+    @pytest.mark.slow
     def test_rediscover_170_roots2(self, tmp_path):
         """Image with 170 roots, no ECC header and some CRC sectors erased."""
         raw_path = _ensure_raw_lmi84()
@@ -859,6 +863,7 @@ class TestRS03iVerify(GoldenTestSuite):
             tmp_path, image_path=tmp_iso,
         )
 
+    @pytest.mark.slow
     def test_rediscover_170_roots_padding(self, tmp_path):
         """Image with 170 roots and padding, ECC header present."""
         raw_path = _ensure_raw_lmi84s()
@@ -878,6 +883,7 @@ class TestRS03iVerify(GoldenTestSuite):
             tmp_path, image_path=tmp_iso,
         )
 
+    @pytest.mark.slow
     def test_rediscover_170_roots_padding2(self, tmp_path):
         """Image with 170 roots and padding, no ECC header, some CRC sectors erased."""
         raw_path = _ensure_raw_lmi84s()
@@ -1695,6 +1701,7 @@ class TestRS03iFix:
         _run_golden_compare("fix_with_missing_header", cmd, tmp_path,
                             image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_fix_with_missing_iso_header(self, tmp_path):
         """Fix image with missing ISO header (sector 16)."""
         master = _ensure_master()
@@ -2209,6 +2216,7 @@ class TestRS03iScan:
         _run_golden_compare("scan_with_wrong_rs03_file", cmd, tmp_path,
                             ecc_path=tmp_ecc)
 
+    @pytest.mark.slow
     def test_scan_missing_header_not_exhaustive(self, tmp_path):
         """Scan large image with missing ECC header; no exhaustive search."""
         large = _ensure_large_master()
@@ -2224,6 +2232,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_missing_header_not_exhaustive", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_missing_header(self, tmp_path):
         """Scan large image with missing ECC header; exhaustive search."""
         large = _ensure_large_master()
@@ -2239,6 +2248,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_missing_header", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_missing_header2(self, tmp_path):
         """Scan large image with missing header; first slice has damaged CRC+sectors."""
         large = _ensure_large_master()
@@ -2259,6 +2269,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_missing_header2", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_missing_header3(self, tmp_path):
         """Scan large image with missing header; first few slices have damaged CRC sectors."""
         large = _ensure_large_master()
@@ -2295,6 +2306,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_missing_header3", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_missing_header4(self, tmp_path):
         """Scan large image with missing header; every CRC sector except last is unreadable."""
         large = _ensure_large_master()
@@ -2331,6 +2343,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_missing_header4", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_missing_header_truncated(self, tmp_path):
         """Scan truncated large image with missing header (like header2 but truncated)."""
         large = _ensure_large_master()
@@ -2352,6 +2365,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_missing_header_truncated", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_missing_header_no_crcsec(self, tmp_path):
         """Scan large image with missing header and all CRC sectors deleted."""
         large = _ensure_large_master()
@@ -2370,6 +2384,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_missing_header_no_crcsec", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_random_image(self, tmp_path):
         """Scan completely random image (no ECC)."""
         sim_iso = os.path.join(str(tmp_path), "sim.iso")
@@ -2384,6 +2399,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_random_image", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_rediscover_8_roots(self, tmp_path):
         """Scan 8-root image with no ECC header (single missing sector)."""
         raw = _ensure_raw_lmi246()
@@ -2401,6 +2417,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_rediscover_8_roots", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_rediscover_8_roots2(self, tmp_path):
         """Scan 8-root image with no ECC header (header and some CRC sectors missing)."""
         raw = _ensure_raw_lmi246()
@@ -2418,6 +2435,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_rediscover_8_roots2", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_rediscover_170_roots(self, tmp_path):
         """Scan 170-root image with no ECC header (single missing sector)."""
         raw = _ensure_raw_lmi84()
@@ -2435,6 +2453,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_rediscover_170_roots", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_rediscover_170_roots2(self, tmp_path):
         """Scan 170-root image with no ECC header (header and some CRC sectors missing)."""
         raw = _ensure_raw_lmi84()
@@ -2452,6 +2471,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_rediscover_170_roots2", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_rediscover_170_roots_padding(self, tmp_path):
         """Scan 170-root padded image with ECC header present."""
         raw = _ensure_raw_lmi84s()
@@ -2468,6 +2488,7 @@ class TestRS03iScan:
         ]
         _run_golden_compare("scan_rediscover_170_roots-padding", cmd, tmp_path)
 
+    @pytest.mark.slow
     def test_scan_rediscover_170_roots_padding2(self, tmp_path):
         """Scan 170-root padded image with no ECC header and some CRC sectors missing."""
         raw = _ensure_raw_lmi84s()
@@ -2899,6 +2920,7 @@ class TestRS03iReadLinear:
         _run_golden_compare("read_crc_section_with_uncorrectable_dsm", cmd,
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_read_with_missing_header(self, tmp_path):
         """Read large image with missing ECC header; no exhaustive search."""
         large = _ensure_large_master()
@@ -2918,6 +2940,7 @@ class TestRS03iReadLinear:
         _run_golden_compare("read_with_missing_header", cmd, tmp_path,
                             image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_read_with_missing_header_exhaustive(self, tmp_path):
         """Read large image with missing ECC header; exhaustive search."""
         large = _ensure_large_master()
@@ -2937,6 +2960,7 @@ class TestRS03iReadLinear:
         _run_golden_compare("read_with_missing_header_exhaustive", cmd,
                             tmp_path, image_path=tmp_iso)
 
+    @pytest.mark.slow
     def test_read_with_missing_iso_header_exhaustive(self, tmp_path):
         """Read large image with missing ISO header; exhaustive search."""
         large = _ensure_large_master()
