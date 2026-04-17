@@ -354,10 +354,15 @@ Currently 41 tests are marked slow (24 in RS03i, 17 in RS02).
 
 | Platform | Pytest runs on | Slow tests | Cache |
 |----------|---------------|------------|-------|
-| Linux | CLI build only | Yes (`--run-slow`) | `/var/tmp/regtest` |
+| Linux | CLI build only | Only on schedule/tag/manual | `/var/tmp/regtest` |
 | macOS | CLI build only | No (skipped) | `/var/tmp/regtest` |
 | Windows | CLI build only | No (skipped) | `C:\msys64\var\tmp\regtest` |
 
 GUI and CLI builds produce identical regression test output (tests use `--regtest` mode), so we only run pytest on CLI builds to halve CI time.
 
-Slow tests run only on Linux because it's the fastest CI platform. Master images are cached via `actions/cache` to avoid recreating them on every run.
+Slow tests (`--run-slow`) run only on Linux and only when triggered by:
+- **Weekly schedule** — every Monday 3am UTC
+- **Release tags** — pushes matching `v*`
+- **Manual dispatch** — via GitHub Actions "Run workflow" button
+
+On regular pushes and PRs, slow tests are skipped on all platforms. Master images are cached via `actions/cache` to avoid recreating them on every run.
