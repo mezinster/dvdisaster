@@ -2,15 +2,14 @@
 Pytest framework for dvdisaster integration tests.
 
 These tests invoke the dvdisaster binary and verify its behavior.
-They complement (and will eventually replace) the bash-based regtests
-in regtest/.
 
 Requirements:
   - dvdisaster binary built and available at project root
   - pytest (`pip install pytest`)
 
 Run:
-  pytest tests/ -v
+  pytest tests/ -v              # skip slow tests (default)
+  pytest tests/ -v --run-slow   # include large-image tests
 """
 
 import os
@@ -21,6 +20,29 @@ import tempfile
 import pytest
 
 from framework import pytest_generate_tests  # noqa: F401
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--run-slow", action="store_true", default=False,
+        help="Run slow tests (large-image creation, 3+ min each)"
+    )
+
+
+def pytest_configure(config):
+    config.addinivalue_line(
+        "markers", "slow: marks tests as slow (large image I/O, deselected by default)"
+    )
+
+
+def pytest_collection_modifyitems(config, items):
+    if config.getoption("--run-slow"):
+        return
+    skip_slow = pytest.mark.skip(reason="need --run-slow option to run")
+    for item in items:
+        if "slow" in item.keywords:
+            item.add_marker(skip_slow)
+
 
 # Project root: one level up from tests/
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
