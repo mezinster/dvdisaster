@@ -32,7 +32,7 @@ jobs:
           - arch: arm64
             runs-on: macos-15
     runs-on: ${{ matrix.runs-on }}
-    timeout-minutes: 120
+    timeout-minutes: 240
     steps:
     - uses: actions/checkout@v5
       with:
@@ -87,11 +87,11 @@ jobs:
     - name: pytest integration tests
       if: matrix.printf == 'normal' && matrix.ui == 'cli'
       run: |
-        python3 -m pip install --break-system-packages pytest
-        python3 -m pytest tests/ -v
+        python3 -m pip install --break-system-packages pytest pytest-xdist filelock
+        python3 -m pytest tests/ -v -n auto
   win:
     runs-on: windows-latest
-    timeout-minutes: 120
+    timeout-minutes: 240
     strategy:
       matrix:
         ui: [cli, gui]
@@ -109,7 +109,7 @@ jobs:
       with:
         msystem: MINGW64
         update: false
-        install: git diffutils make pkg-config mingw-w64-x86_64-glib2 mingw-w64-x86_64-gcc mingw-w64-x86_64-ntldd-git mingw-w64-x86_64-python mingw-w64-x86_64-python-pytest man zip
+        install: git diffutils make pkg-config mingw-w64-x86_64-glib2 mingw-w64-x86_64-gcc mingw-w64-x86_64-ntldd-git mingw-w64-x86_64-python mingw-w64-x86_64-python-pytest mingw-w64-x86_64-python-pytest-xdist mingw-w64-x86_64-python-filelock man zip
     - name: install GUI prereqs
       if: matrix.ui == 'gui'
       run: pacman -S --noconfirm mingw-w64-x86_64-gtk3 mingw-w64-x86_64-librsvg
@@ -163,7 +163,7 @@ jobs:
     - name: pytest integration tests
       if: matrix.printf == 'normal' && matrix.ui == 'cli'
       run: |
-        python3 -m pytest tests/ -v
+        python3 -m pytest tests/ -v -n auto
 
   linux:
     runs-on: ubuntu-latest
@@ -229,5 +229,5 @@ jobs:
     - name: pytest integration tests
       if: matrix.printf == 'normal' && matrix.ui == 'cli'
       run: |
-        pip install pytest
-        python3 -m pytest tests/ -v ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/v')) && '--run-slow' || '' }}
+        pip install pytest pytest-xdist filelock
+        python3 -m pytest tests/ -v -n auto ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/v')) && '--run-slow' || '' }}
