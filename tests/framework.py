@@ -15,6 +15,8 @@ import sys
 from dataclasses import dataclass, field
 from typing import List, Optional, Tuple
 
+from filelock import FileLock
+
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
@@ -351,13 +353,18 @@ class GoldenTestSuite:
         """Create master image in ISODIR if it doesn't exist. Returns path."""
         os.makedirs(_ISODIR, exist_ok=True)
         path = os.path.join(_ISODIR, self.master)
-        if not os.path.isfile(path):
-            _run_dvdisaster(
-                "--regtest", "--debug",
-                "-i{}".format(path),
-                "--random-image", str(self.image_size),
-                check=True,
-            )
+        # Lock per-master so parallel pytest workers (pytest-xdist) don't both
+        # invoke `--random-image` against the same path. `--random-image` is
+        # non-deterministic; concurrent writers would produce divergent content
+        # and break golden-file comparisons.
+        with FileLock(path + ".lock"):
+            if not os.path.isfile(path):
+                _run_dvdisaster(
+                    "--regtest", "--debug",
+                    "-i{}".format(path),
+                    "--random-image", str(self.image_size),
+                    check=True,
+                )
         return path
 
     def _ensure_master_ecc(self):
@@ -368,16 +375,17 @@ class GoldenTestSuite:
         os.makedirs(_ISODIR, exist_ok=True)
         master_iso = self._ensure_master()
         path = os.path.join(_ISODIR, self.master_ecc)
-        if not os.path.isfile(path):
-            args = [
-                "--regtest", "--debug", "--set-version", "0.80",
-                "-i{}".format(master_iso),
-                "-e{}".format(path),
-                "-c",
-            ]
-            if self.redundancy:
-                args.extend(["-n", self.redundancy])
-            _run_dvdisaster(*args, check=True)
+        with FileLock(path + ".lock"):
+            if not os.path.isfile(path):
+                args = [
+                    "--regtest", "--debug", "--set-version", "0.80",
+                    "-i{}".format(master_iso),
+                    "-e{}".format(path),
+                    "-c",
+                ]
+                if self.redundancy:
+                    args.extend(["-n", self.redundancy])
+                _run_dvdisaster(*args, check=True)
         return path
 
     def _resolve_image(self, test, work_dir):
