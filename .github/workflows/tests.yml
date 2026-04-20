@@ -163,7 +163,21 @@ jobs:
     - name: pytest integration tests
       if: matrix.printf == 'normal' && matrix.ui == 'cli'
       run: |
-        python3 -m pytest tests/ -v -n auto
+        echo "=== Windows CI diagnostics ==="
+        pwd
+        which python3 && python3 -c "import sys, platform, os; print('python:', sys.version); print('platform:', platform.system(), platform.release()); print('MSYSTEM:', os.environ.get('MSYSTEM'))"
+        ls -la ./dvdisaster.exe
+        echo "--- /var/tmp/regtest contents (may not exist yet):"
+        ls -la /var/tmp/regtest 2>/dev/null || echo "(does not exist)"
+        echo "--- manual dvdisaster probe:"
+        mkdir -p /var/tmp/regtest
+        ./dvdisaster.exe --regtest --debug -i/var/tmp/regtest/probe.iso --random-image 100 2>&1 | head -20 || true
+        ls -la /var/tmp/regtest 2>&1 | head -5
+        echo "=== end diagnostics ==="
+        # Serial execution with stop-on-first-failure and full traceback,
+        # so the Windows output mismatch surfaces immediately in the live log
+        # rather than being buffered by pytest-xdist until the 4h timeout.
+        python3 -m pytest tests/ -v -x --tb=long
 
   linux:
     runs-on: ubuntu-latest
