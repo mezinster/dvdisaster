@@ -187,6 +187,12 @@ class TestCleanOutput:
         result = clean_output(text)
         assert result == "rs01-master.iso: present\n"
 
+    def test_normalize_crlf(self):
+        # Windows mingw build writes CRLF; golden files use LF.
+        text = "line one\r\nline two\r\n"
+        result = clean_output(text)
+        assert result == "line one\nline two\n"
+
     def test_combined_cleaning(self):
         """Test multiple cleaning operations together."""
         text = (
