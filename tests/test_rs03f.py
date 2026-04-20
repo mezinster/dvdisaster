@@ -17,8 +17,16 @@ import difflib
 import os
 import re
 import shutil
+import sys
 
 import pytest
+
+# POSIX chmod 0o000/0o400 is not enforced on NTFS, so the Windows dvdisaster
+# build cannot trigger "permission denied" errors for locally-created files.
+_SKIP_CHMOD_WIN = pytest.mark.skipif(
+    sys.platform == "win32",
+    reason="POSIX chmod semantics not honored on NTFS",
+)
 
 from framework import (
     Byteset,
@@ -900,6 +908,7 @@ class TestRS03fCreate(GoldenTestSuite):
         )
 
     # 4. ecc_no_read_perm -- no read permission on image
+    @_SKIP_CHMOD_WIN
     def test_ecc_no_read_perm(self, tmp_path):
         """ECC creation with no read permission on image."""
         master = self._ensure_master()
@@ -920,6 +929,7 @@ class TestRS03fCreate(GoldenTestSuite):
             os.chmod(tmp_iso, 0o644)
 
     # 5. ecc_no_write_perm -- no write permission on ecc file
+    @_SKIP_CHMOD_WIN
     def test_ecc_no_write_perm(self, tmp_path):
         """ECC creation with no write permission on ecc file."""
         master = self._ensure_master()

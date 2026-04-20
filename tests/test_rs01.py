@@ -15,8 +15,10 @@ import difflib
 import os
 import re
 import shutil
+import sys
 
 import pytest
+from filelock import FileLock
 
 from framework import (
     Byteset,
@@ -39,6 +41,18 @@ from framework import (
     resolve_golden_path,
 )
 
+# Windows MSYS2/MinGW does not have /dev/sdz; the legacy bash tests use V:
+# (drive letter) for a guaranteed-missing device. The golden files for
+# no_device tests have .win variants that expect "V:".
+NON_EXISTENT_DEVICE = "V:" if sys.platform == "win32" else "/dev/sdz"
+
+# POSIX chmod 0o000/0o400 is not enforced on NTFS, so the Windows dvdisaster
+# build cannot trigger "permission denied" errors for locally-created files.
+_SKIP_CHMOD_WIN = pytest.mark.skipif(
+    sys.platform == "win32",
+    reason="POSIX chmod semantics not honored on NTFS",
+)
+
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _DATABASE = os.path.join(_PROJECT_ROOT, "regtest", "database")
 _FIXED_RANDOM_SEQ = os.path.join(_PROJECT_ROOT, "regtest", "fixed-random-sequence")
@@ -47,7 +61,6 @@ _FIXED_RANDOM_SEQ = os.path.join(_PROJECT_ROOT, "regtest", "fixed-random-sequenc
 ISOSIZE = 21000
 SETVERSION = "0.80"
 REDUNDANCY = "normal"
-NON_EXISTENT_DEVICE = "/dev/sdz"
 
 
 # ---------------------------------------------------------------------------
@@ -66,26 +79,27 @@ def plus56_images():
     iso_plus56 = os.path.join(_ISODIR, "rs01-plus56_bytes.iso")
     ecc_plus56 = os.path.join(_ISODIR, "rs01-plus56_bytes.ecc")
 
-    # Ensure master exists (the suite's _ensure_master would do this,
-    # but we need it before the suite runs for the fixture).
-    if not os.path.isfile(master_iso):
-        _run_dvdisaster(
-            "--regtest", "--debug",
-            "-i{}".format(master_iso),
-            "--random-image", "21000",
-            check=True,
-        )
+    # Each file is guarded by its own FileLock so parallel pytest-xdist workers
+    # don't race: worker A starts writing → worker B sees isfile=True on the
+    # partial file → B skips creation → B's tests fail with "No error
+    # correction file present".
+    with FileLock(master_iso + ".lock"):
+        if not os.path.isfile(master_iso):
+            _run_dvdisaster(
+                "--regtest", "--debug",
+                "-i{}".format(master_iso),
+                "--random-image", "21000",
+                check=True,
+            )
 
-    # Create plus56 ISO: master + 56 zero bytes
-    if not os.path.isfile(iso_plus56):
-        shutil.copy2(master_iso, iso_plus56)
-        with open(iso_plus56, "ab") as f:
-            f.write(b"\x00" * 56)
+    with FileLock(iso_plus56 + ".lock"):
+        if not os.path.isfile(iso_plus56):
+            shutil.copy2(master_iso, iso_plus56)
+            with open(iso_plus56, "ab") as f:
+                f.write(b"\x00" * 56)
 
-    # Create plus56 ECC
-    if not os.path.isfile(ecc_plus56):
-        # Ensure master ECC exists too (needed for the suite)
-        master_ecc = os.path.join(_ISODIR, "rs01-master.ecc")
+    master_ecc = os.path.join(_ISODIR, "rs01-master.ecc")
+    with FileLock(master_ecc + ".lock"):
         if not os.path.isfile(master_ecc):
             _run_dvdisaster(
                 "--regtest", "--debug", "--set-version", "0.80",
@@ -94,13 +108,16 @@ def plus56_images():
                 "-c", "-n", "normal",
                 check=True,
             )
-        _run_dvdisaster(
-            "--regtest", "--debug", "--set-version", "0.80",
-            "-i{}".format(iso_plus56),
-            "-e{}".format(ecc_plus56),
-            "-c", "-n", "normal",
-            check=True,
-        )
+
+    with FileLock(ecc_plus56 + ".lock"):
+        if not os.path.isfile(ecc_plus56):
+            _run_dvdisaster(
+                "--regtest", "--debug", "--set-version", "0.80",
+                "-i{}".format(iso_plus56),
+                "-e{}".format(ecc_plus56),
+                "-c", "-n", "normal",
+                check=True,
+            )
 
     return iso_plus56, ecc_plus56
 
@@ -217,13 +234,14 @@ def _ensure_master():
     """Ensure the RS01 master image exists and return its path."""
     os.makedirs(_ISODIR, exist_ok=True)
     path = os.path.join(_ISODIR, "rs01-master.iso")
-    if not os.path.isfile(path):
-        _run_dvdisaster(
-            "--regtest", "--debug",
-            "-i{}".format(path),
-            "--random-image", str(ISOSIZE),
-            check=True,
-        )
+    with FileLock(path + ".lock"):
+        if not os.path.isfile(path):
+            _run_dvdisaster(
+                "--regtest", "--debug",
+                "-i{}".format(path),
+                "--random-image", str(ISOSIZE),
+                check=True,
+            )
     return path
 
 
@@ -231,14 +249,15 @@ def _ensure_master_ecc():
     """Ensure the RS01 master ECC exists and return its path."""
     master_iso = _ensure_master()
     path = os.path.join(_ISODIR, "rs01-master.ecc")
-    if not os.path.isfile(path):
-        _run_dvdisaster(
-            "--regtest", "--debug", "--set-version", SETVERSION,
-            "-i{}".format(master_iso),
-            "-e{}".format(path),
-            "-c", "-n", REDUNDANCY,
-            check=True,
-        )
+    with FileLock(path + ".lock"):
+        if not os.path.isfile(path):
+            _run_dvdisaster(
+                "--regtest", "--debug", "--set-version", SETVERSION,
+                "-i{}".format(master_iso),
+                "-e{}".format(path),
+                "-c", "-n", REDUNDANCY,
+                check=True,
+            )
     return path
 
 
@@ -517,6 +536,7 @@ class TestRS01Create(GoldenTestSuite):
         ]
         _run_golden_compare("ecc_missing_image", cmd, tmp_path)
 
+    @_SKIP_CHMOD_WIN
     def test_ecc_no_read_perm(self, tmp_path):
         """Create ecc with no read permission on image."""
         master = _ensure_master()
@@ -534,6 +554,7 @@ class TestRS01Create(GoldenTestSuite):
         finally:
             os.chmod(tmp_iso, 0o644)
 
+    @_SKIP_CHMOD_WIN
     def test_ecc_no_write_perm(self, tmp_path):
         """Create ecc with no write permission on ecc file (should recreate)."""
         master = _ensure_master()
@@ -1064,6 +1085,7 @@ class TestRS01Scan(GoldenTestSuite):
         ]
         _run_golden_compare("scan_no_device", cmd, tmp_path)
 
+    @_SKIP_CHMOD_WIN
     def test_scan_no_device_access(self, tmp_path):
         """Scan image from device with insufficient permissions."""
         master = _ensure_master()
@@ -1084,6 +1106,7 @@ class TestRS01Scan(GoldenTestSuite):
         finally:
             os.chmod(fake_dev, 0o644)
 
+    @_SKIP_CHMOD_WIN
     def test_scan_with_no_permission_for_ecc(self, tmp_path):
         """Scan with no permission to access ecc file."""
         master = _ensure_master()
@@ -1381,6 +1404,7 @@ class TestRS01ReadLinear(GoldenTestSuite):
         ]
         _run_golden_compare("read_no_device", cmd, tmp_path)
 
+    @_SKIP_CHMOD_WIN
     def test_read_no_device_access(self, tmp_path):
         """Read image from device with insufficient permissions."""
         master = _ensure_master()
@@ -1519,6 +1543,7 @@ class TestRS01ReadLinear(GoldenTestSuite):
         _run_golden_compare("read_with_ecc_good_file", cmd, tmp_path,
                             image_path=tmp_iso)
 
+    @_SKIP_CHMOD_WIN
     def test_read_with_no_permission_for_ecc(self, tmp_path):
         """Read with no permission to access ecc file."""
         master = _ensure_master()
@@ -1844,6 +1869,7 @@ class TestRS01ReadAdaptive(GoldenTestSuite):
         ]
         _run_golden_compare("adaptive_no_device", cmd, tmp_path)
 
+    @_SKIP_CHMOD_WIN
     def test_adaptive_no_device_access(self, tmp_path):
         """Read image from device with insufficient permissions, adaptive reading."""
         master = _ensure_master()
@@ -2024,6 +2050,7 @@ class TestRS01ReadAdaptive(GoldenTestSuite):
         ]
         _run_golden_compare("adaptive_new_with_invalid_range_no_ecc", cmd, tmp_path)
 
+    @_SKIP_CHMOD_WIN
     def test_adaptive_with_no_permission_for_ecc(self, tmp_path):
         """Read with no permission to access ecc file, adaptive reading."""
         master = _ensure_master()
