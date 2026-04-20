@@ -158,6 +158,10 @@ def clean_output(text, tmp_dirs=None, strip_header=False, ignore_lines=None):
         ignore_lines: regex patterns; lines matching any pattern are removed
             (mirrors bash ``IGNORE_LOG_LINE``).
     """
+    # Normalize CRLF to LF — the mingw build writes CRLF line endings to
+    # stdout, but golden files use LF.
+    text = text.replace("\r\n", "\n")
+
     if strip_header:
         # Remove first 3 lines (version/copyright header) — matches ``tail -n +4``
         lines = text.split("\n", 3)
