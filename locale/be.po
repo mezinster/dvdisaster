@@ -18,7 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-
 #: src/closure.c:306
 #, fuzzy, c-format
 msgid ""
@@ -29,24 +28,21 @@ msgid ""
 msgstr ""
 
 #: src/closure.c:619 src/closure.c:624
-#, fuzzy
 msgid "medium.iso"
-msgstr ""
+msgstr "medium.iso"
 
 #: src/closure.c:620 src/closure.c:625
-#, fuzzy
 msgid "medium.ecc"
-msgstr ""
+msgstr "medium.ecc"
 
 #: src/closure.c:627
-#, fuzzy
 msgid "sector-"
-msgstr ""
+msgstr "сектар-"
 
 #: src/debug.c:58 src/debug.c:157 src/debug.c:295
-#, fuzzy, c-format
+#, c-format
 msgid "Number of erasures must be > 0 and <= %d\n"
-msgstr ""
+msgstr "Колькасць сціранняў павінна быць > 0 і <= %d\n"
 
 #: src/debug.c:72 src/debug.c:162
 #, fuzzy, c-format
@@ -61,9 +57,9 @@ msgstr ""
 #: src/rs02-common.c:241 src/rs02-create.c:347 src/rs02-create.c:990
 #: src/rs02-fix.c:381 src/rs02-verify.c:422 src/rs03-common.c:341
 #: src/rs03-create.c:733 src/rs03-create.c:758
-#, fuzzy, c-format
+#, c-format
 msgid "Failed seeking to sector %<PRId64> in image: %s"
-msgstr ""
+msgstr "Не ўдалося перайсці да сектара %<PRId64> у вобразе: %s"
 
 #: src/debug.c:113 src/debug.c:198 src/debug.c:245 src/debug.c:370
 #: src/debug.c:546 src/debug.c:663 src/debug.c:714 src/debug.c:1194
@@ -72,15 +68,15 @@ msgstr ""
 #: src/rs03-create.c:762 src/udf.c:832 src/udf.c:890 src/udf.c:947
 #: src/udf.c:960 src/udf.c:965 src/udf.c:968 src/udf.c:971 src/udf.c:974
 #: src/udf.c:977 src/udf.c:980
-#, fuzzy, c-format
+#, c-format
 msgid "Failed writing to sector %<PRId64> in image: %s"
-msgstr ""
+msgstr "Не ўдалося запісаць у сектар %<PRId64> у вобразе: %s"
 
 #: src/debug.c:121 src/debug.c:251 src/debug.c:376 src/debug.c:667
 #: src/debug.c:721 src/debug.c:1285
-#, fuzzy, c-format
+#, c-format
 msgid "Progress: %3d%%"
-msgstr ""
+msgstr "Прагрэс: %3d%%"
 
 #: src/debug.c:126 src/debug.c:256 src/debug.c:381
 #, fuzzy, c-format
@@ -105,9 +101,9 @@ msgid ""
 msgstr ""
 
 #: src/debug.c:303
-#, fuzzy, c-format
+#, c-format
 msgid "Generating at most %d random correctable erasures.\n"
-msgstr ""
+msgstr "Генерацыя не больш за %d выпадковых папраўных сціранняў.\n"
 
 #: src/debug.c:445 src/debug.c:503 src/debug.c:566 src/debug.c:607
 #: src/debug.c:690 src/debug.c:796 src/debug.c:837 src/debug.c:883
@@ -123,66 +119,61 @@ msgid ""
 msgstr ""
 
 #: src/debug.c:450 src/debug.c:1141 src/debug.c:1217
-#, fuzzy
 msgid "2nd argument is missing"
-msgstr ""
+msgstr "Адсутнічае 2-гі аргумент"
 
 #: src/debug.c:457 src/debug.c:1147
-#, fuzzy
 msgid "3rd argument is missing"
-msgstr ""
+msgstr "Адсутнічае 3-ці аргумент"
 
 #: src/debug.c:464 src/debug.c:803 src/debug.c:844 src/debug.c:892
 #: src/debug.c:955
-#, fuzzy, c-format
+#, c-format
 msgid "Sector must be in range [0..%<PRId64>]\n"
-msgstr ""
+msgstr "Сектар павінен быць у дыяпазоне [0..%<PRId64>]\n"
 
 #: src/debug.c:467
-#, fuzzy
 msgid "Byte position must be in range [0..2047]"
-msgstr ""
+msgstr "Пазіцыя байта павінна быць у дыяпазоне [0..2047]"
 
 #: src/debug.c:470
-#, fuzzy
 msgid "Byte value must be in range [0..255]"
-msgstr ""
+msgstr "Значэнне байта павінна быць у дыяпазоне [0..255]"
 
 #: src/debug.c:472
-#, fuzzy, c-format
+#, c-format
 msgid "Setting byte %d in sector %<PRId64> to value %d.\n"
-msgstr ""
+msgstr "Усталёўваецца байт %d у сектары %<PRId64> у значэнне %d.\n"
 
 #: src/debug.c:479 src/debug.c:532 src/debug.c:695 src/rs02-create.c:194
 #: src/rs02-verify.c:722 src/rs03-verify.c:1015
-#, fuzzy, c-format
+#, c-format
 msgid "Failed seeking to start of image: %s\n"
-msgstr ""
+msgstr "Не ўдалося перайсці да пачатку вобраза: %s\n"
 
 #: src/debug.c:483
-#, fuzzy
 msgid "Could not write the new byte value"
-msgstr ""
+msgstr "Не ўдалося запісаць новае значэнне байта"
 
 #: src/debug.c:525 src/read-adaptive.c:832
-#, fuzzy, c-format
+#, c-format
 msgid "Sectors must be in range [0..%<PRId64>].\n"
-msgstr ""
+msgstr "Сектары павінны быць у дыяпазоне [0..%<PRId64>].\n"
 
 #: src/debug.c:527
-#, fuzzy, c-format
+#, c-format
 msgid "Erasing sectors [%<PRId64>,%<PRId64>]\n"
-msgstr ""
+msgstr "Сціранне сектараў [%<PRId64>,%<PRId64>]\n"
 
 #: src/debug.c:573
-#, fuzzy, c-format
+#, c-format
 msgid "New length must be in range [0..%<PRId64>].\n"
-msgstr ""
+msgstr "Новая даўжыня павінна быць у дыяпазоне [0..%<PRId64>].\n"
 
 #: src/debug.c:575 src/misc.c:781
-#, fuzzy, c-format
+#, c-format
 msgid "Truncating image to %<PRId64> sectors.\n"
-msgstr ""
+msgstr "Абразанне вобраза да %<PRId64> сектараў.\n"
 
 #: src/debug.c:580 src/misc.c:802 src/read-linear.c:1458 src/rs01-fix.c:219
 #: src/rs01-fix.c:242 src/rs01-fix.c:259 src/rs01-fix.c:293
@@ -190,9 +181,9 @@ msgstr ""
 #: src/rs02-fix.c:260 src/rs02-fix.c:274 src/rs03-create.c:246
 #: src/rs03-create.c:327 src/rs03-fix.c:268 src/rs03-fix.c:304
 #: src/rs03-fix.c:326 src/rs03-fix.c:342
-#, fuzzy, c-format
+#, c-format
 msgid "Could not truncate %s: %s\n"
-msgstr ""
+msgstr "Не ўдалося абрэзаць %s: %s\n"
 
 #: src/debug.c:611
 #, fuzzy, c-format
@@ -235,9 +226,9 @@ msgstr ""
 #: src/debug.c:1257 src/debug.c:1307 src/rs01-common.c:193
 #: src/rs02-common.c:246 src/rs02-create.c:211 src/rs02-fix.c:384
 #: src/rs03-common.c:346
-#, fuzzy, c-format
+#, c-format
 msgid "Failed reading sector %<PRId64> in image: %s"
-msgstr ""
+msgstr "Не ўдалося прачытаць сектар %<PRId64> у вобразе: %s"
 
 #: src/debug.c:846 src/debug.c:895 src/debug.c:958
 #, fuzzy, c-format
@@ -247,29 +238,27 @@ msgid ""
 msgstr ""
 
 #: src/debug.c:906
-#, fuzzy, c-format
+#, c-format
 msgid "Failed reading sector %<PRId64>: %s"
-msgstr ""
+msgstr "Не ўдалося прачытаць сектар %<PRId64>: %s"
 
 #: src/debug.c:945
-#, fuzzy
 msgid "Raw reading only possible on CD media\n"
-msgstr ""
+msgstr "Сырое чытанне магчымае толькі для носьбітаў CD\n"
 
 #: src/debug.c:1153
-#, fuzzy
 msgid "4th argument is missing"
-msgstr ""
+msgstr "Адсутнічае 4-ты аргумент"
 
 #: src/debug.c:1166
-#, fuzzy, c-format
+#, c-format
 msgid "Source sector must be in range [0..%<PRId64>]\n"
-msgstr ""
+msgstr "Зыходны сектар павінен быць у дыяпазоне [0..%<PRId64>]\n"
 
 #: src/debug.c:1174
-#, fuzzy, c-format
+#, c-format
 msgid "Destination sector must be in range [0..%<PRId64>]\n"
-msgstr ""
+msgstr "Мэтавы сектар павінен быць у дыяпазоне [0..%<PRId64>]\n"
 
 #: src/debug.c:1178
 #, fuzzy, c-format
@@ -277,14 +266,12 @@ msgid "Copying sector %<PRId64> from %s to sector %<PRId64> in %s.\n"
 msgstr ""
 
 #: src/ds-marker.c:269
-#, fuzzy
 msgid "Stop reporting these errors"
-msgstr ""
+msgstr "Спыніць паведамленні пра гэтыя памылкі"
 
 #: src/ds-marker.c:270
-#, fuzzy
 msgid "Continue reporting"
-msgstr ""
+msgstr "Працягваць паведамленні"
 
 #: src/ds-marker.c:297
 #, fuzzy
@@ -381,9 +368,8 @@ msgstr ""
 #. This is a dummy entry which is supposed to translate into "ok".
 #. Please do not return anything else here.
 #: src/dvdisaster.c:171 src/dvdisaster.c:183
-#, fuzzy
 msgid "test phrase for verifying the locale installation"
-msgstr ""
+msgstr "тэставая фраза для праверкі ўстаноўкі лакалі"
 
 #: src/dvdisaster.c:379
 #, fuzzy
@@ -910,9 +896,8 @@ msgstr ""
 
 #: src/help-dialogs.c:157 src/help-dialogs.c:559 src/help-dialogs.c:742
 #: src/medium-info.c:333 src/preferences.c:1202
-#, fuzzy
 msgid "Close"
-msgstr ""
+msgstr "Закрыць"
 
 #: src/help-dialogs.c:409
 #, fuzzy
@@ -1051,9 +1036,8 @@ msgid "Redo"
 msgstr ""
 
 #: src/large-io.c:186
-#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "Скасаваць"
 
 #: src/large-io.c:226
 #, fuzzy, c-format
@@ -1653,9 +1637,8 @@ msgid ""
 msgstr ""
 
 #: src/misc.c:535
-#, fuzzy
 msgid "Warning"
-msgstr ""
+msgstr "Папярэджанне"
 
 #: src/misc.c:610 src/misc.c:619
 #, fuzzy
@@ -1745,14 +1728,12 @@ msgid "Delete the log file?"
 msgstr ""
 
 #: src/preferences.c:1172
-#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "Налады"
 
 #: src/preferences.c:1210 src/rs03-preferences.c:669
-#, fuzzy
 msgid "Image"
-msgstr ""
+msgstr "Вобраз"
 
 #: src/preferences.c:1214
 #, fuzzy
@@ -1999,9 +1980,8 @@ msgid "<b>Note:</b> Using zero filling (0x00, decimal 0) is highly discouraged. 
 msgstr ""
 
 #: src/preferences.c:1656
-#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "Прывад"
 
 #: src/preferences.c:1660 src/preferences.c:1663
 #, fuzzy
@@ -3090,9 +3070,8 @@ msgstr ""
 #: src/read-adaptive.c:726 src/read-adaptive.c:785 src/read-adaptive.c:800
 #: src/read-adaptive.c:864 src/read-adaptive.c:953 src/read-adaptive.c:1014
 #: src/read-adaptive.c:1327 src/read-adaptive.c:1605
-#, fuzzy
 msgid "Aborted by user request!"
-msgstr ""
+msgstr "Перарвана па запыце карыстальніка!"
 
 #: src/read-adaptive.c:736
 #, fuzzy, c-format
@@ -5452,9 +5431,8 @@ msgid "Store ECC data in: "
 msgstr ""
 
 #: src/rs03-preferences.c:663
-#, fuzzy
 msgid "File"
-msgstr ""
+msgstr "Файл"
 
 #: src/rs03-preferences.c:690
 #, fuzzy
