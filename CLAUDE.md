@@ -33,7 +33,7 @@ make show
 
 ## Running Tests
 
-The test suite is Python/pytest-based, living in `tests/`. All 424 tests have been migrated from the legacy bash framework. Golden reference files in `regtest/database/` are still used for output comparison.
+The test suite is Python/pytest-based, living in `tests/`. All 595 tests have been migrated from the legacy bash framework. Golden reference files in `regtest/database/` are still used for output comparison.
 
 ```bash
 # Run all tests

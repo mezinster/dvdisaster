@@ -28,14 +28,13 @@ Master images are cached in `/var/tmp/regtest/` (created on first run, reused th
 
 | File | Tests | Status |
 |------|------:|--------|
-| `test_rs01.py` | 85 | Migrated from bash |
-| `test_rs02.py` | 76 | Migrated from bash |
-| `test_rs03f.py` | 85 | Migrated from bash |
-| `test_rs03i.py` | 142 | Migrated from bash |
-| `test_multipass_read.py` | 4 | Semantic tests (all codecs) |
+| `test_rs01.py` | 143 | Migrated from bash |
+| `test_rs02.py` | 147 | Migrated from bash |
+| `test_rs03f.py` | 113 | Migrated from bash |
+| `test_rs03i.py` | 159 | Migrated from bash |
 | `test_rs03_recognize.py` | 4 | Semantic tests (RS03 recognition) |
-| `test_framework.py` | 28 | Unit tests for the framework itself |
-| **Total** | **424** | |
+| `test_framework.py` | 29 | Unit tests for the framework itself |
+| **Total** | **595** | |
 
 ## Architecture
 
@@ -132,7 +131,7 @@ RS01 creates a separate `.ecc` file alongside the image. Tests use a 21000-secto
 | Class | Tests | What it covers |
 |-------|------:|----------------|
 | `TestRS01Verify` | 28 | Image+ECC verification: good, truncated, missing sectors, bad bytes, CRC errors, cross-codec detection |
-| `TestRS01Create` | 11 | ECC creation: normal, with existing image/ECC, missing image, permission errors, non-blocksize images |
+| `TestRS01Create` | 12 | ECC creation: normal, with existing image/ECC, missing image, permission errors, non-blocksize images |
 | `TestRS01Repair` | 18 | Image repair: truncated, missing sectors, bad bytes, permission errors, with wrong ECC fingerprint |
 | `TestRS01Scan` | 22 | Simulated CD scanning: good/defective media, range errors, skip sizes, hardware failures, DSM |
 | `TestRS01ReadLinear` | 38 | Linear reading: good/defective media, range errors, TAO tail, fingerprint mismatch, CRC errors, multipass |
@@ -155,7 +154,7 @@ RS02 embeds ECC data directly in the image (no separate `.ecc` file). Tests use 
 | `TestRS02Create` | 18 | ECC creation: normal, from other codecs, after read, partial read, non-blocksize |
 | `TestRS02Repair` | 25 | Image repair: truncated, trailing bytes/TAO/garbage, large file, permission errors, cross-codec |
 | `TestRS02Scan` | 22 | Simulated CD scanning: good/defective media, TAO tail, modulo glitch, cross-codec |
-| `TestRS02ReadLinear` | 28 | Linear reading: good/defective media, TAO tail, modulo glitch, CRC errors, cross-codec |
+| `TestRS02ReadLinear` | 27 | Linear reading: good/defective media, TAO tail, modulo glitch, CRC errors, cross-codec |
 | `TestRS02ReadAdaptive` | 22 | Adaptive reading: same scenarios using divide-and-conquer |
 
 Notable test patterns:
@@ -170,11 +169,11 @@ RS03f creates a separate `.ecc` file (like RS01) but uses the RS03 algorithm. Te
 
 | Class | Tests | What it covers |
 |-------|------:|----------------|
-| `TestRS03fVerify` | 34 | Image+ECC verification: good, truncated, padded, plus56 bytes, CRC errors, missing sectors, DSM, ecc file manipulation |
-| `TestRS03fCreate` | 14 | ECC creation: normal, missing image, permissions, plus56, after read, cross-codec (RS01/RS02/RS03i/RS03f) |
-| `TestRS03fRepair` | 26 | Image repair: good, missing sectors, border cases, plus56 variants, extra sectors, truncation, ecc damage |
+| `TestRS03fVerify` | 39 | Image+ECC verification: good, truncated, padded, plus56 bytes, CRC errors, missing sectors, DSM, ecc file manipulation |
+| `TestRS03fCreate` | 13 | ECC creation: normal, missing image, permissions, plus56, after read, cross-codec (RS01/RS02/RS03i/RS03f) |
+| `TestRS03fRepair` | 25 | Image repair: good, missing sectors, border cases, plus56 variants, extra sectors, truncation, ecc damage |
 | `TestRS03fScan` | 18 | Simulated CD scanning: good/defective media, TAO tail, incompatible ecc, header damage, cross-section errors |
-| `TestRS03fReadLinear` | 18 | Linear reading: good/defective media, TAO tail, incompatible ecc, CRC errors, DSM, multipass |
+| `TestRS03fReadLinear` | 17 | Linear reading: good/defective media, TAO tail, incompatible ecc, CRC errors, DSM, multipass |
 | `TestRS03fReadAdaptive` | 1 | Adaptive reading: good media baseline |
 
 ### `test_rs03i.py` -- RS03i (Image-Embedded ECC, RS03 Algorithm)
@@ -196,17 +195,6 @@ Notable RS03i-specific patterns:
 - **Custom -n**: Tests with explicit `-n` override for ECC size, including bruteforce header recovery
 - **Layer multiple / no padding**: Edge cases where image size aligns exactly with RS03 internal layout
 
-### `test_multipass_read.py` -- Multipass Reading (All Codecs)
-
-Semantic tests (not golden-file) for multipass reading across RS01, RS02, RS03f (file mode), and RS03i (image mode). These replace flaky bash tests where golden-file comparison was unreliable due to timing-dependent output ordering.
-
-Each test:
-1. Creates a 21000-sector image with damaged sectors (15900-16099)
-2. Creates codec-specific ECC data
-3. Prepares a simulated CD with additional damage and "readable in pass 3" sectors
-4. Reads with `--read-medium=3` (3 passes)
-5. Asserts semantic properties: CRC errors reported, pass transitions occur, correct final sector counts
-
 ### `test_rs03_recognize.py` -- RS03 Recognition Robustness
 
 Semantic tests for RS03 ECC recognition edge cases:
@@ -216,7 +204,7 @@ Semantic tests for RS03 ECC recognition edge cases:
 
 ### `test_framework.py` -- Framework Unit Tests
 
-Unit tests for the framework itself (28 tests):
+Unit tests for the framework itself (29 tests):
 - Damage operation CLI argument generation
 - Golden file parsing (MD5 extraction, output extraction)
 - Output cleaning (header stripping, path removal, memory-leak filtering)
@@ -255,7 +243,7 @@ GoldenTest("scan_defective_no_ecc", action="-s",
 
 | Aspect | Bash (`regtest/`) | Python (`tests/`) |
 |--------|-------------------|-------------------|
-| **Test count** | 569 (145 RS01 + 150 RS02 + 160 RS03i + 114 RS03f) | 424 (85 RS01 + 76 RS02 + 85 RS03f + 142 RS03i + 8 semantic + 28 framework) |
+| **Test count** | 569 (145 RS01 + 150 RS02 + 160 RS03i + 114 RS03f) | 595 (143 RS01 + 147 RS02 + 113 RS03f + 159 RS03i + 4 semantic + 29 framework) |
 | **Migration status** | All disabled | All codecs migrated |
 | **Test declaration** | Imperative shell scripts (~100-300 LOC each) | Declarative DSL (data + base class) |
 | **Lines per test** | 5-15 lines of bash | 2-5 lines of Python (golden tests) |
@@ -295,15 +283,14 @@ All codecs have been fully migrated from bash to Python. All bash tests are disa
 
 | Codec | Bash Tests (disabled) | Python Tests | Status |
 |-------|----------------------|-------------|--------|
-| RS01 | 145 | 85 | Migrated |
-| RS02 | 150 | 76 | Migrated |
-| RS03f | 114 | 85 | Migrated |
-| RS03i | 160 | 142 | Migrated |
+| RS01 | 145 | 143 | Migrated |
+| RS02 | 150 | 147 | Migrated |
+| RS03f | 114 | 113 | Migrated |
+| RS03i | 160 | 159 | Migrated |
 
 Python test counts differ from bash because:
 - Many bash tests that used multi-step setup map to compact declarative `GoldenTest` entries (fewer methods, same coverage)
 - Some duplicate bash entries were consolidated
-- `read_multipass_ecc_partial_success` tests live in the shared `test_multipass_read.py`
 
 ## Adding New Tests
 
