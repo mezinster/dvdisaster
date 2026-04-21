@@ -19,7 +19,7 @@ import tempfile
 
 import pytest
 
-from framework import pytest_generate_tests  # noqa: F401
+from framework import pytest_generate_tests, pytest_collection_modifyitems  # noqa: F401
 
 
 def pytest_addoption(parser):
