@@ -20,7 +20,11 @@ import tempfile
 
 import pytest
 
-from framework import pytest_generate_tests  # noqa: F401
+from framework import pytest_generate_tests, filter_empty_golden_placeholders  # noqa: F401
+
+
+def pytest_collection_modifyitems(config, items):
+    filter_empty_golden_placeholders(items)
 
 # Project root: one level up from tests/
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

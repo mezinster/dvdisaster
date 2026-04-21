@@ -573,3 +573,32 @@ def pytest_generate_tests(metafunc):
                 tests,
                 ids=[t.name for t in tests],
             )
+
+
+def filter_empty_golden_placeholders(items):
+    """Drop the placeholder pytest emits for ``test_golden`` when a suite's
+    ``_golden_tests`` list is empty. Several test classes (e.g. creation and
+    strip suites) inherit ``test_golden`` for a uniform base class API but
+    implement their checks as standalone methods — they have no golden-table
+    entries. Without this filter, each such class contributes one fake
+    ``test_golden[...]`` skip that inflates the skip count without
+    corresponding to any real test body.
+
+    Pytest signals "empty parametrize" by setting the param value to its
+    internal ``NotSetType`` sentinel; detect that by class name so we don't
+    import a private API.
+
+    Helper — callers invoke this from their ``pytest_collection_modifyitems``
+    hook. Not itself a pytest hook, to avoid collisions with other hooks
+    (e.g. the ``--run-slow`` gate in tests/conftest.py).
+    """
+    def _is_empty_golden_placeholder(item):
+        if getattr(item, "originalname", None) != "test_golden":
+            return False
+        callspec = getattr(item, "callspec", None)
+        if callspec is None:
+            return False
+        val = callspec.params.get("golden_test")
+        return val is not None and type(val).__name__ == "NotSetType"
+
+    items[:] = [item for item in items if not _is_empty_golden_placeholder(item)]
