@@ -583,7 +583,7 @@ def pytest_generate_tests(metafunc):
             )
 
 
-def pytest_collection_modifyitems(config, items):
+def filter_empty_golden_placeholders(items):
     """Drop the placeholder pytest emits for ``test_golden`` when a suite's
     ``_golden_tests`` list is empty. Several test classes (e.g. creation and
     strip suites) inherit ``test_golden`` for a uniform base class API but
@@ -595,6 +595,10 @@ def pytest_collection_modifyitems(config, items):
     Pytest signals "empty parametrize" by setting the param value to its
     internal ``NotSetType`` sentinel; detect that by class name so we don't
     import a private API.
+
+    Helper — callers invoke this from their ``pytest_collection_modifyitems``
+    hook. Not itself a pytest hook, to avoid collisions with other hooks
+    (e.g. the ``--run-slow`` gate in tests/conftest.py).
     """
     def _is_empty_golden_placeholder(item):
         if getattr(item, "originalname", None) != "test_golden":

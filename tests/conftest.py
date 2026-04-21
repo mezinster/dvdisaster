@@ -19,7 +19,7 @@ import tempfile
 
 import pytest
 
-from framework import pytest_generate_tests, pytest_collection_modifyitems  # noqa: F401
+from framework import pytest_generate_tests, filter_empty_golden_placeholders  # noqa: F401
 
 
 def pytest_addoption(parser):
@@ -36,6 +36,7 @@ def pytest_configure(config):
 
 
 def pytest_collection_modifyitems(config, items):
+    filter_empty_golden_placeholders(items)
     if config.getoption("--run-slow"):
         return
     skip_slow = pytest.mark.skip(reason="need --run-slow option to run")
