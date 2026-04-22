@@ -367,7 +367,7 @@ msgstr "Znaleziono nieodwracalny sektor!\n\nSektor %lld jest oznaczony jako nied
 #. Please do not return anything else here.
 #: src/dvdisaster.c:171 src/dvdisaster.c:183
 msgid "test phrase for verifying the locale installation"
-msgstr "testowa fraza do weryfikacji instalacji ustawień regionalnych"
+msgstr "ok"
 
 #: src/dvdisaster.c:379
 msgid "-o/--ecc-target expects 'file' or 'image'"
