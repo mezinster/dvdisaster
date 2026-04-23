@@ -904,7 +904,7 @@ msgstr ""
 
 #: src/help-dialogs.c:740
 msgid "windowtitle|About dvdisaster"
-msgstr "windowtitle|Sobre o dvdisaster"
+msgstr "Sobre o dvdisaster"
 
 #: src/help-dialogs.c:759 src/misc.c:219
 msgid ""

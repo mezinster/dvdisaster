@@ -813,7 +813,7 @@ msgstr "Zamknij"
 
 #: src/help-dialogs.c:409
 msgid "windowtitle|Log data"
-msgstr "windowtitle|Dane dziennika"
+msgstr "Dane dziennika"
 
 #: src/help-dialogs.c:410
 msgid ""
@@ -823,7 +823,7 @@ msgstr "<big>Dane dziennika</big>\n<i>Protokół bieżącej lub poprzedniej akcj
 
 #: src/help-dialogs.c:426
 msgid "windowtitle|GNU General Public License"
-msgstr "windowtitle|Publiczna Licencja Ogólna GNU"
+msgstr "Publiczna Licencja Ogólna GNU"
 
 #: src/help-dialogs.c:427
 msgid ""
@@ -855,7 +855,7 @@ msgstr "\n<- Błąd: Plik tekstowy obcięty tutaj"
 
 #: src/help-dialogs.c:740
 msgid "windowtitle|About dvdisaster"
-msgstr "windowtitle|O programie dvdisaster"
+msgstr "O programie dvdisaster"
 
 #: src/help-dialogs.c:759 src/misc.c:219
 msgid ""
@@ -975,11 +975,11 @@ msgstr "Błąd wewnętrzny: Brak odpowiedniej metody do naprawy obrazu."
 
 #: src/main-window.c:286
 msgid "button|Read"
-msgstr "button|Odczytaj"
+msgstr "Odczytaj"
 
 #: src/main-window.c:289
 msgid "tooltip|Read Image"
-msgstr "tooltip|Odczytaj obraz"
+msgstr "Odczytaj obraz"
 
 #: src/main-window.c:290
 msgid "Reads an optical disc image into a file (or tries to complete an existing image file)."
@@ -987,11 +987,11 @@ msgstr "Odczytuje obraz dysku optycznego do pliku (lub próbuje ukończyć istni
 
 #: src/main-window.c:304
 msgid "button|Create"
-msgstr "button|Utwórz"
+msgstr "Utwórz"
 
 #: src/main-window.c:307
 msgid "tooltip|Create error correction data"
-msgstr "tooltip|Utwórz dane korekcji błędów"
+msgstr "Utwórz dane korekcji błędów"
 
 #: src/main-window.c:308
 msgid "Creates error correction data. Requires an image file."
@@ -999,11 +999,11 @@ msgstr "Tworzy dane korekcji błędów. Wymaga pliku obrazu."
 
 #: src/main-window.c:312
 msgid "button|Scan"
-msgstr "button|Skanuj"
+msgstr "Skanuj"
 
 #: src/main-window.c:315
 msgid "tooltip|Scan medium"
-msgstr "tooltip|Skanuj nośnik"
+msgstr "Skanuj nośnik"
 
 #: src/main-window.c:316
 msgid "Scans medium for unreadable sectors."
@@ -1011,11 +1011,11 @@ msgstr "Skanuje nośnik w poszukiwaniu niedostępnych sektorów."
 
 #: src/main-window.c:320
 msgid "button|Fix"
-msgstr "button|Napraw"
+msgstr "Napraw"
 
 #: src/main-window.c:323
 msgid "tooltip|Repair image"
-msgstr "tooltip|Napraw obraz"
+msgstr "Napraw obraz"
 
 #: src/main-window.c:324
 msgid "Repairs an image. Requires an image file and error correction data."
@@ -1023,11 +1023,11 @@ msgstr "Naprawia obraz. Wymaga pliku obrazu i danych korekcji błędów."
 
 #: src/main-window.c:328
 msgid "button|Verify"
-msgstr "button|Weryfikuj"
+msgstr "Weryfikuj"
 
 #: src/main-window.c:331
 msgid "tooltip|Consistency check"
-msgstr "tooltip|Kontrola spójności"
+msgstr "Kontrola spójności"
 
 #: src/main-window.c:332
 msgid "Tests consistency of error correction data and image file."
@@ -1035,11 +1035,11 @@ msgstr "Testuje spójność danych korekcji błędów i pliku obrazu."
 
 #: src/main-window.c:336
 msgid "button|Strip"
-msgstr "button|Usuń"
+msgstr "Usuń"
 
 #: src/main-window.c:339
 msgid "tooltip|Strip ECC"
-msgstr "tooltip|Usuń ECC"
+msgstr "Usuń ECC"
 
 #: src/main-window.c:340
 msgid "Strip ECC data from an augmented image."
@@ -1047,11 +1047,11 @@ msgstr "Usuń dane ECC z powiększonego obrazu."
 
 #: src/main-window.c:344
 msgid "button|Stop"
-msgstr "button|Zatrzymaj"
+msgstr "Zatrzymaj"
 
 #: src/main-window.c:347
 msgid "tooltip|Abort action"
-msgstr "tooltip|Przerwij akcję"
+msgstr "Przerwij akcję"
 
 #: src/main-window.c:348
 msgid "Aborts an ongoing action."
@@ -1059,7 +1059,7 @@ msgstr "Przerywa trwającą akcję."
 
 #: src/main-window.c:493
 msgid "tooltip|Protocol for current action"
-msgstr "tooltip|Protokół dla bieżącej akcji"
+msgstr "Protokół dla bieżącej akcji"
 
 #: src/main-window.c:494
 msgid "Displays additional information created during the current or last action."
@@ -1164,7 +1164,7 @@ msgstr "nie"
 
 #: src/medium-info.c:331
 msgid "windowtitle|Medium info"
-msgstr "windowtitle|Informacje o nośniku"
+msgstr "Informacje o nośniku"
 
 #: src/medium-info.c:346
 msgid ""
@@ -1254,7 +1254,7 @@ msgstr "Uruchom wyszukiwanie wyczerpujące"
 
 #: src/menubar.c:133
 msgid "windowtitle|Change log"
-msgstr "windowtitle|Dziennik zmian"
+msgstr "Dziennik zmian"
 
 #: src/menubar.c:134
 msgid ""
@@ -1264,7 +1264,7 @@ msgstr "<big>Dziennik zmian</big>\n<i>Główne różnice od wcześniejszych wers
 
 #: src/menubar.c:140
 msgid "windowtitle|Credits"
-msgstr "windowtitle|Kredyty"
+msgstr "Kredyty"
 
 #: src/menubar.c:141
 msgid ""
@@ -1274,7 +1274,7 @@ msgstr "<big>Kredyty</big>\n<i>Podziękowania dla...</i>"
 
 #: src/menubar.c:147
 msgid "windowtitle|To do list"
-msgstr "windowtitle|Lista do zrobienia"
+msgstr "Lista do zrobienia"
 
 #: src/menubar.c:148
 msgid ""
@@ -1284,55 +1284,55 @@ msgstr "<big>Lista do zrobienia</big>\n<i>Przegląd zbliżających się funkcji 
 
 #: src/menubar.c:215
 msgid "menu|Select Image"
-msgstr "menu|Wybierz obraz"
+msgstr "Wybierz obraz"
 
 #: src/menubar.c:216
 msgid "menu|Select Parity File"
-msgstr "menu|Wybierz plik parzystości"
+msgstr "Wybierz plik parzystości"
 
 #: src/menubar.c:217
 msgid "menu|Quit"
-msgstr "menu|Zamknij"
+msgstr "Zamknij"
 
 #: src/menubar.c:219
 msgid "menu|File"
-msgstr "menu|Plik"
+msgstr "Plik"
 
 #: src/menubar.c:226
 msgid "menu|Medium info"
-msgstr "menu|Informacje o nośniku"
+msgstr "Informacje o nośniku"
 
 #: src/menubar.c:231
 msgid "menu|Raw sector editor"
-msgstr "menu|Edytor sektora surowego"
+msgstr "Edytor sektora surowego"
 
 #: src/menubar.c:233
 msgid "menu|Tools"
-msgstr "menu|Narzędzia"
+msgstr "Narzędzia"
 
 #: src/menubar.c:241
 msgid "menu|About"
-msgstr "menu|O programie"
+msgstr "O programie"
 
 #: src/menubar.c:242
 msgid "menu|User manual"
-msgstr "menu|Podręcznik użytkownika"
+msgstr "Podręcznik użytkownika"
 
 #: src/menubar.c:246
 msgid "menu|Credits"
-msgstr "menu|Kredyty"
+msgstr "Kredyty"
 
 #: src/menubar.c:247
 msgid "menu|Licence (GPL)"
-msgstr "menu|Licencja (GPL)"
+msgstr "Licencja (GPL)"
 
 #: src/menubar.c:251
 msgid "menu|Change log"
-msgstr "menu|Dziennik zmian"
+msgstr "Dziennik zmian"
 
 #: src/menubar.c:257
 msgid "menu|Help"
-msgstr "menu|Pomoc"
+msgstr "Pomoc"
 
 #: src/menubar.c:343 src/menubar.c:365 src/preferences.c:1027
 #: src/preferences.c:1059 src/raw-editor.c:299 src/raw-editor.c:410
@@ -1348,7 +1348,7 @@ msgstr "_Otwórz"
 
 #: src/menubar.c:450 src/menubar.c:475
 msgid "tooltip|Drive selection"
-msgstr "tooltip|Wybór napędu"
+msgstr "Wybór napędu"
 
 #: src/menubar.c:451
 msgid "Use the nearby drop-down list to select the input drive."
@@ -1360,7 +1360,7 @@ msgstr "Wybiera napęd wejściowy do odczytywania obrazów."
 
 #: src/menubar.c:506
 msgid "tooltip|Image file selection"
-msgstr "tooltip|Wybór pliku obrazu"
+msgstr "Wybór pliku obrazu"
 
 #: src/menubar.c:507
 msgid "Selects a new image file."
@@ -1368,7 +1368,7 @@ msgstr "Wybiera nowy plik obrazu."
 
 #: src/menubar.c:509
 msgid "tooltip|Current image file"
-msgstr "tooltip|Aktualny plik obrazu"
+msgstr "Aktualny plik obrazu"
 
 #: src/menubar.c:510
 msgid "Shows the name of the current image file."
@@ -1376,7 +1376,7 @@ msgstr "Wyświetla nazwę aktualnego pliku obrazu."
 
 #: src/menubar.c:535
 msgid "tooltip|Error correction file selection"
-msgstr "tooltip|Wybór pliku korekcji błędów"
+msgstr "Wybór pliku korekcji błędów"
 
 #: src/menubar.c:536
 msgid "Selects a new error correction file."
@@ -1384,7 +1384,7 @@ msgstr "Wybiera nowy plik korekcji błędów."
 
 #: src/menubar.c:538
 msgid "tooltip|Current error correction file"
-msgstr "tooltip|Aktualny plik korekcji błędów"
+msgstr "Aktualny plik korekcji błędów"
 
 #: src/menubar.c:539
 msgid "Shows the name of the current error correction file."
@@ -1392,7 +1392,7 @@ msgstr "Wyświetla nazwę aktualnego pliku korekcji błędów."
 
 #: src/menubar.c:550
 msgid "tooltip|Preferences"
-msgstr "tooltip|Preferencje"
+msgstr "Preferencje"
 
 #: src/menubar.c:551
 msgid "Customize settings for creating images, error correction files and other stuff."
@@ -1400,7 +1400,7 @@ msgstr "Dostosuj ustawienia tworzenia obrazów, plików korekcji błędów i inn
 
 #: src/menubar.c:561
 msgid "tooltip|User manual"
-msgstr "tooltip|Podręcznik użytkownika"
+msgstr "Podręcznik użytkownika"
 
 #: src/menubar.c:562
 msgid "Displays the user manual (external PDF viewer required)."
@@ -1408,7 +1408,7 @@ msgstr "Wyświetla podręcznik użytkownika (wymagany zewnętrzny przeglądarka 
 
 #: src/menubar.c:572
 msgid "tooltip|Quit"
-msgstr "tooltip|Zamknij"
+msgstr "Zamknij"
 
 #: src/menubar.c:572
 msgid "Quit dvdisaster"
@@ -2456,27 +2456,27 @@ msgstr "Przeglądanie"
 
 #: src/raw-editor.c:965
 msgid "button|Load"
-msgstr "button|Załaduj"
+msgstr "Załaduj"
 
 #: src/raw-editor.c:970
 msgid "button|Save"
-msgstr "button|Zapisz"
+msgstr "Zapisz"
 
 #: src/raw-editor.c:976
 msgid "button|Prev. sector"
-msgstr "button|Poprzedni sektor"
+msgstr "Poprzedni sektor"
 
 #: src/raw-editor.c:981
 msgid "button|Next sector"
-msgstr "button|Następny sektor"
+msgstr "Następny sektor"
 
 #: src/raw-editor.c:986
 msgid "button|Sort by P"
-msgstr "button|Sortuj po P"
+msgstr "Sortuj po P"
 
 #: src/raw-editor.c:991
 msgid "button|Sort by Q"
-msgstr "button|Sortuj po Q"
+msgstr "Sortuj po Q"
 
 #: src/raw-editor.c:998
 msgid "Editing"
@@ -2484,27 +2484,27 @@ msgstr "Edycja"
 
 #: src/raw-editor.c:1013
 msgid "button|Load Buf"
-msgstr "button|Załaduj Buf"
+msgstr "Załaduj Buf"
 
 #: src/raw-editor.c:1018
 msgid "button|Save Buf"
-msgstr "button|Zapisz Buf"
+msgstr "Zapisz Buf"
 
 #: src/raw-editor.c:1023
 msgid "button|Tag diffs"
-msgstr "button|Oznacz różnice"
+msgstr "Oznacz różnice"
 
 #: src/raw-editor.c:1028
 msgid "button|Untag all"
-msgstr "button|Usuń wszystkie znaczniki"
+msgstr "Usuń wszystkie znaczniki"
 
 #: src/raw-editor.c:1033
 msgid "button|Redo"
-msgstr "button|Ponów"
+msgstr "Ponów"
 
 #: src/raw-editor.c:1038
 msgid "button|Undo"
-msgstr "button|Cofnij"
+msgstr "Cofnij"
 
 #: src/raw-editor.c:1045
 msgid "Correction"
@@ -2512,23 +2512,23 @@ msgstr "Korekcja"
 
 #: src/raw-editor.c:1048
 msgid "button|P vector"
-msgstr "button|Wektor P"
+msgstr "Wektor P"
 
 #: src/raw-editor.c:1053
 msgid "button|Q vector"
-msgstr "button|Wektor Q"
+msgstr "Wektor Q"
 
 #: src/raw-editor.c:1058
 msgid "button|Find other P"
-msgstr "button|Znajdź inne P"
+msgstr "Znajdź inne P"
 
 #: src/raw-editor.c:1063
 msgid "button|Find other Q"
-msgstr "button|Znajdź inne Q"
+msgstr "Znajdź inne Q"
 
 #: src/raw-editor.c:1068
 msgid "button|Tag erasures"
-msgstr "button|Oznacz wymazania"
+msgstr "Oznacz wymazania"
 
 #: src/raw-editor.c:1075
 msgid "Heuristics"
@@ -2536,7 +2536,7 @@ msgstr "Heurystyki"
 
 #: src/raw-editor.c:1078
 msgid "button|Smart L-EC"
-msgstr "button|Inteligentny L-EC"
+msgstr "Inteligentny L-EC"
 
 #: src/raw-sector-cache.c:37 src/raw-sector-cache.c:204
 #: src/raw-sector-cache.c:338 src/scsi-darwin.c:218 src/scsi-freebsd.c:133
