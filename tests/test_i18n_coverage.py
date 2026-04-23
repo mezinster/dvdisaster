@@ -15,10 +15,14 @@ def parse_stats(po_path):
         ["msgfmt", "--statistics", str(po_path), "-o", "/dev/null"],
         capture_output=True, text=True
     )
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"msgfmt failed on {po_path}:\n{result.stderr}"
+        )
     output = result.stderr + result.stdout
-    translated = int(re.search(r'(\d+) translated', output).group(1)) if 'translated' in output else 0
-    untranslated = int(re.search(r'(\d+) untranslated', output).group(1)) if 'untranslated' in output else 0
-    fuzzy = int(re.search(r'(\d+) fuzzy', output).group(1)) if 'fuzzy' in output else 0
+    translated = int(re.search(r'\b(\d+) translated\b', output).group(1)) if 'translated' in output else 0
+    untranslated = int(re.search(r'\b(\d+) untranslated\b', output).group(1)) if 'untranslated' in output else 0
+    fuzzy = int(re.search(r'\b(\d+) fuzzy\b', output).group(1)) if 'fuzzy' in output else 0
     total = translated + untranslated + fuzzy
     return translated, untranslated, fuzzy, total
 
