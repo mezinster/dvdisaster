@@ -22,12 +22,48 @@ The escape logic is critical: `\\n` inside translations must survive as
 the escape sequence in the PO file, not as a literal newline. This is
 achieved by using a lambda in re.sub() for the msgstr replacement, so
 re.sub does NOT interpret backslash escapes in the replacement string.
+
+Context-marker hygiene: dvdisaster uses sgettext()-style msgids like
+"button|Read" where the "button|" prefix is a translator-hint that the
+sgettext() wrapper in src/misc.c strips on the untranslated fallback
+path. Machine translators tend to translate the prefix verbatim,
+producing msgstrs like "button|Чытаць" -- which sgettext() returns
+as-is, leaking into the UI. apply() strips such leaked prefixes from
+incoming translations before writing them (see _strip_context_prefix).
 """
 import argparse
 import json
 import re
 import sys
 from pathlib import Path
+
+
+# dvdisaster msgids use a short ASCII identifier as a context marker,
+# e.g. "button|Read", "tooltip|...", "windowtitle|...", "menu|...".
+# Detects that prefix so we can scrub it from translations that
+# accidentally include a translated copy of it.
+_CTX_PREFIX_RE = re.compile(r'^[A-Za-z][A-Za-z0-9_]{0,29}\|')
+
+
+def _strip_context_prefix(msgid, translation):
+    """If msgid has a 'CTX|' context marker and the translation also
+    starts with '<anything>|', strip everything up to and including
+    the first '|' in the translation.
+
+    Machine translators often translate the context marker verbatim
+    (e.g. 'button|Read' -> 'button|Чытаць' or 'ფანჯარა სათავე|...')
+    which the runtime sgettext() does not un-prefix on the translated
+    path. We cap the prefix length at 60 chars so a legitimate '|' in
+    the translation body is never eaten.
+    """
+    if not _CTX_PREFIX_RE.match(msgid):
+        return translation
+    # Look for a leaked prefix in the translation: up to 60 chars with
+    # no embedded quote/pipe, followed by '|'.
+    m = re.match(r'^([^"|]{1,60})\|(.*)$', translation, re.DOTALL)
+    if not m:
+        return translation
+    return m.group(2)
 
 
 # Legacy in-file dicts — kept for the 38 manual translations. Will be
@@ -87,6 +123,7 @@ def apply(po_path, translations):
             # produce an empty msgstr that would look translated.
             out_entries.append(entry)
             continue
+        translation = _strip_context_prefix(msgid, translation)
         escaped = _escape_for_po(translation)
         new_msgstr = f'msgstr "{escaped}"'
         # Lambda replacement sidesteps backslash-escape interpretation.
