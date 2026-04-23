@@ -154,6 +154,17 @@ int main(int argc, char *argv[])
 
 #ifdef WITH_NLS_YES
 
+    /* Honor a user-chosen UI language from the dotfile BEFORE gettext
+       binds. We use $LANGUAGE (not $LANG) because gettext consults it
+       first and, unlike $LANG, it does not require the target locale
+       to actually be installed on the host -- which is what makes this
+       work on the Windows portable build. */
+    {  char *early = PeekDotfileLocale();
+       if(early && *early)
+          g_setenv("LANGUAGE", early, TRUE);
+       if(early) g_free(early);
+    }
+
     /* This is necessary, but feels broken */
     setlocale(LC_CTYPE, "");
     setlocale(LC_MESSAGES, "");

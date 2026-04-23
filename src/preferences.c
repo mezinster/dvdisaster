@@ -1090,6 +1090,19 @@ static void logfile_delete_cb(GtkWidget *widget, gpointer data)
 }
 
 /***
+ *** User interface language selector
+ ***/
+
+static void language_combo_changed_cb(GtkWidget *widget, gpointer data)
+{  const char *id = gtk_combo_box_get_active_id(GTK_COMBO_BOX(widget));
+   g_free(Closure->uiLanguage);
+   Closure->uiLanguage = g_strdup(id ? id : "");
+   /* Persisted by update_dotfile() on normal exit (see closure.c).
+      Change takes effect at next startup, when PeekDotfileLocale()
+      runs before setlocale() in main(). */
+}
+
+/***
  *** Error correction method selection
  ***/
 
@@ -3024,12 +3037,53 @@ void GuiCreatePreferencesWindow(void)
 	 else   GuiAddHelpWidget(lwoh, grid);
       }
 
-      GuiAddHelpParagraph(lwoh, 
+      GuiAddHelpParagraph(lwoh,
 	 _("<b>Logfile</b>\n\n"
 	   "A copy of the logging information from the log window "
 	   "is written to the specified log file. This is useful to "
 	   "collect information on program crashes, but affects "
 	   "performance negatively."));
+
+      /** User interface language **/
+
+      frame = gtk_frame_new(_utf("User interface language"));
+      gtk_box_pack_start(GTK_BOX(vbox), frame, FALSE, FALSE, 0);
+
+      vbox2 = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
+      gtk_container_set_border_width(GTK_CONTAINER(vbox2), 10);
+      gtk_container_add(GTK_CONTAINER(frame), vbox2);
+
+      {  GtkWidget *combo = gtk_combo_box_text_new();
+         GtkWidget *note;
+         GList *langs = GuiDiscoverUiLanguages();
+         GList *l;
+         int active = 0, idx = 1;
+         const char *current = Closure->uiLanguage ? Closure->uiLanguage : "";
+
+         /* First entry: follow the environment (previous behavior) */
+         gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combo), "",
+                                   _utf("(System default)"));
+
+         for(l = langs; l; l = l->next, idx++)
+         {  const char *code    = (const char*)l->data;
+            const char *endonym = GuiLanguageEndonym(code);
+            char *label = g_strdup_printf("%s \xe2\x80\x94 %s", code, endonym);
+            gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combo), code, label);
+            if(!strcmp(code, current)) active = idx;
+            g_free(label);
+         }
+         g_list_free_full(langs, g_free);
+
+         gtk_combo_box_set_active(GTK_COMBO_BOX(combo), active);
+         g_signal_connect(G_OBJECT(combo), "changed",
+                          G_CALLBACK(language_combo_changed_cb), NULL);
+         gtk_box_pack_start(GTK_BOX(vbox2), combo, FALSE, FALSE, 0);
+
+         note = gtk_label_new(
+            _utf("Changes take effect after restarting dvdisaster."));
+         gtk_label_set_xalign(GTK_LABEL(note), 0.0);
+         gtk_box_pack_start(GTK_BOX(vbox2), note, FALSE, FALSE, 0);
+      }
    }
 
    /* Show the created / reused window */

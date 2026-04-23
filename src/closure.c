@@ -79,6 +79,68 @@ int isWithinAppBundle(const char *filePath) {
 }
 #endif
 
+/***
+ *** Minimal, early dotfile scan for the ui-language setting.
+ *** Must compile in CLI-only builds too -- called from dvdisaster.c
+ *** before setlocale() independent of WITH_GUI_YES.
+ ***/
+
+#define MAX_LINE_LEN 512
+
+/*
+ * Early read of just the "ui-language:" field, called before setlocale()
+ * so that a user-chosen UI language can be pushed into the LANGUAGE env
+ * var before gettext binds. Resolves the dotfile path on its own because
+ * InitClosure() has not yet populated Closure->dotFile / Closure->homeDir.
+ *
+ * Returns a newly-allocated string (may be "") or NULL if not readable.
+ * Caller frees with g_free().
+ */
+char *PeekDotfileLocale(void)
+{  char *path = NULL;
+   FILE *f;
+   char line[MAX_LINE_LEN];
+   char *result = NULL;
+
+#ifndef SYS_MINGW
+   const char *home = g_getenv("HOME");
+   if(home && *home)
+      path = g_strdup_printf("%s/.dvdisaster", home);
+#else
+   /* Windows portable: dotfile sits next to the executable. */
+   {  char exe[4*MAX_PATH];
+      DWORD n = GetModuleFileNameA(NULL, exe, sizeof(exe));
+      if(n > 0 && n < sizeof(exe)-1)
+      {  char *bs = strrchr(exe, '\\');
+         if(bs) *bs = 0;
+         path = g_strdup_printf("%s/dvdisaster.cfg", exe);
+      }
+   }
+#endif
+
+   if(!path) return NULL;
+
+   f = g_fopen(path, "rb");
+   g_free(path);
+   if(!f) return NULL;
+
+   while(fgets(line, MAX_LINE_LEN, f))
+   {  const char *prefix = "ui-language:";
+      size_t plen = strlen(prefix);
+      if(strncmp(line, prefix, plen) != 0) continue;
+      char *value = line + plen;
+      while(*value == ' ' || *value == '\t') value++;
+      size_t n = strlen(value);
+      while(n > 0 && (value[n-1] == '\n' || value[n-1] == '\r' || value[n-1] == ' '))
+         value[--n] = 0;
+      result = g_strdup(value);
+      break;
+   }
+
+   fclose(f);
+   return result;
+}
+
 #ifdef WITH_GUI_YES
 
 /***
@@ -147,8 +209,6 @@ static void get_color(GdkRGBA *color, char *value)
 /***
  *** Save and restore user settings to/from the .dvdisaster file
  ***/
-
-#define MAX_LINE_LEN 512
 
 void GuiReadDotfile()
 {  FILE *dotfile;
@@ -256,6 +316,8 @@ void GuiReadDotfile()
       if(!strcmp(symbol, "unlink"))          { Closure->unlinkImage = atoi(value); continue; }
       if(!strcmp(symbol, "verbose"))         { Closure->verbose = atoi(value); continue; }
       if(!strcmp(symbol, "welcome-msg"))     { Closure->welcomeMessage = atoi(value); continue; }
+      if(!strcmp(symbol, "ui-language"))     { g_free(Closure->uiLanguage);
+                                               Closure->uiLanguage = g_strdup(value); continue; }
 
       if(!strcmp(symbol, "positive-text"))   { get_color(Closure->greenText, value); 
 	                                       GuiUpdateMarkup(&Closure->greenMarkup, Closure->greenText);
@@ -358,7 +420,8 @@ static void update_dotfile()
    g_fprintf(dotfile, "spinup-delay:      %d\n", Closure->spinupDelay);
    g_fprintf(dotfile, "unlink:            %d\n", Closure->unlinkImage);
    g_fprintf(dotfile, "verbose:           %d\n", Closure->verbose);
-   g_fprintf(dotfile, "welcome-msg:       %d\n\n", Closure->welcomeMessage);
+   g_fprintf(dotfile, "welcome-msg:       %d\n", Closure->welcomeMessage);
+   g_fprintf(dotfile, "ui-language:       %s\n\n", Closure->uiLanguage ? Closure->uiLanguage : "");
 
    save_colors(dotfile, "positive-text",      Closure->greenText);
    save_colors(dotfile, "negative-text",      Closure->redText);
@@ -565,6 +628,7 @@ void InitClosure()
    Closure->noBdrDefectManagement = FALSE;
    Closure->bruteforceRS03Search = FALSE;
    Closure->ignoreRS03header = FALSE;
+   Closure->uiLanguage = g_strdup("");
 
    /* default sizes for typical CD and DVD media */
 
@@ -703,6 +767,7 @@ void FreeClosure()
    cond_free(Closure->methodName);
    cond_free(Closure->homeDir);
    cond_free(Closure->dotFile);
+   cond_free(Closure->uiLanguage);
    cond_free(Closure->logFile);
    cond_free(Closure->binDir);
    cond_free(Closure->docDir);

@@ -25,7 +25,7 @@
 
 # Currently supported locales
 
-PO_LOCALES = pt_BR cs de it ru sv
+PO_LOCALES = pt_BR cs de it ru sv be ka pl tr uk
 MAN_LOCALES = de
 
 # Search for TAGS: online-docs

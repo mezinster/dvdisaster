@@ -152,6 +152,11 @@ This should be fully automated, but alas, it isn't.
 - Add translator to General information section in this file
 - Add translator to CREDITS* files
 - Edit GNUmakefile.template (PO_LOCALES)
+- Add one entry (code + endonym) to the LANG_NAMES table in
+  src/language-list.c so the new language appears in the Preferences
+  -> Misc "User interface language" dropdown with its native name.
+  Missing from LANG_NAMES is a soft failure (entry shows as the bare
+  locale code), but the endonym is what users recognize.
 - Double check that the translator gets credits in the about dialog
   text for his language
 - Add localization information in the HTML documentation

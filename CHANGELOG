@@ -21,6 +21,8 @@
 #  along with dvdisaster. If not, see <http://www.gnu.org/licenses/>.
 
 0.79.10.patchlevel-6 06-04-2026 *UNOFFICIAL*
+- feat: in-app UI language switcher in Preferences -> Misc (requires restart). Persisted as ui-language in the dotfile and applied via $LANGUAGE before setlocale(), so it works on the Windows portable build without requiring the target locale to be installed on the host. Runtime-discovers installed .mo files; falls back to the previous environment-driven behaviour when unset.
+- i18n: 5 new translations seeded (Belarusian, Georgian, Polish, Turkish, Ukrainian); PO_LOCALES in GNUmakefile.template now lists all 11 shipped languages so install/uninstall scripts handle them correctly.
 - feat: add --bruteforce-rs03-search: new option to recover RS03-augmented images when the custom -n (redundancy) size used during creation has been forgotten. The default search algorithm has also been improved: it now tests the medium size matching the image being worked on, even if it doesn't match a well-known standard medium size.
 - feat: macOS: native ARM64 build
 - feat: add --medium-size CLI flag to explicitly set target medium for RS03 augmented images (CD, DVD, DVD9, BD, BD2, BDXL3, BDXL4, and NODM variants), addressing upstream issues where auto-detection always picks the smallest fitting medium with no obvious override.

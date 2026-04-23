@@ -314,6 +314,7 @@ typedef struct _GlobalClosure
    int permissiveMediumType; /* if true, don't bail out on some UNSUPPORTED medium types (debug only) */
    char *homeDir;       /* path to users home dir */
    char *dotFile;       /* path to .dvdisaster file */
+   char *uiLanguage;    /* user-chosen UI language ("" = auto from env) */
    char *logFile;       /* path to logfile */
    int  logFileEnabled; /* logfile enabled */
    int  logFileStamped; /* time stamp written to log file */
@@ -575,10 +576,16 @@ void FreeClosure(void);
 void WriteSignature(void);
 int  VerifySignature(void);
 
+char *PeekDotfileLocale(void);
+
 #ifdef WITH_GUI_YES
 void GuiDefaultColors(void);
 void GuiReadDotfile(void);
 void GuiUpdateMarkup(char**, GdkRGBA*);
+
+/*** language-list.c ***/
+GList      *GuiDiscoverUiLanguages(void);
+const char *GuiLanguageEndonym(const char *code);
 #endif
 
 /***
