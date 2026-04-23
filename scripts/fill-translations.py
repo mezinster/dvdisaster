@@ -40,7 +40,11 @@ def translate_text(text: str, target_lang: str) -> str:
 
 def fill_po(po_path: str, locale: str, dry_run: bool = False) -> None:
     lang_code = LANG_MAP.get(locale, locale)
-    po = polib.pofile(po_path)
+    try:
+        po = polib.pofile(po_path)
+    except Exception as e:
+        print(f"ERROR: cannot read {po_path}: {e}", file=sys.stderr)
+        sys.exit(1)
 
     untranslated = po.untranslated_entries()
     print(f"{po_path}: {len(untranslated)} untranslated entries, target lang={lang_code}")
