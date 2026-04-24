@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dvdisaster 0.79.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-06 16:01+0200\n"
+"POT-Creation-Date: 2026-04-24 08:26+0400\n"
 "PO-Revision-Date: 2026-04-21 00:00+0000\n"
 "Last-Translator: Machine-translated seed <noreply@example.com>\n"
 "Language-Team: Turkish\n"
@@ -25,7 +25,11 @@ msgid ""
 "# This is an automatically generated file\n"
 "# which will be overwritten each time dvdisaster is run.\n"
 "\n"
-msgstr "# dvdisaster-%s yapılandırma dosyası\n# Bu otomatik olarak oluşturulan bir dosyadır\n# dvdisaster her çalıştırıldığında üzerine yazılacaktır.\n\n"
+msgstr ""
+"# dvdisaster-%s yapılandırma dosyası\n"
+"# Bu otomatik olarak oluşturulan bir dosyadır\n"
+"# dvdisaster her çalıştırıldığında üzerine yazılacaktır.\n"
+"\n"
 
 #: src/closure.c:619 src/closure.c:624
 msgid "medium.iso"
@@ -49,7 +53,9 @@ msgstr "Silme sayısı > 0 ve <= %d olmalıdır\n"
 msgid ""
 "\n"
 "Generating random correctable erasures (%s; for %d roots, max erasures = %d).\n"
-msgstr "\nRastgele düzeltilebilir silmeleri oluşturuluyor (%s; %d kök için, maksimum silme = %d).\n"
+msgstr ""
+"\n"
+"Rastgele düzeltilebilir silmeleri oluşturuluyor (%s; %d kök için, maksimum silme = %d).\n"
 
 #: src/debug.c:105 src/debug.c:193 src/debug.c:241 src/debug.c:365
 #: src/debug.c:708 src/debug.c:808 src/debug.c:851 src/debug.c:1182
@@ -84,21 +90,28 @@ msgid ""
 "Progress: 100%%\n"
 "Recover the image using the --fix option before doing another --random-errors run.\n"
 "Otherwise you'll accumulate >= %d erasures/ECC block and the image will be lost.\n"
-msgstr "İlerleme: 100%%\nBaşka bir --random-errors çalıştırması yapmadan önce --fix seçeneğini kullanarak görüntüyü kurtarın.\nAksi takdirde >= %d silme/ECC blok biriktireceksiniz ve görüntü kaybolacaktır.\n"
+msgstr ""
+"İlerleme: 100%%\n"
+"Başka bir --random-errors çalıştırması yapmadan önce --fix seçeneğini kullanarak görüntüyü kurtarın.\n"
+"Aksi takdirde >= %d silme/ECC blok biriktireceksiniz ve görüntü kaybolacaktır.\n"
 
 #: src/debug.c:301
 #, c-format
 msgid ""
 "\n"
 "RS03 error correction file with %d roots.\n"
-msgstr "\n%d köklü RS03 hata düzeltme dosyası.\n"
+msgstr ""
+"\n"
+"%d köklü RS03 hata düzeltme dosyası.\n"
 
 #: src/debug.c:302
 #, c-format
 msgid ""
 "\n"
 "RS03 augmented image with %d roots.\n"
-msgstr "\n%d köklü RS03 artırılmış görüntü.\n"
+msgstr ""
+"\n"
+"%d köklü RS03 artırılmış görüntü.\n"
 
 #: src/debug.c:303
 #, c-format
@@ -116,7 +129,9 @@ msgstr "En fazla %d rastgele düzeltilebilir silme oluşturuluyor.\n"
 msgid ""
 "Can't open %s:\n"
 "%s"
-msgstr "%s açılamıyor:\n%s"
+msgstr ""
+"%s açılamıyor:\n"
+"%s"
 
 #: src/debug.c:450 src/debug.c:1141 src/debug.c:1217
 msgid "2nd argument is missing"
@@ -195,7 +210,14 @@ msgid ""
 "you can always reproduce it by calling\n"
 "dvdisaster --debug %s %<PRId64> --random-seed %d\n"
 "\n"
-msgstr "\n%<PRId64> sektörlü rastgele görüntü oluşturuluyor.\n\nBu görüntüyü kalıcı olarak depolamaya gerek yoktur;\ndvdisaster --debug %s %<PRId64> --random-seed %d çağırarak\nher zaman yeniden oluşturabilirsiniz.\n\n"
+msgstr ""
+"\n"
+"%<PRId64> sektörlü rastgele görüntü oluşturuluyor.\n"
+"\n"
+"Bu görüntüyü kalıcı olarak depolamaya gerek yoktur;\n"
+"dvdisaster --debug %s %<PRId64> --random-seed %d çağırarak\n"
+"her zaman yeniden oluşturabilirsiniz.\n"
+"\n"
 
 #: src/debug.c:675 src/read-adaptive.c:382 src/read-linear.c:127
 #: src/read-linear.c:130
@@ -203,7 +225,9 @@ msgstr "\n%<PRId64> sektörlü rastgele görüntü oluşturuluyor.\n\nBu görün
 msgid ""
 "Error closing image file:\n"
 "%s"
-msgstr "Görüntü dosyası kapatılırken hata:\n%s"
+msgstr ""
+"Görüntü dosyası kapatılırken hata:\n"
+"%s"
 
 #: src/debug.c:691
 msgid "Replacing the \"unreadable sector\" markers with zeros.\n"
@@ -214,7 +238,9 @@ msgstr "\"Okunamayan sektör\" işaretçilerini sıfırlarla değiştiriyor.\n"
 msgid ""
 "Could not read image sector %<PRId64>:\n"
 "%s\n"
-msgstr "Görüntü sektörü %<PRId64> okunamadı:\n%s\n"
+msgstr ""
+"Görüntü sektörü %<PRId64> okunamadı:\n"
+"%s\n"
 
 #: src/debug.c:726
 #, c-format
@@ -234,7 +260,9 @@ msgstr "Görüntü içinde %<PRId64> sektörü okuma başarısız: %s"
 msgid ""
 "Contents of sector %<PRId64>:\n"
 "\n"
-msgstr "Sektör %<PRId64> içeriği:\n\n"
+msgstr ""
+"Sektör %<PRId64> içeriği:\n"
+"\n"
 
 #: src/debug.c:906
 #, c-format
@@ -276,7 +304,9 @@ msgstr "Bildirmeye devam et"
 msgid ""
 "* ... more unrecoverable sectors found ...\n"
 "* further messages are suppressed unless the -v option is given.\n"
-msgstr "* ... daha fazla kurtarılamaz sektör bulundu ...\n* -v seçeneği verilmediği sürece daha ileri mesajlar bastırılır.\n"
+msgstr ""
+"* ... daha fazla kurtarılamaz sektör bulundu ...\n"
+"* -v seçeneği verilmediği sürece daha ileri mesajlar bastırılır.\n"
 
 #: src/ds-marker.c:311
 #, c-format
@@ -286,7 +316,12 @@ msgid ""
 "The label of the original (defective) medium was:\n"
 "%s\n"
 "\n"
-msgstr "\n\nOrijinal (kusurlu) ortamın etiketi şundan oluşuyordu:\n%s\n\n"
+msgstr ""
+"\n"
+"\n"
+"Orijinal (kusurlu) ortamın etiketi şundan oluşuyordu:\n"
+"%s\n"
+"\n"
 
 #: src/ds-marker.c:312
 #, c-format
@@ -297,7 +332,13 @@ msgid ""
 "* \n"
 "*  %s\n"
 "* "
-msgstr "\n* \n* Orijinal (kusurlu) ortamın etiketi şundan oluşuyordu:\n* \n*  %s\n* "
+msgstr ""
+"\n"
+"* \n"
+"* Orijinal (kusurlu) ortamın etiketi şundan oluşuyordu:\n"
+"* \n"
+"*  %s\n"
+"* "
 
 #: src/ds-marker.c:322
 #, c-format
@@ -314,7 +355,19 @@ msgid ""
 "Since the image was already created defective it can not be\n"
 "repaired by dvdisaster. Also it will not be possible to create\n"
 "error correction data for it. Sorry for the bad news.\n"
-msgstr "Kurtarılamaz sektör bulundu!\n\nSektör %lld okunamaz olarak işaretlenmiş ve\nfarklı bir konumda (%lld) olması için açıklama yapılmış.\n\nGörüntü muhtemelen kusurlu içerikten oluşturuldu.\nÖrneğin, TAMAMEN KURTARILMAYAN kusurlu bir ortamdan gelen\nbir veya daha fazla dosya içerebilir.\nBu, bazı dosyaların sessizce bozulmuş olabileceği anlamına gelir.%s\nGörüntü zaten kusurlu olarak oluşturulduğundan dvdisaster tarafından\nkullanılamaz. Ayrıca bunun için hata düzeltme verileri\noluşturulmayacaktır. Kötü haberler için özür dileriz.\n"
+msgstr ""
+"Kurtarılamaz sektör bulundu!\n"
+"\n"
+"Sektör %lld okunamaz olarak işaretlenmiş ve\n"
+"farklı bir konumda (%lld) olması için açıklama yapılmış.\n"
+"\n"
+"Görüntü muhtemelen kusurlu içerikten oluşturuldu.\n"
+"Örneğin, TAMAMEN KURTARILMAYAN kusurlu bir ortamdan gelen\n"
+"bir veya daha fazla dosya içerebilir.\n"
+"Bu, bazı dosyaların sessizce bozulmuş olabileceği anlamına gelir.%s\n"
+"Görüntü zaten kusurlu olarak oluşturulduğundan dvdisaster tarafından\n"
+"kullanılamaz. Ayrıca bunun için hata düzeltme verileri\n"
+"oluşturulmayacaktır. Kötü haberler için özür dileriz.\n"
 
 #: src/ds-marker.c:345
 #, c-format
@@ -331,7 +384,19 @@ msgid ""
 "Since the image was already created defective it can not be\n"
 "repaired by dvdisaster. Also it will not be possible to create\n"
 "error correction data for it. Sorry for the bad news.\n"
-msgstr "Kurtarılamaz sektör bulundu!\n\nSektör %lld okunamaz olarak işaretlenmiş ve\nfarklı bir ortamdan gelmiş görülüyor.\n\nGörüntü muhtemelen kusurlu içerikten oluşturuldu.\nÖrneğin, TAMAMEN KURTARILMAYAN kusurlu bir ortamdan gelen\nbir veya daha fazla dosya içerebilir.\nBu, bazı dosyaların sessizce bozulmuş olabileceği anlamına gelir.%s\nGörüntü zaten kusurlu olarak oluşturulduğundan dvdisaster tarafından\nkullanılamaz. Ayrıca bunun için hata düzeltme verileri\noluşturulmayacaktır. Kötü haberler için özür dileriz.\n"
+msgstr ""
+"Kurtarılamaz sektör bulundu!\n"
+"\n"
+"Sektör %lld okunamaz olarak işaretlenmiş ve\n"
+"farklı bir ortamdan gelmiş görülüyor.\n"
+"\n"
+"Görüntü muhtemelen kusurlu içerikten oluşturuldu.\n"
+"Örneğin, TAMAMEN KURTARILMAYAN kusurlu bir ortamdan gelen\n"
+"bir veya daha fazla dosya içerebilir.\n"
+"Bu, bazı dosyaların sessizce bozulmuş olabileceği anlamına gelir.%s\n"
+"Görüntü zaten kusurlu olarak oluşturulduğundan dvdisaster tarafından\n"
+"kullanılamaz. Ayrıca bunun için hata düzeltme verileri\n"
+"oluşturulmayacaktır. Kötü haberler için özür dileriz.\n"
 
 #: src/ds-marker.c:371
 #, c-format
@@ -347,7 +412,18 @@ msgid ""
 "Since the medium was already created defective it can not be\n"
 "repaired by dvdisaster. Also it will not be possible to create\n"
 "error correction data for it. Sorry for the bad news.\n"
-msgstr "Kurtarılamaz sektör bulundu!\n\nSektör %lld ortamda okunamaz olarak işaretlenmiş.\n\nOrtam muhtemelen kusurlu içerikten oluşturuldu.\nÖrneğin, TAMAMEN KURTARILMAYAN kusurlu bir ortamdan gelen\nbir veya daha fazla dosya içerebilir.\nBu, bazı dosyaların sessizce bozulmuş olabileceği anlamına gelir.\nOrtam zaten kusurlu olarak oluşturulduğundan dvdisaster tarafından\nkullanılamaz. Ayrıca bunun için hata düzeltme verileri\noluşturulmayacaktır. Kötü haberler için özür dileriz.\n"
+msgstr ""
+"Kurtarılamaz sektör bulundu!\n"
+"\n"
+"Sektör %lld ortamda okunamaz olarak işaretlenmiş.\n"
+"\n"
+"Ortam muhtemelen kusurlu içerikten oluşturuldu.\n"
+"Örneğin, TAMAMEN KURTARILMAYAN kusurlu bir ortamdan gelen\n"
+"bir veya daha fazla dosya içerebilir.\n"
+"Bu, bazı dosyaların sessizce bozulmuş olabileceği anlamına gelir.\n"
+"Ortam zaten kusurlu olarak oluşturulduğundan dvdisaster tarafından\n"
+"kullanılamaz. Ayrıca bunun için hata düzeltme verileri\n"
+"oluşturulmayacaktır. Kötü haberler için özür dileriz.\n"
 
 #: src/ds-marker.c:394
 #, c-format
@@ -360,7 +436,14 @@ msgid ""
 "was NOT fully recovered. That means that some sectors\n"
 "in the ecc file are missing and its error correction\n"
 "capacity will be reduced.\n"
-msgstr "Kurtarılamaz sektör bulundu!\n\nSektör %lld ecc dosyasında okunamaz olarak işaretlenmiş.\n\necc dosyası muhtemelen TAMAMEN KURTARILMAYAN bir ortamdan alındı.\nBu, ecc dosyasındaki bazı sektörlerin eksik olduğu ve\nhata düzeltme kapasitesinin azalacağı anlamına gelir.\n"
+msgstr ""
+"Kurtarılamaz sektör bulundu!\n"
+"\n"
+"Sektör %lld ecc dosyasında okunamaz olarak işaretlenmiş.\n"
+"\n"
+"ecc dosyası muhtemelen TAMAMEN KURTARILMAYAN bir ortamdan alındı.\n"
+"Bu, ecc dosyasındaki bazı sektörlerin eksik olduğu ve\n"
+"hata düzeltme kapasitesinin azalacağı anlamına gelir.\n"
 
 #. TRANSLATORS:
 #. This is a dummy entry which is supposed to translate into "ok".
@@ -447,7 +530,10 @@ msgid ""
 "\n"
 "Method %s not available.\n"
 "Use -m without parameters for a method list.\n"
-msgstr "\n%s yöntemi kullanılamıyor.\nYöntem listesi için -m'yi parametresiz kullanın.\n"
+msgstr ""
+"\n"
+"%s yöntemi kullanılamıyor.\n"
+"Yöntem listesi için -m'yi parametresiz kullanın.\n"
 
 #: src/dvdisaster.c:827 src/rs01-create.c:266 src/rs02-create.c:1031
 #: src/rs03-create.c:1280
@@ -455,7 +541,9 @@ msgstr "\n%s yöntemi kullanılamıyor.\nYöntem listesi için -m'yi parametresi
 msgid ""
 "\n"
 "Opening %s"
-msgstr "\n%s açılıyor"
+msgstr ""
+"\n"
+"%s açılıyor"
 
 #: src/dvdisaster.c:834 src/rs01-create.c:275 src/rs02-create.c:159
 #: src/rs02-create.c:1041 src/rs03-create.c:331 src/rs03-create.c:1295
@@ -488,7 +576,18 @@ msgid ""
 "  dvdisaster -z, --strip  # Strip ECC data from an augmented .iso.\n"
 "  dvdisaster -u, --unlink # Delete .iso files (when other actions complete)\n"
 "\n"
-msgstr "\nYaygın kullanım örnekleri:\n  dvdisaster -r, --read   # Ortam görüntüsünü sabit diske oku.\n                          # -rn-m kullanarak belirli sektör aralığını okuyun, örn. -r100-200\n  dvdisaster -c, --create # Ortam görüntüsü için .ecc bilgisi oluştur.\n  dvdisaster -f, --fix    # .ecc bilgisini kullanarak ortam görüntüsünü düzeltmeyi dene.\n  dvdisaster -s, --scan   # Ortamı okuma hataları için tara.\n  dvdisaster -t, --test   # .iso ve .ecc dosyalarının bütünlüğünü test et.\n  dvdisaster -z, --strip  # Artırılmış .iso'dan ECC verilerini soy.\n  dvdisaster -u, --unlink # .iso dosyalarını sil (diğer eylemler tamamlandığında)\n\n"
+msgstr ""
+"\n"
+"Yaygın kullanım örnekleri:\n"
+"  dvdisaster -r, --read   # Ortam görüntüsünü sabit diske oku.\n"
+"                          # -rn-m kullanarak belirli sektör aralığını okuyun, örn. -r100-200\n"
+"  dvdisaster -c, --create # Ortam görüntüsü için .ecc bilgisi oluştur.\n"
+"  dvdisaster -f, --fix    # .ecc bilgisini kullanarak ortam görüntüsünü düzeltmeyi dene.\n"
+"  dvdisaster -s, --scan   # Ortamı okuma hataları için tara.\n"
+"  dvdisaster -t, --test   # .iso ve .ecc dosyalarının bütünlüğünü test et.\n"
+"  dvdisaster -z, --strip  # Artırılmış .iso'dan ECC verilerini soy.\n"
+"  dvdisaster -u, --unlink # .iso dosyalarını sil (diğer eylemler tamamlandığında)\n"
+"\n"
 
 #: src/dvdisaster.c:970
 #, c-format
@@ -499,7 +598,13 @@ msgid ""
 "  -i, --image imagefile       - name of image file       (default: medium.iso)\n"
 "  -e, --ecc eccfile           - name of parity file      (default: medium.ecc)\n"
 "  -o, --ecc-target imagefile  - where to put ecc data in RS03\n"
-msgstr "Sürücü ve dosya belirtimi:\n  -d, --device device         - verilen cihazdan oku   (varsayılan: %s)\n  -p, --prefix prefix         - .iso/.ecc dosyası öneki (varsayılan: medium.*  )\n  -i, --image imagefile       - görüntü dosyası adı       (varsayılan: medium.iso)\n  -e, --ecc eccfile           - parite dosyası adı      (varsayılan: medium.ecc)\n  -o, --ecc-target imagefile  - ecc verilerinin RS03'de nereye konulacağı\n"
+msgstr ""
+"Sürücü ve dosya belirtimi:\n"
+"  -d, --device device         - verilen cihazdan oku   (varsayılan: %s)\n"
+"  -p, --prefix prefix         - .iso/.ecc dosyası öneki (varsayılan: medium.*  )\n"
+"  -i, --image imagefile       - görüntü dosyası adı       (varsayılan: medium.iso)\n"
+"  -e, --ecc eccfile           - parite dosyası adı      (varsayılan: medium.ecc)\n"
+"  -o, --ecc-target imagefile  - ecc verilerinin RS03'de nereye konulacağı\n"
 
 #: src/dvdisaster.c:980
 msgid "Tweaking options (see manual before using!)\n"
@@ -526,7 +631,13 @@ msgid ""
 "                               CD, DVD, DVD9, BD, BD2, BDXL3, BDXL4,\n"
 "                               BDNODM, BD2NODM, BDXL3NODM, BDXL4NODM,\n"
 "                               or a raw sector count\n"
-msgstr "  -n, --redundancy x         - hata düzeltme veri fazlalığı\n                               örn. 20%%, 32r (kökler), 200m (MiB), normal, yüksek\n                               RS02/RS03 artırılmış görüntüler için, ortam boyutunu da kabul eder:\n                               CD, DVD, DVD9, BD, BD2, BDXL3, BDXL4,\n                               BDNODM, BD2NODM, BDXL3NODM, BDXL4NODM,\n                               veya ham sektör sayısı\n"
+msgstr ""
+"  -n, --redundancy x         - hata düzeltme veri fazlalığı\n"
+"                               örn. 20%%, 32r (kökler), 200m (MiB), normal, yüksek\n"
+"                               RS02/RS03 artırılmış görüntüler için, ortam boyutunu da kabul eder:\n"
+"                               CD, DVD, DVD9, BD, BD2, BDXL3, BDXL4,\n"
+"                               BDNODM, BD2NODM, BDXL3NODM, BDXL4NODM,\n"
+"                               veya ham sektör sayısı\n"
 
 #: src/dvdisaster.c:990
 msgid "  -v, --verbose              - more logs, set env VERBOSE=1 for pre-options parsing logs\n"
@@ -765,7 +876,9 @@ msgstr "  --truncate n             - görüntüyü n sektöre kısalt\n"
 msgid ""
 "  --zero-unreadable        - replace the \"unreadable sector\" markers with zeros\n"
 "\n"
-msgstr "  --zero-unreadable        - \"okunamayan sektör\" işaretçilerini sıfırlarla değiştir\n\n"
+msgstr ""
+"  --zero-unreadable        - \"okunamayan sektör\" işaretçilerini sıfırlarla değiştir\n"
+"\n"
 
 #: src/dvdisaster.c:1083
 msgid "Optical drive 52X FW 1.02"
@@ -804,7 +917,10 @@ msgid ""
 "\n"
 "Contents of Ecc Header:\n"
 "\n"
-msgstr "\nEcc Başlığının İçeriği:\n\n"
+msgstr ""
+"\n"
+"Ecc Başlığının İçeriği:\n"
+"\n"
 
 #: src/help-dialogs.c:157 src/help-dialogs.c:559 src/help-dialogs.c:742
 #: src/medium-info.c:333 src/preferences.c:1202
@@ -819,7 +935,9 @@ msgstr "Günlük verileri"
 msgid ""
 "<big>Log data</big>\n"
 "<i>Protocol of the current or previous action</i>"
-msgstr "<big>Günlük verileri</big>\n<i>Mevcut veya önceki eylemin protokolü</i>"
+msgstr ""
+"<big>Günlük verileri</big>\n"
+"<i>Mevcut veya önceki eylemin protokolü</i>"
 
 #: src/help-dialogs.c:426
 msgid "windowtitle|GNU General Public License"
@@ -829,7 +947,9 @@ msgstr "GNU Genel Kamu Lisansı"
 msgid ""
 "<big>GNU General Public License</big>\n"
 "<i>The license terms of dvdisaster.</i>"
-msgstr "<big>GNU Genel Kamu Lisansı</big>\n<i>dvdisaster'ın lisans koşulları.</i>"
+msgstr ""
+"<big>GNU Genel Kamu Lisansı</big>\n"
+"<i>dvdisaster'ın lisans koşulları.</i>"
 
 #: src/help-dialogs.c:517
 #, c-format
@@ -837,7 +957,10 @@ msgid ""
 "File\n"
 "%s\n"
 "not present"
-msgstr "Dosya\n%s\nmevcut değil"
+msgstr ""
+"Dosya\n"
+"%s\n"
+"mevcut değil"
 
 #: src/help-dialogs.c:527
 #, c-format
@@ -845,13 +968,18 @@ msgid ""
 "File\n"
 "%s\n"
 "not accessible"
-msgstr "Dosya\n%s\nerişilemiyor"
+msgstr ""
+"Dosya\n"
+"%s\n"
+"erişilemiyor"
 
 #: src/help-dialogs.c:539
 msgid ""
 "\n"
 "<- Error: Text file truncated here"
-msgstr "\n<- Hata: Metin dosyası burada kesildi"
+msgstr ""
+"\n"
+"<- Hata: Metin dosyası burada kesildi"
 
 #: src/help-dialogs.c:740
 msgid "windowtitle|About dvdisaster"
@@ -861,7 +989,9 @@ msgstr "dvdisaster Hakkında"
 msgid ""
 "Copyright 2004-2017 Carsten Gnoerlich.\n"
 "Copyright 2019-2021 The dvdisaster development team."
-msgstr "Telif hakkı 2004-2017 Carsten Gnoerlich.\nTelif hakkı 2019-2021 dvdisaster geliştirme ekibi."
+msgstr ""
+"Telif hakkı 2004-2017 Carsten Gnoerlich.\n"
+"Telif hakkı 2019-2021 dvdisaster geliştirme ekibi."
 
 #: src/help-dialogs.c:767
 msgid ""
@@ -869,20 +999,28 @@ msgid ""
 "on optical media caused by aging or scratches.\n"
 "It creates error correction data which is used to recover\n"
 "unreadable sectors if the disc becomes damaged later on.\n"
-msgstr "dvdisaster, yaşlanma veya çiziklerden kaynaklanan optik ortamda veri kaybına karşı bir güvenlik marjı sağlar.\nDiskin daha sonra hasar görmesi halinde okunamayan sektörleri kurtarmak için kullanılan\nhata düzeltme verileri oluşturur.\n"
+msgstr ""
+"dvdisaster, yaşlanma veya çiziklerden kaynaklanan optik ortamda veri kaybına karşı bir güvenlik marjı sağlar.\n"
+"Diskin daha sonra hasar görmesi halinde okunamayan sektörleri kurtarmak için kullanılan\n"
+"hata düzeltme verileri oluşturur.\n"
 
 #: src/help-dialogs.c:772
 msgid ""
 "This software comes with  <b>absolutely no warranty</b>.\n"
 "This is free software and you are welcome to redistribute it\n"
 "under the conditions of the [GNU General Public License].\n"
-msgstr "Bu yazılım <b>hiçbir garanti olmaksızın</b> gelir.\nBu özgür yazılımdır ve bunu [GNU Genel Kamu Lisansı] koşulları altında\nyeniden dağıtmaktan kaçınmazsınız.\n"
+msgstr ""
+"Bu yazılım <b>hiçbir garanti olmaksızın</b> gelir.\n"
+"Bu özgür yazılımdır ve bunu [GNU Genel Kamu Lisansı] koşulları altında\n"
+"yeniden dağıtmaktan kaçınmazsınız.\n"
 
 #: src/help-dialogs.c:777
 msgid ""
 "\n"
 "e-mail: support@dvdisaster.org"
-msgstr "\ne-posta: support@dvdisaster.org"
+msgstr ""
+"\n"
+"e-posta: support@dvdisaster.org"
 
 #: src/help-dialogs.c:783
 msgid ""
@@ -895,13 +1033,24 @@ msgid ""
 "\n"
 "Please do not bother the original authors of dvdisaster,\n"
 "submit bugreports against [GitHub] instead.\n"
-msgstr "\nBu sürüm <b>orijinal değildir</b>. Başlıca BD-R TL/QL ve HD-DVD desteği eklenmesi,\nISO'lardan ECC soyma desteği eklenmesi,\nBD-R RS03 görüntülerini daha fazla fazlalıkla oluşturma seçeneği eklenmesi,\nadaptif okuma desteğinin yeniden etkinleştirilmesi,\nGUI'nin GTK3'e taşınması ve daha pek çok şey için geliştirilmiştir.\n\nLütfen dvdisaster'ın orijinal yazarlarını rahatsız etmeyin,\nbunun yerine [GitHub]'a hata raporları gönderin.\n"
+msgstr ""
+"\n"
+"Bu sürüm <b>orijinal değildir</b>. Başlıca BD-R TL/QL ve HD-DVD desteği eklenmesi,\n"
+"ISO'lardan ECC soyma desteği eklenmesi,\n"
+"BD-R RS03 görüntülerini daha fazla fazlalıkla oluşturma seçeneği eklenmesi,\n"
+"adaptif okuma desteğinin yeniden etkinleştirilmesi,\n"
+"GUI'nin GTK3'e taşınması ve daha pek çok şey için geliştirilmiştir.\n"
+"\n"
+"Lütfen dvdisaster'ın orijinal yazarlarını rahatsız etmeyin,\n"
+"bunun yerine [GitHub]'a hata raporları gönderin.\n"
 
 #: src/help-dialogs.c:793
 msgid ""
 "\n"
 "NetBSD port: Sergey Svishchev &lt;svs@ropnet.ru&gt;"
-msgstr "\nNetBSD portu: Sergey Svishchev &lt;svs@ropnet.ru&gt;"
+msgstr ""
+"\n"
+"NetBSD portu: Sergey Svishchev &lt;svs@ropnet.ru&gt;"
 
 #: src/image.c:156 src/image.c:161
 #, c-format
@@ -912,20 +1061,27 @@ msgstr "Görüntü dosyası %s mevcut değil veya izin reddedildi.\n"
 msgid ""
 "\n"
 "Error correction file type unknown.\n"
-msgstr "\nHata düzeltme dosyası türü bilinmiyor.\n"
+msgstr ""
+"\n"
+"Hata düzeltme dosyası türü bilinmiyor.\n"
 
 #: src/image.c:188 src/image.c:194
 msgid ""
 "\n"
 "Permission denied on ecc file (perhaps not writeable?).\n"
-msgstr "\necc dosyasında izin reddedildi (belki yazılabilir değil?).\n"
+msgstr ""
+"\n"
+"ecc dosyasında izin reddedildi (belki yazılabilir değil?).\n"
 
 #: src/image.c:206 src/image.c:212
 msgid ""
 "\n"
 "No error correction file present.\n"
 "No error correction data recognized in image.\n"
-msgstr "\nHata düzeltme dosyası yok.\nGörüntüde tanınan hata düzeltme verileri yok.\n"
+msgstr ""
+"\n"
+"Hata düzeltme dosyası yok.\n"
+"Görüntüde tanınan hata düzeltme verileri yok.\n"
 
 #: src/large-io.c:185
 msgid "Redo"
@@ -943,7 +1099,12 @@ msgid ""
 "%s\n"
 "\n"
 "You can redo this operation after freeing some space."
-msgstr "Dosya yazılırken hata:\n\n%s\n\nBiraz yer açtıktan sonra bu işlemi tekrar yapabilirsiniz."
+msgstr ""
+"Dosya yazılırken hata:\n"
+"\n"
+"%s\n"
+"\n"
+"Biraz yer açtıktan sonra bu işlemi tekrar yapabilirsiniz."
 
 #: src/main-window.c:70
 #, c-format
@@ -958,7 +1119,13 @@ msgid ""
 "If you intended to create or use an .iso image\n"
 "which is augmented with error correction data,\n"
 "please leave the error correction file name blank."
-msgstr ".iso görüntüsü ve hata düzeltme dosyası\naynı dosya olmamalıdır!\n\nHata düzeltme verileriyle artırılmış bir .iso görüntüsü\noluşturmak veya kullanmak istiyorsanız,\nlütfen hata düzeltme dosyası adını boş bırakın."
+msgstr ""
+".iso görüntüsü ve hata düzeltme dosyası\n"
+"aynı dosya olmamalıdır!\n"
+"\n"
+"Hata düzeltme verileriyle artırılmış bir .iso görüntüsü\n"
+"oluşturmak veya kullanmak istiyorsanız,\n"
+"lütfen hata düzeltme dosyası adını boş bırakın."
 
 #: src/main-window.c:107
 msgid ""
@@ -967,7 +1134,12 @@ msgid ""
 "If you intended to create or use an .iso image\n"
 "which is augmented with error correction data,\n"
 "please leave the error correction file name blank."
-msgstr "Hata düzeltme dosyası türü \".iso\" olmamalıdır.\n\nHata düzeltme verileriyle artırılmış bir .iso görüntüsü\noluşturmak veya kullanmak istiyorsanız,\nlütfen hata düzeltme dosyası adını boş bırakın."
+msgstr ""
+"Hata düzeltme dosyası türü \".iso\" olmamalıdır.\n"
+"\n"
+"Hata düzeltme verileriyle artırılmış bir .iso görüntüsü\n"
+"oluşturmak veya kullanmak istiyorsanız,\n"
+"lütfen hata düzeltme dosyası adını boş bırakın."
 
 #: src/main-window.c:177
 msgid "Internal error: No suitable method for repairing image."
@@ -1170,7 +1342,9 @@ msgstr "Ortam bilgisi"
 msgid ""
 "<big>Medium info</big>\n"
 "<i>Properties of the currently inserted medium</i>"
-msgstr "<big>Ortam bilgisi</big>\n<i>Şu anda takılan ortamın özellikleri</i>"
+msgstr ""
+"<big>Ortam bilgisi</big>\n"
+"<i>Şu anda takılan ortamın özellikleri</i>"
 
 #: src/medium-info.c:358
 msgid "Drive selection"
@@ -1260,7 +1434,9 @@ msgstr "Değişiklik günlüğü"
 msgid ""
 "<big>Change log</big>\n"
 "<i>Major differences from earlier program versions.</i>"
-msgstr "<big>Değişiklik günlüğü</big>\n<i>Önceki program sürümlerindeki temel farklılıklar.</i>"
+msgstr ""
+"<big>Değişiklik günlüğü</big>\n"
+"<i>Önceki program sürümlerindeki temel farklılıklar.</i>"
 
 #: src/menubar.c:140
 msgid "windowtitle|Credits"
@@ -1270,7 +1446,9 @@ msgstr "Krediler"
 msgid ""
 "<big>Credits</big>\n"
 "<i>Thanks go out to...</i>"
-msgstr "<big>Krediler</big>\n<i>Teşekkürler gidiyor...</i>"
+msgstr ""
+"<big>Krediler</big>\n"
+"<i>Teşekkürler gidiyor...</i>"
 
 #: src/menubar.c:147
 msgid "windowtitle|To do list"
@@ -1280,7 +1458,9 @@ msgstr "Yapılacaklar listesi"
 msgid ""
 "<big>To do list</big>\n"
 "<i>A sneak preview of coming features ... perhaps ;-)</i>"
-msgstr "<big>Yapılacaklar listesi</big>\n<i>Yaklaşan özelliklerin gizli bir önizlemesi ... belki ;-)</i>"
+msgstr ""
+"<big>Yapılacaklar listesi</big>\n"
+"<i>Yaklaşan özelliklerin gizli bir önizlemesi ... belki ;-)</i>"
 
 #: src/menubar.c:215
 msgid "menu|Select Image"
@@ -1419,7 +1599,44 @@ msgid ""
 "\n"
 "List of available methods:\n"
 "\n"
-msgstr "\nMevcut yöntemlerin listesi:\n\n"
+msgstr ""
+"\n"
+"Mevcut yöntemlerin listesi:\n"
+"\n"
+
+#: src/misc-gui.c:241
+#, c-format
+msgid ""
+"The error correction file is already present:\n"
+"\n"
+"%s\n"
+"\n"
+"Overwrite it?"
+msgstr ""
+"Hata düzeltme dosyası zaten mevcut:\n"
+"\n"
+"%s\n"
+"\n"
+"Üzerine yazılsın mı?"
+
+#: src/misc-gui.c:609
+msgid "Do not ask again"
+msgstr "Tekrar sorma"
+
+#: src/misc-gui.c:629
+#, c-format
+msgid ""
+"Image file already exists and does not match the medium:\n"
+"\n"
+"%s\n"
+"\n"
+"The existing image file will be deleted."
+msgstr ""
+"Görüntü dosyası zaten mevcut ve ortamla eşleşmiyor:\n"
+"\n"
+"%s\n"
+"\n"
+"Mevcut görüntü dosyası silinecektir."
 
 #: src/misc.c:225
 msgid ""
@@ -1427,7 +1644,11 @@ msgid ""
 "is free software and you are welcome to redistribute it\n"
 "under the conditions of the GNU GENERAL PUBLIC LICENSE.\n"
 "See the file \"COPYING\" for further information.\n"
-msgstr "Bu yazılım HİÇBİR GARANTİ OLMAKSIZIN gelir. Bu\nözgür yazılımdır ve bunu GNU GENERAL PUBLIC LICENSE\nkoşulları altında yeniden dağıtmaktan kaçınmazsınız.\nDaha fazla bilgi için \"COPYING\" dosyasına bakın.\n"
+msgstr ""
+"Bu yazılım HİÇBİR GARANTİ OLMAKSIZIN gelir. Bu\n"
+"özgür yazılımdır ve bunu GNU GENERAL PUBLIC LICENSE\n"
+"koşulları altında yeniden dağıtmaktan kaçınmazsınız.\n"
+"Daha fazla bilgi için \"COPYING\" dosyasına bakın.\n"
 
 #: src/misc.c:535
 msgid "Warning"
@@ -1439,7 +1660,11 @@ msgid ""
 "*\n"
 "* dvdisaster - can not continue:\n"
 "*\n"
-msgstr "\n*\n* dvdisaster - devam edemez:\n*\n"
+msgstr ""
+"\n"
+"*\n"
+"* dvdisaster - devam edemez:\n"
+"*\n"
 
 #: src/misc.c:765
 msgid "Strip ECC aborted"
@@ -1460,7 +1685,11 @@ msgid ""
 "We're about to truncate the image from %<PRId64> sectors (%<PRId64> MiB)\n"
 "to %<PRId64> sectors (%<PRId64> MiB), removing any dvdisaster-added ECC data.\n"
 "This will restore the image to its pre-augmented original size."
-msgstr "Görüntüyü %<PRId64> sektörden (%<PRId64> MiB)\n%<PRId64> sektöre (%<PRId64> MiB) kısaltmak üzeresiniz ve dvdisaster tarafından eklenen\nherhangi bir ECC verisini kaldırıyoruz.\nBu, görüntüyü önceden artırılmış orijinal boyutuna geri yükleyecektir."
+msgstr ""
+"Görüntüyü %<PRId64> sektörden (%<PRId64> MiB)\n"
+"%<PRId64> sektöre (%<PRId64> MiB) kısaltmak üzeresiniz ve dvdisaster tarafından eklenen\n"
+"herhangi bir ECC verisini kaldırıyoruz.\n"
+"Bu, görüntüyü önceden artırılmış orijinal boyutuna geri yükleyecektir."
 
 #: src/misc.c:795
 msgid "Aborted on user request"
@@ -1473,30 +1702,6 @@ msgstr "Görüntü başarıyla orijinal boyutuna geri kısaltıldı.\n"
 #: src/misc.c:808
 msgid "Image successfully truncated"
 msgstr "Görüntü başarıyla kısaltıldı"
-
-#: src/misc-gui.c:241
-#, c-format
-msgid ""
-"The error correction file is already present:\n"
-"\n"
-"%s\n"
-"\n"
-"Overwrite it?"
-msgstr "Hata düzeltme dosyası zaten mevcut:\n\n%s\n\nÜzerine yazılsın mı?"
-
-#: src/misc-gui.c:609
-msgid "Do not ask again"
-msgstr "Tekrar sorma"
-
-#: src/misc-gui.c:629
-#, c-format
-msgid ""
-"Image file already exists and does not match the medium:\n"
-"\n"
-"%s\n"
-"\n"
-"The existing image file will be deleted."
-msgstr "Görüntü dosyası zaten mevcut ve ortamla eşleşmiyor:\n\n%s\n\nMevcut görüntü dosyası silinecektir."
 
 #: src/preferences.c:409
 msgid "Switched to the linear reading strategy."
@@ -1551,7 +1756,18 @@ msgid ""
 "- if (and only if) error correction data is available.\n"
 "\n"
 "Using the adaptive strategy without error correction data is possible but it is recommended to use linear reading in that case."
-msgstr "<b>Okuma stratejisi</b>\n\n<b>Doğrusal stratejiyi</b> şu durumlarda kullanın:\n- hasar görmemiş ortamı işlerken veya\n- hata düzeltme verileri olmadığında kusurlu ortamı okurken.\n\n<b>Uyarlanabilir strateji</b> şu durumlar için optimize edilmiştir:\n- kusurlu ortamı okumak\n- eğer (ve yalnızca eğer) hata düzeltme verileri mevcutsa.\n\nUyarlanabilir stratejiyi hata düzeltme verileri olmadan kullanmak mümkündür ancak bu durumda doğrusal okuma kullanmanız önerilir."
+msgstr ""
+"<b>Okuma stratejisi</b>\n"
+"\n"
+"<b>Doğrusal stratejiyi</b> şu durumlarda kullanın:\n"
+"- hasar görmemiş ortamı işlerken veya\n"
+"- hata düzeltme verileri olmadığında kusurlu ortamı okurken.\n"
+"\n"
+"<b>Uyarlanabilir strateji</b> şu durumlar için optimize edilmiştir:\n"
+"- kusurlu ortamı okumak\n"
+"- eğer (ve yalnızca eğer) hata düzeltme verileri mevcutsa.\n"
+"\n"
+"Uyarlanabilir stratejiyi hata düzeltme verileri olmadan kullanmak mümkündür ancak bu durumda doğrusal okuma kullanmanız önerilir."
 
 #: src/preferences.c:1271
 msgid "Reading range"
@@ -1574,7 +1790,14 @@ msgid ""
 "<b>Note:</b> Limiting the reading range is not recommended for <i>adaptive reading</i> since it might prevent sectors from being read which are required for a successful error correction.\n"
 "\n"
 "These settings are only effective for the current session and will not be saved."
-msgstr "<b>Okuma aralığı</b>\n\nOkuma, ortamın bir kısmıyla sınırlandırılabilir (her biri 2KB tutan sektörlerde). Değerler sınırları içerir: 0-100 101 sektör okuyacaktır.\n\n<b>Not:</b> <i>Uyarlanabilir okuma</i> için okuma aralığını sınırlandırmak önerilmez çünkü başarılı bir hata düzeltme için gerekli olan sektörlerin okunmasını engelleyebilir.\n\nBu ayarlar yalnızca geçerli oturum için geçerlidir ve kaydedilmeyecektir."
+msgstr ""
+"<b>Okuma aralığı</b>\n"
+"\n"
+"Okuma, ortamın bir kısmıyla sınırlandırılabilir (her biri 2KB tutan sektörlerde). Değerler sınırları içerir: 0-100 101 sektör okuyacaktır.\n"
+"\n"
+"<b>Not:</b> <i>Uyarlanabilir okuma</i> için okuma aralığını sınırlandırmak önerilmez çünkü başarılı bir hata düzeltme için gerekli olan sektörlerin okunmasını engelleyebilir.\n"
+"\n"
+"Bu ayarlar yalnızca geçerli oturum için geçerlidir ve kaydedilmeyecektir."
 
 #: src/preferences.c:1326
 msgid "Error correction data recognization"
@@ -1597,7 +1820,14 @@ msgid ""
 "Therefore you should turn this option <b>on</b> if a medium/image contains RS02 data, but is not being recognized as such. Searching for the RS02 information may cause a significant delay at the start of reading and scanning processes.\n"
 "\n"
 "Leave this option <b>off</b> when you are processing media or images which are not augmented with RS02 data. Otherwise you will waste a lot of time searching for the RS02 signatures and increase wear on the drive."
-msgstr "<b>Kapsamlı RS02 başlığı araması</b>\n\nBu ayar kapalıyken yalnızca RS02 verileri için hızlı bir kontrol gerçekleştirilir. Ortam veya görüntü hasar görmüşse, hızlı test görüntüyü RS02 ile artırılmış olarak tanımlamak için yeterli olmayabilir.\n\nBu nedenle, bir ortam/görüntü RS02 verileri içeriyorsa ancak böyle tanınmıyorsa bu seçeneği <b>açmalısınız</b>. RS02 bilgisinin aranması, okuma ve tarama işlemlerinin başında önemli bir gecikmeye neden olabilir.\n\nRS02 verileriyle artırılmamış ortamları veya görüntüleri işlerken bu seçeneği <b>kapalı</b> bırakın. Aksi takdirde RS02 imzalarını aramak için çok fazla zaman harcayacaksınız ve sürücüyü aşıyacaksınız."
+msgstr ""
+"<b>Kapsamlı RS02 başlığı araması</b>\n"
+"\n"
+"Bu ayar kapalıyken yalnızca RS02 verileri için hızlı bir kontrol gerçekleştirilir. Ortam veya görüntü hasar görmüşse, hızlı test görüntüyü RS02 ile artırılmış olarak tanımlamak için yeterli olmayabilir.\n"
+"\n"
+"Bu nedenle, bir ortam/görüntü RS02 verileri içeriyorsa ancak böyle tanınmıyorsa bu seçeneği <b>açmalısınız</b>. RS02 bilgisinin aranması, okuma ve tarama işlemlerinin başında önemli bir gecikmeye neden olabilir.\n"
+"\n"
+"RS02 verileriyle artırılmamış ortamları veya görüntüleri işlerken bu seçeneği <b>kapalı</b> bırakın. Aksi takdirde RS02 imzalarını aramak için çok fazla zaman harcayacaksınız ve sürücüyü aşıyacaksınız."
 
 #: src/preferences.c:1376
 msgid "Recover RS03 signatures"
@@ -1616,7 +1846,14 @@ msgid ""
 "Therefore you should turn this option <b>on</b> if a medium/image contains RS03 data, but is not being recognized as such. Searching for the RS03 information may cause a significant delay at the start of reading and scanning processes.\n"
 "\n"
 "Leave this option <b>off</b> when you are processing media or images which are not augmented with RS03 data. Otherwise you will waste a lot of time searching for the RS03 signatures and increase wear on the drive."
-msgstr "<b>Kapsamlı RS03 başlığı araması</b>\n\nBu ayar kapalıyken yalnızca RS03 verileri için hızlı bir kontrol gerçekleştirilir. Ortam veya görüntü hasar görmüşse, hızlı test görüntüyü RS03 ile artırılmış olarak tanımlamak için yeterli olmayabilir.\n\nBu nedenle, bir ortam/görüntü RS03 verileri içeriyorsa ancak böyle tanınmıyorsa bu seçeneği <b>açmalısınız</b>. RS03 bilgisinin aranması, okuma ve tarama işlemlerinin başında önemli bir gecikmeye neden olabilir.\n\nRS03 verileriyle artırılmamış ortamları veya görüntüleri işlerken bu seçeneği <b>kapalı</b> bırakın. Aksi takdirde RS03 imzalarını aramak için çok fazla zaman harcayacaksınız ve sürücüyü aşıyacaksınız."
+msgstr ""
+"<b>Kapsamlı RS03 başlığı araması</b>\n"
+"\n"
+"Bu ayar kapalıyken yalnızca RS03 verileri için hızlı bir kontrol gerçekleştirilir. Ortam veya görüntü hasar görmüşse, hızlı test görüntüyü RS03 ile artırılmış olarak tanımlamak için yeterli olmayabilir.\n"
+"\n"
+"Bu nedenle, bir ortam/görüntü RS03 verileri içeriyorsa ancak böyle tanınmıyorsa bu seçeneği <b>açmalısınız</b>. RS03 bilgisinin aranması, okuma ve tarama işlemlerinin başında önemli bir gecikmeye neden olabilir.\n"
+"\n"
+"RS03 verileriyle artırılmamış ortamları veya görüntüleri işlerken bu seçeneği <b>kapalı</b> bırakın. Aksi takdirde RS03 imzalarını aramak için çok fazla zaman harcayacaksınız ve sürücüyü aşıyacaksınız."
 
 #: src/preferences.c:1417
 msgid "Bruteforce RS03 search (slow!)"
@@ -1635,7 +1872,14 @@ msgid ""
 "This is useful when you created an RS03 augmented image using a custom number of sectors with <b>-n</b> and forgot the value you used. The bruteforce scan can recover the layout even if the RS03 header is damaged.\n"
 "\n"
 "<b>Warning:</b> This scan is very slow as it reads a large portion of the image sector by sector. Only enable this when the normal RS03 search fails and you know the image contains RS03 data created with a custom medium size."
-msgstr "<b>Kaba kuvvet RS03 araması</b>\n\nBu ayar açıkken ve normal RS03 araması başarısız olursa, RS03 CRC bloklarını bulmak için tüm görüntüyü kaba kuvvet doğrusal taraması gerçekleştirilir.\n\nBu, <b>-n</b> ile özel bir sektör sayısı kullanarak RS03 artırılmış görüntü oluşturduğunuzda ve kullandığınız değeri unuttuğunuzda yararlıdır. Kaba kuvvet taraması, RS03 başlığı hasar görmüş olsa bile düzeni kurtarabilir.\n\n<b>Uyarı:</b> Bu tarama çok yavaştır çünkü görüntünün büyük bir kısmını sektör sektör okur. Yalnızca normal RS03 araması başarısız olduğunda ve görüntünün özel bir ortam boyutuyla oluşturulan RS03 verileri içerdiğini bildiğinizde bunu etkinleştirin."
+msgstr ""
+"<b>Kaba kuvvet RS03 araması</b>\n"
+"\n"
+"Bu ayar açıkken ve normal RS03 araması başarısız olursa, RS03 CRC bloklarını bulmak için tüm görüntüyü kaba kuvvet doğrusal taraması gerçekleştirilir.\n"
+"\n"
+"Bu, <b>-n</b> ile özel bir sektör sayısı kullanarak RS03 artırılmış görüntü oluşturduğunuzda ve kullandığınız değeri unuttuğunuzda yararlıdır. Kaba kuvvet taraması, RS03 başlığı hasar görmüş olsa bile düzeni kurtarabilir.\n"
+"\n"
+"<b>Uyarı:</b> Bu tarama çok yavaştır çünkü görüntünün büyük bir kısmını sektör sektör okur. Yalnızca normal RS03 araması başarısız olduğunda ve görüntünün özel bir ortam boyutuyla oluşturulan RS03 verileri içerdiğini bildiğinizde bunu etkinleştirin."
 
 #: src/preferences.c:1457
 msgid "Image properties"
@@ -1660,7 +1904,16 @@ msgid ""
 "\n"
 "Using this order makes sense as image sizes reported by most drives are unreliable in many cases. However in some rare cases the image size recorded in the ISO/UDF filesystem is wrong. Some GNU/Linux live CDs may have this problem. If you read back the ISO image from such CDs and its md5sum does not match the advertised one, try re-reading the image with this option turned on.\n"
 "Do <b>not blindly turn this option on</b> as it will most likely create sub optimal or corrupted ISO images, especially if you plan to use the image for error correction data generation."
-msgstr "<b>ISO/UDF dosya sisteminde kaydedilen görüntü boyutunu yoksay</b>\n\nOptik diskleri okurken veya tarayarken, ortamın genel boyutunun belirlenmesi gerekir. dvdisaster her zaman hata düzeltme verilerinde kaydedilen görüntü boyutunu kullanır (eğer bu tür veriler mevcutsa). Aksi takdirde, görüntü boyutu aşağıdaki sırayla sorgulanır:\n\n1. ISO/UDF dosya sisteminde kaydedilen görüntü boyutu\n2. Optik sürücü tarafından bildirilen görüntü boyutu.\n\nBu sırayı kullanmak mantıklıdır çünkü çoğu sürücü tarafından bildirilen görüntü boyutları birçok durumda güvenilmezdir. Ancak bazı nadir durumlarda ISO/UDF dosya sisteminde kaydedilen görüntü boyutu yanlıştır. Bazı GNU/Linux canlı CD'lerinde bu sorun olabilir. Böyle CD'lerden ISO görüntüsünü geri okur ve md5sum'u yayınlanan olanla eşleşmezse, bu seçeneği açık olarak görüntüyü yeniden okumayı deneyin.\n<b>Bu seçeneği kör gibi açmayın</b> çünkü bu, özellikle görüntüyü hata düzeltme verisi oluşturma için kullanmayı planlıyorsanız, büyük olasılıkla alt optimal veya bozulmuş ISO görüntüleri oluşturacaktır."
+msgstr ""
+"<b>ISO/UDF dosya sisteminde kaydedilen görüntü boyutunu yoksay</b>\n"
+"\n"
+"Optik diskleri okurken veya tarayarken, ortamın genel boyutunun belirlenmesi gerekir. dvdisaster her zaman hata düzeltme verilerinde kaydedilen görüntü boyutunu kullanır (eğer bu tür veriler mevcutsa). Aksi takdirde, görüntü boyutu aşağıdaki sırayla sorgulanır:\n"
+"\n"
+"1. ISO/UDF dosya sisteminde kaydedilen görüntü boyutu\n"
+"2. Optik sürücü tarafından bildirilen görüntü boyutu.\n"
+"\n"
+"Bu sırayı kullanmak mantıklıdır çünkü çoğu sürücü tarafından bildirilen görüntü boyutları birçok durumda güvenilmezdir. Ancak bazı nadir durumlarda ISO/UDF dosya sisteminde kaydedilen görüntü boyutu yanlıştır. Bazı GNU/Linux canlı CD'lerinde bu sorun olabilir. Böyle CD'lerden ISO görüntüsünü geri okur ve md5sum'u yayınlanan olanla eşleşmezse, bu seçeneği açık olarak görüntüyü yeniden okumayı deneyin.\n"
+"<b>Bu seçeneği kör gibi açmayın</b> çünkü bu, özellikle görüntüyü hata düzeltme verisi oluşturma için kullanmayı planlıyorsanız, büyük olasılıkla alt optimal veya bozulmuş ISO görüntüleri oluşturacaktır."
 
 #: src/preferences.c:1507
 msgid "DAO mode"
@@ -1679,7 +1932,14 @@ msgid ""
 "If you are extremely unlucky to have a \"DAO\" (\"disc at once\") medium with exactly one or two real read errors at the end, dvdisaster may treat this as a \"TAO\" disc and truncate the image by two sectors. In that case activate this option to have the last two read errors handled correctly.\n"
 "\n"
 "<b>Tip:</b> To avoid these problems, consider using the \"DAO / Disc at once\" (sometimes also called \"SAO / Session at once\") mode for writing single session media."
-msgstr "<b>DAO modunu varsay</b>\n\n\"TAO\" (\"track at once\") modunda yazılan ortam, sonunda sözde okuma hataları olan iki sektör içerebilir. Varsayılan olarak bu iki sektör yoksayılır.\n\nEğer \"DAO\" (\"disc at once\") ortamında tam olarak bir veya iki gerçek okuma hatası ile sonunda çok şanssızsanız, dvdisaster bunu \"TAO\" diski olarak değerlendirebilir ve görüntüyü iki sektörle kesebilir. Bu durumda, son iki okuma hatasının doğru şekilde işlenmesini sağlamak için bu seçeneği etkinleştirin.\n\n<b>İpucu:</b> Bu sorunları önlemek için, tek oturum ortamı yazarken \"DAO / Disc at once\" (bazen \"SAO / Session at once\" olarak da adlandırılır) modunu kullanmayı düşünün."
+msgstr ""
+"<b>DAO modunu varsay</b>\n"
+"\n"
+"\"TAO\" (\"track at once\") modunda yazılan ortam, sonunda sözde okuma hataları olan iki sektör içerebilir. Varsayılan olarak bu iki sektör yoksayılır.\n"
+"\n"
+"Eğer \"DAO\" (\"disc at once\") ortamında tam olarak bir veya iki gerçek okuma hatası ile sonunda çok şanssızsanız, dvdisaster bunu \"TAO\" diski olarak değerlendirebilir ve görüntüyü iki sektörle kesebilir. Bu durumda, son iki okuma hatasının doğru şekilde işlenmesini sağlamak için bu seçeneği etkinleştirin.\n"
+"\n"
+"<b>İpucu:</b> Bu sorunları önlemek için, tek oturum ortamı yazarken \"DAO / Disc at once\" (bazen \"SAO / Session at once\" olarak da adlandırılır) modunu kullanmayı düşünün."
 
 #: src/preferences.c:1544
 msgid "Image format"
@@ -1700,7 +1960,12 @@ msgid ""
 "Missing sectors are tagged with a special code sequence in the image. By default, an improved code is used which can detect some wilfully damaged content. This includes media which have been created from partially recovered images, and images containing files from such partial media.\n"
 "However only dvdisaster 0.72 and up will recognize the improved tags. Activate this switch to force using the older format when this image will be processed with older dvdisaster versions. Otherwise the older dvdisaster versions will not see any missing sectors in the resulting images.\n"
 "N.b.: dvdisaster >= 0.72 will automatically recognize both tag formats when reading images; setting this value only affects the creation of new images."
-msgstr "<b>Eksik sektör etiketlemesi</b>\n\nEksik sektörler, görüntüde özel bir kod dizisiyle etiketlenir. Varsayılan olarak, kasıtlı olarak hasarlı içeriği algılayabilen geliştirilmiş bir kod kullanılır. Bu, kısmen kurtarılan görüntülerden oluşturulmuş ortamları ve bu tür kısmi ortamlardan gelen dosyaları içeren görüntüleri içerir.\nAncak yalnızca dvdisaster 0.72 ve üstü geliştirilmiş etiketleri tanıyacaktır. Bu görüntü eski dvdisaster sürümleriyle işlenecekse eski biçimi kullanmayı zorlayabilecek bu anahtarı etkinleştirin. Aksi takdirde eski dvdisaster sürümleri elde edilen görüntülerde eksik sektörleri görmeyecektir.\nN.b.: dvdisaster >= 0.72, görüntüleri okurken her iki etiket biçimini otomatik olarak tanıyacak; bu değeri ayarlamak yalnızca yeni görüntülerin oluşturulmasını etkiler."
+msgstr ""
+"<b>Eksik sektör etiketlemesi</b>\n"
+"\n"
+"Eksik sektörler, görüntüde özel bir kod dizisiyle etiketlenir. Varsayılan olarak, kasıtlı olarak hasarlı içeriği algılayabilen geliştirilmiş bir kod kullanılır. Bu, kısmen kurtarılan görüntülerden oluşturulmuş ortamları ve bu tür kısmi ortamlardan gelen dosyaları içeren görüntüleri içerir.\n"
+"Ancak yalnızca dvdisaster 0.72 ve üstü geliştirilmiş etiketleri tanıyacaktır. Bu görüntü eski dvdisaster sürümleriyle işlenecekse eski biçimi kullanmayı zorlayabilecek bu anahtarı etkinleştirin. Aksi takdirde eski dvdisaster sürümleri elde edilen görüntülerde eksik sektörleri görmeyecektir.\n"
+"N.b.: dvdisaster >= 0.72, görüntüleri okurken her iki etiket biçimini otomatik olarak tanıyacak; bu değeri ayarlamak yalnızca yeni görüntülerin oluşturulmasını etkiler."
 
 #: src/preferences.c:1595
 msgid "Filling of unreadable sectors"
@@ -1716,7 +1981,11 @@ msgid ""
 "\n"
 "dvdisaster marks unreadable sectors with a special filling pattern which is very unlikely to occur in undamaged media.\n"
 "In other data recovery software it is common to fill unreadable sectors with a certain byte value. To allow interoperability with such programs, you can specify the byte value they are using:\n"
-msgstr "<b>Okunamaz sektörlerin doldurulması</b>\n\ndvdisaster, okunamaz sektörleri hasar görmemiş ortamda çok nadir olarak meydana gelen özel bir doldurma deseniyle işaretler.\nDiğer veri kurtarma yazılımlarında, okunamaz sektörleri belirli bir bayt değeriyle doldurması yaygındır. Bu tür programlarla birlikte çalışabilirliğe izin vermek için, kullandıkları bayt değerini belirtebilirsiniz:\n"
+msgstr ""
+"<b>Okunamaz sektörlerin doldurulması</b>\n"
+"\n"
+"dvdisaster, okunamaz sektörleri hasar görmemiş ortamda çok nadir olarak meydana gelen özel bir doldurma deseniyle işaretler.\n"
+"Diğer veri kurtarma yazılımlarında, okunamaz sektörleri belirli bir bayt değeriyle doldurması yaygındır. Bu tür programlarla birlikte çalışabilirliğe izin vermek için, kullandıkları bayt değerini belirtebilirsiniz:\n"
 
 #: src/preferences.c:1645
 msgid "0xb0 (176 decimal): for compatibility with h2cdimage published by \"c't\", a German periodical.\n"
@@ -1747,7 +2016,10 @@ msgid ""
 "<b>Drive initialisation</b>\n"
 "\n"
 "Waits the specified amount of seconds for letting the drive spin up. This avoids speed jumps at the beginning of the reading curve."
-msgstr "<b>Sürücü başlatması</b>\n\nSürücü dönmesi için belirtilen saniye sayısını bekler. Bu, okuma eğrisinin başında hız sıçramalarını önler."
+msgstr ""
+"<b>Sürücü başlatması</b>\n"
+"\n"
+"Sürücü dönmesi için belirtilen saniye sayısını bekler. Bu, okuma eğrisinin başında hız sıçramalarını önler."
 
 #: src/preferences.c:1703
 msgid "Raw reading parameters"
@@ -1777,7 +2049,17 @@ msgid ""
 "However some drives appear to be unable to transfer data in mode 0x20, but can do so in mode 0x21, so this is your last resort then. Also, if sectors are not recoverable after reading and caching sectors in mode 0x20, then adding some mode 0x21 reads to the cache might deliver additional information.\n"
 "\n"
 "<b>0x01</b> Some drives do the right thing when given this value, although this makes no sense according to the SCSI specs. Try entering this value in the \"other\" field if the other choices do not work. See the mode page 01h documentation in chapter 6 of MMC3 or later for additional information."
-msgstr "<b>Ham okuma modu</b>\n\nSürücüyü kusurlu sektörlerden kısmen okunan verileri aktaran moduna koymak için çeşitli yollar vardır:\n\n<b>0x20</b> Bu <i>önerilen</i> moddur. Sürücü, kusurlu bir sektörü aktarmadan önce yerleşik hata düzeltmesini mümkün olan en iyi şekilde uygulamaya çalışır.\n\n<b>0x21</b> Bu modda sürücü, iç hata düzeltmesinin son aşamasını atlayır ve bunun yerine düzeltilmemiş sektörü döndürür. Bu, diğer okuma modlarında iyi çıkacak sektörlerin kusurlu olarak etiketlenmesi ve işlenmesine neden olabilir, bu da gereksiz çalışmaya veya hatta düzeltilemeyen sektörlere neden olabilir.\nAncak bazı sürücülerin 0x20 modunda veri aktaramayacağı, ancak 0x21 modunda bunu yapabileceği görülüyor, bu yüzden bu sizin son çarenizdir. Ayrıca, 0x20 modunda sektörleri okuma ve önbelleğe aldıktan sonra sektörler kurtarılamıyorsa, önbelleğe 0x21 modu okumaları eklemek ek bilgiler sağlayabilir.\n\n<b>0x01</b> Bazı sürücüler bu değer verildiğinde doğru işlemi yapar, ancak bu SCSI spesifikasyonlarına göre hiçbir anlamda olmasa da. Diğer seçimler işe yaramazsa bu değeri \"diğer\" alanına girmek deneyin. MMC3 veya sonraki sürümdeki bölüm 6'daki mod sayfa 01h belgelerine bakın."
+msgstr ""
+"<b>Ham okuma modu</b>\n"
+"\n"
+"Sürücüyü kusurlu sektörlerden kısmen okunan verileri aktaran moduna koymak için çeşitli yollar vardır:\n"
+"\n"
+"<b>0x20</b> Bu <i>önerilen</i> moddur. Sürücü, kusurlu bir sektörü aktarmadan önce yerleşik hata düzeltmesini mümkün olan en iyi şekilde uygulamaya çalışır.\n"
+"\n"
+"<b>0x21</b> Bu modda sürücü, iç hata düzeltmesinin son aşamasını atlayır ve bunun yerine düzeltilmemiş sektörü döndürür. Bu, diğer okuma modlarında iyi çıkacak sektörlerin kusurlu olarak etiketlenmesi ve işlenmesine neden olabilir, bu da gereksiz çalışmaya veya hatta düzeltilemeyen sektörlere neden olabilir.\n"
+"Ancak bazı sürücülerin 0x20 modunda veri aktaramayacağı, ancak 0x21 modunda bunu yapabileceği görülüyor, bu yüzden bu sizin son çarenizdir. Ayrıca, 0x20 modunda sektörleri okuma ve önbelleğe aldıktan sonra sektörler kurtarılamıyorsa, önbelleğe 0x21 modu okumaları eklemek ek bilgiler sağlayabilir.\n"
+"\n"
+"<b>0x01</b> Bazı sürücüler bu değer verildiğinde doğru işlemi yapar, ancak bu SCSI spesifikasyonlarına göre hiçbir anlamda olmasa da. Diğer seçimler işe yaramazsa bu değeri \"diğer\" alanına girmek deneyin. MMC3 veya sonraki sürümdeki bölüm 6'daki mod sayfa 01h belgelerine bakın."
 
 #: src/preferences.c:1805
 msgid "Internal read attempts"
@@ -1799,7 +2081,13 @@ msgid ""
 "But it is usually more efficient to manage the reading attempts from the client software, e.g. through the settings in the \"Read attempts\" preferences tab.\n"
 "Lowering this value to 0 or 1 can speed up processing of damaged media and reduce the drive wear; however most drives will simply ignore what you enter here.\n"
 "Use the value -1 to leave the drive at its default setting."
-msgstr "<b>İç okuma denemeleri</b>\n\nSürücü yazılımı genellikle okunamaz sektörleri birkaç kez yeniden dener ve ardından okuma hatası döndürür.\nAncak okuma denemelerini istemci yazılımından yönetmek, örneğin \"Okuma denemeleri\" tercihler sekmesindeki ayarlar aracılığıyla, genellikle daha verimlidir.\nBu değeri 0 veya 1'e düşürmek, hasarlı ortam işlemesini hızlandırabilir ve sürücü aşınmasını azaltabilir; ancak çoğu sürücü burada girdiğiniz şeyi yok sayacaktır.\nSürücüyü varsayılan ayarında bırakmak için -1 değerini kullanın."
+msgstr ""
+"<b>İç okuma denemeleri</b>\n"
+"\n"
+"Sürücü yazılımı genellikle okunamaz sektörleri birkaç kez yeniden dener ve ardından okuma hatası döndürür.\n"
+"Ancak okuma denemelerini istemci yazılımından yönetmek, örneğin \"Okuma denemeleri\" tercihler sekmesindeki ayarlar aracılığıyla, genellikle daha verimlidir.\n"
+"Bu değeri 0 veya 1'e düşürmek, hasarlı ortam işlemesini hızlandırabilir ve sürücü aşınmasını azaltabilir; ancak çoğu sürücü burada girdiğiniz şeyi yok sayacaktır.\n"
+"Sürücüyü varsayılan ayarında bırakmak için -1 değerini kullanın."
 
 #: src/preferences.c:1853 src/preferences.c:1856
 msgid "Fatal error handling"
@@ -1815,7 +2103,11 @@ msgid ""
 "\n"
 "By default dvdisaster stops reading when the drive reports a fatal error. This prevents further fruitless read attempts and possible damage to the drive.\n"
 "However some drives produce unfounded fatal messages. For such drives ignoring fatal errors may be needed to do uninterrupted reading of damaged media."
-msgstr "<b>Ölümcül hata işlemesi</b>\n\nVarsayılan olarak, dvdisaster sürücü ölümcül bir hata bildirdiğinde okumayı durdurur. Bu, daha fazla boşa çaba harcanan okuma denemelerini ve sürücüye olası hasarı önler.\nAncak bazı sürücüler sebepsiz ölümcül mesajlar üretir. Bu tür sürücüler için, hasarlı ortamın kesintisiz okunmasını yapmak için ölümcül hataları yoksaymak gerekebilir."
+msgstr ""
+"<b>Ölümcül hata işlemesi</b>\n"
+"\n"
+"Varsayılan olarak, dvdisaster sürücü ölümcül bir hata bildirdiğinde okumayı durdurur. Bu, daha fazla boşa çaba harcanan okuma denemelerini ve sürücüye olası hasarı önler.\n"
+"Ancak bazı sürücüler sebepsiz ölümcül mesajlar üretir. Bu tür sürücüler için, hasarlı ortamın kesintisiz okunmasını yapmak için ölümcül hataları yoksaymak gerekebilir."
 
 #: src/preferences.c:1894
 msgid "Media ejection"
@@ -1832,7 +2124,12 @@ msgid ""
 "Activate this option to have the medium ejected after a successful read or scan operation.\n"
 "\n"
 "Note that the desktop environment may prevent other applications from ejecting media. In that case eject the medium through the desktop user interface."
-msgstr "<b>Ortam çıkartma</b>\n\nBaşarılı bir okuma veya tarama işleminden sonra ortamı çıkartmak için bu seçeneği etkinleştirin.\n\nDasktop ortamının diğer uygulamaların ortamı çıkarmasını engelleyebileceğini unutmayın. Bu durumda, masaüstü kullanıcı arayüzü aracılığıyla ortamı çıkarın."
+msgstr ""
+"<b>Ortam çıkartma</b>\n"
+"\n"
+"Başarılı bir okuma veya tarama işleminden sonra ortamı çıkartmak için bu seçeneği etkinleştirin.\n"
+"\n"
+"Dasktop ortamının diğer uygulamaların ortamı çıkarmasını engelleyebileceğini unutmayın. Bu durumda, masaüstü kullanıcı arayüzü aracılığıyla ortamı çıkarın."
 
 #: src/preferences.c:1935
 msgid "Read attempts"
@@ -1864,7 +2161,19 @@ msgid ""
 "- adaptive reading is used, or\n"
 "- linear reading is configured to skip 0 sectors after a read error.\n"
 "Raw sector caching also needs checking of the respective option."
-msgstr "<b>Ham okuma</b> (yalnızca CD ortamını etkiler)\n\nBu seçeneği etkinleştirmek çeşitli etkilere sahiptir:\n\nC2 kalite taraması, sürücü tarafından desteklendiğinde gerçekleştirilecektir.\n\nOrtam sektörleri ham modda okunur. Ham verilerde yer alan L-EC P/Q vektörleri, EDC sağlama toplamı ve MSF adresi, sektörün doğru şekilde okunduğundan emin olmak için kontrol edilir.\n\nEk veri kurtarma buluş yöntemleri ve ham sektör önbelleğe alma, aşağıdakilerden herhangi biri uygulanıyorsa kullanılabilir:\n- uyarlanabilir okuma kullanılırsa veya\n- doğrusal okuma, okuma hatasından sonra 0 sektörü atlamak için yapılandırılırsa.\nHam sektör önbelleğe alma, ilgili seçeneğin kontrolünü de gerektirir."
+msgstr ""
+"<b>Ham okuma</b> (yalnızca CD ortamını etkiler)\n"
+"\n"
+"Bu seçeneği etkinleştirmek çeşitli etkilere sahiptir:\n"
+"\n"
+"C2 kalite taraması, sürücü tarafından desteklendiğinde gerçekleştirilecektir.\n"
+"\n"
+"Ortam sektörleri ham modda okunur. Ham verilerde yer alan L-EC P/Q vektörleri, EDC sağlama toplamı ve MSF adresi, sektörün doğru şekilde okunduğundan emin olmak için kontrol edilir.\n"
+"\n"
+"Ek veri kurtarma buluş yöntemleri ve ham sektör önbelleğe alma, aşağıdakilerden herhangi biri uygulanıyorsa kullanılabilir:\n"
+"- uyarlanabilir okuma kullanılırsa veya\n"
+"- doğrusal okuma, okuma hatasından sonra 0 sektörü atlamak için yapılandırılırsa.\n"
+"Ham sektör önbelleğe alma, ilgili seçeneğin kontrolünü de gerektirir."
 
 #: src/preferences.c:1988
 msgid "Minimum number of reading attempts"
@@ -1883,7 +2192,12 @@ msgid ""
 "If an unreadable sector is encountered, dvdisaster tries to re-read it the given number of times.\n"
 "\n"
 "Increasing the number of reading attempts may improve data recovery on marginal media, but will also increase processing time and mechanical wear on the drive."
-msgstr "<b>Minimum okuma deneme sayısı</b>\n\nOkunamaz bir sektörle karşılaşılırsa, dvdisaster bunu verilen sayıda yeniden okumaya çalışır.\n\nOkuma deneme sayısını artırmak, marjinal ortamda veri kurtarmayı iyileştirebilir, ancak işlem süresini ve sürücüdeki mekanik aşınmayı artıracaktır."
+msgstr ""
+"<b>Minimum okuma deneme sayısı</b>\n"
+"\n"
+"Okunamaz bir sektörle karşılaşılırsa, dvdisaster bunu verilen sayıda yeniden okumaya çalışır.\n"
+"\n"
+"Okuma deneme sayısını artırmak, marjinal ortamda veri kurtarmayı iyileştirebilir, ancak işlem süresini ve sürücüdeki mekanik aşınmayı artıracaktır."
 
 #: src/preferences.c:2028
 msgid "Maximum number of reading attempts"
@@ -1902,7 +2216,12 @@ msgid ""
 "When the minimum number of reading attempts is reached without success, dvdisaster might choose to perform additional reading attempts up to this number.\n"
 "\n"
 "The decision to do more attempts depends on the quality of data gathered so far, which in turn is influenced by the capabilities of your optical drive and the operating system. So depending on your configuration, you may or may not see dvdisaster using the maximum value."
-msgstr "<b>Maksimum okuma deneme sayısı</b>\n\nMinimum okuma deneme sayısına başarısız olunsa bile ulaşıldığında, dvdisaster bu sayıya kadar ek okuma denemeleri yapmayı seçebilir.\n\nDaha fazla deneme yapma kararı, şimdiye kadar toplanan verilerin kalitesine bağlıdır; bu da optik sürücünüzün ve işletim sisteminizin yeteneklerinden etkilenir. Yani yapılandırmanıza bağlı olarak, dvdisaster'ın maksimum değeri kullanıp kullanmadığını görebilir veya görmeyebilirsiniz."
+msgstr ""
+"<b>Maksimum okuma deneme sayısı</b>\n"
+"\n"
+"Minimum okuma deneme sayısına başarısız olunsa bile ulaşıldığında, dvdisaster bu sayıya kadar ek okuma denemeleri yapmayı seçebilir.\n"
+"\n"
+"Daha fazla deneme yapma kararı, şimdiye kadar toplanan verilerin kalitesine bağlıdır; bu da optik sürücünüzün ve işletim sisteminizin yeteneklerinden etkilenir. Yani yapılandırmanıza bağlı olarak, dvdisaster'ın maksimum değeri kullanıp kullanmadığını görebilir veya görmeyebilirsiniz."
 
 #: src/preferences.c:2073
 msgid "Treatment of unreadable areas"
@@ -1927,7 +2246,12 @@ msgid ""
 "Defective media usually contain numerous read errors in a contigous region. Skipping sectors after a read error reduces the processing time and the mechanical wear on the drive, but leaves larger gaps in the image file.\n"
 "\n"
 "Effects on the <b>linear reading strategy</b>:"
-msgstr "<b>Okunamaz alanların işlenmesi</b>\n\nKusurlu ortam genellikle bitişik bir bölgede çok sayıda okuma hatası içerir. Okuma hatasından sonra sektörleri atlamak, işlem süresini ve sürücüdeki mekanik aşınmayı azaltır, ancak görüntü dosyasında daha büyük boşluklar bırakır.\n\n<b>Doğrusal okuma stratejisinin</b> etkileri:"
+msgstr ""
+"<b>Okunamaz alanların işlenmesi</b>\n"
+"\n"
+"Kusurlu ortam genellikle bitişik bir bölgede çok sayıda okuma hatası içerir. Okuma hatasından sonra sektörleri atlamak, işlem süresini ve sürücüdeki mekanik aşınmayı azaltır, ancak görüntü dosyasında daha büyük boşluklar bırakır.\n"
+"\n"
+"<b>Doğrusal okuma stratejisinin</b> etkileri:"
 
 #: src/preferences.c:2121
 msgid "Skipping a large number of sectors (e.g. 1024) gives a quick overview of damaged areas, but will usually not collect enough data for repairing the image."
@@ -1942,7 +2266,10 @@ msgid ""
 "The <b>adaptive reading strategy</b> uses this setting only if no error correction data is available. In that case the reading process will stop when no unread areas larger than the selected size remain. Values smaller than 128 <i>are not recommended</i> as they cause the drive to carry out lots of laser head repositioning during the final phase of the reading process. If adaptive reading with a setting of 128 is not sufficient, try reading the remaining sectors with an additional linear reading pass.\n"
 "\n"
 "On DVD and BD media read errors do usually extend over at least 16 sectors for technical reasons. Therefore selecting a value less than 16 is not recommended for DVD and BD."
-msgstr "<b>Uyarlanabilir okuma stratejisi</b> bu ayarı yalnızca hata düzeltme verisi yoksa kullanır. Bu durumda, okuma işlemi seçili boyuttan daha büyük okunmamış alan kalmadığında durur. 128'den küçük değerler <i>önerilmez</i> çünkü sürücünün okuma işleminin son aşamasında çok sayıda lazer kafa konumlandırma işlemi gerçekleştirmesine neden olur. 128 ayarıyla uyarlanabilir okuma yeterli değilse, ek doğrusal bir okuma geçişi ile kalan sektörleri okumayı deneyin.\n\nDVD ve BD ortamında okuma hataları, teknik nedenlerden dolayı genellikle en az 16 sektörü kapsar. Bu nedenle DVD ve BD için 16'dan düşük bir değer seçilmesi önerilmez."
+msgstr ""
+"<b>Uyarlanabilir okuma stratejisi</b> bu ayarı yalnızca hata düzeltme verisi yoksa kullanır. Bu durumda, okuma işlemi seçili boyuttan daha büyük okunmamış alan kalmadığında durur. 128'den küçük değerler <i>önerilmez</i> çünkü sürücünün okuma işleminin son aşamasında çok sayıda lazer kafa konumlandırma işlemi gerçekleştirmesine neden olur. 128 ayarıyla uyarlanabilir okuma yeterli değilse, ek doğrusal bir okuma geçişi ile kalan sektörleri okumayı deneyin.\n"
+"\n"
+"DVD ve BD ortamında okuma hataları, teknik nedenlerden dolayı genellikle en az 16 sektörü kapsar. Bu nedenle DVD ve BD için 16'dan düşük bir değer seçilmesi önerilmez."
 
 #: src/preferences.c:2142 src/preferences.c:2145
 msgid "Media read attempts"
@@ -1963,7 +2290,12 @@ msgid ""
 "If unreadable sectors remain after reading the medium from start to end, the medium is read again up to he given number of times.\n"
 "\n"
 "Only the missing sectors will be tried in the additional reading passes."
-msgstr "<b>Doğrusal okuma stratejisi için ortam okuma denemeleri</b>\n\nOrtamı baştan sona okuduktan sonra okunmayan sektörler kalırsa, ortam verilen sayıda yeniden okunur.\n\nYalnızca ek okuma geçişlerinde eksik sektörler denenecektir."
+msgstr ""
+"<b>Doğrusal okuma stratejisi için ortam okuma denemeleri</b>\n"
+"\n"
+"Ortamı baştan sona okuduktan sonra okunmayan sektörler kalırsa, ortam verilen sayıda yeniden okunur.\n"
+"\n"
+"Yalnızca ek okuma geçişlerinde eksik sektörler denenecektir."
 
 #: src/preferences.c:2184 src/preferences.c:2193
 msgid "Raw sector caching"
@@ -1987,7 +2319,15 @@ msgid ""
 "\n"
 "Please note that not all drives and operating systems support reading partial data. It is not an error of the cache directory remains empty.\n"
 "dvdisaster will not remove any files from the given directory; you need to clean it up manually after a successful medium recovery."
-msgstr "<b>Ham sektör önbelleğe alma</b>\n\nBazı sürücüler kusurlu sektörlerden kısmi veriler sunabilir. Bir kısmi sektör kendi başına işe yaramasa da, 20 veya daha fazlası tam bir sektör içine birleşebilir.\n\nBu düğmeyi etkinleştirirseniz, dvdisaster kısmi sektörleri seçili dizinde toplayacaktır. Sonraki okuma geçişlerinde yeterli parça toplandığında, ilgili sektör otomatik olarak depolanan parçalardan yeniden birleştirilir.\n\nTüm sürücüler ve işletim sistemlerinin kısmi veri okumayı desteklemediğini lütfen unutmayın. Önbellek dizini boş kalırsa bu bir hata değildir.\ndvdisaster verilen dizinden hiçbir dosyayı kaldırmayacaktır; başarılı bir ortam kurtarması sonra bunu el ile temizlemek gerekir."
+msgstr ""
+"<b>Ham sektör önbelleğe alma</b>\n"
+"\n"
+"Bazı sürücüler kusurlu sektörlerden kısmi veriler sunabilir. Bir kısmi sektör kendi başına işe yaramasa da, 20 veya daha fazlası tam bir sektör içine birleşebilir.\n"
+"\n"
+"Bu düğmeyi etkinleştirirseniz, dvdisaster kısmi sektörleri seçili dizinde toplayacaktır. Sonraki okuma geçişlerinde yeterli parça toplandığında, ilgili sektör otomatik olarak depolanan parçalardan yeniden birleştirilir.\n"
+"\n"
+"Tüm sürücüler ve işletim sistemlerinin kısmi veri okumayı desteklemediğini lütfen unutmayın. Önbellek dizini boş kalırsa bu bir hata değildir.\n"
+"dvdisaster verilen dizinden hiçbir dosyayı kaldırmayacaktır; başarılı bir ortam kurtarması sonra bunu el ile temizlemek gerekir."
 
 #: src/preferences.c:2260
 msgid "Raw sector file prefix"
@@ -2002,7 +2342,10 @@ msgid ""
 "<b>Raw sector file prefix</b>\n"
 "\n"
 "Use a different prefix for each disc you are trying to recover, e.g. \"disc1-\" and so on."
-msgstr "<b>Ham sektör dosyası öneki</b>\n\nKurtarmaya çalıştığınız her disk için farklı bir önek kullanın, örn. \"disk1-\" ve benzeri."
+msgstr ""
+"<b>Ham sektör dosyası öneki</b>\n"
+"\n"
+"Kurtarmaya çalıştığınız her disk için farklı bir önek kullanın, örn. \"disk1-\" ve benzeri."
 
 #: src/preferences.c:2292
 msgid "Error correction"
@@ -2021,25 +2364,34 @@ msgid ""
 "<b>Error correction method</b>\n"
 "\n"
 "dvdisaster creates error correction data which is used to recover unreadable sectors if the disc becomes damaged later on. There are different codecs and ways available for storing the error correction information:\n"
-msgstr "<b>Hata düzeltme yöntemi</b>\n\ndvdisaster, disk daha sonra hasar görmesi halinde okunamayan sektörleri kurtarmak için kullanılan hata düzeltme verileri oluşturur. Hata düzeltme bilgilerini depolamak için çeşitli codec'ler ve yollar mevcuttur:\n"
+msgstr ""
+"<b>Hata düzeltme yöntemi</b>\n"
+"\n"
+"dvdisaster, disk daha sonra hasar görmesi halinde okunamayan sektörleri kurtarmak için kullanılan hata düzeltme verileri oluşturur. Hata düzeltme bilgilerini depolamak için çeşitli codec'ler ve yollar mevcuttur:\n"
 
 #: src/preferences.c:2341
 msgid ""
 "The RS01 codec\n"
 "RS01 is the recommended codec for storing error correction data in separate files.\n"
-msgstr "RS01 codec'i\nRS01, hata düzeltme verilerini ayrı dosyalarda depolamak için önerilen codec'dir.\n"
+msgstr ""
+"RS01 codec'i\n"
+"RS01, hata düzeltme verilerini ayrı dosyalarda depolamak için önerilen codec'dir.\n"
 
 #: src/preferences.c:2344
 msgid ""
 "The RS02 codec\n"
 "RS02 is the currently recommended codec for augmenting images with error correction data.\n"
-msgstr "RS02 codec'i\nRS02, şu anda görüntüleri hata düzeltme verileriyle artırmak için önerilen codec'dir.\n"
+msgstr ""
+"RS02 codec'i\n"
+"RS02, şu anda görüntüleri hata düzeltme verileriyle artırmak için önerilen codec'dir.\n"
 
 #: src/preferences.c:2348
 msgid ""
 "The RS03 codec (Warning: experimental)\n"
 "RS03 can either store error correction data in a separate file or augment the image with it. It provides multithreading to scale with multicore processors and contains some subtle improvements over RS01 and RS02. However it should not be used for productive work unless a stable version is released with dvdisaster V0.80."
-msgstr "RS03 codec (Uyarı: deneysel)\nRS03, hata düzeltme verilerini ayrı bir dosyada depolayabilir veya görüntüyü onunla artırabilir. Çok çekirdekli işlemcilere ölçeklenmek için çok iş parçacığı sağlar ve RS01 ve RS02'ye göre bazı ince iyileştirmeler içerir. Ancak dvdisaster V0.80 ile istikrarlı bir sürüm yayınlanmadığı sürece üretim çalışması için kullanılmamalıdır."
+msgstr ""
+"RS03 codec (Uyarı: deneysel)\n"
+"RS03, hata düzeltme verilerini ayrı bir dosyada depolayabilir veya görüntüyü onunla artırabilir. Çok çekirdekli işlemcilere ölçeklenmek için çok iş parçacığı sağlar ve RS01 ve RS02'ye göre bazı ince iyileştirmeler içerir. Ancak dvdisaster V0.80 ile istikrarlı bir sürüm yayınlanmadığı sürece üretim çalışması için kullanılmamalıdır."
 
 #: src/preferences.c:2385
 msgid "Files"
@@ -2062,7 +2414,10 @@ msgid ""
 "<b>Automatically add file suffixes</b>\n"
 "\n"
 "When this switch is set, files will be automatically appended with \".iso\" or \".ecc\" suffixes if no other file name extension is already present."
-msgstr "<b>Dosya sonekleri otomatik olarak ekle</b>\n\nBu anahtar ayarlandığında, başka bir dosya adı uzantısı zaten mevcut değilse dosyalara otomatik olarak \".iso\" veya \".ecc\" sonekleri eklenecektir."
+msgstr ""
+"<b>Dosya sonekleri otomatik olarak ekle</b>\n"
+"\n"
+"Bu anahtar ayarlandığında, başka bir dosya adı uzantısı zaten mevcut değilse dosyalara otomatik olarak \".iso\" veya \".ecc\" sonekleri eklenecektir."
 
 #: src/preferences.c:2428
 msgid "Automatic file creation and deletion"
@@ -2081,7 +2436,10 @@ msgid ""
 "<b>Automatic error correction file creation</b>\n"
 "\n"
 "Automatically creates an error correction file after reading an image. Together with the \"Remove image\" option this will speed up error correction file generation for a series of different media."
-msgstr "<b>Otomatik hata düzeltme dosyası oluşturma</b>\n\nGörüntü okuduktan sonra otomatik olarak bir hata düzeltme dosyası oluşturur. \"Görüntüyü kaldır\" seçeneği ile birlikte, bu, bir dizi farklı ortam için hata düzeltme dosyası oluşturmayı hızlandıracaktır."
+msgstr ""
+"<b>Otomatik hata düzeltme dosyası oluşturma</b>\n"
+"\n"
+"Görüntü okuduktan sonra otomatik olarak bir hata düzeltme dosyası oluşturur. \"Görüntüyü kaldır\" seçeneği ile birlikte, bu, bir dizi farklı ortam için hata düzeltme dosyası oluşturmayı hızlandıracaktır."
 
 #: src/preferences.c:2469
 msgid "Automatic image file removal"
@@ -2096,7 +2454,10 @@ msgid ""
 "<b>Automatic image file removal</b>\n"
 "\n"
 "If this switch is set the image file will be deleted following the successful generation of the respective error correction file."
-msgstr "<b>Otomatik görüntü dosyası kaldırma</b>\n\nBu anahtar ayarlanırsa, görüntü dosyası ilgili hata düzeltme dosyasının başarılı bir şekilde oluşturulmasından sonra silinecektir."
+msgstr ""
+"<b>Otomatik görüntü dosyası kaldırma</b>\n"
+"\n"
+"Bu anahtar ayarlanırsa, görüntü dosyası ilgili hata düzeltme dosyasının başarılı bir şekilde oluşturulmasından sonra silinecektir."
 
 #: src/preferences.c:2500 src/preferences.c:2509
 msgid "Confirm file overwriting"
@@ -2111,7 +2472,10 @@ msgid ""
 "<b>Ask before overwriting image and ecc files</b>\n"
 "\n"
 "dvdisaster will ask you for confirmation when it is going to overwrite an existing image or error correction file if this option is checked."
-msgstr "<b>Görüntü ve ecc dosyalarının üzerine yazılmadan önce sor</b>\n\nBu seçenek işaretlenirse, mevcut bir görüntü veya hata düzeltme dosyasının üzerine yazılacağı zaman dvdisaster onay isteyecektir."
+msgstr ""
+"<b>Görüntü ve ecc dosyalarının üzerine yazılmadan önce sor</b>\n"
+"\n"
+"Bu seçenek işaretlenirse, mevcut bir görüntü veya hata düzeltme dosyasının üzerine yazılacağı zaman dvdisaster onay isteyecektir."
 
 #: src/preferences.c:2541
 msgid "Appearance"
@@ -2135,7 +2499,10 @@ msgid ""
 "<b>Good sectors</b>\n"
 "\n"
 "This color indicates good sectors."
-msgstr "<b>İyi sektörler</b>\n\nBu renk iyi sektörleri gösterir."
+msgstr ""
+"<b>İyi sektörler</b>\n"
+"\n"
+"Bu renk iyi sektörleri gösterir."
 
 #: src/preferences.c:2596
 msgid "Checksum errors"
@@ -2150,7 +2517,10 @@ msgid ""
 "<b>Checksum errors</b>\n"
 "\n"
 "This color is used for displaying sectors with wrong check sums."
-msgstr "<b>Sağlama toplamı hataları</b>\n\nBu renk yanlış sağlama toplamları olan sektörleri görüntülemek için kullanılır."
+msgstr ""
+"<b>Sağlama toplamı hataları</b>\n"
+"\n"
+"Bu renk yanlış sağlama toplamları olan sektörleri görüntülemek için kullanılır."
 
 #: src/preferences.c:2626
 msgid "Unreadable sectors"
@@ -2165,7 +2535,10 @@ msgid ""
 "<b>Unreadable sectors</b>\n"
 "\n"
 "This color is used for marking unreadable sectors."
-msgstr "<b>Okunamaz sektörler</b>\n\nBu renk okunamaz sektörleri işaretlemek için kullanılır."
+msgstr ""
+"<b>Okunamaz sektörler</b>\n"
+"\n"
+"Bu renk okunamaz sektörleri işaretlemek için kullanılır."
 
 #: src/preferences.c:2656
 msgid "Present sectors"
@@ -2180,7 +2553,10 @@ msgid ""
 "<b>Present sectors</b>\n"
 "\n"
 "Sectors which are already present are marked with this color."
-msgstr "<b>Mevcut sektörler</b>\n\nZaten mevcut olan sektörler bu renkle işaretlenir."
+msgstr ""
+"<b>Mevcut sektörler</b>\n"
+"\n"
+"Zaten mevcut olan sektörler bu renkle işaretlenir."
 
 #: src/preferences.c:2686
 msgid "Ignored sectors"
@@ -2195,7 +2571,10 @@ msgid ""
 "<b>Ignored sectors</b>\n"
 "\n"
 "Sectors marked with this color will not be processed in the current run."
-msgstr "<b>Yoksayılan sektörler</b>\n\nBu renkle işaretlenen sektörler geçerli çalıştırmada işlenmeyecektir."
+msgstr ""
+"<b>Yoksayılan sektörler</b>\n"
+"\n"
+"Bu renkle işaretlenen sektörler geçerli çalıştırmada işlenmeyecektir."
 
 #: src/preferences.c:2717
 msgid "Highlit sectors"
@@ -2210,7 +2589,10 @@ msgid ""
 "<b>Highlit sectors</b>\n"
 "\n"
 "This color is used for temporarily highlighting sectors during adaptive reading."
-msgstr "<b>Vurgulanan sektörler</b>\n\nBu renk, uyarlanabilir okuma sırasında sektörleri geçici olarak vurgulamak için kullanılır."
+msgstr ""
+"<b>Vurgulanan sektörler</b>\n"
+"\n"
+"Bu renk, uyarlanabilir okuma sırasında sektörleri geçici olarak vurgulamak için kullanılır."
 
 #: src/preferences.c:2748
 msgid "Text colors"
@@ -2225,7 +2607,10 @@ msgid ""
 "<b>Positive text</b>\n"
 "\n"
 "Good news are printed in this color."
-msgstr "<b>Olumlu metin</b>\n\nİyi haberler bu renkte yazdırılır."
+msgstr ""
+"<b>Olumlu metin</b>\n"
+"\n"
+"İyi haberler bu renkte yazdırılır."
 
 #: src/preferences.c:2788
 msgid "Negative text"
@@ -2236,7 +2621,10 @@ msgid ""
 "<b>Negative text</b>\n"
 "\n"
 "Bad news are printed in this color."
-msgstr "<b>Olumsuz metin</b>\n\nKötü haberler bu renkte yazdırılır."
+msgstr ""
+"<b>Olumsuz metin</b>\n"
+"\n"
+"Kötü haberler bu renkte yazdırılır."
 
 #: src/preferences.c:2818
 msgid "Curve colors"
@@ -2251,7 +2639,10 @@ msgid ""
 "<b>Curve color and labels</b>\n"
 "\n"
 "The reading speed curve, its left side and top labels are printed in this color."
-msgstr "<b>Eğri rengi ve etiketler</b>\n\nOkuma hızı eğrisi, sol tarafı ve üst etiketleri bu renkte yazdırılır."
+msgstr ""
+"<b>Eğri rengi ve etiketler</b>\n"
+"\n"
+"Okuma hızı eğrisi, sol tarafı ve üst etiketleri bu renkte yazdırılır."
 
 #: src/preferences.c:2858 src/read-linear-window.c:405
 msgid "C2 errors"
@@ -2262,7 +2653,10 @@ msgid ""
 "<b>C2 error color</b>\n"
 "\n"
 "The logarithmic bar graph showing the C2 errors is rendered in this color during the \"read\" and \"scan\" operations."
-msgstr "<b>C2 hata rengi</b>\n\nC2 hatalarını gösteren logaritmik bar grafik, \"okuma\" ve \"tarama\" işlemleri sırasında bu renkte işlenir."
+msgstr ""
+"<b>C2 hata rengi</b>\n"
+"\n"
+"C2 hatalarını gösteren logaritmik bar grafik, \"okuma\" ve \"tarama\" işlemleri sırasında bu renkte işlenir."
 
 #: src/preferences.c:2890
 msgid "Error correction load"
@@ -2273,7 +2667,10 @@ msgid ""
 "<b>Error correction load</b>\n"
 "\n"
 "The bar graph showing the error correction load is rendered in this color during the \"Fix\" operation."
-msgstr "<b>Hata düzeltme yükü</b>\n\nHata düzeltme yükünü gösteren bar grafik, \"Onar\" işlemi sırasında bu renkte işlenir."
+msgstr ""
+"<b>Hata düzeltme yükü</b>\n"
+"\n"
+"Hata düzeltme yükünü gösteren bar grafik, \"Onar\" işlemi sırasında bu renkte işlenir."
 
 #: src/preferences.c:2921
 msgid "Default color scheme"
@@ -2296,7 +2693,10 @@ msgid ""
 "<b>Verbose logging</b>\n"
 "\n"
 "More information will be supplied in the Log window and/or log file. Useful for debugging, but may lead to slower performance."
-msgstr "<b>Ayrıntılı günlükleme</b>\n\nLog penceresinde ve/veya günlük dosyasında daha fazla bilgi sağlanacak. Hata ayıklama için yararlıdır, ancak daha yavaş performansa neden olabilir."
+msgstr ""
+"<b>Ayrıntılı günlükleme</b>\n"
+"\n"
+"Log penceresinde ve/veya günlük dosyasında daha fazla bilgi sağlanacak. Hata ayıklama için yararlıdır, ancak daha yavaş performansa neden olabilir."
 
 #: src/preferences.c:2972
 msgid "Logfile:"
@@ -2315,7 +2715,10 @@ msgid ""
 "<b>Logfile</b>\n"
 "\n"
 "A copy of the logging information from the log window is written to the specified log file. This is useful to collect information on program crashes, but affects performance negatively."
-msgstr "<b>Günlük dosyası</b>\n\nGünlük penceresindeki günlükleme bilgisinin bir kopyası belirtilen günlük dosyasına yazılır. Bu, program çökmelerinde bilgi toplamak için yararlıdır, ancak performansı olumsuz etkiler."
+msgstr ""
+"<b>Günlük dosyası</b>\n"
+"\n"
+"Günlük penceresindeki günlükleme bilgisinin bir kopyası belirtilen günlük dosyasına yazılır. Bu, program çökmelerinde bilgi toplamak için yararlıdır, ancak performansı olumsuz etkiler."
 
 #: src/print-sense.c:615
 #, c-format
@@ -2585,12 +2988,44 @@ msgstr " [Yeni önbellek dosyası %s oluşturuluyor]\n"
 msgid " [Appended %d/%d sectors to cache file %s; LBA=%<PRId64>, ssize=%d, %d sectors]\n"
 msgstr " [%d/%d sektör %s önbellek dosyasına eklendi; LBA=%<PRId64>, ssize=%d, %d sektör]\n"
 
+#: src/read-adaptive-window.c:77
+msgid "Adaptive reading:"
+msgstr "Uyarlanabilir okuma:"
+
+#: src/read-adaptive-window.c:105
+msgid "Sectors processed"
+msgstr "İşlenen sektörler"
+
+#: src/read-adaptive-window.c:108 src/scsi-layer.c:1800
+msgid "readable"
+msgstr "okunabilir"
+
+#: src/read-adaptive-window.c:113
+msgid "correctable"
+msgstr "düzeltilebilir"
+
+#: src/read-adaptive-window.c:118
+msgid "missing"
+msgstr "eksik"
+
+#: src/read-adaptive-window.c:129
+#, c-format
+msgid "Readable: %d.%d%% / %d.%d%% required"
+msgstr "Okunabilir: %d.%d%% / %d.%d%% gerekli"
+
+#: src/read-adaptive-window.c:137
+#, c-format
+msgid "Total recoverable: %d.%d%%"
+msgstr "Toplam kurtarılabilir: %d.%d%%"
+
 #: src/read-adaptive.c:57 src/rs01-create.c:1023
 #, c-format
 msgid ""
 "Error closing error correction file:\n"
 "%s"
-msgstr "Hata düzeltme dosyası kapatılırken hata:\n%s"
+msgstr ""
+"Hata düzeltme dosyası kapatılırken hata:\n"
+"%s"
 
 #: src/read-adaptive.c:80 src/read-adaptive.c:117
 msgid "Invalid or damaged ecc file"
@@ -2601,7 +3036,9 @@ msgstr "Geçersiz veya hasarlı ecc dosyası"
 msgid ""
 "Can't read ecc header:\n"
 "%s"
-msgstr "ecc başlığı okunamıyor:\n%s"
+msgstr ""
+"ecc başlığı okunamıyor:\n"
+"%s"
 
 #: src/read-adaptive.c:121 src/read-linear.c:867
 #, c-format
@@ -2611,7 +3048,12 @@ msgid ""
 "*          Please read the image without using this ecc file\n"
 "*          or upgrade dvdisaster.\n"
 "\n"
-msgstr "* Uyarı: Bu ecc dosyası dvdisaster-%d.%d gerektirir!\n*          Devam etmek yanlış davranışı tetikleyebilir.\n*          Lütfen bu ecc dosyasını kullanmadan görüntüyü okuyun\n*          veya dvdisaster'ı yükseltin.\n\n"
+msgstr ""
+"* Uyarı: Bu ecc dosyası dvdisaster-%d.%d gerektirir!\n"
+"*          Devam etmek yanlış davranışı tetikleyebilir.\n"
+"*          Lütfen bu ecc dosyasını kullanmadan görüntüyü okuyun\n"
+"*          veya dvdisaster'ı yükseltin.\n"
+"\n"
 
 #: src/read-adaptive.c:154 src/rs01-common.c:82 src/rs01-common.c:237
 #: src/rs01-create.c:304 src/rs01-verify.c:817
@@ -2652,7 +3094,11 @@ msgid ""
 "*          Proceeding could trigger incorrect behaviour.\n"
 "*          Please upgrade dvdisaster.\n"
 "\n"
-msgstr "* Uyarı: Bu ecc dosyası dvdisaster-%d.%d gerektirir!\n*          Devam etmek yanlış davranışı tetikleyebilir.\n*          Lütfen dvdisaster'ı yükseltin.\n\n"
+msgstr ""
+"* Uyarı: Bu ecc dosyası dvdisaster-%d.%d gerektirir!\n"
+"*          Devam etmek yanlış davranışı tetikleyebilir.\n"
+"*          Lütfen dvdisaster'ı yükseltin.\n"
+"\n"
 
 #: src/read-adaptive.c:690 src/read-linear.c:874
 #, c-format
@@ -2661,7 +3107,11 @@ msgid ""
 "*          Proceeding could trigger incorrect behaviour.\n"
 "*          Please upgrade dvdisaster.\n"
 "\n"
-msgstr "* Uyarı: Bu görüntü dvdisaster-%d.%d gerektirir!\n*          Devam etmek yanlış davranışı tetikleyebilir.\n*          Lütfen dvdisaster'ı yükseltin.\n\n"
+msgstr ""
+"* Uyarı: Bu görüntü dvdisaster-%d.%d gerektirir!\n"
+"*          Devam etmek yanlış davranışı tetikleyebilir.\n"
+"*          Lütfen dvdisaster'ı yükseltin.\n"
+"\n"
 
 #: src/read-adaptive.c:719
 msgid ""
@@ -2670,7 +3120,12 @@ msgid ""
 "badly damaged zones and give priority to good zones first. However we won't stop reading automatically\n"
 "once enough data and ECC data have been recovered to be able to rebuild the image, as we do for RS02.\n"
 "You should stop the reading and launch a 'verify' yourself from time to time to see if this is the case.\n"
-msgstr "Uyarlanabilir okuma, RS03 artırılmış görüntüleri optimal bir şekilde işlemek için henüz uyarlanmamıştır.\n'Böl ve fethet' okuma yöntemi, kötü hasarlı bölgeleri tespit etmeye ve atlamaya çalışarak,\niyi bölgelere öncelik verme yöntemiyle uygulanmaya devam edecektir. Ancak, RS02 için yaptığımız gibi,\ngörüntüyü yeniden oluşturmak için yeterli veri ve ECC verileri kurtarıldığında okumayı otomatik olarak durdurmayız.\nBunu görmek için zaman zaman okumayı durdurmalı ve 'doğrula' işlemini başlatmalısınız.\n"
+msgstr ""
+"Uyarlanabilir okuma, RS03 artırılmış görüntüleri optimal bir şekilde işlemek için henüz uyarlanmamıştır.\n"
+"'Böl ve fethet' okuma yöntemi, kötü hasarlı bölgeleri tespit etmeye ve atlamaya çalışarak,\n"
+"iyi bölgelere öncelik verme yöntemiyle uygulanmaya devam edecektir. Ancak, RS02 için yaptığımız gibi,\n"
+"görüntüyü yeniden oluşturmak için yeterli veri ve ECC verileri kurtarıldığında okumayı otomatik olarak durdurmayız.\n"
+"Bunu görmek için zaman zaman okumayı durdurmalı ve 'doğrula' işlemini başlatmalısınız.\n"
 
 #: src/read-adaptive.c:726 src/read-adaptive.c:785 src/read-adaptive.c:800
 #: src/read-adaptive.c:864 src/read-adaptive.c:953 src/read-adaptive.c:1014
@@ -2698,14 +3153,19 @@ msgid ""
 "Medium contains %<PRId64> sectors more as recorded in the .ecc file\n"
 "(Medium: %<PRId64> sectors; expected from .ecc file: %<PRId64> sectors).\n"
 "Only the first %<PRId64> medium sectors will be processed.\n"
-msgstr "Ortam .ecc dosyasında kaydedilenden %<PRId64> sektör daha içerir\n(Ortam: %<PRId64> sektör; .ecc dosyasından beklenen: %<PRId64> sektör).\nYalnızca ilk %<PRId64> ortam sektörü işlenecektir.\n"
+msgstr ""
+"Ortam .ecc dosyasında kaydedilenden %<PRId64> sektör daha içerir\n"
+"(Ortam: %<PRId64> sektör; .ecc dosyasından beklenen: %<PRId64> sektör).\n"
+"Yalnızca ilk %<PRId64> ortam sektörü işlenecektir.\n"
 
 #: src/read-adaptive.c:795
 #, c-format
 msgid ""
 "Medium contains %<PRId64> sectors less as recorded in the .ecc file\n"
 "(Medium: %<PRId64> sectors; expected from .ecc file: %<PRId64> sectors).\n"
-msgstr "Ortam .ecc dosyasında kaydedilenden %<PRId64> sektör daha az içerir\n(Ortam: %<PRId64> sektör; .ecc dosyasından beklenen: %<PRId64> sektör).\n"
+msgstr ""
+"Ortam .ecc dosyasında kaydedilenden %<PRId64> sektör daha az içerir\n"
+"(Ortam: %<PRId64> sektör; .ecc dosyasından beklenen: %<PRId64> sektör).\n"
 
 #: src/read-adaptive.c:834
 #, c-format
@@ -2717,13 +3177,17 @@ msgstr "Sektör aralığı [%<PRId64>,%<PRId64>] ile sınırlı.\n"
 msgid ""
 "Sector %d is missing. Can not compare medium and ecc fingerprints.\n"
 "Double check that the medium and the ecc file belong together.\n"
-msgstr "Sektör %d eksik. Ortam ve ecc parmak izlerini karşılaştıramıyorum.\nOrtam ve ecc dosyasının birlikte ait olduğundan emin olunuz.\n"
+msgstr ""
+"Sektör %d eksik. Ortam ve ecc parmak izlerini karşılaştıramıyorum.\n"
+"Ortam ve ecc dosyasının birlikte ait olduğundan emin olunuz.\n"
 
 #: src/read-adaptive.c:872
 msgid ""
 "Fingerprints of medium and ecc file do not match.\n"
 "Medium and ecc file do not belong together.\n"
-msgstr "Ortam ve ecc dosyasının parmak izleri eşleşmiyor.\nOrtam ve ecc dosyası birlikte ait değil.\n"
+msgstr ""
+"Ortam ve ecc dosyasının parmak izleri eşleşmiyor.\n"
+"Ortam ve ecc dosyası birlikte ait değil.\n"
 
 #: src/read-adaptive.c:913 src/read-linear.c:337
 msgid "Image file does not match the optical disc."
@@ -2738,7 +3202,9 @@ msgstr "Okuma iptal edildi. Lütfen farklı bir görüntü dosyası seçin."
 msgid ""
 "Image file is %<PRId64> sectors longer than inserted medium\n"
 "(Image file: %<PRId64> sectors; medium: %<PRId64> sectors).\n"
-msgstr "Görüntü dosyası takılan ortamdan %<PRId64> sektör daha uzun\n(Görüntü dosyası: %<PRId64> sektör; ortam: %<PRId64> sektör).\n"
+msgstr ""
+"Görüntü dosyası takılan ortamdan %<PRId64> sektör daha uzun\n"
+"(Görüntü dosyası: %<PRId64> sektör; ortam: %<PRId64> sektör).\n"
 
 #: src/read-adaptive.c:973 src/read-adaptive.c:977
 msgid "Loading CRC data."
@@ -2805,7 +3271,9 @@ msgstr "Ortam: henüz belirlenmemiş"
 msgid ""
 "Adaptive reading is unavailable in this version.\n"
 "It will be re-introduced in one of the next versions."
-msgstr "Uyarlanabilir okuma bu sürümde kullanılmıyor.\nSonraki sürümlerden birinde yeniden tanıtılacaktır."
+msgstr ""
+"Uyarlanabilir okuma bu sürümde kullanılmıyor.\n"
+"Sonraki sürümlerden birinde yeniden tanıtılacaktır."
 
 #: src/read-adaptive.c:1444
 msgid ""
@@ -2814,7 +3282,12 @@ msgid ""
 "*          cause significant wear on the drive due to excessive\n"
 "*          seek operations.\n"
 "*          Please consider using linear reading instead.\n"
-msgstr "* Uyarı: Hata düzeltme verileri olmadan uyarlanabilir okuma kullanmak,\n*          doğrusal okumaya göre çok az avantaj sağlar, ancak\n*          aşırı arama işlemleri nedeniyle sürücüde önemli aşınmaya\n*          neden olabilir.\n*          Bunun yerine doğrusal okuma kullanmayı düşünün.\n"
+msgstr ""
+"* Uyarı: Hata düzeltme verileri olmadan uyarlanabilir okuma kullanmak,\n"
+"*          doğrusal okumaya göre çok az avantaj sağlar, ancak\n"
+"*          aşırı arama işlemleri nedeniyle sürücüde önemli aşınmaya\n"
+"*          neden olabilir.\n"
+"*          Bunun yerine doğrusal okuma kullanmayı düşünün.\n"
 
 #: src/read-adaptive.c:1502 src/read-linear.c:277
 #, c-format
@@ -2833,7 +3306,9 @@ msgstr "Mevcut ortam görüntüsü tamamlanıyor."
 msgid ""
 "\n"
 "Sufficient data for reconstructing the image is available.\n"
-msgstr "\nGörüntüyü yeniden oluşturmak için yeterli veriler vardır.\n"
+msgstr ""
+"\n"
+"Görüntüyü yeniden oluşturmak için yeterli veriler vardır.\n"
 
 #: src/read-adaptive.c:1665 src/read-linear.c:1090
 #, c-format
@@ -2841,7 +3316,10 @@ msgid ""
 "Sector %<PRId64>: %s\n"
 "Can not recover from above error.\n"
 "Use the --ignore-fatal-sense option to override."
-msgstr "Sektör %<PRId64>: %s\nYukarıdaki hatadan kurtarılamıyor.\nÖzr için --ignore-fatal-sense seçeneğini kullanın."
+msgstr ""
+"Sektör %<PRId64>: %s\n"
+"Yukarıdaki hatadan kurtarılamıyor.\n"
+"Özr için --ignore-fatal-sense seçeneğini kullanın."
 
 #: src/read-adaptive.c:1670 src/read-linear.c:1096
 #, c-format
@@ -2850,7 +3328,11 @@ msgid ""
 "\n"
 "It may not be possible to recover from this error.\n"
 "Should the reading continue and ignore this error?"
-msgstr "Sektör %<PRId64>: %s\n\nBu hatadan kurtarılması mümkün olmayabilir.\nOkuma devam etmeli ve bu hatayı yoksaymalı mı?"
+msgstr ""
+"Sektör %<PRId64>: %s\n"
+"\n"
+"Bu hatadan kurtarılması mümkün olmayabilir.\n"
+"Okuma devam etmeli ve bu hatayı yoksaymalı mı?"
 
 #: src/read-adaptive.c:1726 src/rs01-fix.c:422 src/rs02-fix.c:431
 #: src/rs03-fix.c:484
@@ -2879,13 +3361,18 @@ msgid ""
 "\n"
 "%s\n"
 "(%<PRId64> readable,  %<PRId64> correctable,  %<PRId64> still missing).\n"
-msgstr "\n%s\n(%<PRId64> okunabilir, %<PRId64> düzeltilebilir, %<PRId64> hala eksik).\n"
+msgstr ""
+"\n"
+"%s\n"
+"(%<PRId64> okunabilir, %<PRId64> düzeltilebilir, %<PRId64> hala eksik).\n"
 
 #: src/read-adaptive.c:2037
 msgid ""
 "\n"
 "Good! All sectors have been read.\n"
-msgstr "\nİyi! Tüm sektörler okundu.\n"
+msgstr ""
+"\n"
+"İyi! Tüm sektörler okundu.\n"
 
 #: src/read-adaptive.c:2045
 #, c-format
@@ -2898,37 +3385,49 @@ msgid ""
 "\n"
 "%s\n"
 "%2d.%1d%% of the image have been read (%<PRId64> sectors).\n"
-msgstr "\n%s\nGörüntünün %2d.%1d%% okundu (%<PRId64> sektör).\n"
+msgstr ""
+"\n"
+"%s\n"
+"Görüntünün %2d.%1d%% okundu (%<PRId64> sektör).\n"
 
-#: src/read-adaptive-window.c:77
-msgid "Adaptive reading:"
-msgstr "Uyarlanabilir okuma:"
-
-#: src/read-adaptive-window.c:105
-msgid "Sectors processed"
-msgstr "İşlenen sektörler"
-
-#: src/read-adaptive-window.c:108 src/scsi-layer.c:1800
-msgid "readable"
-msgstr "okunabilir"
-
-#: src/read-adaptive-window.c:113
-msgid "correctable"
-msgstr "düzeltilebilir"
-
-#: src/read-adaptive-window.c:118
-msgid "missing"
-msgstr "eksik"
-
-#: src/read-adaptive-window.c:129
+#: src/read-linear-window.c:97
 #, c-format
-msgid "Readable: %d.%d%% / %d.%d%% required"
-msgstr "Okunabilir: %d.%d%% / %d.%d%% gerekli"
+msgid "Current Speed: %d.%dx"
+msgstr "Geçerli Hız: %d.%dx"
 
-#: src/read-adaptive-window.c:137
+#: src/read-linear-window.c:104 src/read-linear.c:515
 #, c-format
-msgid "Total recoverable: %d.%d%%"
-msgstr "Toplam kurtarılabilir: %d.%d%%"
+msgid "Unreadable / skipped sectors: %<PRId64>"
+msgstr "Okunamaz / atlanmış sektörler: %<PRId64>"
+
+#: src/read-linear-window.c:261
+msgid "Medium state"
+msgstr "Ortam durumu"
+
+#: src/read-linear-window.c:268
+msgid "Not touched this time"
+msgstr "Bu sefer dokunulmadı"
+
+#: src/read-linear-window.c:272
+msgid "Already present"
+msgstr "Zaten mevcut"
+
+#: src/read-linear-window.c:275
+msgid "Successfully read"
+msgstr "Başarıyla okundu"
+
+#: src/read-linear-window.c:279 src/read-linear-window.c:306
+#: src/rs01-verify.c:132 src/rs02-verify.c:125 src/rs03-verify.c:135
+msgid "Sectors with CRC errors"
+msgstr "CRC hatası olan sektörler"
+
+#: src/read-linear-window.c:282
+msgid "Unreadable / skipped"
+msgstr "Okunamaz / atlandı"
+
+#: src/read-linear-window.c:404
+msgid "Speed"
+msgstr "Hız"
 
 #: src/read-linear.c:122
 #, c-format
@@ -2939,7 +3438,9 @@ msgstr "<span %s>Kurtarılamaz hata tarafından iptal edildi.</span> %<PRId64> s
 msgid ""
 "Automatic error correction file creation\n"
 "is only possible after a full reading pass.\n"
-msgstr "Otomatik hata düzeltme dosyası oluşturma\nyalnızca tam bir okuma geçişinden sonra mümkündür.\n"
+msgstr ""
+"Otomatik hata düzeltme dosyası oluşturma\n"
+"yalnızca tam bir okuma geçişinden sonra mümkündür.\n"
 
 #: src/read-linear.c:211
 msgid "Scanning aborted"
@@ -2981,11 +3482,6 @@ msgstr "tamamlandı.\n"
 msgid "Waiting %d seconds for drive to spin up...\n"
 msgstr "Sürücü açılması için %d saniye bekleniyor...\n"
 
-#: src/read-linear.c:515 src/read-linear-window.c:104
-#, c-format
-msgid "Unreadable / skipped sectors: %<PRId64>"
-msgstr "Okunamaz / atlanmış sektörler: %<PRId64>"
-
 #: src/read-linear.c:605
 #, c-format
 msgid "Sector %<PRId64>: Speed increased to %4.1fx\n"
@@ -3020,7 +3516,13 @@ msgid ""
 "Please read the image without using this ecc file\n"
 "or upgrade dvdisaster.\n"
 "\n"
-msgstr "Bu ecc dosyası dvdisaster-%d.%d gerektirir!\n\nDevam etmek yanlış davranışı tetikleyebilir.\nLütfen bu ecc dosyasını kullanmadan görüntüyü okuyun\nveya dvdisaster'ı yükseltin.\n\n"
+msgstr ""
+"Bu ecc dosyası dvdisaster-%d.%d gerektirir!\n"
+"\n"
+"Devam etmek yanlış davranışı tetikleyebilir.\n"
+"Lütfen bu ecc dosyasını kullanmadan görüntüyü okuyun\n"
+"veya dvdisaster'ı yükseltin.\n"
+"\n"
 
 #: src/read-linear.c:849
 #, c-format
@@ -3030,7 +3532,12 @@ msgid ""
 "Proceeding could trigger incorrect behaviour.\n"
 "Please upgrade dvdisaster.\n"
 "\n"
-msgstr "Bu görüntü dvdisaster-%d.%d gerektirir!\n\nDevam etmek yanlış davranışı tetikleyebilir.\nLütfen dvdisaster'ı yükseltin.\n\n"
+msgstr ""
+"Bu görüntü dvdisaster-%d.%d gerektirir!\n"
+"\n"
+"Devam etmek yanlış davranışı tetikleyebilir.\n"
+"Lütfen dvdisaster'ı yükseltin.\n"
+"\n"
 
 #
 #
@@ -3060,14 +3567,18 @@ msgstr "Sektör %<PRId64>: %s %d sektörü atlıyor.\n"
 msgid ""
 "<big>Trying to complete image, reading pass %d of %d.</big>\n"
 "%s"
-msgstr "<big>Görüntüyü tamamlamaya çalışıyorum, okuma geçişi %d / %d.</big>\n%s"
+msgstr ""
+"<big>Görüntüyü tamamlamaya çalışıyorum, okuma geçişi %d / %d.</big>\n"
+"%s"
 
 #: src/read-linear.c:1321
 #, c-format
 msgid ""
 "\n"
 "Trying to complete image, reading pass %d of %d.\n"
-msgstr "\nGörüntüyü tamamlamaya çalışıyorum, okuma geçişi %d / %d.\n"
+msgstr ""
+"\n"
+"Görüntüyü tamamlamaya çalışıyorum, okuma geçişi %d / %d.\n"
 
 #: src/read-linear.c:1358
 #, c-format
@@ -3139,7 +3650,10 @@ msgid ""
 "%d sectors missing at the end of the disc.\n"
 "This is okay if the CD was written in TAO (track at once) mode.\n"
 "%s"
-msgstr "Diskin sonunda %d sektör eksik.\nCD, TAO (track at once) modunda yazıldıysa bu iyidir.\n%s"
+msgstr ""
+"Diskin sonunda %d sektör eksik.\n"
+"CD, TAO (track at once) modunda yazıldıysa bu iyidir.\n"
+"%s"
 
 #: src/read-linear.c:1437
 msgid "See the manual for details.\n"
@@ -3153,47 +3667,17 @@ msgstr "Görüntü buna göre kesilecektir. Ayrıntılar için kılavuza bakın.
 msgid ""
 "See the manual for details.\n"
 "Use the --dao option to disable this message.\n"
-msgstr "Ayrıntılar için kılavuza bakın.\nBu iletiyi devre dışı bırakmak için --dao seçeneğini kullanın.\n"
+msgstr ""
+"Ayrıntılar için kılavuza bakın.\n"
+"Bu iletiyi devre dışı bırakmak için --dao seçeneğini kullanın.\n"
 
 #: src/read-linear.c:1451
 msgid ""
 "The Image will be truncated accordingly. See the manual for details.\n"
 "Use the --dao option to disable image truncating.\n"
-msgstr "Görüntü buna göre kesilecektir. Ayrıntılar için kılavuza bakın.\nGörüntü kesmeyi devre dışı bırakmak için --dao seçeneğini kullanın.\n"
-
-#: src/read-linear-window.c:97
-#, c-format
-msgid "Current Speed: %d.%dx"
-msgstr "Geçerli Hız: %d.%dx"
-
-#: src/read-linear-window.c:261
-msgid "Medium state"
-msgstr "Ortam durumu"
-
-#: src/read-linear-window.c:268
-msgid "Not touched this time"
-msgstr "Bu sefer dokunulmadı"
-
-#: src/read-linear-window.c:272
-msgid "Already present"
-msgstr "Zaten mevcut"
-
-#: src/read-linear-window.c:275
-msgid "Successfully read"
-msgstr "Başarıyla okundu"
-
-#: src/read-linear-window.c:279 src/read-linear-window.c:306
-#: src/rs01-verify.c:132 src/rs02-verify.c:125 src/rs03-verify.c:135
-msgid "Sectors with CRC errors"
-msgstr "CRC hatası olan sektörler"
-
-#: src/read-linear-window.c:282
-msgid "Unreadable / skipped"
-msgstr "Okunamaz / atlandı"
-
-#: src/read-linear-window.c:404
-msgid "Speed"
-msgstr "Hız"
+msgstr ""
+"Görüntü buna göre kesilecektir. Ayrıntılar için kılavuza bakın.\n"
+"Görüntü kesmeyi devre dışı bırakmak için --dao seçeneğini kullanın.\n"
 
 #: src/recover-raw.c:66
 #, c-format
@@ -3245,7 +3729,9 @@ msgstr "Ecc dosya boyutu %<PRId64>m yararlı aralığın dışında [%<PRId64> .
 msgid ""
 "Invalid redundancy specification '%s'.\n"
 "Valid formats: normal, high, <number>%%, <number>r, <number>m"
-msgstr "Geçersiz fazlalık belirtimi '%s'.\nGeçerli biçimler: normal, yüksek, <sayı>%%, <sayı>r, <sayı>m"
+msgstr ""
+"Geçersiz fazlalık belirtimi '%s'.\n"
+"Geçerli biçimler: normal, yüksek, <sayı>%%, <sayı>r, <sayı>m"
 
 #: src/rs01-create.c:98
 #, c-format
@@ -3257,7 +3743,9 @@ msgstr "Fazlalık %d yararlı aralığın dışında [8..100]."
 msgid ""
 "\n"
 "Image file %s deleted.\n"
-msgstr "\nGörüntü dosyası %s silindi.\n"
+msgstr ""
+"\n"
+"Görüntü dosyası %s silindi.\n"
 
 #: src/rs01-create.c:118
 #, c-format
@@ -3284,7 +3772,9 @@ msgstr "RS01 Yöntemiyle Kodlama: %d kök, %4.1f%% fazlalık."
 msgid ""
 "<big>Creating the error correction file.</big>\n"
 "<i>%s</i>"
-msgstr "<big>Hata düzeltme dosyası oluşturuluyor.</big>\n<i>%s</i>"
+msgstr ""
+"<big>Hata düzeltme dosyası oluşturuluyor.</big>\n"
+"<i>%s</i>"
 
 #: src/rs01-create.c:257 src/rs03-create.c:284
 #, c-format
@@ -3334,7 +3824,10 @@ msgid ""
 "Failed allocating memory for I/O cache.\n"
 "Cache size is currently %d MiB.\n"
 "Try reducing it.\n"
-msgstr "G/Ç önbelleği için bellek tahsisi başarısız.\nÖnbellek boyutu şu anda %d MiB'dir.\nBunu azaltmayı deneyin.\n"
+msgstr ""
+"G/Ç önbelleği için bellek tahsisi başarısız.\n"
+"Önbellek boyutu şu anda %d MiB'dir.\n"
+"Bunu azaltmayı deneyin.\n"
 
 #: src/rs01-create.c:574 src/rs01-create.c:698 src/rs01-create.c:992
 #: src/rs02-create.c:964 src/rs03-create.c:1125
@@ -3358,14 +3851,18 @@ msgstr "<span %s>Kullanıcı isteği tarafından iptal edildi!</span>"
 msgid ""
 "could not write to ecc file \"%s\":\n"
 "%s"
-msgstr "\"%s\" ecc dosyasına yazılamadı:\n%s"
+msgstr ""
+"\"%s\" ecc dosyasına yazılamadı:\n"
+"%s"
 
 #: src/rs01-create.c:1020
 #, c-format
 msgid ""
 "Can't write ecc header:\n"
 "%s"
-msgstr "ecc başlığı yazılamıyor:\n%s"
+msgstr ""
+"ecc başlığı yazılamıyor:\n"
+"%s"
 
 #: src/rs01-create.c:1028 src/rs02-create.c:1127 src/rs03-create.c:1419
 #, c-format
@@ -3377,13 +3874,17 @@ msgstr "Ecc oluşturma: 100.0%%\n"
 msgid ""
 "Error correction file \"%s\" created.\n"
 "Make sure to keep this file on a reliable medium.\n"
-msgstr "Hata düzeltme dosyası \"%s\" oluşturuldu.\nBu dosyayı güvenilir bir ortamda tuttuğunuzdan emin olun.\n"
+msgstr ""
+"Hata düzeltme dosyası \"%s\" oluşturuldu.\n"
+"Bu dosyayı güvenilir bir ortamda tuttuğunuzdan emin olun.\n"
 
 #: src/rs01-create.c:1036 src/rs03-create.c:1451
 msgid ""
 "The error correction file has been successfully created.\n"
 "Make sure to keep this file on a reliable medium."
-msgstr "Hata düzeltme dosyası başarıyla oluşturuldu.\nBu dosyayı güvenilir bir ortamda tuttuğunuzdan emin olun."
+msgstr ""
+"Hata düzeltme dosyası başarıyla oluşturuldu.\n"
+"Bu dosyayı güvenilir bir ortamda tuttuğunuzdan emin olun."
 
 #: src/rs01-fix.c:41 src/rs02-fix.c:415
 #, c-format
@@ -3410,14 +3911,18 @@ msgstr "RS01 Yöntemi Kullanarak Hata Düzeltme Dosyası, %d kök, %4.1f%% fazla
 msgid ""
 "<big>Repairing the image.</big>\n"
 "<i>%s</i>"
-msgstr "<big>Görüntü onarılıyor.</big>\n<i>%s</i>"
+msgstr ""
+"<big>Görüntü onarılıyor.</big>\n"
+"<i>%s</i>"
 
 #: src/rs01-fix.c:156 src/rs02-fix.c:211 src/rs03-fix.c:232
 #, c-format
 msgid ""
 "\n"
 "Fix mode(%s): Repairable sectors will be fixed in the image.\n"
-msgstr "\nOnarım modu(%s): Onarılabilir sektörler görüntüde düzeltilecektir.\n"
+msgstr ""
+"\n"
+"Onarım modu(%s): Onarılabilir sektörler görüntüde düzeltilecektir.\n"
 
 #: src/rs01-fix.c:191
 #, c-format
@@ -3428,7 +3933,12 @@ msgid ""
 "the image and ecc files do not belong together.\n"
 "\n"
 "%s"
-msgstr "Görüntü dosyası ecc dosyasında kaydedilenden %lld sektör daha uzun.\nBu, özellikle çift katmanlı DVD ortamında yalnızca sıfır doldurma olabilir,\nancak görüntü ve ecc dosyalarının birlikte ait olmadığı anlamına da gelebilir.\n\n%s"
+msgstr ""
+"Görüntü dosyası ecc dosyasında kaydedilenden %lld sektör daha uzun.\n"
+"Bu, özellikle çift katmanlı DVD ortamında yalnızca sıfır doldurma olabilir,\n"
+"ancak görüntü ve ecc dosyalarının birlikte ait olmadığı anlamına da gelebilir.\n"
+"\n"
+"%s"
 
 #: src/rs01-fix.c:199 src/rs02-fix.c:225 src/rs03-fix.c:287
 #, c-format
@@ -3436,7 +3946,10 @@ msgid ""
 "Image file is %<PRId64> sectors longer than expected.\n"
 "Assuming this is a TAO mode medium.\n"
 "%<PRId64> sectors will be removed from the image end.\n"
-msgstr "Görüntü dosyası beklenenden %<PRId64> sektör daha uzun.\nBunun TAO modu ortam olduğu varsayılıyor.\n%<PRId64> sektör görüntü sonundan kaldırılacak.\n"
+msgstr ""
+"Görüntü dosyası beklenenden %<PRId64> sektör daha uzun.\n"
+"Bunun TAO modu ortam olduğu varsayılıyor.\n"
+"%<PRId64> sektör görüntü sonundan kaldırılacak.\n"
 
 #: src/rs01-fix.c:227 src/rs02-fix.c:248 src/rs03-fix.c:312
 msgid "Is it okay to remove the superfluous sectors?"
@@ -3452,7 +3965,9 @@ msgstr "Görüntü %<PRId64> sektör ile kesildi.\n"
 msgid ""
 "Add the --truncate option to the program call\n"
 "to have the superfluous sectors removed."
-msgstr "Fazladan sektörleri kaldırmak için\nprogram çağrısına --truncate seçeneğini ekleyin."
+msgstr ""
+"Fazladan sektörleri kaldırmak için\n"
+"program çağrısına --truncate seçeneğini ekleyin."
 
 #: src/rs01-fix.c:270 src/rs03-fix.c:244
 #, c-format
@@ -3460,7 +3975,10 @@ msgid ""
 "The image file is %d bytes longer than noted\n"
 "in the ecc file. Shall the superfluous bytes\n"
 "be removed from the image file?\n"
-msgstr "Görüntü dosyası ecc dosyasında kaydedilenden %d bayt daha uzun.\nFazla baytlar\ngörüntü dosyasından kaldırılsın mı?\n"
+msgstr ""
+"Görüntü dosyası ecc dosyasında kaydedilenden %d bayt daha uzun.\n"
+"Fazla baytlar\n"
+"görüntü dosyasından kaldırılsın mı?\n"
 
 #: src/rs01-fix.c:286 src/rs03-fix.c:261
 #, c-format
@@ -3469,7 +3987,10 @@ msgid ""
 "in the ecc file.\n"
 "Add the --truncate option to the program call\n"
 "to have the superfluous sectors removed."
-msgstr "Görüntü dosyası ecc dosyasında kaydedilenden %d bayt daha uzun.\nFazladan sektörleri kaldırmak için\nprogram çağrısına --truncate seçeneğini ekleyin."
+msgstr ""
+"Görüntü dosyası ecc dosyasında kaydedilenden %d bayt daha uzun.\n"
+"Fazladan sektörleri kaldırmak için\n"
+"program çağrısına --truncate seçeneğini ekleyin."
 
 #: src/rs01-fix.c:295 src/rs03-fix.c:270
 #, c-format
@@ -3480,20 +4001,26 @@ msgstr "Görüntü %d bayt ile kesildi.\n"
 msgid ""
 "Image file appears to be truncated.\n"
 "Consider completing it with another reading pass before going on.\n"
-msgstr "Görüntü dosyası kesilmiş görülüyor.\nDevam etmeden önce başka bir okuma geçişi ile tamamlamayı düşünün.\n"
+msgstr ""
+"Görüntü dosyası kesilmiş görülüyor.\n"
+"Devam etmeden önce başka bir okuma geçişi ile tamamlamayı düşünün.\n"
 
 #: src/rs01-fix.c:319
 #, c-format
 msgid ""
 "Sector %d is missing. Can not compare image and ecc fingerprints.\n"
 "Double check that image and ecc file belong together.\n"
-msgstr "Sektör %d eksik. Görüntü ve ecc parmak izlerini karşılaştıramıyorum.\nGörüntü ve ecc dosyasının birlikte ait olduğundan emin olunuz.\n"
+msgstr ""
+"Sektör %d eksik. Görüntü ve ecc parmak izlerini karşılaştıramıyorum.\n"
+"Görüntü ve ecc dosyasının birlikte ait olduğundan emin olunuz.\n"
 
 #: src/rs01-fix.c:332
 msgid ""
 "Fingerprints of image and ecc file do not match.\n"
 "Image and ecc file do not belong together.\n"
-msgstr "Görüntü ve ecc dosyasının parmak izleri eşleşmiyor.\nGörüntü ve ecc dosyası birlikte ait değil.\n"
+msgstr ""
+"Görüntü ve ecc dosyasının parmak izleri eşleşmiyor.\n"
+"Görüntü ve ecc dosyası birlikte ait değil.\n"
 
 #: src/rs01-fix.c:447
 #, c-format
@@ -3510,7 +4037,9 @@ msgstr "ecc alanında arama başarısız: %s"
 msgid ""
 "Can't read ecc file:\n"
 "%s"
-msgstr "ecc dosyası okunamıyor:\n%s"
+msgstr ""
+"ecc dosyası okunamıyor:\n"
+"%s"
 
 #: src/rs01-fix.c:695
 #, c-format
@@ -3537,7 +4066,9 @@ msgstr "  %3d onarılan sektör: "
 msgid ""
 "could not write medium sector %<PRId64>:\n"
 "%s"
-msgstr "Ortam sektörü %<PRId64> yazılamadı:\n%s"
+msgstr ""
+"Ortam sektörü %<PRId64> yazılamadı:\n"
+"%s"
 
 #: src/rs01-fix.c:766 src/rs02-fix.c:797 src/rs03-fix.c:895
 #, c-format
@@ -3712,7 +4243,9 @@ msgstr "* hızlı mod        : resim TARANmadı\n"
 msgid ""
 "- good image       : all sectors present\n"
 "- image md5sum     : %s\n"
-msgstr "- iyi resim       : tüm sektörler mevcut\n- resim md5sum     : %s\n"
+msgstr ""
+"- iyi resim       : tüm sektörler mevcut\n"
+"- resim md5sum     : %s\n"
 
 #: src/rs01-verify.c:520 src/rs02-verify.c:928 src/rs03-verify.c:1324
 #, c-format
@@ -3724,7 +4257,9 @@ msgstr "<span %s>İyi resim.</span>"
 msgid ""
 "* suspicious image : all sectors present, but %<PRId64> CRC errors\n"
 "- image md5sum     : %s\n"
-msgstr "* şüpheli resim : tüm sektörler mevcut, ancak %<PRId64> CRC hatası\n- resim md5sum     : %s\n"
+msgstr ""
+"* şüpheli resim : tüm sektörler mevcut, ancak %<PRId64> CRC hatası\n"
+"- resim md5sum     : %s\n"
 
 #: src/rs01-verify.c:527
 #, c-format
@@ -3799,7 +4334,10 @@ msgid ""
 "* requires         : dvdisaster-%d.%d (BAD)\n"
 "* Warning          : The following output might be incorrect.\n"
 "*                  : Please upgrade dvdisaster.\n"
-msgstr "* gerektirir         : dvdisaster-%d.%d (HATALI)\n* Uyarı          : Aşağıdaki çıktı yanlış olabilir.\n*                  : Lütfen dvdisaster'ı yükseltin.\n"
+msgstr ""
+"* gerektirir         : dvdisaster-%d.%d (HATALI)\n"
+"* Uyarı          : Aşağıdaki çıktı yanlış olabilir.\n"
+"*                  : Lütfen dvdisaster'ı yükseltin.\n"
 
 #: src/rs01-verify.c:664 src/rs02-verify.c:1013 src/rs03-verify.c:849
 #, c-format
@@ -4004,7 +4542,11 @@ msgid ""
 "\n"
 "The preset \"normal\" creates a redundancy of 14.3%%.\n"
 "It invokes optimized program code to speed up the error correction file creation."
-msgstr "<b>Normal fazlalık</b>\n\n\"Normal\" ön ayarı %%14.3 fazlalık oluşturur.\nHata düzeltme dosyası oluşturmayı hızlandırmak için optimize edilmiş program kodunu çağırır."
+msgstr ""
+"<b>Normal fazlalık</b>\n"
+"\n"
+"\"Normal\" ön ayarı %%14.3 fazlalık oluşturur.\n"
+"Hata düzeltme dosyası oluşturmayı hızlandırmak için optimize edilmiş program kodunu çağırır."
 
 #: src/rs01-window.c:666 src/rs03-preferences.c:926
 msgid "High redundancy"
@@ -4021,7 +4563,11 @@ msgid ""
 "\n"
 "The preset \"high\" creates a redundancy of 33.5%%.\n"
 "It invokes optimized program code to speed up the error correction file creation."
-msgstr "<b>Yüksek fazlalık</b>\n\n\"Yüksek\" ön ayarı %%33.5 fazlalık oluşturur.\nHata düzeltme dosyası oluşturmayı hızlandırmak için optimize edilmiş program kodunu çağırır."
+msgstr ""
+"<b>Yüksek fazlalık</b>\n"
+"\n"
+"\"Yüksek\" ön ayarı %%33.5 fazlalık oluşturur.\n"
+"Hata düzeltme dosyası oluşturmayı hızlandırmak için optimize edilmiş program kodunu çağırır."
 
 #: src/rs01-window.c:697 src/rs03-preferences.c:956
 msgid "Other redundancy"
@@ -4038,7 +4584,11 @@ msgid ""
 "\n"
 "Specifies the redundancy by percent.\n"
 "An error correction file with x%% redundancy will be approximately x%% of the size of the corresponding image file."
-msgstr "<b>Diğer fazlalık</b>\n\nFazlalığı yüzde olarak belirtir.\nx%% fazlalık olan bir hata düzeltme dosyası, karşılık gelen resim dosyasının boyutunun yaklaşık x%%'i olacaktır."
+msgstr ""
+"<b>Diğer fazlalık</b>\n"
+"\n"
+"Fazlalığı yüzde olarak belirtir.\n"
+"x%% fazlalık olan bir hata düzeltme dosyası, karşılık gelen resim dosyasının boyutunun yaklaşık x%%'i olacaktır."
 
 #: src/rs01-window.c:744 src/rs03-preferences.c:1003
 msgid "Space-delimited redundancy"
@@ -4059,7 +4609,12 @@ msgid ""
 "Specifies the maximum size of the error correction file in MiB. dvdisaster will choose a suitable redundancy setting so that the overall size of the error correction file does not exceed the given limit.\n"
 "\n"
 "<b>Advance notice:</b> When using the same size setting for images of vastly different size, smaller images receive more redundancy than larger ones. This is usually not what you want."
-msgstr "<b>Alanla sınırlandırılmış fazlalık</b>\n\nHata düzeltme dosyasının MiB cinsinden maksimum boyutunu belirtir. dvdisaster, hata düzeltme dosyasının genel boyutunun verilen sınırı aşmaması için uygun bir fazlalık ayarı seçecektir.\n\n<b>Önceden bildirim:</b> Çok farklı boyuttaki resimler için aynı boyut ayarını kullanırken, daha küçük resimler daha büyük olanlara göre daha fazla fazlalık alır. Bu genellikle istediğiniz şey değildir."
+msgstr ""
+"<b>Alanla sınırlandırılmış fazlalık</b>\n"
+"\n"
+"Hata düzeltme dosyasının MiB cinsinden maksimum boyutunu belirtir. dvdisaster, hata düzeltme dosyasının genel boyutunun verilen sınırı aşmaması için uygun bir fazlalık ayarı seçecektir.\n"
+"\n"
+"<b>Önceden bildirim:</b> Çok farklı boyuttaki resimler için aynı boyut ayarını kullanırken, daha küçük resimler daha büyük olanlara göre daha fazla fazlalık alır. Bu genellikle istediğiniz şey değildir."
 
 #: src/rs01-window.c:830 src/rs02-window.c:1340
 msgid "Memory utilization"
@@ -4078,7 +4633,10 @@ msgid ""
 "<b>File cache</b>\n"
 "\n"
 "dvdisaster optimizes access to the image and error correction files by maintaining its own cache. The preset of 32MiB is suitable for most systems."
-msgstr "<b>Dosya önbelleği</b>\n\ndvdisaster, kendi önbelleğini koruyarak resim ve hata düzeltme dosyalarına erişimi optimize eder. 32MiB ön ayarı çoğu sistem için uygundur."
+msgstr ""
+"<b>Dosya önbelleği</b>\n"
+"\n"
+"dvdisaster, kendi önbelleğini koruyarak resim ve hata düzeltme dosyalarına erişimi optimize eder. 32MiB ön ayarı çoğu sistem için uygundur."
 
 #: src/rs02-common.c:578 src/rs02-common.c:590 src/rs02-verify.c:652
 #: src/rs03-common.c:652
@@ -4101,7 +4659,9 @@ msgstr "<span %s>Kullanıcı isteği tarafından iptal edildi!</span> (kısmi ha
 msgid ""
 "Image \"%s\" already contains error correction information.\n"
 "Truncating image to data part (%<PRId64> sectors).\n"
-msgstr "Resim \"%s\" zaten hata düzeltme bilgisi içeriyor.\nResim veri kısmına kısaltılıyor (%<PRId64> sektör).\n"
+msgstr ""
+"Resim \"%s\" zaten hata düzeltme bilgisi içeriyor.\n"
+"Resim veri kısmına kısaltılıyor (%<PRId64> sektör).\n"
 
 #: src/rs02-create.c:157 src/rs03-create.c:329
 msgid "Image size is now"
@@ -4112,7 +4672,10 @@ msgid ""
 "Image contains unread(able) sectors.\n"
 "Error correction information can only be\n"
 "appended to complete (undamaged) images.\n"
-msgstr "Resim okunmamış (okunamayan) sektörler içeriyor.\nHata düzeltme bilgileri yalnızca\ntam (hasar görmemiş) resimlere eklenebilir.\n"
+msgstr ""
+"Resim okunmamış (okunamayan) sektörler içeriyor.\n"
+"Hata düzeltme bilgileri yalnızca\n"
+"tam (hasar görmemiş) resimlere eklenebilir.\n"
 
 #: src/rs02-create.c:222
 #, c-format
@@ -4127,7 +4690,17 @@ msgid ""
 "\n"
 "Error correction information can only be\n"
 "appended to complete (undamaged) images.\n"
-msgstr "Resimdeki sektör %<PRId64> okunamaz olarak işaretlenmiş\nve farklı bir ortamdan gelmiş gibi görünüyor.\n\nResim muhtemelen kusurlu içerikten yönetilmiştir.\nÖrneğin, tam olarak kurtarılmayan hasar görmüş bir ortamdan\nalan bir veya daha fazla dosya içerebilir.\nBu, bazı dosyaların sessizce bozulmuş olabileceği anlamına gelir.\n\nHata düzeltme bilgileri yalnızca\ntam (hasar görmemiş) resimlere eklenebilir.\n"
+msgstr ""
+"Resimdeki sektör %<PRId64> okunamaz olarak işaretlenmiş\n"
+"ve farklı bir ortamdan gelmiş gibi görünüyor.\n"
+"\n"
+"Resim muhtemelen kusurlu içerikten yönetilmiştir.\n"
+"Örneğin, tam olarak kurtarılmayan hasar görmüş bir ortamdan\n"
+"alan bir veya daha fazla dosya içerebilir.\n"
+"Bu, bazı dosyaların sessizce bozulmuş olabileceği anlamına gelir.\n"
+"\n"
+"Hata düzeltme bilgileri yalnızca\n"
+"tam (hasar görmemiş) resimlere eklenebilir.\n"
 
 #: src/rs02-create.c:239 src/rs02-create.c:304 src/rs02-create.c:314
 #, c-format
@@ -4161,7 +4734,9 @@ msgstr "Hata düzeltme verileri oluşturma iptal edildi"
 msgid ""
 "<big>Augmenting the image with error correction data.</big>\n"
 "<i>%s</i>"
-msgstr "<big>Resim hata düzeltme verileri ile artırılıyor.</big>\n<i>%s</i>"
+msgstr ""
+"<big>Resim hata düzeltme verileri ile artırılıyor.</big>\n"
+"<i>%s</i>"
 
 #: src/rs02-create.c:1056 src/rs03-create.c:1276
 msgid "- checking image -"
@@ -4177,7 +4752,9 @@ msgstr "RS02 Yöntemi ile kodlama: %<PRId64> MiB veri, %<PRId64> MiB hata düzel
 msgid ""
 "Augmenting image with Method RS02:\n"
 " %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
-msgstr "Resim RS02 Yöntemi ile artırılıyor:\n %<PRId64> MiB veri, %<PRId64> MiB hata düzeltme (%d kök; %4.1f%% fazlalık)."
+msgstr ""
+"Resim RS02 Yöntemi ile artırılıyor:\n"
+" %<PRId64> MiB veri, %<PRId64> MiB hata düzeltme (%d kök; %4.1f%% fazlalık)."
 
 #: src/rs02-create.c:1086
 #, c-format
@@ -4186,14 +4763,20 @@ msgid ""
 "Data portion of image: %<PRId64> sect.; maximum possible size: %<PRId64> sect.\n"
 "If reducing the image size or using a larger medium is\n"
 "not an option, please create a separate error correction file."
-msgstr "Ortamda hata düzeltme verileri için yeterli alan kalmadı.\nResim veri bölümü: %<PRId64> sektör; maksimum olası boyut: %<PRId64> sektör.\nResim boyutunu küçültmek veya daha büyük bir ortam kullanmak\nseçenek değilse, lütfen ayrı bir hata düzeltme dosyası oluşturun."
+msgstr ""
+"Ortamda hata düzeltme verileri için yeterli alan kalmadı.\n"
+"Resim veri bölümü: %<PRId64> sektör; maksimum olası boyut: %<PRId64> sektör.\n"
+"Resim boyutunu küçültmek veya daha büyük bir ortam kullanmak\n"
+"seçenek değilse, lütfen ayrı bir hata düzeltme dosyası oluşturun."
 
 #: src/rs02-create.c:1096 src/rs03-create.c:1382
 #, c-format
 msgid ""
 "Using redundancies below 20% may not give\n"
 "the expected data loss protection.\n"
-msgstr "Yüzde 20'nin altında fazlalık kullanmak\nbeklenen veri kaybı korumasını sağlamayabilir.\n"
+msgstr ""
+"Yüzde 20'nin altında fazlalık kullanmak\n"
+"beklenen veri kaybı korumasını sağlamayabilir.\n"
 
 #: src/rs02-create.c:1128 src/rs02-create.c:1136 src/rs03-create.c:1421
 #: src/rs03-create.c:1444
@@ -4201,7 +4784,9 @@ msgstr "Yüzde 20'nin altında fazlalık kullanmak\nbeklenen veri kaybı korumas
 msgid ""
 "Image has been augmented with error correction data.\n"
 "New image size is %<PRId64> MiB (%<PRId64> sectors).\n"
-msgstr "Resim hata düzeltme verileri ile artırıldı.\nYeni resim boyutu %<PRId64> MiB (%<PRId64> sektör).\n"
+msgstr ""
+"Resim hata düzeltme verileri ile artırıldı.\n"
+"Yeni resim boyutu %<PRId64> MiB (%<PRId64> sektör).\n"
 
 #: src/rs02-fix.c:108 src/rs02-fix.c:114 src/rs03-fix.c:110 src/rs03-fix.c:116
 #, c-format
@@ -4226,7 +4811,13 @@ msgid ""
 "the error correction information.\n"
 "\n"
 "%s"
-msgstr "Resim dosyası hata düzeltme verilerinde belirtilenden %lld sektör daha uzun.\nBu basitçe sıfır doldurma olabilir, ancak aynı zamanda\nresimdeki hata düzeltme bilgisi eklendikten sonra manipüle edildiğini\nde gösterebilir.\n\n%s"
+msgstr ""
+"Resim dosyası hata düzeltme verilerinde belirtilenden %lld sektör daha uzun.\n"
+"Bu basitçe sıfır doldurma olabilir, ancak aynı zamanda\n"
+"resimdeki hata düzeltme bilgisi eklendikten sonra manipüle edildiğini\n"
+"de gösterebilir.\n"
+"\n"
+"%s"
 
 #: src/rs02-fix.c:463 src/rs03-fix.c:518
 #, c-format
@@ -4267,7 +4858,12 @@ msgid ""
 "Searching this medium for error correction data may take a long time.\n"
 "Press \"Skip RS02 test\" if you are certain that this medium was\n"
 "not augmented with RS02 error correction data."
-msgstr "Daha hızlı ortam başlatması\n\nBu ortamda hata düzeltme verileri araması uzun sürebilir.\nBu ortamın RS02 hata düzeltme verileri ile artırılmadığından emin iseniz\n\"RS02 testini atla\" tuşuna basın."
+msgstr ""
+"Daha hızlı ortam başlatması\n"
+"\n"
+"Bu ortamda hata düzeltme verileri araması uzun sürebilir.\n"
+"Bu ortamın RS02 hata düzeltme verileri ile artırılmadığından emin iseniz\n"
+"\"RS02 testini atla\" tuşuna basın."
 
 #: src/rs02-verify.c:50 src/rs02-verify.c:216 src/rs02-verify.c:332
 #: src/rs03-verify.c:62 src/rs03-verify.c:257 src/rs03-verify.c:329
@@ -4375,7 +4971,9 @@ msgstr "<span %s>%<PRId64> sektör eksik</span>"
 msgid ""
 "- good image       : all sectors present\n"
 "- data md5sum      : %s\n"
-msgstr "- iyi resim       : tüm sektörler mevcut\n- veri md5sum      : %s\n"
+msgstr ""
+"- iyi resim       : tüm sektörler mevcut\n"
+"- veri md5sum      : %s\n"
 
 #: src/rs02-verify.c:892
 msgid "* suspicious image : contains damaged ecc headers\n"
@@ -4420,7 +5018,9 @@ msgstr "<span %s>Hasar görmüş resim.</span>"
 msgid ""
 "\n"
 "Error correction data: "
-msgstr "\nHata düzeltme verileri: "
+msgstr ""
+"\n"
+"Hata düzeltme verileri: "
 
 #: src/rs02-verify.c:1018
 msgid "Please upgrade your version of dvdisaster!"
@@ -4514,7 +5114,12 @@ msgid ""
 "Augmented images fill up unused medium space with error correction information. Activate this option if you want the augmented image to fit on the smallest possible medium.\n"
 "\n"
 "In order to pick a suitable medium the available media capacities must be known. Default sizes for CD and one/two layered DVD and BD are given in the table. You can edit these sizes according to your needs."
-msgstr "<b>Tablodan artırılmış resim boyutunu belirle</b>\n\nArtırılmış resimler, kullanılmayan ortam alanını hata düzeltme bilgisi ile doldurur. Artırılmış resmi mümkün olan en küçük ortama sığdırmak istiyorsanız bu seçeneği etkinleştirin.\n\nUygun bir ortam seçmek için, mevcut ortam kapasiteleri bilinmelidir. CD ve tek/çift katmanlı DVD ve BD için varsayılan boyutlar tabloda verilmiştir. Bu boyutları ihtiyaçlarınıza göre düzenleyebilirsiniz."
+msgstr ""
+"<b>Tablodan artırılmış resim boyutunu belirle</b>\n"
+"\n"
+"Artırılmış resimler, kullanılmayan ortam alanını hata düzeltme bilgisi ile doldurur. Artırılmış resmi mümkün olan en küçük ortama sığdırmak istiyorsanız bu seçeneği etkinleştirin.\n"
+"\n"
+"Uygun bir ortam seçmek için, mevcut ortam kapasiteleri bilinmelidir. CD ve tek/çift katmanlı DVD ve BD için varsayılan boyutlar tabloda verilmiştir. Bu boyutları ihtiyaçlarınıza göre düzenleyebilirsiniz."
 
 #: src/rs02-window.c:811
 msgid "CD-R / CD-RW:"
@@ -4540,7 +5145,16 @@ msgid ""
 "\n"
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
-msgstr "<b>CD ortam boyutu</b>\n\nBu, 80 dakikalık CD ortamı için varsayılan maksimum kapasitedir. Bu değerden daha küçük resimler, belirtilen CD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n\nOrtam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz. Ancak bu değer bazen yanlış olabilir.\nSon kaydedilen değere dönmek için ok düğmesini kullanın.\n\nArtırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\nBu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
+msgstr ""
+"<b>CD ortam boyutu</b>\n"
+"\n"
+"Bu, 80 dakikalık CD ortamı için varsayılan maksimum kapasitedir. Bu değerden daha küçük resimler, belirtilen CD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n"
+"\n"
+"Ortam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz. Ancak bu değer bazen yanlış olabilir.\n"
+"Son kaydedilen değere dönmek için ok düğmesini kullanın.\n"
+"\n"
+"Artırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\n"
+"Bu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
 
 #: src/rs02-window.c:874
 msgid "DVD 1 layer:"
@@ -4558,7 +5172,16 @@ msgid ""
 "\n"
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
-msgstr "<b>Tek katmanlı DVD ortam boyutu</b>\n\nBu, tek katmanlı DVD ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen DVD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n\nOrtam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz. Ancak bu değer bazen yanlış olabilir.\nSon kaydedilen değere dönmek için ok düğmesini kullanın.\n\nArtırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\nBu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
+msgstr ""
+"<b>Tek katmanlı DVD ortam boyutu</b>\n"
+"\n"
+"Bu, tek katmanlı DVD ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen DVD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n"
+"\n"
+"Ortam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz. Ancak bu değer bazen yanlış olabilir.\n"
+"Son kaydedilen değere dönmek için ok düğmesini kullanın.\n"
+"\n"
+"Artırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\n"
+"Bu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
 
 #: src/rs02-window.c:937
 msgid "DVD 2 layers:"
@@ -4576,7 +5199,16 @@ msgid ""
 "\n"
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
-msgstr "<b>İki katmanlı DVD ortam boyutu</b>\n\nBu, iki katmanlı DVD ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen DVD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n\nOrtam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz. Ancak bu değer bazen yanlış olabilir.\nSon kaydedilen değere dönmek için ok düğmesini kullanın.\n\nArtırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\nBu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
+msgstr ""
+"<b>İki katmanlı DVD ortam boyutu</b>\n"
+"\n"
+"Bu, iki katmanlı DVD ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen DVD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n"
+"\n"
+"Ortam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz. Ancak bu değer bazen yanlış olabilir.\n"
+"Son kaydedilen değere dönmek için ok düğmesini kullanın.\n"
+"\n"
+"Artırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\n"
+"Bu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
 
 #: src/rs02-window.c:1000
 msgid "BD 1 layer:"
@@ -4594,7 +5226,16 @@ msgid ""
 "\n"
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
-msgstr "<b>Tek katmanlı BD ortam boyutu</b>\n\nBu, tek katmanlı BD ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen BD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n\nOrtam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan boş ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz.\nSon kaydedilen değere dönmek için ok düğmesini kullanın.\n\nArtırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\nBu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
+msgstr ""
+"<b>Tek katmanlı BD ortam boyutu</b>\n"
+"\n"
+"Bu, tek katmanlı BD ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen BD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n"
+"\n"
+"Ortam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan boş ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz.\n"
+"Son kaydedilen değere dönmek için ok düğmesini kullanın.\n"
+"\n"
+"Artırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\n"
+"Bu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
 
 #: src/rs02-window.c:1062
 msgid "BD 2 layers:"
@@ -4612,7 +5253,16 @@ msgid ""
 "\n"
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
-msgstr "<b>İki katmanlı BD ortam boyutu</b>\n\nBu, iki katmanlı BD ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen BD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n\nOrtam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan boş ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz.\nSon kaydedilen değere dönmek için ok düğmesini kullanın.\n\nArtırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\nBu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
+msgstr ""
+"<b>İki katmanlı BD ortam boyutu</b>\n"
+"\n"
+"Bu, iki katmanlı BD ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen BD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n"
+"\n"
+"Ortam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan boş ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz.\n"
+"Son kaydedilen değere dönmek için ok düğmesini kullanın.\n"
+"\n"
+"Artırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\n"
+"Bu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
 
 #: src/rs02-window.c:1124
 msgid "BDXL 3 layers:"
@@ -4630,7 +5280,16 @@ msgid ""
 "\n"
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
-msgstr "<b>Üç katmanlı BDXL ortam boyutu</b>\n\nBu, üç katmanlı BDXL ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen BD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n\nOrtam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan boş ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz.\nSon kaydedilen değere dönmek için ok düğmesini kullanın.\n\nArtırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\nBu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
+msgstr ""
+"<b>Üç katmanlı BDXL ortam boyutu</b>\n"
+"\n"
+"Bu, üç katmanlı BDXL ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen BD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n"
+"\n"
+"Ortam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan boş ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz.\n"
+"Son kaydedilen değere dönmek için ok düğmesini kullanın.\n"
+"\n"
+"Artırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\n"
+"Bu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
 
 #: src/rs02-window.c:1188
 msgid "BDXL 4 layers:"
@@ -4648,7 +5307,16 @@ msgid ""
 "\n"
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
-msgstr "<b>Dört katmanlı BDXL ortam boyutu</b>\n\nBu, dört katmanlı BDXL ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen BD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n\nOrtam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan boş ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz.\nSon kaydedilen değere dönmek için ok düğmesini kullanın.\n\nArtırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\nBu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
+msgstr ""
+"<b>Dört katmanlı BDXL ortam boyutu</b>\n"
+"\n"
+"Bu, dört katmanlı BDXL ortamı için varsayılan maksimum kapasitedir. Daha küçük ortam boyutlarını aşan ancak bu değerden daha küçük olan resimler, belirtilen BD'ye sığması için hata düzeltme bilgisi ile artırılacaktır.\n"
+"\n"
+"Ortam boyutunu 2K'lık sektörler cinsinden girebilir veya seçilen sürücüde şu anda yüklü olan boş ortamın boyutunu kullanmak için \"ortamı sorgula\" düğmesine basabilirsiniz.\n"
+"Son kaydedilen değere dönmek için ok düğmesini kullanın.\n"
+"\n"
+"Artırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\n"
+"Bu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
 
 #: src/rs02-window.c:1294
 msgid "sectors."
@@ -4664,7 +5332,14 @@ msgid ""
 "\n"
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
-msgstr "<b>En fazla ... sektör kullan</b>\n\nTablo ayarlarını geçersiz kılmak için bu seçeneği kullanın; artırılmış resim bu alanda verilen boyuta genişletilecektir.\nBu, normalde CD boyutuna sığdırılan DVD boyutunda artırılmış resimler oluşturulmasını ve standart olmayan ortam kullanılmasını sağlar.\n\nArtırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\nBu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
+msgstr ""
+"<b>En fazla ... sektör kullan</b>\n"
+"\n"
+"Tablo ayarlarını geçersiz kılmak için bu seçeneği kullanın; artırılmış resim bu alanda verilen boyuta genişletilecektir.\n"
+"Bu, normalde CD boyutuna sığdırılan DVD boyutunda artırılmış resimler oluşturulmasını ve standart olmayan ortam kullanılmasını sağlar.\n"
+"\n"
+"Artırılmış resimlerin en fazla boyutunun üç katı kadar artacağını ve en yüksek olası fazlalığın %%200 olduğunu unutmayın.\n"
+"Bu sınıra ulaşılmasa bile, artırılmış resim teknik nedenlerden dolayı belirtilenden birkaç sektör daha küçük olabilir."
 
 #: src/rs03-common.c:442
 #, c-format
@@ -4726,7 +5401,14 @@ msgid ""
 "%sError correction data works like a backup; it must\n"
 "be created when the image is still fully readable.\n"
 "Exiting and removing partial error correction data."
-msgstr "Tamamlanmamış resim\n\nResim eksik sektörler içeriyor,\nörneğin sektör %<PRId64>.\n%sHata düzeltme verileri bir yedekleme gibi çalışır; resim\nhala tamamen okunabilirken oluşturulmalıdır.\nÇıkılıyor ve kısmi hata düzeltme verileri kaldırılıyor."
+msgstr ""
+"Tamamlanmamış resim\n"
+"\n"
+"Resim eksik sektörler içeriyor,\n"
+"örneğin sektör %<PRId64>.\n"
+"%sHata düzeltme verileri bir yedekleme gibi çalışır; resim\n"
+"hala tamamen okunabilirken oluşturulmalıdır.\n"
+"Çıkılıyor ve kısmi hata düzeltme verileri kaldırılıyor."
 
 #: src/rs03-create.c:698
 msgid ""
@@ -4734,7 +5416,11 @@ msgid ""
 "This image was probably mastered from defective source(s).\n"
 "Perform a \"Verify\" action for more information.\n"
 "\n"
-msgstr "\nBu resim muhtemelen kusurlu kaynaktan yönetilmiştir.\nDaha fazla bilgi için \"Doğrula\" işlemini gerçekleştirin.\n\n"
+msgstr ""
+"\n"
+"Bu resim muhtemelen kusurlu kaynaktan yönetilmiştir.\n"
+"Daha fazla bilgi için \"Doğrula\" işlemini gerçekleştirin.\n"
+"\n"
 
 #: src/rs03-create.c:906
 msgid "CPU bound"
@@ -4769,21 +5455,27 @@ msgstr "RS03 Yöntemi ile kodlama: %<PRId64> MiB veri, %<PRId64> MiB hata düzel
 msgid ""
 "Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy), %<PRId64> MiB padding."
-msgstr "Resim RS03 Yöntemi ile artırılıyor [%d iş parçacığı, %s, %s G/Ç]:\n%<PRId64> MiB veri, %<PRId64> MiB hata düzeltme (%d kök; %4.1f%% fazlalık), %<PRId64> MiB dolgu."
+msgstr ""
+"Resim RS03 Yöntemi ile artırılıyor [%d iş parçacığı, %s, %s G/Ç]:\n"
+"%<PRId64> MiB veri, %<PRId64> MiB hata düzeltme (%d kök; %4.1f%% fazlalık), %<PRId64> MiB dolgu."
 
 #: src/rs03-create.c:1355
 #, c-format
 msgid ""
 "Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
-msgstr "Resim RS03 Yöntemi ile artırılıyor [%d iş parçacığı, %s, %s G/Ç]:\n%<PRId64> MiB veri, %<PRId64> MiB hata düzeltme (%d kök; %4.1f%% fazlalık)."
+msgstr ""
+"Resim RS03 Yöntemi ile artırılıyor [%d iş parçacığı, %s, %s G/Ç]:\n"
+"%<PRId64> MiB veri, %<PRId64> MiB hata düzeltme (%d kök; %4.1f%% fazlalık)."
 
 #: src/rs03-create.c:1361
 #, c-format
 msgid ""
 "Creating the error correction file with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
-msgstr "Hata düzeltme dosyası RS03 Yöntemi ile oluşturuluyor [%d iş parçacığı, %s, %s G/Ç]:\n%<PRId64> MiB veri, %<PRId64> MiB hata düzeltme (%d kök; %4.1f%% fazlalık)."
+msgstr ""
+"Hata düzeltme dosyası RS03 Yöntemi ile oluşturuluyor [%d iş parçacığı, %s, %s G/Ç]:\n"
+"%<PRId64> MiB veri, %<PRId64> MiB hata düzeltme (%d kök; %4.1f%% fazlalık)."
 
 #: src/rs03-create.c:1372
 #, c-format
@@ -4792,13 +5484,19 @@ msgid ""
 "Data portion of image: %<PRId64> sect.; maximum possible size: %<PRId64> sect.\n"
 "If reducing the image size or using a larger medium is not\n"
 "an option, please create a separate error correction file."
-msgstr "Ortamda hata düzeltme verileri için yeterli alan kalmadı.\nResim veri bölümü: %<PRId64> sektör; maksimum olası boyut: %<PRId64> sektör.\nResim boyutunu küçültmek veya daha büyük bir ortam kullanmak\nseçenek değilse, lütfen ayrı bir hata düzeltme dosyası oluşturun."
+msgstr ""
+"Ortamda hata düzeltme verileri için yeterli alan kalmadı.\n"
+"Resim veri bölümü: %<PRId64> sektör; maksimum olası boyut: %<PRId64> sektör.\n"
+"Resim boyutunu küçültmek veya daha büyük bir ortam kullanmak\n"
+"seçenek değilse, lütfen ayrı bir hata düzeltme dosyası oluşturun."
 
 #: src/rs03-create.c:1398
 msgid ""
 "BD-R size with no defect management enabled,\n"
 "remember it should you need to repair this image later!\n"
-msgstr "BD-R boyutu ve defekt yönetimi etkinleştirilmemiş,\nbu resmi daha sonra onarmanız gerekirse bunu unutmayın!\n"
+msgstr ""
+"BD-R boyutu ve defekt yönetimi etkinleştirilmemiş,\n"
+"bu resmi daha sonra onarmanız gerekirse bunu unutmayın!\n"
 
 #: src/rs03-create.c:1432
 #, c-format
@@ -4849,7 +5547,9 @@ msgstr "Sektör %<PRId64>, [%s] hata düzeltme dosyasında aranamadı: %s"
 msgid ""
 "could not write ecc file sector %<PRId64>:\n"
 "%s"
-msgstr "hata düzeltme dosyası sektörü %<PRId64> yazılamadı:\n%s"
+msgstr ""
+"hata düzeltme dosyası sektörü %<PRId64> yazılamadı:\n"
+"%s"
 
 #: src/rs03-preferences.c:100 src/rs03-preferences.c:714
 msgid "Target medium for augmented image"
@@ -4884,20 +5584,28 @@ msgid ""
 "<b>Error correction data storage</b>\n"
 "\n"
 "Select between two ways of storing the error correction information:\n"
-msgstr "<b>Hata düzeltme verileri depolama</b>\n\nHata düzeltme bilgisini depolamanın iki yolu arasından seçim yapın:\n"
+msgstr ""
+"<b>Hata düzeltme verileri depolama</b>\n"
+"\n"
+"Hata düzeltme bilgisini depolamanın iki yolu arasından seçim yapın:\n"
 
 #: src/rs03-preferences.c:695
 msgid ""
 "Augmented image (recommended)\n"
 "The error correction data will be stored along with the user data on the same medium. This requires the creation of an image file prior to writing the medium. The error correction data will be appended to that image and fill up the remaining space.\n"
 "Damaged sectors in the error correction information reduce the data recovery capacity, but do not make recovery impossible - a second medium for keeping or protecting the error correction information is not required.\n"
-msgstr "Artırılmış resim (önerilir)\nHata düzeltme verileri, kullanıcı verileriyle birlikte aynı ortamda depolanacaktır. Bu, ortama yazmadan önce bir resim dosyası oluşturulmasını gerektirir. Hata düzeltme verileri bu resme eklenecek ve kalan alanı dolduracaktır.\nHata düzeltme bilgisindeki hasarlı sektörler veri kurtarma kapasitesini azaltır, ancak kurtarmayı imkansız hale getirmez - hata düzeltme bilgisini tutmak veya korumak için ikinci bir ortam gerekli değildir.\n"
+msgstr ""
+"Artırılmış resim (önerilir)\n"
+"Hata düzeltme verileri, kullanıcı verileriyle birlikte aynı ortamda depolanacaktır. Bu, ortama yazmadan önce bir resim dosyası oluşturulmasını gerektirir. Hata düzeltme verileri bu resme eklenecek ve kalan alanı dolduracaktır.\n"
+"Hata düzeltme bilgisindeki hasarlı sektörler veri kurtarma kapasitesini azaltır, ancak kurtarmayı imkansız hale getirmez - hata düzeltme bilgisini tutmak veya korumak için ikinci bir ortam gerekli değildir.\n"
 
 #: src/rs03-preferences.c:705
 msgid ""
 "Error correction file\n"
 "Error correction files are the only way of protecting existing media as they can be stored somewhere else. They are kept on a separate medium which must also be protected by dvdisaster. This prevents from losing the error correction files in case of a medium defect.\n"
-msgstr "Hata düzeltme dosyası\nHata düzeltme dosyaları, başka bir yerde depolanabileceği için mevcut ortamı koruymanın tek yoludur. Bunlar, dvdisaster tarafından da korunması gereken ayrı bir ortamda tutulur. Bu, ortam hatası durumunda hata düzeltme dosyalarının kaybedilmesini önler.\n"
+msgstr ""
+"Hata düzeltme dosyası\n"
+"Hata düzeltme dosyaları, başka bir yerde depolanabileceği için mevcut ortamı koruymanın tek yoludur. Bunlar, dvdisaster tarafından da korunması gereken ayrı bir ortamda tutulur. Bu, ortam hatası durumunda hata düzeltme dosyalarının kaybedilmesini önler.\n"
 
 #: src/rs03-preferences.c:748
 msgid "Autodetect (recommended)"
@@ -4916,7 +5624,10 @@ msgid ""
 "Select this to target a specific medium type. Use this when you know you will burn to a larger disc than what autodetect would choose. For example, select \"BD (25 GB)\" to maximize redundancy when burning a small image to a Blu-ray disc.\n"
 "\n"
 "The \"no DM\" variants are for Blu-ray discs burned with defect management disabled. This trades the drive's built-in bad sector remapping for slightly more usable space on the disc. Only use these if you explicitly disabled defect management in your burning software. If unsure, use the regular (non-DM) sizes."
-msgstr "Belirli bir ortam türünü hedeflemek için bunu seçin. Otomatik algılamanın seçeceğinden daha büyük bir diske yazacağınızı bildiğinizde bunu kullanın. Örneğin, küçük bir resmi bir Blu-ray diske yakarken fazlalığı maksimize etmek için \"BD (25 GB)\" öğesini seçin.\n\n\"DM yok\" varyantları, defekt yönetimi devre dışı bırakılmış şekilde yazılan Blu-ray diskler içindir. Bu, sürücünün yerleşik kötü sektör yeniden eşlemesini diskte biraz daha kullanılabilir alan için değiştirir. Bunu yalnızca yazma yazılımınızda açıkça defekt yönetimini devre dışı bıraktıysanız kullanın. Emin değilseniz, normal (DM olmayan) boyutları kullanın."
+msgstr ""
+"Belirli bir ortam türünü hedeflemek için bunu seçin. Otomatik algılamanın seçeceğinden daha büyük bir diske yazacağınızı bildiğinizde bunu kullanın. Örneğin, küçük bir resmi bir Blu-ray diske yakarken fazlalığı maksimize etmek için \"BD (25 GB)\" öğesini seçin.\n"
+"\n"
+"\"DM yok\" varyantları, defekt yönetimi devre dışı bırakılmış şekilde yazılan Blu-ray diskler içindir. Bu, sürücünün yerleşik kötü sektör yeniden eşlemesini diskte biraz daha kullanılabilir alan için değiştirir. Bunu yalnızca yazma yazılımınızda açıkça defekt yönetimini devre dışı bıraktıysanız kullanın. Emin değilseniz, normal (DM olmayan) boyutları kullanın."
 
 #: src/rs03-preferences.c:807
 msgid "Manual sector count (read tooltip!):"
@@ -4929,7 +5640,12 @@ msgid ""
 "WARNING: You should remember this value for future repairs! Write it down on the disc itself. If the RS03 header on the disc gets damaged, dvdisaster needs the sector count to locate the backup header and ECC root sectors. Without it, the bruteforce RS03 search option (slow!) will be needed to recover the layout.\n"
 "\n"
 "When using this option with the command line, pass the sector count with -n <number>. You will need to specify the same value again when attempting to repair the image."
-msgstr "Hedef ortam kapasitesi olarak kullanılacak 2048 baytlık sektörlerin tam sayısını belirtin. Bunu yalnızca hedef ortamınızın kesin sektör sayısını biliyorsanız kullanın.\n\nUYARI: Bu değeri gelecekteki onarımlar için hatırlamalısınız! Diski üzerine yazın. Diskteki RS03 başlığı hasara uğrarsa, dvdisaster yedekleme başlığını ve ECC kök sektörlerini bulmak için sektör sayısına ihtiyaç duyar. Olmadan, düzeni kurtarmak için kaba kuvvet RS03 arama seçeneği (yavaş!) gerekli olacaktır.\n\nBu seçeneği komut satırı ile kullanırken, sektör sayısını -n <sayı> ile geçirin. Resmi onarma girişiminde bulunurken aynı değeri belirtmeniz gerekecektir."
+msgstr ""
+"Hedef ortam kapasitesi olarak kullanılacak 2048 baytlık sektörlerin tam sayısını belirtin. Bunu yalnızca hedef ortamınızın kesin sektör sayısını biliyorsanız kullanın.\n"
+"\n"
+"UYARI: Bu değeri gelecekteki onarımlar için hatırlamalısınız! Diski üzerine yazın. Diskteki RS03 başlığı hasara uğrarsa, dvdisaster yedekleme başlığını ve ECC kök sektörlerini bulmak için sektör sayısına ihtiyaç duyar. Olmadan, düzeni kurtarmak için kaba kuvvet RS03 arama seçeneği (yavaş!) gerekli olacaktır.\n"
+"\n"
+"Bu seçeneği komut satırı ile kullanırken, sektör sayısını -n <sayı> ile geçirin. Resmi onarma girişiminde bulunurken aynı değeri belirtmeniz gerekecektir."
 
 #: src/rs03-preferences.c:835
 msgid "sectors"
@@ -4940,7 +5656,9 @@ msgid ""
 "<i>For augmented images, the redundancy is determined by how much space\n"
 "is available on the target medium, beyond what the image data occupies.\n"
 "Larger target means more protection (up to 200% redundancy).</i>"
-msgstr "<i>Artırılmış resimler için fazlalık, hedef ortamda resim verilerinin işgal ettiği alanın ötesinde ne kadar alan olduğu tarafından belirlenir.\nDaha büyük hedef daha fazla koruma anlamına gelir (en fazla %200 fazlalık).</i>"
+msgstr ""
+"<i>Artırılmış resimler için fazlalık, hedef ortamda resim verilerinin işgal ettiği alanın ötesinde ne kadar alan olduğu tarafından belirlenir.\n"
+"Daha büyük hedef daha fazla koruma anlamına gelir (en fazla %200 fazlalık).</i>"
 
 #: src/rs03-preferences.c:1091
 msgid "I/O parameters"
@@ -4964,7 +5682,15 @@ msgid ""
 "Use small preload values for systems with low latency and seek time, e.g. SSDs. For magnetic hard disks performance may be better using larger preload values.\n"
 "\n"
 "A preload value of n will used approx. n MiB of RAM."
-msgstr "<b>Sektör ön yükleme</b>\n\ndvdisaster, bunların parçalarını ön yükleyerek ve önbelleğe alarak resim ve hata düzeltme verilerine erişimi optimize eder.\n\nOptimal ön yükleme değeri, resim ve hata düzeltme dosyaları için kullanılan depolama sistemi tarafından belirlenir.\nDüşük gecikme ve arama süresi olan sistemler için küçük ön yükleme değerleri kullanın; örneğin SSD'ler. Manyetik sabit diskler için daha büyük ön yükleme değerleri kullanılarak performans daha iyi olabilir.\n\nEn fazla n ön yükleme değeri RAM'in n MiB'ini kullanacaktır."
+msgstr ""
+"<b>Sektör ön yükleme</b>\n"
+"\n"
+"dvdisaster, bunların parçalarını ön yükleyerek ve önbelleğe alarak resim ve hata düzeltme verilerine erişimi optimize eder.\n"
+"\n"
+"Optimal ön yükleme değeri, resim ve hata düzeltme dosyaları için kullanılan depolama sistemi tarafından belirlenir.\n"
+"Düşük gecikme ve arama süresi olan sistemler için küçük ön yükleme değerleri kullanın; örneğin SSD'ler. Manyetik sabit diskler için daha büyük ön yükleme değerleri kullanılarak performans daha iyi olabilir.\n"
+"\n"
+"En fazla n ön yükleme değeri RAM'in n MiB'ini kullanacaktır."
 
 #: src/rs03-preferences.c:1151
 msgid "I/O strategy"
@@ -4991,7 +5717,14 @@ msgid ""
 "The <b>read/write</b> option activates dvdisaster's own I/O scheduler which reads and writes image data using normal file I/O. The advantage of this scheme is that dvdisaster knows exactly which data needs to be cached and preloaded; the disadvantage is that all data needs to be copied between the kernel and dvdisaster's own buffers. Usually, this I/O scheme works best on slow storage with high latency and seek times; e.g. on all storage involving spinning platters.\n"
 "\n"
 "The <b>memory mapped</b> option uses the kernel's memory mapping scheme for direct access to the image file. This has the advantage of minimal overhead, but may be adversely affected by poor caching and preloading decisions made by the kernel (since the kernel does not know what dvdisaster is going to do with the data). This scheme performs well when encoding in a RAM-based file system (such as /dev/shm on GNU/Linux) and on very fast media with low latency such as SSDs."
-msgstr "<b>G/Ç stratejisi</b>\n\nBu seçenek, dvdisaster'ın hata düzeltme verileri oluştururken disk G/Ç'sini nasıl gerçekleştirdiğini denetler. Her iki seçeneği de deneyin ve donanım ayarınızda hangisinin en iyi performansı gösterdiğini görün.\n\n<b>Oku/Yaz</b> seçeneği dvdisaster'ın kendi G/Ç zamanlayıcısını etkinleştirir ve normal dosya G/Ç'sini kullanarak resim verilerini okur ve yazar. Bu şemanın avantajı, dvdisaster'ın hangi verilerin önbelleğe alınması ve ön yüklenmesi gerektiğini tam olarak bilmesidir; dezavantajı ise tüm verilerin çekirdek ve dvdisaster'ın kendi tamponları arasında kopyalanması gerektiğidir. Genellikle, bu G/Ç şeması yavaş depolama alanında yüksek gecikme ve arama süresi ile en iyi şekilde çalışır; örneğin dönen platolar içeren tüm depolama alanlarında.\n\n<b>Bellek eşlemesi</b> seçeneği, resim dosyasına doğrudan erişim için çekirdeğin bellek eşleme şemasını kullanır. Bunun minimalist yükün avantajı vardır, ancak çekirdeğin zayıf önbelleğe alma ve ön yükleme kararlarından olumsuz etkilenebilir (çekirdek dvdisaster'ın verilerle ne yapacağını bilmediği için). Bu şema, RAM tabanlı dosya sisteminde kodlama sırasında (GNU/Linux'ta /dev/shm gibi) ve SSD'ler gibi düşük gecikme süresi olan çok hızlı ortamlarda iyi performans gösterir."
+msgstr ""
+"<b>G/Ç stratejisi</b>\n"
+"\n"
+"Bu seçenek, dvdisaster'ın hata düzeltme verileri oluştururken disk G/Ç'sini nasıl gerçekleştirdiğini denetler. Her iki seçeneği de deneyin ve donanım ayarınızda hangisinin en iyi performansı gösterdiğini görün.\n"
+"\n"
+"<b>Oku/Yaz</b> seçeneği dvdisaster'ın kendi G/Ç zamanlayıcısını etkinleştirir ve normal dosya G/Ç'sini kullanarak resim verilerini okur ve yazar. Bu şemanın avantajı, dvdisaster'ın hangi verilerin önbelleğe alınması ve ön yüklenmesi gerektiğini tam olarak bilmesidir; dezavantajı ise tüm verilerin çekirdek ve dvdisaster'ın kendi tamponları arasında kopyalanması gerektiğidir. Genellikle, bu G/Ç şeması yavaş depolama alanında yüksek gecikme ve arama süresi ile en iyi şekilde çalışır; örneğin dönen platolar içeren tüm depolama alanlarında.\n"
+"\n"
+"<b>Bellek eşlemesi</b> seçeneği, resim dosyasına doğrudan erişim için çekirdeğin bellek eşleme şemasını kullanır. Bunun minimalist yükün avantajı vardır, ancak çekirdeğin zayıf önbelleğe alma ve ön yükleme kararlarından olumsuz etkilenebilir (çekirdek dvdisaster'ın verilerle ne yapacağını bilmediği için). Bu şema, RAM tabanlı dosya sisteminde kodlama sırasında (GNU/Linux'ta /dev/shm gibi) ve SSD'ler gibi düşük gecikme süresi olan çok hızlı ortamlarda iyi performans gösterir."
 
 #: src/rs03-preferences.c:1211 src/rs03-preferences.c:1215
 msgid "Multithreading"
@@ -5006,7 +5739,14 @@ msgid ""
 "E.g. use 7 threads on an 8 core system.\n"
 "\n"
 "Performance will not scale linearly with the number of CPU cores. Hard disk performance is more limiting than raw CPU power. When using 4 cores or more, memory bandwidth may also affect performance."
-msgstr "<b>Çok iş parçacıklı</b>\n\nRS03 kodlama için birden çok iş parçacığı (ve dolayısıyla CPU çekirdeği) kullanabilir.\n4 veya daha az çekirdeği olan sistemler için, iş parçacığı sayısını çekirdek sayısına ayarlayın. Daha fazla çekirdeğiniz varsa, G/Ç ve grafik güncellemeleri yapmak için birini kullanılmış bırakın.\nÖrneğin, 8 çekirdekli bir sistemde 7 iş parçacığı kullanın.\n\nPerformans, CPU çekirdeklerinin sayısı ile doğrusal olarak ölçeklenmez. Sabit disk performansı ham CPU gücünden daha sınırlayıcıdır. 4 veya daha fazla çekirdeği kullanırken bellek bant genişliği de performansı etkileyebilir."
+msgstr ""
+"<b>Çok iş parçacıklı</b>\n"
+"\n"
+"RS03 kodlama için birden çok iş parçacığı (ve dolayısıyla CPU çekirdeği) kullanabilir.\n"
+"4 veya daha az çekirdeği olan sistemler için, iş parçacığı sayısını çekirdek sayısına ayarlayın. Daha fazla çekirdeğiniz varsa, G/Ç ve grafik güncellemeleri yapmak için birini kullanılmış bırakın.\n"
+"Örneğin, 8 çekirdekli bir sistemde 7 iş parçacığı kullanın.\n"
+"\n"
+"Performans, CPU çekirdeklerinin sayısı ile doğrusal olarak ölçeklenmez. Sabit disk performansı ham CPU gücünden daha sınırlayıcıdır. 4 veya daha fazla çekirdeği kullanırken bellek bant genişliği de performansı etkileyebilir."
 
 #: src/rs03-preferences.c:1271 src/rs03-preferences.c:1278
 msgid "Encoding algorithm"
@@ -5044,7 +5784,13 @@ msgid ""
 "dvdisaster can either use a generic encoding algorithm using 32bit or 64bit wide operations running on the integer unit of the processor, or use processor specific extensions.\n"
 "\n"
 "Available extensions are SSE2 for x86 based processors and AltiVec on PowerPC processors. These extensions encode with 128bit wide operations and will usually provide the fastest encoding variant. If \"auto\" is selected, the SSE2/AltiVec algorithms will be selected if the processor supports them; otherwise the 64bit algorithm will be used."
-msgstr "<b>Kodlama algoritması</b>\n\nBu seçenek RS03 hata düzeltme verileri oluşturma hızını etkiler.\ndvdisaster, işlemcinin tamsayı biriminde çalışan 32bit veya 64bit geniş işlemler kullanan genel bir kodlama algoritması kullanabilir veya işlemciye özgü uzantıları kullanabilir.\n\nMevcut uzantılar, x86 tabanlı işlemciler için SSE2 ve PowerPC işlemciler için AltiVec'tir. Bu uzantılar 128bit geniş işlemlerle kodlar ve genellikle en hızlı kodlama varyantını sağlar. \"Otomatik\" seçilirse, işlemci tarafından desteklenirse SSE2/AltiVec algoritmaları seçilecektir; aksi takdirde 64bit algoritması kullanılacaktır."
+msgstr ""
+"<b>Kodlama algoritması</b>\n"
+"\n"
+"Bu seçenek RS03 hata düzeltme verileri oluşturma hızını etkiler.\n"
+"dvdisaster, işlemcinin tamsayı biriminde çalışan 32bit veya 64bit geniş işlemler kullanan genel bir kodlama algoritması kullanabilir veya işlemciye özgü uzantıları kullanabilir.\n"
+"\n"
+"Mevcut uzantılar, x86 tabanlı işlemciler için SSE2 ve PowerPC işlemciler için AltiVec'tir. Bu uzantılar 128bit geniş işlemlerle kodlar ve genellikle en hızlı kodlama varyantını sağlar. \"Otomatik\" seçilirse, işlemci tarafından desteklenirse SSE2/AltiVec algoritmaları seçilecektir; aksi takdirde 64bit algoritması kullanılacaktır."
 
 #: src/rs03-verify.c:204
 msgid "Error correction properties"
@@ -5122,14 +5868,18 @@ msgstr "* Hata düzeltme bloğu testi   : %<PRId64> iyi, %<PRId64> kötü; %<PRI
 msgid ""
 "\n"
 "%s present.\n"
-msgstr "\n%s mevcut.\n"
+msgstr ""
+"\n"
+"%s mevcut.\n"
 
 #: src/rs03-verify.c:716
 #, c-format
 msgid ""
 "\n"
 "%s not present.\n"
-msgstr "\n%s mevcut değil.\n"
+msgstr ""
+"\n"
+"%s mevcut değil.\n"
 
 #: src/rs03-verify.c:727
 #, c-format
@@ -5140,7 +5890,9 @@ msgstr "%s mevcut.\n"
 msgid ""
 "\n"
 "Error correction properties:\n"
-msgstr "\nHata düzeltme özellikleri:\n"
+msgstr ""
+"\n"
+"Hata düzeltme özellikleri:\n"
 
 #: src/rs03-verify.c:756
 #, c-format
@@ -5188,7 +5940,10 @@ msgid ""
 "* requires         : dvdisaster-%s (BAD)\n"
 "* Warning          : The following output might be incorrect.\n"
 "*                  : Please upgrade dvdisaster.\n"
-msgstr "* gerektirir         : dvdisaster-%s (HATALI)\n* Uyarı          : Aşağıdaki çıktı yanlış olabilir.\n*                  : Lütfen dvdisaster'ı yükseltin.\n"
+msgstr ""
+"* gerektirir         : dvdisaster-%s (HATALI)\n"
+"* Uyarı          : Aşağıdaki çıktı yanlış olabilir.\n"
+"*                  : Lütfen dvdisaster'ı yükseltin.\n"
 
 #: src/rs03-verify.c:860
 msgid "none available"
@@ -5198,7 +5953,9 @@ msgstr "hiçbiri mevcut değil"
 msgid ""
 "\n"
 "Data integrity:\n"
-msgstr "\nVeri bütünlüğü:\n"
+msgstr ""
+"\n"
+"Veri bütünlüğü:\n"
 
 #: src/rs03-verify.c:935
 #, c-format
@@ -5293,7 +6050,9 @@ msgstr "Hata düzeltme dosyası:"
 msgid ""
 "- good image/file  : all sectors present\n"
 "- data md5sum      : %s\n"
-msgstr "- iyi resim/dosya  : tüm sektörler mevcut\n- veri md5sum      : %s\n"
+msgstr ""
+"- iyi resim/dosya  : tüm sektörler mevcut\n"
+"- veri md5sum      : %s\n"
 
 #: src/rs03-verify.c:1260
 #, c-format
@@ -5343,13 +6102,17 @@ msgstr "%s açılamadı (%s)."
 msgid ""
 "Can not access /dev for devices\n"
 "No drives will be pre-selected.\n"
-msgstr "/dev'e cihazlar için erişilemiyor\nHiçbir sürücü önceden seçilmeyecek.\n"
+msgstr ""
+"/dev'e cihazlar için erişilemiyor\n"
+"Hiçbir sürücü önceden seçilmeyecek.\n"
 
 #: src/scsi-freebsd.c:104 src/scsi-linux.c:93 src/scsi-win32.c:84
 msgid ""
 "No optical drives found in /dev.\n"
 "No drives will be pre-selected.\n"
-msgstr "/dev'de optik sürücü bulunamadı.\nHiçbir sürücü önceden seçilmeyecek.\n"
+msgstr ""
+"/dev'de optik sürücü bulunamadı.\n"
+"Hiçbir sürücü önceden seçilmeyecek.\n"
 
 #: src/scsi-layer.c:106
 #, c-format
@@ -5358,7 +6121,11 @@ msgid ""
 "Chances are that you're using ide-scsi emulation for an ATAPI drive,\n"
 "and try to access it via /dev/cdrom or /dev/hd?.\n"
 "Either use /dev/scd? or /dev/sr? instead, or disable ide-scsi emulation.\n"
-msgstr "%s açılabilir ancak INQUIRY başarısız.\nMüthiş şekilde ATAPI sürücü için ide-scsi emülasyonu kullanıyorsunuz,\nve /dev/cdrom veya /dev/hd? üzerinden erişmeye çalışıyorsunuz.\nBunun yerine /dev/scd? veya /dev/sr? kullanın ya da ide-scsi emülasyonunu devre dışı bırakın.\n"
+msgstr ""
+"%s açılabilir ancak INQUIRY başarısız.\n"
+"Müthiş şekilde ATAPI sürücü için ide-scsi emülasyonu kullanıyorsunuz,\n"
+"ve /dev/cdrom veya /dev/hd? üzerinden erişmeye çalışıyorsunuz.\n"
+"Bunun yerine /dev/scd? veya /dev/sr? kullanın ya da ide-scsi emülasyonunu devre dışı bırakın.\n"
 
 #: src/scsi-layer.c:114
 #, c-format
@@ -5385,7 +6152,9 @@ msgstr "Tamamlanmamış %s"
 msgid ""
 "%s\n"
 "Could not query TOC length.\n"
-msgstr "%s\nTOC uzunluğu sorgulanamadı.\n"
+msgstr ""
+"%s\n"
+"TOC uzunluğu sorgulanamadı.\n"
 
 #: src/scsi-layer.c:496
 msgid "blank"
@@ -5401,14 +6170,18 @@ msgstr "TOC bilgisi çok uzun (%d), muhtemelen çoklu oturum.\n"
 msgid ""
 "%s\n"
 "Could not read TOC.\n"
-msgstr "%s\nTOC okunamadı.\n"
+msgstr ""
+"%s\n"
+"TOC okunamadı.\n"
 
 #: src/scsi-layer.c:553
 #, c-format
 msgid ""
 "%s\n"
 "Could not query full TOC length.\n"
-msgstr "%s\nTamamen TOC uzunluğu sorgulanamadı.\n"
+msgstr ""
+"%s\n"
+"Tamamen TOC uzunluğu sorgulanamadı.\n"
 
 #: src/scsi-layer.c:566
 #, c-format
@@ -5420,14 +6193,18 @@ msgstr "TOC bilgisi çok kısa, uzunluk %d.\n"
 msgid ""
 "%s\n"
 "Could not read full TOC.\n"
-msgstr "%s\nTamamen TOC okunamadı.\n"
+msgstr ""
+"%s\n"
+"Tamamen TOC okunamadı.\n"
 
 #: src/scsi-layer.c:597
 #, c-format
 msgid ""
 "\n"
 "Unexpected TOC format (length %d):\n"
-msgstr "\nBeklenmeyen TOC formatı (uzunluk %d):\n"
+msgstr ""
+"\n"
+"Beklenmeyen TOC formatı (uzunluk %d):\n"
 
 #: src/scsi-layer.c:605
 msgid "Consider sending a bug report.\n"
@@ -5438,7 +6215,9 @@ msgstr "Bir hata raporu göndermeyi düşünün.\n"
 msgid ""
 "%s\n"
 "Could not query dvd structure length.\n"
-msgstr "%s\nDVD yapı uzunluğu sorgulanamadı.\n"
+msgstr ""
+"%s\n"
+"DVD yapı uzunluğu sorgulanamadı.\n"
 
 #: src/scsi-layer.c:673
 #, c-format
@@ -5450,7 +6229,9 @@ msgstr "DVD fiziksel yapı sorgulanamadı - imkansız paket uzunluğu %d\n"
 msgid ""
 "%s\n"
 "Could not query physical dvd structure.\n"
-msgstr "%s\nFiziksel DVD yapı sorgulanamadı.\n"
+msgstr ""
+"%s\n"
+"Fiziksel DVD yapı sorgulanamadı.\n"
 
 #: src/scsi-layer.c:720 src/scsi-layer.c:730
 #, c-format
@@ -5462,21 +6243,27 @@ msgstr "DVD YAPISI OKU: imkansız ortam boyutu, %<PRId64>-%<PRId64>=%<PRId64> se
 msgid ""
 "%s\n"
 "Could not query BD disc structure length.\n"
-msgstr "%s\nBD disk yapı uzunluğu sorgulanamadı.\n"
+msgstr ""
+"%s\n"
+"BD disk yapı uzunluğu sorgulanamadı.\n"
 
 #: src/scsi-layer.c:1026
 #, c-format
 msgid ""
 "%s\n"
 "Could not query BD disc structure.\n"
-msgstr "%s\nBD disk yapısı sorgulanamadı.\n"
+msgstr ""
+"%s\n"
+"BD disk yapısı sorgulanamadı.\n"
 
 #: src/scsi-layer.c:1746
 #, c-format
 msgid ""
 "%s\n"
 "Could not query dvd structure length for format code 1.\n"
-msgstr "%s\nFormat kodu 1 için DVD yapı uzunluğu sorgulanamadı.\n"
+msgstr ""
+"%s\n"
+"Format kodu 1 için DVD yapı uzunluğu sorgulanamadı.\n"
 
 #: src/scsi-layer.c:1757
 #, c-format
@@ -5488,7 +6275,9 @@ msgstr "DVD telif hakkı bilgisi sorgulanamadı - imkansız paket uzunluğu %d\n
 msgid ""
 "%s\n"
 "Could not query copyright info.\n"
-msgstr "%s\nTelif hakkı bilgisi sorgulanamadı.\n"
+msgstr ""
+"%s\n"
+"Telif hakkı bilgisi sorgulanamadı.\n"
 
 #: src/scsi-layer.c:1834
 msgid "is undecideable because of read error"
@@ -5511,7 +6300,9 @@ msgstr "KULLANILAMAZ"
 msgid ""
 "%s\n"
 "Could not query medium size.\n"
-msgstr "%s\nOrtam boyutu sorgulanamadı.\n"
+msgstr ""
+"%s\n"
+"Ortam boyutu sorgulanamadı.\n"
 
 #: src/scsi-layer.c:1899
 #, c-format
@@ -5525,13 +6316,19 @@ msgid ""
 "READ CAPACITY:      %<PRId64> sectors\n"
 "READ DVD STRUCTURE: %<PRId64> sectors\n"
 "\n"
-msgstr "Sorgu yöntemine bağlı olarak farklı ortam boyutları:\nKAPASITEY OKU:      %<PRId64> sektör\nDVD YAPISI OKU:     %<PRId64> sektör\n\n"
+msgstr ""
+"Sorgu yöntemine bağlı olarak farklı ortam boyutları:\n"
+"KAPASITEY OKU:      %<PRId64> sektör\n"
+"DVD YAPISI OKU:     %<PRId64> sektör\n"
+"\n"
 
 #: src/scsi-layer.c:1987
 msgid ""
 "Evaluation of returned medium sizes:\n"
 "\n"
-msgstr "Döndürülen ortam boyutlarının değerlendirilmesi:\n\n"
+msgstr ""
+"Döndürülen ortam boyutlarının değerlendirilmesi:\n"
+"\n"
 
 #: src/scsi-layer.c:2042
 msgid "Using value from READ CAPACITY"
@@ -5547,34 +6344,45 @@ msgid ""
 "FAILED to determine image size.\n"
 "Using smaller value as this is right on >90%% of all drives,\n"
 "but CONTINUE AT YOUR OWN RISK (the image may be incomplete/unusable)"
-msgstr "Görüntü boyutu belirlenemedi.\n>%%90 tüm sürücülerde doğru olduğu için daha küçük değer kullanılıyor,\nancak KENDİ RİSKİNİZDE DEVAM EDİN (görüntü tamamlanmamış/kullanılamaz olabilir)"
+msgstr ""
+"Görüntü boyutu belirlenemedi.\n"
+">%%90 tüm sürücülerde doğru olduğu için daha küçük değer kullanılıyor,\n"
+"ancak KENDİ RİSKİNİZDE DEVAM EDİN (görüntü tamamlanmamış/kullanılamaz olabilir)"
 
 #: src/scsi-layer.c:2061
 #, c-format
 msgid ""
 "Final decision: %s\n"
 "\n"
-msgstr "Son karar: %s\n\n"
+msgstr ""
+"Son karar: %s\n"
+"\n"
 
 #: src/scsi-layer.c:2069
 msgid ""
 "Failed to determine image size.\n"
 "Try using a different drive."
-msgstr "Görüntü boyutu belirlenemedi.\nFarklı bir sürücü kullanmayı deneyin."
+msgstr ""
+"Görüntü boyutu belirlenemedi.\n"
+"Farklı bir sürücü kullanmayı deneyin."
 
 #: src/scsi-layer.c:2196 src/scsi-layer.c:2222
 #, c-format
 msgid ""
 "%s\n"
 "Could not load/unload the medium.\n"
-msgstr "%s\nOrtam yüklenemedi/boşaltılamadı.\n"
+msgstr ""
+"%s\n"
+"Ortam yüklenemedi/boşaltılamadı.\n"
 
 #: src/scsi-layer.c:2212
 #, c-format
 msgid ""
 "%s\n"
 "Could not unlock the medium.\n"
-msgstr "%s\nOrtam kilidini açılamadı.\n"
+msgstr ""
+"%s\n"
+"Ortam kilidini açılamadı.\n"
 
 #: src/scsi-layer.c:2275
 #, c-format
@@ -5612,14 +6420,19 @@ msgid ""
 "Device %s does not become ready:\n"
 "%s\n"
 "\n"
-msgstr "Cihaz %s hazır hale gelemiyor:\n%s\n\n"
+msgstr ""
+"Cihaz %s hazır hale gelemiyor:\n"
+"%s\n"
+"\n"
 
 #: src/scsi-layer.c:2664
 #, c-format
 msgid ""
 "\n"
 "Device: %s, %s\n"
-msgstr "\nCihaz: %s, %s\n"
+msgstr ""
+"\n"
+"Cihaz: %s, %s\n"
 
 #: src/scsi-layer.c:2671
 msgid "Drive failed to report media type."
@@ -5670,7 +6483,9 @@ msgstr "Ortam \"%s\": %s, %<PRId64> sektör%s oluşturulan %s"
 msgid ""
 "No optical drives found.\n"
 "No drives will be pre-selected.\n"
-msgstr "Optik sürücü bulunamadı.\nHiçbir sürücü önceden seçilmeyecek.\n"
+msgstr ""
+"Optik sürücü bulunamadı.\n"
+"Hiçbir sürücü önceden seçilmeyecek.\n"
 
 #: src/scsi-simulated.c:39
 #, c-format
@@ -5681,14 +6496,18 @@ msgstr "Simüle edilmiş CD (%s)"
 msgid ""
 "* Unsupported operating system - no SCSI layer available.\n"
 "* No drives can be used.\n"
-msgstr "* Desteklenmeyen işletim sistemi - SCSI katmanı yok.\n* Hiçbir sürücü kullanılamaz.\n"
+msgstr ""
+"* Desteklenmeyen işletim sistemi - SCSI katmanı yok.\n"
+"* Hiçbir sürücü kullanılamaz.\n"
 
 #: src/scsi-win32.c:168
 #, c-format
 msgid ""
 "\n"
 "Illegal device name \"%s\" (use devices \"C:\" ... \"Z:\")"
-msgstr "\nGeçersiz aygıt adı \"%s\" (\"C:\" ... \"Z:\" aygıtlarını kullanın)"
+msgstr ""
+"\n"
+"Geçersiz aygıt adı \"%s\" (\"C:\" ... \"Z:\" aygıtlarını kullanın)"
 
 #: src/scsi-win32.c:267
 #, c-format
@@ -5705,7 +6524,10 @@ msgid ""
 "Documentation file\n"
 "%s\n"
 "not found.\n"
-msgstr "Dokümantasyon dosyası\n%s\nbulunamadı.\n"
+msgstr ""
+"Dokümantasyon dosyası\n"
+"%s\n"
+"bulunamadı.\n"
 
 #: src/show-manual.c:176
 msgid "Could not create pipe before fork"
@@ -5728,7 +6550,9 @@ msgstr "xdg-open başlatmak için fork yapılamadı"
 msgid ""
 "execvp could not execute \"open\":\n"
 "%s\n"
-msgstr "execvp \"open\" yürütemedi:\n%s\n"
+msgstr ""
+"execvp \"open\" yürütemedi:\n"
+"%s\n"
 
 #: src/show-manual.c:231
 #, c-format
@@ -5736,7 +6560,10 @@ msgid ""
 "execvp could not execute \"xdg-open\":\n"
 "%s\n"
 "Is xdg-open installed correctly?\n"
-msgstr "execvp \"xdg-open\" yürütemedi:\n%s\nxdg-open doğru şekilde yüklü mi?\n"
+msgstr ""
+"execvp \"xdg-open\" yürütemedi:\n"
+"%s\n"
+"xdg-open doğru şekilde yüklü mi?\n"
 
 #: src/udf.c:259
 msgid "Unnamed"
@@ -5755,13 +6582,18 @@ msgid ""
 "\n"
 "dvdisaster creates error correction data to protect\n"
 "optical media (CD,DVD,BD) against data loss.\n"
-msgstr "\ndvdisaster, optik ortamı (CD,DVD,BD) veri kaybına karşı korumak için\nhata düzeltme verisi oluşturur.\n"
+msgstr ""
+"\n"
+"dvdisaster, optik ortamı (CD,DVD,BD) veri kaybına karşı korumak için\n"
+"hata düzeltme verisi oluşturur.\n"
 
 #: src/welcome-window.c:78
 msgid ""
 "Please see the [manual] for typical uses of dvdisaster.\n"
 "\n"
-msgstr "Tipik dvdisaster kullanımları için [manuel] bölümüne bakın.\n\n"
+msgstr ""
+"Tipik dvdisaster kullanımları için [manuel] bölümüne bakın.\n"
+"\n"
 
 #: src/welcome-window.c:81
 msgid "<i>New in this Version:</i>"
@@ -5779,7 +6611,17 @@ msgid ""
 "- ... and a lot more.\n"
 "\n"
 "Please refer to the <i>Help &gt; Change log</i> menu for all the details."
-msgstr "Bu <b>v0.79.10-pl6</b>. [patchlevel serisi], son upstream sürümüne aşağıdaki eklemeleri getirir:\n- BD-R TL/QL ve HD-DVD desteği,\n- ISO dosyalarından ECC kaldırma desteği,\n- daha fazla yedeklilik ve özel ortam boyutu ile BD-R RS03 görüntüleri oluşturma seçeneği,\n- boyutu unutulmuş özel bir ortam boyutunda RS03 köklerini brute-force arama seçeneği,\n- uyarlanabilir okuma desteğinin yeniden etkinleştirilmesi,\n- GUI'nin GTK3'e taşınması,\n- ... ve çok daha fazlası.\n\nAyrıntılar için <i>Help &gt; Change log</i> menüsüne bakın."
+msgstr ""
+"Bu <b>v0.79.10-pl6</b>. [patchlevel serisi], son upstream sürümüne aşağıdaki eklemeleri getirir:\n"
+"- BD-R TL/QL ve HD-DVD desteği,\n"
+"- ISO dosyalarından ECC kaldırma desteği,\n"
+"- daha fazla yedeklilik ve özel ortam boyutu ile BD-R RS03 görüntüleri oluşturma seçeneği,\n"
+"- boyutu unutulmuş özel bir ortam boyutunda RS03 köklerini brute-force arama seçeneği,\n"
+"- uyarlanabilir okuma desteğinin yeniden etkinleştirilmesi,\n"
+"- GUI'nin GTK3'e taşınması,\n"
+"- ... ve çok daha fazlası.\n"
+"\n"
+"Ayrıntılar için <i>Help &gt; Change log</i> menüsüne bakın."
 
 #: src/welcome-window.c:97
 msgid "Show this message again"
