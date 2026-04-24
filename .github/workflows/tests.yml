@@ -184,7 +184,7 @@ jobs:
     - name: install prerequisites
       env:
         DEBIAN_FRONTEND: noninteractive
-      run: sudo apt-get update && sudo apt-get install -y libglib2.0-dev man jq
+      run: sudo apt-get update && sudo apt-get install -y libglib2.0-dev man jq gettext
     - name: install prerequisites (GUI)
       if: matrix.ui == 'gui'
       env:

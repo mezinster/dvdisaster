@@ -1195,7 +1195,9 @@ msgstr ""
 msgid ""
 "\n"
 "e-mail: support@dvdisaster.org"
-msgstr "електронна пошта: support@dvdisaster.org"
+msgstr ""
+"\n"
+"електронна пошта: support@dvdisaster.org"
 
 #: src/help-dialogs.c:783
 msgid ""

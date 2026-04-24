@@ -1195,7 +1195,9 @@ msgstr ""
 msgid ""
 "\n"
 "e-mail: support@dvdisaster.org"
-msgstr "ელფოსტა: support@dvdisaster.org"
+msgstr ""
+"\n"
+"ელფოსტა: support@dvdisaster.org"
 
 #: src/help-dialogs.c:783
 msgid ""
@@ -5377,7 +5379,7 @@ msgstr "* crc md5sum       : %s (მცდარი)\n"
 #: src/rs02-verify.c:1088
 #, c-format, fuzzy
 msgid "- crc md5sum       : %s\n"
-msgstr "- crc md5sum : %s"
+msgstr "- crc md5sum : %s\n"
 
 #: src/rs02-verify.c:1103
 #, c-format
@@ -5387,7 +5389,7 @@ msgstr "* ecc md5sum       : %s (მცდარი)\n"
 #: src/rs02-verify.c:1109
 #, c-format, fuzzy
 msgid "- ecc md5sum       : %s\n"
-msgstr "- ecc md5sum : %s"
+msgstr "- ecc md5sum : %s\n"
 
 #: src/rs02-verify.c:1127 src/rs03-verify.c:902
 #, c-format
