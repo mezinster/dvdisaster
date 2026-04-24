@@ -1,4 +1,4 @@
-"""CI gate: every locale/*.po must reach the translation threshold."""
+"""CI gate: every locale/*.po must be format-clean and ≥90% translated."""
 import subprocess
 import re
 from pathlib import Path
@@ -12,7 +12,7 @@ def get_po_files():
 
 def parse_stats(po_path):
     result = subprocess.run(
-        ["msgfmt", "--statistics", str(po_path), "-o", "/dev/null"],
+        ["msgfmt", "--use-fuzzy", "--statistics", str(po_path), "-o", "/dev/null"],
         capture_output=True, text=True
     )
     if result.returncode != 0:
@@ -27,11 +27,22 @@ def parse_stats(po_path):
     return translated, untranslated, fuzzy, total
 
 @pytest.mark.parametrize("po_path", get_po_files(), ids=lambda p: p.stem)
+def test_po_format_clean(po_path):
+    """Fail if msgfmt --use-fuzzy -c reports any format errors."""
+    result = subprocess.run(
+        ["msgfmt", "--use-fuzzy", "-c", str(po_path), "-o", "/dev/null"],
+        capture_output=True, text=True
+    )
+    assert result.returncode == 0, (
+        f"{po_path.name}: msgfmt format errors:\n{result.stderr[:500]}"
+    )
+
+@pytest.mark.parametrize("po_path", get_po_files(), ids=lambda p: p.stem)
 def test_translation_coverage(po_path):
+    """Fail if usable (translated+fuzzy) strings fall below threshold."""
     translated, untranslated, fuzzy, total = parse_stats(po_path)
     assert total > 0, f"{po_path.name}: no strings found"
-    # Count translated+fuzzy as usable: fuzzy entries are machine-translated
-    # and serve as readable fallback while awaiting human review.
+    # fuzzy entries are machine-translated and compiled into .mo via --use-fuzzy
     usable = translated + fuzzy
     pct = usable / total * 100
     assert pct >= THRESHOLD_PCT, (

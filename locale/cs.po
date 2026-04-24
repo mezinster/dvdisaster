@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dvdisaster 0.79\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-06 16:01+0200\n"
+"POT-Creation-Date: 2026-04-24 08:26+0400\n"
 "PO-Revision-Date: 2011-07-24 21:12+0100\n"
 "Last-Translator: Jindřich Šesták <khagaroth@users.sourceforge.net>\n"
 "Language-Team: none (individual translator)\n"
@@ -53,13 +53,13 @@ msgid "Number of erasures must be > 0 and <= %d\n"
 msgstr "Počet výmazů musí být > 0 a <= %d\n"
 
 #: src/debug.c:72 src/debug.c:162
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Generating random correctable erasures (%s; for %d roots, max erasures = %d).\n"
 msgstr ""
-"Generování náhodných opravitelných výmazů (%s; pro %d kořenů, max. výmazů = "
-"%d)."
+"\n"
+"Generování náhodných opravitelných výmazů (%s; pro %d kořenů, max. výmazů = %d).\n"
 
 #: src/debug.c:105 src/debug.c:193 src/debug.c:241 src/debug.c:365
 #: src/debug.c:708 src/debug.c:808 src/debug.c:851 src/debug.c:1182
@@ -311,7 +311,7 @@ msgid ""
 "* further messages are suppressed unless the -v option is given.\n"
 msgstr ""
 "* ... nalezeno více neobnovitelných sektorů...\n"
-"* další zprávy jsou potlačeny, pokud není zadána volba -v."
+"* další zprávy jsou potlačeny, pokud není zadána volba -v.\n"
 
 #: src/ds-marker.c:311
 #, c-format
@@ -329,7 +329,7 @@ msgstr ""
 "\n"
 
 #: src/ds-marker.c:312
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "* \n"
@@ -338,6 +338,7 @@ msgid ""
 "*  %s\n"
 "* "
 msgstr ""
+"\n"
 "* \n"
 "* Označení původního (vadného) média bylo:\n"
 "* \n"
@@ -345,7 +346,7 @@ msgstr ""
 "*"
 
 #: src/ds-marker.c:322
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Unrecoverable sector found!\n"
 "\n"
@@ -371,10 +372,10 @@ msgstr ""
 "To znamená, že některé soubory mohly být tiše poškozeny.%s\n"
 "Vzhledem k tomu, že obraz byl již vytvořen vadný, nemůže být\n"
 "opraveno dvdisaster. Také nebude možné vytvořit\n"
-"data pro opravu chyb. Omlouváme se za špatné zprávy."
+"data pro opravu chyb. Omlouváme se za špatné zprávy.\n"
 
 #: src/ds-marker.c:345
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Unrecoverable sector found!\n"
 "\n"
@@ -400,7 +401,7 @@ msgstr ""
 "To znamená, že některé soubory mohly být tiše poškozeny.%s\n"
 "Vzhledem k tomu, že obraz byl již vytvořen vadný, nemůže být\n"
 "opraveno dvdisaster. Také nebude možné vytvořit\n"
-"data pro opravu chyb. Omlouváme se za špatné zprávy."
+"data pro opravu chyb. Omlouváme se za špatné zprávy.\n"
 
 #: src/ds-marker.c:371
 #, c-format
@@ -430,7 +431,7 @@ msgstr ""
 "data pro opravu chyb. Omlouváme se za tyto špatné správy.\n"
 
 #: src/ds-marker.c:394
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Unrecoverable sector found!\n"
 "\n"
@@ -448,7 +449,7 @@ msgstr ""
 "Soubor ecc byl pravděpodobně převzat z média, které\n"
 "NEBYLO zcela obnoveno. To znamená, že některé sektory\n"
 "v souboru ecc chybí a jeho oprava chyb\n"
-"kapacita bude snížena."
+"kapacita bude snížena.\n"
 
 #. TRANSLATORS:
 #. This is a dummy entry which is supposed to translate into "ok".
@@ -471,7 +472,7 @@ msgid "--cache-size must at least be 8MiB; 16MiB or higher is recommended."
 msgstr "--cache-size musí být minimálně 8MiB; doporučeno je 16MiB nebo více."
 
 #: src/dvdisaster.c:424
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "--cache-size maximum is %dMiB."
 msgstr "--maximální velikost-cache-size je %dMiB."
 
@@ -524,7 +525,7 @@ msgid "--fixed-speed-values is only allowed in debug mode"
 msgstr "--fixed-speed-values ​​je povoleno pouze v režimu ladění"
 
 #: src/dvdisaster.c:562
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "--prefetch-sectors must be in range 32...%d"
 msgstr "--prefetch-sectors musí být v rozsahu 32...%d"
 
@@ -592,6 +593,7 @@ msgid ""
 "  dvdisaster -u, --unlink # Delete .iso files (when other actions complete)\n"
 "\n"
 msgstr ""
+"\n"
 "Běžné příklady použití:\n"
 "  dvdisaster -r, --read # Načte obraz média na pevný disk.\n"
 "                          # Použijte -rn-m ke čtení určitého rozsahu sektorů, např. - 100-200 r\n"
@@ -600,10 +602,10 @@ msgstr ""
 "  dvdisaster -s, --scan # Prohledá médium na chyby čtení.\n"
 "  dvdisaster -t, --test # Testuje integritu souborů .iso a .ecc.\n"
 "  dvdisaster -z, --strip # Odstraní data ECC z rozšířeného .iso.\n"
-"  dvdisaster -u, --unlink # Smazat soubory .iso (po dokončení ostatních akcí)"
+"  dvdisaster -u, --unlink # Smazat soubory .iso (po dokončení ostatních akcí)\n"
 
 #: src/dvdisaster.c:970
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Drive and file specification:\n"
 "  -d, --device device         - read from given device   (default: %s)\n"
@@ -617,7 +619,7 @@ msgstr ""
 "  -p, --prefix prefix - prefix souboru .iso/.ecc (výchozí: medium.* )\n"
 "  -i, --image imagefile - název souboru s obrázkem (výchozí: medium.iso)\n"
 "  -e, --ecc eccfile - název paritního souboru (výchozí: medium.ecc)\n"
-"  -o, --ecc-target imagefile - kam umístit data ecc v RS03"
+"  -o, --ecc-target imagefile - kam umístit data ecc v RS03\n"
 
 #: src/dvdisaster.c:980
 msgid "Tweaking options (see manual before using!)\n"
@@ -630,24 +632,24 @@ msgid ""
 "(RS02 or RS03)\n"
 msgstr ""
 "-a, --assume x - předpokládá se, že obrázek je rozšířen o daný kodek (RS02 "
-"nebo RS03)"
+"nebo RS03)\n"
 
 #: src/dvdisaster.c:982
 #, fuzzy
 msgid ""
 "  -j, --jump n               - jump n sectors forward after a read error "
 "(default: 16)\n"
-msgstr "-j, --jump n - skok o n sektorů vpřed po chybě čtení (výchozí: 16)"
+msgstr "-j, --jump n - skok o n sektorů vpřed po chybě čtení (výchozí: 16)\n"
 
 #: src/dvdisaster.c:983
 #, fuzzy
 msgid ""
 "  -m, --method x             - list/select error correction methods "
 "(default: RS01)\n"
-msgstr "-m, --method x - seznam/výběr metod opravy chyb (výchozí: RS01)"
+msgstr "-m, --method x - seznam/výběr metod opravy chyb (výchozí: RS01)\n"
 
 #: src/dvdisaster.c:984
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "  -n, --redundancy x         - error correction data redundancy\n"
 "                               e.g. 20%%, 32r (roots), 200m (MiB), normal, high\n"
@@ -661,7 +663,7 @@ msgstr ""
 "                               pro rozšířené obrázky RS02/RS03 přijímá také střední velikost:\n"
 "                               CD, DVD, DVD9, BD, BD2, BDXL3, BDXL4,\n"
 "                               BDNODM, BD2NODM, BDXL3NODM, BDXL4NODM,\n"
-"                               nebo hrubý počet sektorů"
+"                               nebo hrubý počet sektorů\n"
 
 #: src/dvdisaster.c:990
 #, fuzzy
@@ -670,7 +672,7 @@ msgid ""
 "parsing logs\n"
 msgstr ""
 "-v, --verbose - více protokolů, nastavte env VERBOSE=1 pro předvolby analýzy"
-" protokolů"
+" protokolů\n"
 
 #: src/dvdisaster.c:991
 #, fuzzy
@@ -679,7 +681,7 @@ msgid ""
 "by codec)\n"
 msgstr ""
 "-x, --threads n - použít n vláken pro en-/dekódování (pokud to kodek "
-"podporuje)"
+"podporuje)\n"
 
 #: src/dvdisaster.c:992
 #, fuzzy
@@ -688,14 +690,14 @@ msgid ""
 "media\n"
 msgstr ""
 "--adaptive-read - používat optimalizovanou strategii pro čtení poškozených "
-"médií"
+"médií\n"
 
 #: src/dvdisaster.c:993
 #, fuzzy
 msgid ""
 "  --auto-suffix              - automatically add .iso and .ecc file "
 "suffixes\n"
-msgstr "--auto-suffix - automaticky přidá přípony souborů .iso a .ecc"
+msgstr "--auto-suffix - automaticky přidá přípony souborů .iso a .ecc\n"
 
 #: src/dvdisaster.c:994
 #, fuzzy
@@ -704,18 +706,18 @@ msgid ""
 "(default: 32MiB)\n"
 msgstr ""
 "--cache-size n - velikost mezipaměti obrazu v MiB v režimu -c (výchozí: 32 "
-"MiB)"
+"MiB)\n"
 
 #: src/dvdisaster.c:995
 #, fuzzy
 msgid "  --dao                      - assume DAO disc; do not trim image end\n"
-msgstr "--dao - předpokládá DAO disk; neořezávejte konec obrazu"
+msgstr "--dao - předpokládá DAO disk; neořezávejte konec obrazu\n"
 
 #: src/dvdisaster.c:996
 #, fuzzy
 msgid ""
 "  --defective-dump d         - directory for saving incomplete raw sectors\n"
-msgstr "--defective-dump d - adresář pro ukládání neúplných hrubých sektorů"
+msgstr "--defective-dump d - adresář pro ukládání neúplných hrubých sektorů\n"
 
 #: src/dvdisaster.c:998
 #, fuzzy
@@ -724,7 +726,7 @@ msgid ""
 "(see man page!)\n"
 msgstr ""
 "--driver=sg/cdrom - použijte sg (výchozí) nebo alternativní ovladač cdrom "
-"(viz manuálová stránka!)"
+"(viz manuálová stránka!)\n"
 
 #: src/dvdisaster.c:1000
 #, fuzzy
@@ -733,29 +735,29 @@ msgid ""
 "(slow!)\n"
 msgstr ""
 "--bruteforce-rs03-search - povolit lineární skenování bruteforce pro data "
-"RS03 (pomalé!)"
+"RS03 (pomalé!)\n"
 
 #: src/dvdisaster.c:1001
 #, fuzzy
 msgid "  --eject                    - eject medium after successful read\n"
-msgstr "--eject - vysune médium po úspěšném čtení"
+msgstr "--eject - vysune médium po úspěšném čtení\n"
 
 #: src/dvdisaster.c:1002
 #, fuzzy
 msgid ""
 "  --encoding-algorithm x     - possible values: 32bit, 64bit, SSE2, "
 "AltiVec\n"
-msgstr "--encoding-algorithm x - možné hodnoty: 32bit, 64bit, SSE2, AltiVec"
+msgstr "--encoding-algorithm x - možné hodnoty: 32bit, 64bit, SSE2, AltiVec\n"
 
 #: src/dvdisaster.c:1003
 #, fuzzy
 msgid "  --encoding-io-strategy x   - possible values: readwrite, mmap\n"
-msgstr "--encoding-io-strategy x - možné hodnoty: readwrite, mmap"
+msgstr "--encoding-io-strategy x - možné hodnoty: readwrite, mmap\n"
 
 #: src/dvdisaster.c:1004
 #, fuzzy
 msgid "  --fill-unreadable n        - fill unreadable sectors with byte n\n"
-msgstr "--fill-unreadable n - vyplní nečitelné sektory bytem n"
+msgstr "--fill-unreadable n - vyplní nečitelné sektory bytem n\n"
 
 #: src/dvdisaster.c:1005
 #, fuzzy
@@ -763,7 +765,7 @@ msgid ""
 "  --ignore-fatal-sense       - continue reading after potentially fatal "
 "error conditon\n"
 msgstr ""
-"--ignore-fatal-sense - pokračovat ve čtení po potenciálně fatální chybě"
+"--ignore-fatal-sense - pokračovat ve čtení po potenciálně fatální chybě\n"
 
 #: src/dvdisaster.c:1006
 #, fuzzy
@@ -772,7 +774,7 @@ msgid ""
 "(dangerous - see man page!)\n"
 msgstr ""
 "--ignore-iso-size - ignoruje velikost obrázku z dat ISO/UDF (nebezpečné - "
-"viz manuálová stránka!)"
+"viz manuálová stránka!)\n"
 
 #: src/dvdisaster.c:1007
 #, fuzzy
@@ -781,12 +783,12 @@ msgid ""
 "an error\n"
 msgstr ""
 "--internal-rereads n - jednotka se může pokusit o n přečtení, než nahlásí "
-"chybu"
+"chybu\n"
 
 #: src/dvdisaster.c:1008
 #, fuzzy
 msgid "  --medium-info              - print info about medium in drive\n"
-msgstr "--medium-info - tisk informací o médiu v jednotce"
+msgstr "--medium-info - tisk informací o médiu v jednotce\n"
 
 #: src/dvdisaster.c:1009
 #, fuzzy
@@ -795,12 +797,12 @@ msgid ""
 "page!)\n"
 msgstr ""
 "--no-bdr-defect-management - použijte větší obrázky RS03 pro BD-R (viz "
-"manuálová stránka!)"
+"manuálová stránka!)\n"
 
 #: src/dvdisaster.c:1010
 #, fuzzy
 msgid "  --no-progress              - do not print progress information\n"
-msgstr "--no-progress - netisknout informace o průběhu"
+msgstr "--no-progress - netisknout informace o průběhu\n"
 
 #: src/dvdisaster.c:1011
 #, fuzzy
@@ -808,7 +810,8 @@ msgid ""
 "  --old-ds-marker            - mark missing sectors compatible with "
 "dvdisaster <= 0.70\n"
 msgstr ""
-"--old-ds-marker - označí chybějící sektory kompatibilní s dvdisaster <= 0,70"
+"--old-ds-marker - označí chybějící sektory kompatibilní s dvdisaster <= "
+"0,70\n"
 
 #: src/dvdisaster.c:1012
 #, fuzzy
@@ -816,42 +819,43 @@ msgid ""
 "  --prefetch-sectors n       - prefetch n sectors for RS03 encoding (uses "
 "~nMiB)\n"
 msgstr ""
-"--prefetch-sectors n - prefetch n sektorů pro kódování RS03 (používá ~nMiB)"
+"--prefetch-sectors n - prefetch n sektorů pro kódování RS03 (používá "
+"~nMiB)\n"
 
 #: src/dvdisaster.c:1013
 #, fuzzy
 msgid ""
 "  --raw-mode n               - mode for raw reading CD media (20 or 21)\n"
-msgstr "--raw-mode n - režim pro nezpracované čtení CD médií (20 nebo 21)"
+msgstr "--raw-mode n - režim pro nezpracované čtení CD médií (20 nebo 21)\n"
 
 #: src/dvdisaster.c:1014
 #, fuzzy
 msgid ""
 "  --read-attempts n-m        - attempts n up to m reads of a defective "
 "sector\n"
-msgstr "--read-attempts n-m - pokusů o n až m čtení vadného sektoru"
+msgstr "--read-attempts n-m - pokusů o n až m čtení vadného sektoru\n"
 
 #: src/dvdisaster.c:1015
 #, fuzzy
 msgid "  --read-medium n            - read the whole medium up to n times\n"
-msgstr "--read-medium n - přečte celé médium až nkrát"
+msgstr "--read-medium n - přečte celé médium až nkrát\n"
 
 #: src/dvdisaster.c:1016
 #, fuzzy
 msgid "  --read-raw                 - performs read in raw mode if possible\n"
-msgstr "--read-raw - pokud je to možné, provede čtení v raw režimu"
+msgstr "--read-raw - pokud je to možné, provede čtení v raw režimu\n"
 
 #: src/dvdisaster.c:1017
 #, fuzzy
 msgid ""
 "  --regtest                  - tweaks output for compatibility with "
 "regtests\n"
-msgstr "--regtest - upraví výstup pro kompatibilitu s regtesty"
+msgstr "--regtest - upraví výstup pro kompatibilitu s regtesty\n"
 
 #: src/dvdisaster.c:1018
 #, fuzzy
 msgid "  --resource-file p          - get resource file from given path\n"
-msgstr "--resource-file p - získat zdrojový soubor z dané cesty"
+msgstr "--resource-file p - získat zdrojový soubor z dané cesty\n"
 
 #: src/dvdisaster.c:1019
 #, fuzzy
@@ -860,18 +864,18 @@ msgid ""
 " percent\n"
 msgstr ""
 "--speed-warning n - vytiskne varování, pokud se rychlost změní o více než n "
-"procent"
+"procent\n"
 
 #: src/dvdisaster.c:1020
 #, fuzzy
 msgid "  --spinup-delay n           - wait n seconds for drive to spin up\n"
-msgstr "--spinup-delay n - čeká n sekund, než se disk roztočí"
+msgstr "--spinup-delay n - čeká n sekund, než se disk roztočí\n"
 
 #: src/dvdisaster.c:1021
 #, fuzzy
 msgid ""
 "  --version                  - print version and some configuration info\n"
-msgstr "--version - verze pro tisk a některé konfigurační informace"
+msgstr "--version - verze pro tisk a některé konfigurační informace\n"
 
 #: src/dvdisaster.c:1022
 #, fuzzy
@@ -880,7 +884,7 @@ msgid ""
 "--help for a list)\n"
 msgstr ""
 "--debug - povolit pokročilé nebezpečné možnosti (použijte s --help pro "
-"seznam)"
+"seznam)\n"
 
 #: src/dvdisaster.c:1026
 msgid "Debugging options (purposefully undocumented and possibly harmful)\n"
@@ -893,24 +897,24 @@ msgid ""
 "unsupported ones\n"
 msgstr ""
 "--permissive-medium-type - povolit více typů médií, a to i teoreticky "
-"nepodporovaných"
+"nepodporovaných\n"
 
 #: src/dvdisaster.c:1028
 #, fuzzy
 msgid "  --byteset s,i,b          - set byte i in sector s to b\n"
-msgstr "--byteset s,i,b - nastaví byte i v sektoru s na b"
+msgstr "--byteset s,i,b - nastaví byte i v sektoru s na b\n"
 
 #: src/dvdisaster.c:1029
 #, fuzzy
 msgid ""
 "  --cdump                  - creates C #include file dumps instead of "
 "hexdumps\n"
-msgstr "--cdump - vytvoří C #include výpisy souborů místo hexdumps"
+msgstr "--cdump - vytvoří C #include výpisy souborů místo hexdumps\n"
 
 #: src/dvdisaster.c:1030
 #, fuzzy
 msgid "  --compare-images a,b     - compare sectors in images a and b\n"
-msgstr "--compare-images a,b - porovnání sektorů na obrázcích a a b"
+msgstr "--compare-images a,b - porovnání sektorů na obrázcích a a b\n"
 
 #: src/dvdisaster.c:1031
 #, fuzzy
@@ -919,27 +923,27 @@ msgid ""
 " b\n"
 msgstr ""
 "--copy-sector a,n,b,m - zkopírujte sektor n z obrázku a do sektoru m na "
-"obrázku b"
+"obrázku b\n"
 
 #: src/dvdisaster.c:1032
 #, fuzzy
 msgid "  --erase sector           - erase the given sector\n"
-msgstr "--erase sector - vymazání daného sektoru"
+msgstr "--erase sector - vymazání daného sektoru\n"
 
 #: src/dvdisaster.c:1033
 #, fuzzy
 msgid "  --erase n-m              - erase sectors n - m, inclusively\n"
-msgstr "--erase n-m - vymazání sektorů n - m, včetně"
+msgstr "--erase n-m - vymazání sektorů n - m, včetně\n"
 
 #: src/dvdisaster.c:1034
 #, fuzzy
 msgid "  --examine-rs02           - force RS02 exhaustive search\n"
-msgstr "--examine-rs02 - vynutí vyčerpávající hledání RS02"
+msgstr "--examine-rs02 - vynutí vyčerpávající hledání RS02\n"
 
 #: src/dvdisaster.c:1035
 #, fuzzy
 msgid "  --examine-rs03           - force RS03 exhaustive search\n"
-msgstr "--examine-rs03 - vynutí vyčerpávající hledání RS03"
+msgstr "--examine-rs03 - vynutí vyčerpávající hledání RS03\n"
 
 #: src/dvdisaster.c:1036
 #, fuzzy
@@ -948,7 +952,7 @@ msgid ""
 "diffing\n"
 msgstr ""
 "--fixed-speed-values ​​- výstupní hodnoty pevné rychlosti pro lepší "
-"rozlišení výstupu"
+"rozlišení výstupu\n"
 
 #: src/dvdisaster.c:1037
 #, fuzzy
@@ -957,32 +961,32 @@ msgid ""
 "full search)\n"
 msgstr ""
 "--ignore-rs03-header - ignorovat hlavičku RS03 při opravě (vynucení úplného "
-"vyhledávání)"
+"vyhledávání)\n"
 
 #: src/dvdisaster.c:1038
 #, fuzzy
 msgid "  --marked-image n         - create image with n marked random sectors\n"
-msgstr "--marked-image n - vytvoří obrázek s n označenými náhodnými sektory"
+msgstr "--marked-image n - vytvoří obrázek s n označenými náhodnými sektory\n"
 
 #: src/dvdisaster.c:1039
 #, fuzzy
 msgid ""
 "  --merge-images a,b       - merge image a with b (a receives sectors from "
 "b)\n"
-msgstr "--merge-images a,b - sloučit obrázek a s b (a přijímá sektory od b)"
+msgstr "--merge-images a,b - sloučit obrázek a s b (a přijímá sektory od b)\n"
 
 #: src/dvdisaster.c:1040
 #, fuzzy
 msgid ""
 "  --random-errors e        - seed image with (correctable) random errors\n"
 msgstr ""
-"--random-errors e - počáteční obrázek s (opravitelnými) náhodnými chybami"
+"--random-errors e - počáteční obrázek s (opravitelnými) náhodnými chybami\n"
 
 #: src/dvdisaster.c:1041
 #, fuzzy
 msgid ""
 "  --random-image n         - create image with n sectors of random numbers\n"
-msgstr "--random-image n - vytvoří obraz s n sektory náhodných čísel"
+msgstr "--random-image n - vytvoří obraz s n sektory náhodných čísel\n"
 
 #: src/dvdisaster.c:1042
 #, fuzzy
@@ -990,7 +994,7 @@ msgid ""
 "  --random-seed n          - random seed for built-in random number "
 "generator\n"
 msgstr ""
-"--random-seed n - náhodné semeno pro vestavěný generátor náhodných čísel"
+"--random-seed n - náhodné semeno pro vestavěný generátor náhodných čísel\n"
 
 #: src/dvdisaster.c:1043
 #, fuzzy
@@ -998,19 +1002,19 @@ msgid ""
 "  --raw-sector n           - shows hexdump of the given raw sector from "
 "medium in drive\n"
 msgstr ""
-"--raw-sector n - zobrazí hexdump daného surového sektoru z média v disku"
+"--raw-sector n - zobrazí hexdump daného surového sektoru z média v disku\n"
 
 #: src/dvdisaster.c:1044
 #, fuzzy
 msgid ""
 "  --read-sector n          - shows hexdump of the given sector from medium "
 "in drive\n"
-msgstr "--read-sector n - zobrazí hexdump daného sektoru z média v jednotce"
+msgstr "--read-sector n - zobrazí hexdump daného sektoru z média v jednotce\n"
 
 #: src/dvdisaster.c:1045
 #, fuzzy
 msgid "  --screen-shot            - useful for generating screen shots\n"
-msgstr "--screen-shot - užitečné pro generování snímků obrazovky"
+msgstr "--screen-shot - užitečné pro generování snímků obrazovky\n"
 
 #: src/dvdisaster.c:1046
 #, fuzzy
@@ -1019,7 +1023,7 @@ msgid ""
 "used wrong\n"
 msgstr ""
 "--send-cdb arg - provede dané cdb na jednotce; zabije systém, pokud je "
-"použit nesprávně"
+"použit nesprávně\n"
 
 #: src/dvdisaster.c:1047
 #, fuzzy
@@ -1027,7 +1031,7 @@ msgid ""
 "  --set-version            - set program version for debugging purposes "
 "(dangerous!)\n"
 msgstr ""
-"--set-version - nastavení verze programu pro účely ladění (nebezpečné!)"
+"--set-version - nastavení verze programu pro účely ladění (nebezpečné!)\n"
 
 #: src/dvdisaster.c:1048
 #, fuzzy
@@ -1035,14 +1039,15 @@ msgid ""
 "  --show-header n          - assumes given sector is a ecc header and prints"
 " it\n"
 msgstr ""
-"--show-header n - předpokládá, že daný sektor je hlavička ecc a vytiskne ji"
+"--show-header n - předpokládá, že daný sektor je hlavička ecc a vytiskne "
+"ji\n"
 
 #: src/dvdisaster.c:1049
 #, fuzzy
 msgid ""
 "  --show-sector n          - shows hexdump of the given sector in an image "
 "file\n"
-msgstr "--show-sector n - zobrazí hexdump daného sektoru v obrazovém souboru"
+msgstr "--show-sector n - zobrazí hexdump daného sektoru v obrazovém souboru\n"
 
 #: src/dvdisaster.c:1050
 #, fuzzy
@@ -1050,24 +1055,25 @@ msgid ""
 "  --sim-cd image           - simulate a SCSI-Level CD with contents supplied"
 " by the ISO image\n"
 msgstr ""
-"--sim-cd image - simuluje CD na úrovni SCSI s obsahem dodávaným obrazem ISO"
+"--sim-cd image - simuluje CD na úrovni SCSI s obsahem dodávaným obrazem "
+"ISO\n"
 
 #: src/dvdisaster.c:1051
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "  --sim-defects n          - simulate n%% defective sectors on medium\n"
-msgstr "--sim-defects n - simuluje n%% vadných sektorů na médiu"
+msgstr "--sim-defects n - simuluje n%% vadných sektorů na médiu\n"
 
 #: src/dvdisaster.c:1052
 #, fuzzy
 msgid "  --truncate n             - truncates image to n sectors\n"
-msgstr "--truncate n - zkrátí obraz na n sektorů"
+msgstr "--truncate n - zkrátí obraz na n sektorů\n"
 
 #: src/dvdisaster.c:1053
 #, fuzzy
 msgid ""
 "  --zero-unreadable        - replace the \"unreadable sector\" markers with zeros\n"
 "\n"
-msgstr "--zero-unreadable - nahradí značky \"nečitelný sektor\" nulami"
+msgstr "--zero-unreadable - nahradí značky \"nečitelný sektor\" nulami\n"
 
 #: src/dvdisaster.c:1083
 msgid "Optical drive 52X FW 1.02"
@@ -1080,7 +1086,7 @@ msgid ""
 "preferences in the GUI instead.\n"
 msgstr ""
 "Použití režimu GUI: většina možností příkazového řádku je ignorována. Místo "
-"toho se podívejte na preference v GUI."
+"toho se podívejte na preference v GUI.\n"
 
 #: src/ecc-rs01.c:43
 msgid "Error correction file (RS01)"
@@ -1116,7 +1122,9 @@ msgid ""
 "\n"
 "Contents of Ecc Header:\n"
 "\n"
-msgstr "Obsah hlavičky Ecc:"
+msgstr ""
+"\n"
+"Obsah hlavičky Ecc:\n"
 
 #: src/help-dialogs.c:157 src/help-dialogs.c:559 src/help-dialogs.c:742
 #: src/medium-info.c:333 src/preferences.c:1202
@@ -1218,7 +1226,9 @@ msgstr ""
 msgid ""
 "\n"
 "e-mail: support@dvdisaster.org"
-msgstr "e-mail: support@dvdisaster.org"
+msgstr ""
+"\n"
+"e-mail: support@dvdisaster.org"
 
 #: src/help-dialogs.c:783
 #, fuzzy
@@ -1233,6 +1243,7 @@ msgid ""
 "Please do not bother the original authors of dvdisaster,\n"
 "submit bugreports against [GitHub] instead.\n"
 msgstr ""
+"\n"
 "Tato verze <b>není původní</b>. Byla vylepšena především na\n"
 "přidat podporu pro BD-R TL/QL a HD-DVD, přidat podporu pro odstranění ECC z ISO,\n"
 "přidat možnost generování obrázků BD-R RS03 s větší redundancí,\n"
@@ -1240,7 +1251,7 @@ msgstr ""
 "port GUI na GTK3 a spoustu dalších věcí.\n"
 "\n"
 "Prosím, neobtěžujte původní autory dvdisaster,\n"
-"místo toho odešlete zprávy o chybách proti [GitHub]."
+"místo toho odešlete zprávy o chybách proti [GitHub].\n"
 
 #: src/help-dialogs.c:793
 msgid ""
@@ -1268,7 +1279,9 @@ msgstr ""
 msgid ""
 "\n"
 "Permission denied on ecc file (perhaps not writeable?).\n"
-msgstr "Oprávnění odepřeno pro soubor ecc (možná nelze zapisovat?)."
+msgstr ""
+"\n"
+"Oprávnění odepřeno pro soubor ecc (možná nelze zapisovat?).\n"
 
 #: src/image.c:206 src/image.c:212
 msgid ""
@@ -1306,9 +1319,9 @@ msgstr ""
 "Poté co uvolníte nějaké místo, můžete operaci zopakovat."
 
 #: src/main-window.c:70
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "log: %s\n"
-msgstr "protokol: %s"
+msgstr "protokol: %s\n"
 
 #: src/main-window.c:97
 msgid ""
@@ -1533,9 +1546,9 @@ msgid "%s, %d roots, %4.1f%% redundancy.\n"
 msgstr "%s, %d bází, %4.1f%% redundance.\n"
 
 #: src/medium-info.c:217
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRIu64> sectors (%<PRId64> MiB)\n"
-msgstr "%<PRIu64> sektory (%<PRId64> MiB)"
+msgstr "%<PRIu64> sektory (%<PRId64> MiB)\n"
 
 #: src/medium-info.c:229
 #, fuzzy
@@ -1826,6 +1839,40 @@ msgstr ""
 "Seznam dostupných metod:\n"
 "\n"
 
+#: src/misc-gui.c:241
+#, c-format
+msgid ""
+"The error correction file is already present:\n"
+"\n"
+"%s\n"
+"\n"
+"Overwrite it?"
+msgstr ""
+"Soubor pro opravu chyb již existuje:\n"
+"\n"
+"%s\n"
+"\n"
+"Chcete ho přepsat?"
+
+#: src/misc-gui.c:609
+msgid "Do not ask again"
+msgstr "Příště se již neptat"
+
+#: src/misc-gui.c:629
+#, c-format
+msgid ""
+"Image file already exists and does not match the medium:\n"
+"\n"
+"%s\n"
+"\n"
+"The existing image file will be deleted."
+msgstr ""
+"Soubor bitové kopie již existuje a nesouhlasí s diskem.\n"
+"\n"
+"%s\n"
+"\n"
+"Existující soubor bitové kopie bude smazán."
+
 #: src/misc.c:225
 msgid ""
 "This software comes with  ABSOLUTELY NO WARRANTY.  This\n"
@@ -1865,12 +1912,12 @@ msgid "Image is not augmented (no dvdisaster signature found)."
 msgstr "Obrázek není rozšířen (nebyl nalezen žádný podpis dvdisaster)."
 
 #: src/misc.c:779
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Invalid end data sector (%<PRId64>), aborting"
 msgstr "Neplatný koncový datový sektor (%<PRId64>), ruší se"
 
 #: src/misc.c:788
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "We're about to truncate the image from %<PRId64> sectors (%<PRId64> MiB)\n"
 "to %<PRId64> sectors (%<PRId64> MiB), removing any dvdisaster-added ECC data.\n"
@@ -1888,46 +1935,12 @@ msgstr "Přerušeno na žádost uživatele"
 #: src/misc.c:804
 #, fuzzy
 msgid "Image successfully truncated back to its original size.\n"
-msgstr "Obrázek byl úspěšně zkrácen zpět na původní velikost."
+msgstr "Obrázek byl úspěšně zkrácen zpět na původní velikost.\n"
 
 #: src/misc.c:808
 #, fuzzy
 msgid "Image successfully truncated"
 msgstr "Obrázek byl úspěšně zkrácen"
-
-#: src/misc-gui.c:241
-#, c-format
-msgid ""
-"The error correction file is already present:\n"
-"\n"
-"%s\n"
-"\n"
-"Overwrite it?"
-msgstr ""
-"Soubor pro opravu chyb již existuje:\n"
-"\n"
-"%s\n"
-"\n"
-"Chcete ho přepsat?"
-
-#: src/misc-gui.c:609
-msgid "Do not ask again"
-msgstr "Příště se již neptat"
-
-#: src/misc-gui.c:629
-#, c-format
-msgid ""
-"Image file already exists and does not match the medium:\n"
-"\n"
-"%s\n"
-"\n"
-"The existing image file will be deleted."
-msgstr ""
-"Soubor bitové kopie již existuje a nesouhlasí s diskem.\n"
-"\n"
-"%s\n"
-"\n"
-"Existující soubor bitové kopie bude smazán."
 
 #: src/preferences.c:409
 msgid "Switched to the linear reading strategy."
@@ -3246,6 +3259,36 @@ msgstr ""
 " [Přidáno %d/%d sektorů do souboru mezipaměti %s; LBA=%<PRId64>, "
 "velikosts=%d, %d sektorů]\n"
 
+#: src/read-adaptive-window.c:77
+msgid "Adaptive reading:"
+msgstr "Adaptivní čtení:"
+
+#: src/read-adaptive-window.c:105
+msgid "Sectors processed"
+msgstr "Zpracované sektory"
+
+#: src/read-adaptive-window.c:108 src/scsi-layer.c:1800
+msgid "readable"
+msgstr "čitelné"
+
+#: src/read-adaptive-window.c:113
+msgid "correctable"
+msgstr "opravitelné"
+
+#: src/read-adaptive-window.c:118
+msgid "missing"
+msgstr "chybějící"
+
+#: src/read-adaptive-window.c:129
+#, c-format
+msgid "Readable: %d.%d%% / %d.%d%% required"
+msgstr "Čitelné: %d.%d%% / %d.%d%% požadovaných"
+
+#: src/read-adaptive-window.c:137
+#, c-format
+msgid "Total recoverable: %d.%d%%"
+msgstr "Celkem opravitelných: %d.%d%%"
+
 #: src/read-adaptive.c:57 src/rs01-create.c:1023
 #, c-format
 msgid ""
@@ -3269,7 +3312,7 @@ msgstr ""
 "%s"
 
 #: src/read-adaptive.c:121 src/read-linear.c:867
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* Warning: This ecc file requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
@@ -3280,7 +3323,7 @@ msgstr ""
 "* Upozornění: Tento soubor ecc vyžaduje dvdisaster-%d.%d!\n"
 "* Pokračování by mohlo vyvolat nesprávné chování.\n"
 "* Přečtěte si prosím obrázek bez použití tohoto souboru ecc\n"
-"* nebo upgradujte dvdisaster."
+"* nebo upgradujte dvdisaster.\n"
 
 #: src/read-adaptive.c:154 src/rs01-common.c:82 src/rs01-common.c:237
 #: src/rs01-create.c:304 src/rs01-verify.c:817
@@ -3318,12 +3361,12 @@ msgstr ""
 
 #: src/read-adaptive.c:659 src/read-adaptive.c:669 src/read-adaptive.c:687
 #: src/read-adaptive.c:717
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%s-type ECC found\n"
-msgstr "Bylo nalezeno %s-type ECC"
+msgstr "Bylo nalezeno %s-type ECC\n"
 
 #: src/read-adaptive.c:672
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* Warning: This ecc file requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
@@ -3332,10 +3375,10 @@ msgid ""
 msgstr ""
 "* Upozornění: Tento soubor ecc vyžaduje dvdisaster-%d.%d!\n"
 "* Pokračování by mohlo vyvolat nesprávné chování.\n"
-"* Upgradujte prosím dvdisaster."
+"* Upgradujte prosím dvdisaster.\n"
 
 #: src/read-adaptive.c:690 src/read-linear.c:874
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* Warning: This image requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
@@ -3344,7 +3387,7 @@ msgid ""
 msgstr ""
 "* Upozornění: Tento obrázek vyžaduje dvdisaster-%d.%d!\n"
 "* Pokračování by mohlo vyvolat nesprávné chování.\n"
-"* Upgradujte prosím dvdisaster."
+"* Upgradujte prosím dvdisaster.\n"
 
 #: src/read-adaptive.c:719
 #, fuzzy
@@ -3359,7 +3402,7 @@ msgstr ""
 "Metoda čtení „rozděl a panuj“ bude stále používána, a to pokusem o detekci a přeskočení\n"
 "silně poškozené zóny a upřednostněte nejprve dobré zóny. Číst však automaticky nepřestaneme\n"
 "jakmile se obnoví dostatek dat a dat ECC, aby bylo možné obraz znovu sestavit, jako to děláme u RS02.\n"
-"Měli byste zastavit čtení a čas od času spustit „ověření“, abyste zjistili, zda tomu tak je."
+"Měli byste zastavit čtení a čas od času spustit „ověření“, abyste zjistili, zda tomu tak je.\n"
 
 #: src/read-adaptive.c:726 src/read-adaptive.c:785 src/read-adaptive.c:800
 #: src/read-adaptive.c:864 src/read-adaptive.c:953 src/read-adaptive.c:1014
@@ -3531,7 +3574,7 @@ msgstr ""
 "* Má malou výhodu oproti lineárnímu čtení, ale může\n"
 "* způsobit značné opotřebení měniče v důsledku nadměrného opotřebení\n"
 "* vyhledávání operací.\n"
-"* Zvažte místo toho použití lineárního čtení."
+"* Zvažte místo toho použití lineárního čtení.\n"
 
 #: src/read-adaptive.c:1502 src/read-linear.c:277
 #, c-format
@@ -3624,47 +3667,57 @@ msgid "No unreadable intervals with >= %d sectors left."
 msgstr "Nezbyly žádné nečitelné úseky obsahující >= %d sektorů."
 
 #: src/read-adaptive.c:2048
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "%s\n"
 "%2d.%1d%% of the image have been read (%<PRId64> sectors).\n"
 msgstr ""
+"\n"
 "%s\n"
-"%2d.%1d%% obrazu bylo přečteno (%<PRId64> sektorů)."
+"%2d.%1d%% obrazu bylo přečteno (%<PRId64> sektorů).\n"
 
-#: src/read-adaptive-window.c:77
-msgid "Adaptive reading:"
-msgstr "Adaptivní čtení:"
-
-#: src/read-adaptive-window.c:105
-msgid "Sectors processed"
-msgstr "Zpracované sektory"
-
-#: src/read-adaptive-window.c:108 src/scsi-layer.c:1800
-msgid "readable"
-msgstr "čitelné"
-
-#: src/read-adaptive-window.c:113
-msgid "correctable"
-msgstr "opravitelné"
-
-#: src/read-adaptive-window.c:118
-msgid "missing"
-msgstr "chybějící"
-
-#: src/read-adaptive-window.c:129
+#: src/read-linear-window.c:97
 #, c-format
-msgid "Readable: %d.%d%% / %d.%d%% required"
-msgstr "Čitelné: %d.%d%% / %d.%d%% požadovaných"
+msgid "Current Speed: %d.%dx"
+msgstr "Aktuální rychlost: %d.%dx"
 
-#: src/read-adaptive-window.c:137
-#, c-format
-msgid "Total recoverable: %d.%d%%"
-msgstr "Celkem opravitelných: %d.%d%%"
+#: src/read-linear-window.c:104 src/read-linear.c:515
+#, fuzzy, c-format
+msgid "Unreadable / skipped sectors: %<PRId64>"
+msgstr "Nečitelné / přeskočené sektory: %<PRId64>"
+
+#: src/read-linear-window.c:261
+msgid "Medium state"
+msgstr "Stav disku"
+
+#: src/read-linear-window.c:268
+msgid "Not touched this time"
+msgstr "Vynechán"
+
+#: src/read-linear-window.c:272
+msgid "Already present"
+msgstr "Již existuje"
+
+#: src/read-linear-window.c:275
+msgid "Successfully read"
+msgstr "Úspěšně přečtený"
+
+#: src/read-linear-window.c:279 src/read-linear-window.c:306
+#: src/rs01-verify.c:132 src/rs02-verify.c:125 src/rs03-verify.c:135
+msgid "Sectors with CRC errors"
+msgstr "Sektory s chybami CRC"
+
+#: src/read-linear-window.c:282
+msgid "Unreadable / skipped"
+msgstr "Nečitelný/přeskočený"
+
+#: src/read-linear-window.c:404
+msgid "Speed"
+msgstr "Rychlost"
 
 #: src/read-linear.c:122
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<span %s>Aborted by unrecoverable error.</span> %<PRId64> sectors read, "
 "%<PRId64> sectors unreadable/skipped so far."
@@ -3698,9 +3751,9 @@ msgid "<span %s>Reading aborted.</span> Please select a different image file."
 msgstr "<span %s>Čtení zrušeno.</span> Zvolte jiný soubor bitové kopie."
 
 #: src/read-linear.c:363
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Completing image %s. Continuing with sector %<PRId64>.\n"
-msgstr "Dokončování obrázku %s. Pokračujeme sektorem %<PRId64>."
+msgstr "Dokončování obrázku %s. Pokračujeme sektorem %<PRId64>.\n"
 
 #: src/read-linear.c:369
 #, c-format
@@ -3720,23 +3773,18 @@ msgstr "dokončeno.\n"
 msgid "Waiting %d seconds for drive to spin up...\n"
 msgstr "Čekám %d sekund na roztočení disku...\n"
 
-#: src/read-linear.c:515 src/read-linear-window.c:104
-#, c-format, fuzzy
-msgid "Unreadable / skipped sectors: %<PRId64>"
-msgstr "Nečitelné / přeskočené sektory: %<PRId64>"
-
 #: src/read-linear.c:605
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Sector %<PRId64>: Speed increased to %4.1fx\n"
-msgstr "Sektor %<PRId64>: Rychlost zvýšena na %4.1fx"
+msgstr "Sektor %<PRId64>: Rychlost zvýšena na %4.1fx\n"
 
 #: src/read-linear.c:608
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Sector %<PRId64>: Speed dropped to %4.1fx\n"
-msgstr "Sektor %<PRId64>: Rychlost klesla na %4.1fx"
+msgstr "Sektor %<PRId64>: Rychlost klesla na %4.1fx\n"
 
 #: src/read-linear.c:614
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Read position: %3d.%1d%% (nn.nx), sector %<PRId64>/%<PRId64>, %<PRId64> "
 "sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
@@ -3745,7 +3793,7 @@ msgstr ""
 "sektory přečteny v pořádku, %<PRId64> chyby čtení, %<PRId64> chyby crc"
 
 #: src/read-linear.c:615
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Read position: %3d.%1d%% (%4.1fx), sector %<PRId64>/%<PRId64>, %<PRId64> "
 "sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
@@ -3759,7 +3807,7 @@ msgid "* CRC error, sector: %lld\n"
 msgstr "* Chyba CRC, sektor: %lld\n"
 
 #: src/read-linear.c:841
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "This ecc file requires dvdisaster-%d.%d!\n"
 "\n"
@@ -3772,10 +3820,10 @@ msgstr ""
 "\n"
 "Pokračování by mohlo vyvolat nesprávné chování.\n"
 "Přečtěte si prosím obrázek bez použití tohoto souboru ecc\n"
-"nebo upgradujte dvdisaster."
+"nebo upgradujte dvdisaster.\n"
 
 #: src/read-linear.c:849
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "This image requires dvdisaster-%d.%d!\n"
 "\n"
@@ -3786,10 +3834,10 @@ msgstr ""
 "Tento obrázek vyžaduje dvdisaster-%d.%d!\n"
 "\n"
 "Pokračování by mohlo vyvolat nesprávné chování.\n"
-"Upgradujte prosím dvdisaster."
+"Upgradujte prosím dvdisaster.\n"
 
 #: src/read-linear.c:858 src/read-linear.c:973 src/read-linear.c:1106
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<span %s>Aborted by user request!</span> %<PRId64> sectors read, %<PRId64> "
 "sectors unreadable/skipped so far."
@@ -3841,7 +3889,7 @@ msgid "%<PRId64> sectors read; %<PRId64> unreadable sectors."
 msgstr "%<PRId64> sektorů načteno; %<PRId64> nečitelných sektorů."
 
 #: src/read-linear.c:1367
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "All sectors are readable, but %d contain defective content."
 msgstr "Všechny sektory jsou čitelné, ale %d obsahuje vadný obsah."
 
@@ -3881,7 +3929,7 @@ msgid "%<PRId64> unreadable sectors."
 msgstr "%<PRId64> nečitelných sektorů."
 
 #: src/read-linear.c:1400
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> CRC errors and a md5sum mismatch in the CRC section."
 msgstr "%<PRId64> chyby CRC a nesoučet md5součtu v sekci CRC."
 
@@ -3904,7 +3952,7 @@ msgid "Reading finished: "
 msgstr "Čtení dokončeno: "
 
 #: src/read-linear.c:1432 src/read-linear.c:1443
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "%d sectors missing at the end of the disc.\n"
 "This is okay if the CD was written in TAO (track at once) mode.\n"
@@ -3917,14 +3965,14 @@ msgstr ""
 #: src/read-linear.c:1437
 #, fuzzy
 msgid "See the manual for details.\n"
-msgstr "Podrobnosti naleznete v příručce."
+msgstr "Podrobnosti naleznete v příručce.\n"
 
 #: src/read-linear.c:1439
 #, fuzzy
 msgid "The Image will be truncated accordingly. See the manual for details.\n"
 msgstr ""
 "Obrázek bude odpovídajícím způsobem oříznut. Podrobnosti naleznete v "
-"příručce."
+"příručce.\n"
 
 #: src/read-linear.c:1448
 #, fuzzy
@@ -3933,7 +3981,7 @@ msgid ""
 "Use the --dao option to disable this message.\n"
 msgstr ""
 "Podrobnosti naleznete v příručce.\n"
-"Tuto zprávu zakážete pomocí volby --dao."
+"Tuto zprávu zakážete pomocí volby --dao.\n"
 
 #: src/read-linear.c:1451
 #, fuzzy
@@ -3942,41 +3990,7 @@ msgid ""
 "Use the --dao option to disable image truncating.\n"
 msgstr ""
 "Obrázek bude odpovídajícím způsobem oříznut. Podrobnosti naleznete v příručce.\n"
-"Pomocí volby --dao zakážete ořezávání obrazu."
-
-#: src/read-linear-window.c:97
-#, c-format
-msgid "Current Speed: %d.%dx"
-msgstr "Aktuální rychlost: %d.%dx"
-
-#: src/read-linear-window.c:261
-msgid "Medium state"
-msgstr "Stav disku"
-
-#: src/read-linear-window.c:268
-msgid "Not touched this time"
-msgstr "Vynechán"
-
-#: src/read-linear-window.c:272
-msgid "Already present"
-msgstr "Již existuje"
-
-#: src/read-linear-window.c:275
-msgid "Successfully read"
-msgstr "Úspěšně přečtený"
-
-#: src/read-linear-window.c:279 src/read-linear-window.c:306
-#: src/rs01-verify.c:132 src/rs02-verify.c:125 src/rs03-verify.c:135
-msgid "Sectors with CRC errors"
-msgstr "Sektory s chybami CRC"
-
-#: src/read-linear-window.c:282
-msgid "Unreadable / skipped"
-msgstr "Nečitelný/přeskočený"
-
-#: src/read-linear-window.c:404
-msgid "Speed"
-msgstr "Rychlost"
+"Pomocí volby --dao zakážete ořezávání obrazu.\n"
 
 #: src/recover-raw.c:66
 #, c-format
@@ -4009,9 +4023,9 @@ msgid "Error writing CRC information: %s"
 msgstr "Chyba při zápisu CRC informací: %s"
 
 #: src/rs01-common.c:353 src/rs02-verify.c:799 src/rs03-verify.c:1143
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* CRC error, sector: %<PRId64>\n"
-msgstr "* Chyba CRC, sektor: %<PRId64>"
+msgstr "* Chyba CRC, sektor: %<PRId64>\n"
 
 #: src/rs01-create.c:65
 #, c-format
@@ -4026,7 +4040,7 @@ msgstr ""
 "%<PRId64>]"
 
 #: src/rs01-create.c:91 src/rs03-common.c:487
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Invalid redundancy specification '%s'.\n"
 "Valid formats: normal, high, <number>%%, <number>r, <number>m"
@@ -4090,7 +4104,7 @@ msgstr "Bitová kopie %s: %s."
 #: src/rs01-create.c:280 src/rs03-create.c:1308
 #, fuzzy
 msgid "No error correction file specified!\n"
-msgstr "Nebyl zadán žádný soubor pro opravu chyb!"
+msgstr "Nebyl zadán žádný soubor pro opravu chyb!\n"
 
 #: src/rs01-create.c:293
 #, c-format
@@ -4610,7 +4624,7 @@ msgstr "Žádný soubor pro opravu chyb není dostupný."
 #: src/rs01-verify.c:562
 #, fuzzy
 msgid "permission denied\n"
-msgstr "povolení odepřeno"
+msgstr "povolení odepřeno\n"
 
 #: src/rs01-verify.c:568
 msgid "invalid\n"
@@ -4653,7 +4667,7 @@ msgid "- requires         : dvdisaster-%d.%d (good)\n"
 msgstr "- vyžaduje         : dvdisaster-%d.%d (v pořádku)\n"
 
 #: src/rs01-verify.c:652 src/rs02-verify.c:999
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* requires         : dvdisaster-%d.%d (BAD)\n"
 "* Warning          : The following output might be incorrect.\n"
@@ -4661,7 +4675,7 @@ msgid ""
 msgstr ""
 "* vyžaduje : dvdisaster-%d.%d (BAD)\n"
 "* Varování: Následující výstup může být nesprávný.\n"
-"* : Aktualizujte prosím dvdisaster."
+"* : Aktualizujte prosím dvdisaster.\n"
 
 #: src/rs01-verify.c:664 src/rs02-verify.c:1013 src/rs03-verify.c:849
 #, c-format
@@ -5053,7 +5067,7 @@ msgid "Failed expanding the image: %s\n"
 msgstr "Rozšíření bitové kopie se nezdařilo: %s\n"
 
 #: src/rs02-create.c:303 src/rs02-create.c:313
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Preparing image (checksums taken from cache, adding space): %3d%%"
 msgstr ""
 "Příprava obrázku (kontrolní součty stažené z mezipaměti, přidání místa): "
@@ -5109,13 +5123,11 @@ msgstr ""
 "vytvořte samostatný soubor pro opravu chyb."
 
 #: src/rs02-create.c:1096 src/rs03-create.c:1382
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Using redundancies below 20% may not give\n"
 "the expected data loss protection.\n"
 msgstr ""
-"Použití redundance pod 20 % nemusí dát\n"
-"očekávanou ochranu před ztrátou dat."
 
 #: src/rs02-create.c:1128 src/rs02-create.c:1136 src/rs03-create.c:1421
 #: src/rs03-create.c:1444
@@ -5391,7 +5403,7 @@ msgstr ""
 #: src/rs02-verify.c:1018
 #, fuzzy
 msgid "Please upgrade your version of dvdisaster!"
-msgstr "Aktualizujte prosím svou verzi dvdisaster!"
+msgstr ""
 
 #: src/rs02-verify.c:1025
 #, c-format
@@ -5638,7 +5650,7 @@ msgid "BDXL 3 layers:"
 msgstr "BDXL 3 vrstvy:"
 
 #: src/rs02-window.c:1169
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Three layered BDXL medium size</b>\n"
 "\n"
@@ -5650,15 +5662,6 @@ msgid ""
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
 msgstr ""
-"<b>Třívrstvý BDXL střední velikosti</b>\n"
-"\n"
-"Toto je maximální kapacita předpokládaná pro třívrstvá média BDXL. Obrázky překračující menší velikosti média, ale menší než tato hodnota, budou rozšířeny o informace o opravě chyb, aby se vešly na určený BD.\n"
-"\n"
-"Můžete zadat velikost média v sektorech po 2 kB nebo stisknutím tlačítka „dotaz na médium“ použít velikost prázdného média aktuálně vloženého do vybrané jednotky.\n"
-"Pomocí tlačítka se šipkou se vrátíte k poslední uložené hodnotě.\n"
-"\n"
-"Vezměte prosím na vědomí, že rozšířené obrázky se maximálně ztrojnásobí, protože nejvyšší možná redundance je 200 % %.\n"
-"I když tohoto limitu není dosaženo, může být rozšířený obraz z technických důvodů o několik sektorů menší, než je uvedeno."
 
 #: src/rs02-window.c:1188
 #, fuzzy
@@ -5666,7 +5669,7 @@ msgid "BDXL 4 layers:"
 msgstr "BDXL 4 vrstvy:"
 
 #: src/rs02-window.c:1232
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Four layered BDXL medium size</b>\n"
 "\n"
@@ -5678,15 +5681,6 @@ msgid ""
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
 msgstr ""
-"<b>Čtyřvrstvé BDXL střední velikosti</b>\n"
-"\n"
-"Toto je maximální kapacita předpokládaná pro čtyři vrstvená média BDXL. Obrázky překračující menší velikosti média, ale menší než tato hodnota, budou rozšířeny o informace o opravě chyb, aby se vešly na určený BD.\n"
-"\n"
-"Můžete zadat velikost média v sektorech po 2 kB nebo stisknutím tlačítka „dotaz na médium“ použít velikost prázdného média aktuálně vloženého do vybrané jednotky.\n"
-"Pomocí tlačítka se šipkou se vrátíte k poslední uložené hodnotě.\n"
-"\n"
-"Vezměte prosím na vědomí, že rozšířené obrázky se maximálně ztrojnásobí, protože nejvyšší možná redundance je 200 % %.\n"
-"I když tohoto limitu není dosaženo, může být rozšířený obraz z technických důvodů o několik sektorů menší, než je uvedeno."
 
 #: src/rs02-window.c:1294
 msgid "sectors."
@@ -5727,18 +5721,18 @@ msgid "Redundancy %d out of useful range [8..170]."
 msgstr "Redundance %d z použitelného rozsahu [8..170]."
 
 #: src/rs03-common.c:533
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Medium size smaller than image size (%<PRId64> &lt; %<PRId64>)"
 msgstr ""
 "Střední velikost menší než velikost obrázku (%<PRId64> &lt; %<PRId64>)"
 
 #: src/rs03-common.c:535
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Medium size too small (%<PRId64> sectors, minimum is %d)"
 msgstr "Střední velikost je příliš malá (%<PRId64> sektorů, minimum je %d)"
 
 #: src/rs03-common.c:537
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Not enough space for error correction data on the specified medium "
 "(%<PRId64> sectors). Increase the medium size or use a smaller image."
@@ -5762,9 +5756,9 @@ msgid "Preparing image: %3d%%"
 msgstr "Příprava bitové kopie: %3d%%"
 
 #: src/rs03-create.c:661
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed mmap()ing layer %d: %s\n"
-msgstr "Selhala mmap()ing vrstva %d: %s"
+msgstr "Selhala mmap()ing vrstva %d: %s\n"
 
 #: src/rs03-create.c:690
 #, c-format
@@ -5811,12 +5805,12 @@ msgid "%5.2fMiB/s current"
 msgstr "aktuálně %5.2fMiB/s"
 
 #: src/rs03-create.c:1168
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d threads with %s encoding and %s I/O"
 msgstr "%d vláken s kódováním %s a %s I/O"
 
 #: src/rs03-create.c:1326
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Encoding with Method RS03: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; "
 "%4.1f%% redundancy), %<PRId64> MiB padding."
@@ -5834,31 +5828,25 @@ msgstr ""
 "%4.1f%% redundance)."
 
 #: src/rs03-create.c:1350
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy), %<PRId64> MiB padding."
 msgstr ""
-"Rozšíření obrazu pomocí metody RS03 [%d vláken, %s, %s I/O]:\n"
-"%<PRId64> MiB data, %<PRId64> MiB ecc (%d kořeny; %4,1f%% redundance), %<PRId64> MiB výplň."
 
 #: src/rs03-create.c:1355
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
 msgstr ""
-"Rozšíření obrazu pomocí metody RS03 [%d vláken, %s, %s I/O]:\n"
-"%<PRId64> MiB data, %<PRId64> MiB ecc (%d kořeny; %4,1f%% redundance)."
 
 #: src/rs03-create.c:1361
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Creating the error correction file with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
 msgstr ""
-"Vytvoření souboru pro opravu chyb metodou RS03 [%d vláken, %s, %s I/O]:\n"
-"%<PRId64> MiB data, %<PRId64> MiB ecc (%d kořeny; %4,1f%% redundance)."
 
 #: src/rs03-create.c:1372
 #, c-format
@@ -5880,7 +5868,7 @@ msgid ""
 "remember it should you need to repair this image later!\n"
 msgstr ""
 "Velikost BD-R bez aktivované správy defektů,\n"
-"pamatujte si, že pokud budete potřebovat opravit tento obrázek později!"
+"pamatujte si, že pokud budete potřebovat opravit tento obrázek později!\n"
 
 #: src/rs03-create.c:1432
 #, c-format
@@ -5918,22 +5906,22 @@ msgid "; ecc file: "
 msgstr "; ecc soubor:"
 
 #: src/rs03-fix.c:745
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "-> CRC-predicted error in sector %lld%s at byte %4d (value %02x '%c', "
 "expected %02x '%c')\n"
 msgstr ""
 "-> Chyba předpokládaná CRC v sektoru %lld%s v bajtu %4d (hodnota %02x '%c', "
-"očekávaná %02x '%c')"
+"očekávaná %02x '%c')\n"
 
 #: src/rs03-fix.c:748
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "-> Non-predicted error in sector %lld%s at byte %4d (value %02x '%c', "
 "expected %02x '%c')\n"
 msgstr ""
 "-> Neočekávaná chyba v sektoru %lld%s v bajtu %4d (hodnota %02x '%c', "
-"očekávaná %02x '%c')"
+"očekávaná %02x '%c')\n"
 
 #: src/rs03-fix.c:849
 #, c-format
@@ -5952,7 +5940,7 @@ msgstr ""
 #: src/rs03-preferences.c:100 src/rs03-preferences.c:714
 #, fuzzy
 msgid "Target medium for augmented image"
-msgstr "Cílové médium pro rozšířený obraz"
+msgstr ""
 
 #: src/rs03-preferences.c:500 src/rs03-preferences.c:1098
 #: src/rs03-preferences.c:1104 src/rs03-preferences.c:1105
@@ -6139,13 +6127,6 @@ msgid ""
 "\n"
 "The <b>memory mapped</b> option uses the kernel's memory mapping scheme for direct access to the image file. This has the advantage of minimal overhead, but may be adversely affected by poor caching and preloading decisions made by the kernel (since the kernel does not know what dvdisaster is going to do with the data). This scheme performs well when encoding in a RAM-based file system (such as /dev/shm on GNU/Linux) and on very fast media with low latency such as SSDs."
 msgstr ""
-"<b>Strategie I/O</b>\n"
-"\n"
-"Tato volba řídí, jak dvdisaster provádí svůj diskový I/O při vytváření dat pro opravu chyb. Vyzkoušejte obě možnosti a zjistěte, která funguje nejlépe na vašem hardwarovém nastavení.\n"
-"\n"
-"Volba <b>čtení/zápis</b> aktivuje vlastní I/O plánovač dvdisaster, který čte a zapisuje obrazová data pomocí normálních souborových I/O. Výhodou tohoto schématu je, že dvdisaster přesně ví, která data je třeba uložit do mezipaměti a předem načíst; nevýhodou je, že všechna data je třeba kopírovat mezi jádrem a vlastními buffery dvdisaster. Obvykle toto schéma I/O funguje nejlépe na pomalém úložišti s vysokou latencí a dobou vyhledávání; např. na všech skladech zahrnujících rotující talíře.\n"
-"\n"
-"Volba <b>memory mapped</b> používá schéma mapování paměti jádra pro přímý přístup k souboru obrázku. To má výhodu v minimální režii, ale může to být nepříznivě ovlivněno špatnými rozhodnutími jádra o ukládání do mezipaměti a předběžném načítání (protože jádro neví, co dvdisaster s daty udělá). Toto schéma funguje dobře při kódování v souborovém systému založeném na RAM (jako /dev/shm na GNU/Linux) a na velmi rychlých médiích s nízkou latencí, jako jsou SSD."
 
 #: src/rs03-preferences.c:1211 src/rs03-preferences.c:1215
 msgid "Multithreading"
@@ -6172,7 +6153,7 @@ msgstr ""
 #: src/rs03-preferences.c:1271 src/rs03-preferences.c:1278
 #, fuzzy
 msgid "Encoding algorithm"
-msgstr "Kódovací algoritmus"
+msgstr ""
 
 #: src/rs03-preferences.c:1279
 #, fuzzy
@@ -6307,18 +6288,22 @@ msgstr ""
 "poškozené sub bloky\n"
 
 #: src/rs03-verify.c:713
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "%s present.\n"
-msgstr "Přítomno %s."
+msgstr ""
+"\n"
+"Přítomno %s.\n"
 
 #: src/rs03-verify.c:716
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "%s not present.\n"
-msgstr "%s není přítomen."
+msgstr ""
+"\n"
+"%s není přítomen.\n"
 
 #: src/rs03-verify.c:727
 #, c-format
@@ -6374,7 +6359,7 @@ msgid "- requires         : dvdisaster-%s\n"
 msgstr "- vyžaduje         : dvdisaster-%s\n"
 
 #: src/rs03-verify.c:840
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* requires         : dvdisaster-%s (BAD)\n"
 "* Warning          : The following output might be incorrect.\n"
@@ -6382,7 +6367,7 @@ msgid ""
 msgstr ""
 "* vyžaduje : dvdisaster-%s (BAD)\n"
 "* Varování: Následující výstup může být nesprávný.\n"
-"* : Aktualizujte prosím dvdisaster."
+"* : Aktualizujte prosím dvdisaster.\n"
 
 #: src/rs03-verify.c:860
 msgid "none available"
@@ -6432,7 +6417,7 @@ msgid "- medium sectors   : %<PRId64> total / %<PRId64> data\n"
 msgstr "- sektory disku    : %<PRId64> celkem / %<PRId64> data\n"
 
 #: src/rs03-verify.c:968
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>%s (%s expected)</span>"
 msgstr "<span %s>%s (očekává se %s)</span>"
 
@@ -6447,14 +6432,14 @@ msgid "<span %s>Image file is %d bytes longer than expected.</span>"
 msgstr "<span %s>Soubor obrazu je o %d bajtů delší než očekáváno.</span>"
 
 #: src/rs03-verify.c:988
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* sectors          : %s (%s expected); %<PRId64> sectors in ecc file\n"
-msgstr "* sektory : %s (očekává se %s); %<PRId64> sektory v souboru ecc"
+msgstr "* sektory : %s (očekává se %s); %<PRId64> sektory v souboru ecc\n"
 
 #: src/rs03-verify.c:991
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* medium sectors   : %s (%s expected)\n"
-msgstr "* střední sektory: %s (očekává se %s)"
+msgstr "* střední sektory: %s (očekává se %s)\n"
 
 #: src/rs03-verify.c:1019
 #, c-format
@@ -6537,7 +6522,7 @@ msgid "No CD/DVD drives found."
 msgstr "Nebyly nalezeny žádné CD/DVD mechaniky."
 
 #: src/scsi-darwin.c:229
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Could not open %s (%s)."
 msgstr "Nelze otevřít %s (%s)."
 
@@ -6556,7 +6541,7 @@ msgid ""
 "No drives will be pre-selected.\n"
 msgstr ""
 "V /dev nebyly nalezeny žádné optické jednotky.\n"
-"Žádné jednotky nebudou předem vybrány."
+"Žádné jednotky nebudou předem vybrány.\n"
 
 #: src/scsi-layer.c:106
 #, c-format
@@ -6939,10 +6924,10 @@ msgid ""
 "No drives will be pre-selected.\n"
 msgstr ""
 "Nebyly nalezeny žádné optické mechaniky.\n"
-"Žádné jednotky nebudou předem vybrány."
+"Žádné jednotky nebudou předem vybrány.\n"
 
 #: src/scsi-simulated.c:39
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Simulated CD (%s)"
 msgstr "Simulované CD (%s)"
 
@@ -6964,7 +6949,7 @@ msgstr ""
 "Neplatný název zařízení \"%s\" (použijte zařízení \"C:\" ... \"Z:\")"
 
 #: src/scsi-win32.c:267
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Could not open device %s."
 msgstr "Zařízení %s nelze otevřít."
 
@@ -6973,7 +6958,7 @@ msgid "Documentation not installed."
 msgstr "Dokumentace není nainstalována."
 
 #: src/show-manual.c:160
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Documentation file\n"
 "%s\n"
@@ -6981,7 +6966,7 @@ msgid ""
 msgstr ""
 "Soubor dokumentace\n"
 "%s\n"
-"nenalezen."
+"nenalezen.\n"
 
 #: src/show-manual.c:176
 #, fuzzy
@@ -7004,16 +6989,16 @@ msgid "Could not fork to start xdg-open"
 msgstr "Nelze rozvětvením spustit xdg-open"
 
 #: src/show-manual.c:227
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "execvp could not execute \"open\":\n"
 "%s\n"
 msgstr ""
 "execvp nemohl provést \"open\":\n"
-"%s"
+"%s\n"
 
 #: src/show-manual.c:231
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "execvp could not execute \"xdg-open\":\n"
 "%s\n"
@@ -7021,7 +7006,7 @@ msgid ""
 msgstr ""
 "execvp nemohl spustit \"xdg-open\":\n"
 "%s\n"
-"Je xdg-open správně nainstalován?"
+"Je xdg-open správně nainstalován?\n"
 
 #: src/udf.c:259
 msgid "Unnamed"
@@ -7042,15 +7027,16 @@ msgid ""
 "dvdisaster creates error correction data to protect\n"
 "optical media (CD,DVD,BD) against data loss.\n"
 msgstr ""
+"\n"
 "dvdisaster vytváří data pro opravu chyb k ochraně\n"
-"optických médií (CD,DVD,BD) proti ztrátě dat."
+"optických médií (CD,DVD,BD) proti ztrátě dat.\n"
 
 #: src/welcome-window.c:78
 #, fuzzy
 msgid ""
 "Please see the [manual] for typical uses of dvdisaster.\n"
 "\n"
-msgstr "Typické použití dvdisaster naleznete v [manuál]."
+msgstr "Typické použití dvdisaster naleznete v [manuál].\n"
 
 #: src/welcome-window.c:81
 msgid "<i>New in this Version:</i>"
@@ -7088,11 +7074,9 @@ msgstr "Zobrazit i při příštím spuštění"
 #~ msgid "no settings for augmented images"
 #~ msgstr "pro rozšířené bitové kopie není žádné nastavení"
 
-#, c-format
 #~ msgid "Failed seeking to sector %lld in image: %s"
 #~ msgstr "Nezdařil se přechod na sektor %lld bitové kopie: %s"
 
-#, c-format
 #~ msgid "Failed reading sector %lld in image: %s"
 #~ msgstr "Čtení sektoru %lld bitové kopie %s se nezdařilo"
 
@@ -7121,7 +7105,6 @@ msgstr "Zobrazit i při příštím spuštění"
 #~ "  dvdisaster -u,--unlink # Po dokončení ostatních akcí smaže soubory ISO\n"
 #~ "\n"
 
-#, c-format
 #~ msgid ""
 #~ "Drive and file specification:\n"
 #~ "  -d,--device device     - read from given device   (default: %s)\n"
@@ -7157,7 +7140,6 @@ msgstr "Zobrazit i při příštím spuštění"
 #~ "  -m n                   - vypsat/vybrat metody opravy chyb (výchozí: "
 #~ "RS01)\n"
 
-#, c-format
 #~ msgid ""
 #~ "  -n,--redundancy n%%     - error correction data redundancy\n"
 #~ "                           allowed values depend on codec (see manual)\n"
@@ -7351,7 +7333,6 @@ msgstr "Zobrazit i při příštím spuštění"
 #~ "  --show-sector n   - zobrazí hexadecimální výpis daného sektoru bitové "
 #~ "kopie\n"
 
-#, c-format
 #~ msgid "  --sim-defects n   - simulate n%% defective sectors on medium\n"
 #~ msgstr "  --sim-defects n   - nasimuluje na disku n%% poškozených sektorů\n"
 

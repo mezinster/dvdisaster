@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dvdisaster\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-06 16:01+0200\n"
+"POT-Creation-Date: 2026-04-24 08:26+0400\n"
 "PO-Revision-Date: 2006-06-14 23:48+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -51,13 +51,13 @@ msgid "Number of erasures must be > 0 and <= %d\n"
 msgstr "Antal raderingar måste vara > 0 och <= %d\n"
 
 #: src/debug.c:72 src/debug.c:162
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Generating random correctable erasures (%s; for %d roots, max erasures = %d).\n"
 msgstr ""
-"Genererar slumpmässiga korrigerbara raderingar (%s; för %d rötter, max "
-"raderingar = %d)."
+"\n"
+"Genererar slumpmässiga korrigerbara raderingar (%s; för %d rötter, max raderingar = %d).\n"
 
 #: src/debug.c:105 src/debug.c:193 src/debug.c:241 src/debug.c:365
 #: src/debug.c:708 src/debug.c:808 src/debug.c:851 src/debug.c:1182
@@ -98,23 +98,27 @@ msgstr ""
 "Annars kommer du ackumulera >= %d raderingar/ECC-block och avbilden kommer att gå förlorad.\n"
 
 #: src/debug.c:301
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "RS03 error correction file with %d roots.\n"
-msgstr "RS03 felkorrigeringsfil med %d rötter."
+msgstr ""
+"\n"
+"RS03 felkorrigeringsfil med %d rötter.\n"
 
 #: src/debug.c:302
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "RS03 augmented image with %d roots.\n"
-msgstr "RS03 utökad bild med %d rötter."
+msgstr ""
+"\n"
+"RS03 utökad bild med %d rötter.\n"
 
 #: src/debug.c:303
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Generating at most %d random correctable erasures.\n"
-msgstr "Genererar högst %d slumpmässiga korrigerbara raderingar."
+msgstr "Genererar högst %d slumpmässiga korrigerbara raderingar.\n"
 
 #: src/debug.c:445 src/debug.c:503 src/debug.c:566 src/debug.c:607
 #: src/debug.c:690 src/debug.c:796 src/debug.c:837 src/debug.c:883
@@ -263,14 +267,14 @@ msgstr ""
 "\n"
 
 #: src/debug.c:906
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed reading sector %<PRId64>: %s"
 msgstr "Misslyckad läsning av sektor %<PRId64>: %s"
 
 #: src/debug.c:945
 #, fuzzy
 msgid "Raw reading only possible on CD media\n"
-msgstr "Råläsning endast möjlig på CD-media"
+msgstr "Råläsning endast möjlig på CD-media\n"
 
 #: src/debug.c:1153
 #, fuzzy
@@ -278,19 +282,19 @@ msgid "4th argument is missing"
 msgstr "Det fjärde argumentet saknas"
 
 #: src/debug.c:1166
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Source sector must be in range [0..%<PRId64>]\n"
-msgstr "Källsektorn måste vara inom intervallet [0..%<PRId64>]"
+msgstr "Källsektorn måste vara inom intervallet [0..%<PRId64>]\n"
 
 #: src/debug.c:1174
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Destination sector must be in range [0..%<PRId64>]\n"
-msgstr "Destinationssektorn måste vara inom intervallet [0..%<PRId64>]"
+msgstr "Destinationssektorn måste vara inom intervallet [0..%<PRId64>]\n"
 
 #: src/debug.c:1178
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Copying sector %<PRId64> from %s to sector %<PRId64> in %s.\n"
-msgstr "Kopierar sektor %<PRId64> från %s till sektor %<PRId64> i %s."
+msgstr "Kopierar sektor %<PRId64> från %s till sektor %<PRId64> i %s.\n"
 
 #: src/ds-marker.c:269
 #, fuzzy
@@ -309,10 +313,10 @@ msgid ""
 "* further messages are suppressed unless the -v option is given.\n"
 msgstr ""
 "* ... fler oåterställbara sektorer hittades ...\n"
-"* ytterligare meddelanden undertrycks om inte -v-alternativet ges."
+"* ytterligare meddelanden undertrycks om inte -v-alternativet ges.\n"
 
 #: src/ds-marker.c:311
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "\n"
@@ -320,11 +324,12 @@ msgid ""
 "%s\n"
 "\n"
 msgstr ""
+"\n"
 "Etiketten på det ursprungliga (defekta) mediet var:\n"
-"%s"
+"%s\n"
 
 #: src/ds-marker.c:312
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "* \n"
@@ -333,6 +338,7 @@ msgid ""
 "*  %s\n"
 "* "
 msgstr ""
+"\n"
 "* \n"
 "* Etiketten på det ursprungliga (defekta) mediet var:\n"
 "* \n"
@@ -340,7 +346,7 @@ msgstr ""
 "*"
 
 #: src/ds-marker.c:322
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Unrecoverable sector found!\n"
 "\n"
@@ -366,10 +372,10 @@ msgstr ""
 "Det betyder att vissa filer kan ha blivit tysta skadade.%s\n"
 "Eftersom bilden redan skapades defekt kan den inte vara\n"
 "reparerad av dvdisaster. Det kommer inte heller att vara möjligt att skapa\n"
-"felkorrigeringsdata för det. Förlåt för de dåliga nyheterna."
+"felkorrigeringsdata för det. Förlåt för de dåliga nyheterna.\n"
 
 #: src/ds-marker.c:345
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Unrecoverable sector found!\n"
 "\n"
@@ -395,10 +401,10 @@ msgstr ""
 "Det betyder att vissa filer kan ha blivit tysta skadade.%s\n"
 "Eftersom bilden redan skapades defekt kan den inte vara\n"
 "reparerad av dvdisaster. Det kommer inte heller att vara möjligt att skapa\n"
-"felkorrigeringsdata för det. Förlåt för de dåliga nyheterna."
+"felkorrigeringsdata för det. Förlåt för de dåliga nyheterna.\n"
 
 #: src/ds-marker.c:371
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Unrecoverable sector found!\n"
 "\n"
@@ -422,10 +428,10 @@ msgstr ""
 "Det betyder att vissa filer kan ha skadats i tysthet.\n"
 "Eftersom mediet redan skapades defekt kan det inte vara det\n"
 "reparerad av dvdisaster. Det kommer inte heller att vara möjligt att skapa\n"
-"felkorrigeringsdata för det. Förlåt för de dåliga nyheterna."
+"felkorrigeringsdata för det. Förlåt för de dåliga nyheterna.\n"
 
 #: src/ds-marker.c:394
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Unrecoverable sector found!\n"
 "\n"
@@ -443,7 +449,7 @@ msgstr ""
 "Ecc-filen togs troligen från ett medium som\n"
 "var INTE helt återställd. Det betyder att vissa sektorer\n"
 "i ecc-filen saknas och dess felkorrigering\n"
-"kapaciteten kommer att minska."
+"kapaciteten kommer att minska.\n"
 
 #. TRANSLATORS:
 #. This is a dummy entry which is supposed to translate into "ok".
@@ -458,9 +464,9 @@ msgid "-o/--ecc-target expects 'file' or 'image'"
 msgstr "-o/--ecc-target förväntar sig 'fil' eller 'bild'"
 
 #: src/dvdisaster.c:405
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "--threads must be 1..%d\n"
-msgstr "--trådar måste vara 1..%d"
+msgstr "--trådar måste vara 1..%d\n"
 
 #: src/dvdisaster.c:422
 #, fuzzy
@@ -469,7 +475,7 @@ msgstr ""
 "--cache-storlek måste vara minst 8MiB; 16MiB eller högre rekommenderas."
 
 #: src/dvdisaster.c:424
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "--cache-size maximum is %dMiB."
 msgstr "--cache-storlek maximal är %dMiB."
 
@@ -524,7 +530,7 @@ msgid "--fixed-speed-values is only allowed in debug mode"
 msgstr "--fixed-speed-values ​​är endast tillåtet i felsökningsläge"
 
 #: src/dvdisaster.c:562
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "--prefetch-sectors must be in range 32...%d"
 msgstr "--prefetch-sektorer måste vara inom intervallet 32...%d"
 
@@ -592,6 +598,7 @@ msgid ""
 "  dvdisaster -u, --unlink # Delete .iso files (when other actions complete)\n"
 "\n"
 msgstr ""
+"\n"
 "Vanliga användningsexempel:\n"
 "  dvdisaster -r, --read # Läs mediumbilden till hårddisken.\n"
 "                          # Använd -rn-m för att läsa ett visst sektorintervall, t.ex. -r100-200\n"
@@ -600,10 +607,10 @@ msgstr ""
 "  dvdisaster -s, --scan # Skanna mediet efter läsfel.\n"
 "  dvdisaster -t, --test # Testa integriteten för .iso- och .ecc-filerna.\n"
 "  dvdisaster -z, --strip # Strip ECC-data från en utökad .iso.\n"
-"  dvdisaster -u, --unlink # Ta bort .iso-filer (när andra åtgärder är klara)"
+"  dvdisaster -u, --unlink # Ta bort .iso-filer (när andra åtgärder är klara)\n"
 
 #: src/dvdisaster.c:970
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Drive and file specification:\n"
 "  -d, --device device         - read from given device   (default: %s)\n"
@@ -617,7 +624,7 @@ msgstr ""
 "  -p, --prefix prefix - prefix för .iso/.ecc-fil (standard: medium.* )\n"
 "  -i, --image imagefile - namn på bildfil (standard: medium.iso)\n"
 "  -e, --ecc eccfile - namn på paritetsfil (standard: medium.ecc)\n"
-"  -o, --ecc-target imagefile - var man lägger ecc-data i RS03"
+"  -o, --ecc-target imagefile - var man lägger ecc-data i RS03\n"
 
 #: src/dvdisaster.c:980
 msgid "Tweaking options (see manual before using!)\n"
@@ -629,7 +636,7 @@ msgid ""
 "  -a, --assume x             - assume image is augmented with given codec "
 "(RS02 or RS03)\n"
 msgstr ""
-"-a, -anta x - anta att bilden är utökad med given codec (RS02 eller RS03)"
+"-a, -anta x - anta att bilden är utökad med given codec (RS02 eller RS03)\n"
 
 #: src/dvdisaster.c:982
 #, fuzzy
@@ -637,17 +644,17 @@ msgid ""
 "  -j, --jump n               - jump n sectors forward after a read error "
 "(default: 16)\n"
 msgstr ""
-"-j, --jump n - hoppa n sektorer framåt efter ett läsfel (standard: 16)"
+"-j, --jump n - hoppa n sektorer framåt efter ett läsfel (standard: 16)\n"
 
 #: src/dvdisaster.c:983
 #, fuzzy
 msgid ""
 "  -m, --method x             - list/select error correction methods "
 "(default: RS01)\n"
-msgstr "-m, --metod x - lista/välj felkorrigeringsmetoder (standard: RS01)"
+msgstr "-m, --metod x - lista/välj felkorrigeringsmetoder (standard: RS01)\n"
 
 #: src/dvdisaster.c:984
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "  -n, --redundancy x         - error correction data redundancy\n"
 "                               e.g. 20%%, 32r (roots), 200m (MiB), normal, high\n"
@@ -661,7 +668,7 @@ msgstr ""
 "                               för RS02/RS03 utökade bilder, accepterar även en mellanstorlek:\n"
 "                               CD, DVD, DVD9, BD, BD2, BDXL3, BDXL4,\n"
 "                               BDNODM, BD2NODM, BDXL3NODM, BDXL4NODM,\n"
-"                               eller ett råsektorantal"
+"                               eller ett råsektorantal\n"
 
 #: src/dvdisaster.c:990
 #, fuzzy
@@ -670,7 +677,7 @@ msgid ""
 "parsing logs\n"
 msgstr ""
 "-v, --verbose - fler loggar, ställ in env VERBOSE=1 för förvalsanalys av "
-"loggar"
+"loggar\n"
 
 #: src/dvdisaster.c:991
 #, fuzzy
@@ -678,7 +685,7 @@ msgid ""
 "  -x, --threads n            - use n threads for en-/decoding (if supported "
 "by codec)\n"
 msgstr ""
-"-x, --trådar n - använd n trådar för en-/avkodning (om det stöds av codec)"
+"-x, --trådar n - använd n trådar för en-/avkodning (om det stöds av codec)\n"
 
 #: src/dvdisaster.c:992
 #, fuzzy
@@ -686,14 +693,14 @@ msgid ""
 "  --adaptive-read            - use optimized strategy for reading damaged "
 "media\n"
 msgstr ""
-"--adaptive-read - använd optimerad strategi för att läsa skadade media"
+"--adaptive-read - använd optimerad strategi för att läsa skadade media\n"
 
 #: src/dvdisaster.c:993
 #, fuzzy
 msgid ""
 "  --auto-suffix              - automatically add .iso and .ecc file "
 "suffixes\n"
-msgstr "--auto-suffix - lägg automatiskt till .iso- och .ecc-filsuffix"
+msgstr "--auto-suffix - lägg automatiskt till .iso- och .ecc-filsuffix\n"
 
 #: src/dvdisaster.c:994
 #, fuzzy
@@ -701,18 +708,18 @@ msgid ""
 "  --cache-size n             - image cache size in MiB during -c mode "
 "(default: 32MiB)\n"
 msgstr ""
-"--cache-size n - bildcachestorlek i MiB under -c-läge (standard: 32MiB)"
+"--cache-size n - bildcachestorlek i MiB under -c-läge (standard: 32MiB)\n"
 
 #: src/dvdisaster.c:995
 #, fuzzy
 msgid "  --dao                      - assume DAO disc; do not trim image end\n"
-msgstr "--dao - anta DAO-skiva; trimma inte bildens ände"
+msgstr "--dao - anta DAO-skiva; trimma inte bildens ände\n"
 
 #: src/dvdisaster.c:996
 #, fuzzy
 msgid ""
 "  --defective-dump d         - directory for saving incomplete raw sectors\n"
-msgstr "--defekt-dump d - katalog för att spara ofullständiga råsektorer"
+msgstr "--defekt-dump d - katalog för att spara ofullständiga råsektorer\n"
 
 #: src/dvdisaster.c:998
 #, fuzzy
@@ -721,7 +728,7 @@ msgid ""
 "(see man page!)\n"
 msgstr ""
 "--driver=sg/cdrom - använd sg(standard) eller alternativ cdrom-drivrutin (se"
-" manualsidan!)"
+" manualsidan!)\n"
 
 #: src/dvdisaster.c:1000
 #, fuzzy
@@ -730,29 +737,29 @@ msgid ""
 "(slow!)\n"
 msgstr ""
 "--bruteforce-rs03-search - aktivera bruteforce linjär skanning för RS03-data"
-" (långsam!)"
+" (långsam!)\n"
 
 #: src/dvdisaster.c:1001
 #, fuzzy
 msgid "  --eject                    - eject medium after successful read\n"
-msgstr "--eject - mata ut medium efter lyckad läsning"
+msgstr "--eject - mata ut medium efter lyckad läsning\n"
 
 #: src/dvdisaster.c:1002
 #, fuzzy
 msgid ""
 "  --encoding-algorithm x     - possible values: 32bit, 64bit, SSE2, "
 "AltiVec\n"
-msgstr "--encoding-algorithm x - möjliga värden: 32bit, 64bit, SSE2, AltiVec"
+msgstr "--encoding-algorithm x - möjliga värden: 32bit, 64bit, SSE2, AltiVec\n"
 
 #: src/dvdisaster.c:1003
 #, fuzzy
 msgid "  --encoding-io-strategy x   - possible values: readwrite, mmap\n"
-msgstr "--encoding-io-strategy x - möjliga värden: readwrite, mmap"
+msgstr "--encoding-io-strategy x - möjliga värden: readwrite, mmap\n"
 
 #: src/dvdisaster.c:1004
 #, fuzzy
 msgid "  --fill-unreadable n        - fill unreadable sectors with byte n\n"
-msgstr "--fill-unreadable n - fyll oläsbara sektorer med byte n"
+msgstr "--fill-unreadable n - fyll oläsbara sektorer med byte n\n"
 
 #: src/dvdisaster.c:1005
 #, fuzzy
@@ -760,7 +767,7 @@ msgid ""
 "  --ignore-fatal-sense       - continue reading after potentially fatal "
 "error conditon\n"
 msgstr ""
-"--ignore-fatal-sense - fortsätt läsa efter potentiellt fatalt feltillstånd"
+"--ignore-fatal-sense - fortsätt läsa efter potentiellt fatalt feltillstånd\n"
 
 #: src/dvdisaster.c:1006
 #, fuzzy
@@ -769,7 +776,7 @@ msgid ""
 "(dangerous - see man page!)\n"
 msgstr ""
 "--ignore-iso-size - ignorera bildstorlek från ISO/UDF-data (farligt - se "
-"man-sidan!)"
+"man-sidan!)\n"
 
 #: src/dvdisaster.c:1007
 #, fuzzy
@@ -778,12 +785,12 @@ msgid ""
 "an error\n"
 msgstr ""
 "--internal-rereads n - drive kan försöka n omläsningar innan ett fel "
-"rapporteras"
+"rapporteras\n"
 
 #: src/dvdisaster.c:1008
 #, fuzzy
 msgid "  --medium-info              - print info about medium in drive\n"
-msgstr "--medium-info - skriv ut info om medium i enheten"
+msgstr "--medium-info - skriv ut info om medium i enheten\n"
 
 #: src/dvdisaster.c:1009
 #, fuzzy
@@ -792,12 +799,12 @@ msgid ""
 "page!)\n"
 msgstr ""
 "--no-bdr-defect-management - använd större RS03-bilder för BD-R (se "
-"manualsidan!)"
+"manualsidan!)\n"
 
 #: src/dvdisaster.c:1010
 #, fuzzy
 msgid "  --no-progress              - do not print progress information\n"
-msgstr "--no-progress - skriv inte ut förloppsinformation"
+msgstr "--no-progress - skriv inte ut förloppsinformation\n"
 
 #: src/dvdisaster.c:1011
 #, fuzzy
@@ -806,7 +813,7 @@ msgid ""
 "dvdisaster <= 0.70\n"
 msgstr ""
 "--old-ds-marker - markera saknade sektorer som är kompatibla med dvdisaster "
-"<= 0,70"
+"<= 0,70\n"
 
 #: src/dvdisaster.c:1012
 #, fuzzy
@@ -814,42 +821,43 @@ msgid ""
 "  --prefetch-sectors n       - prefetch n sectors for RS03 encoding (uses "
 "~nMiB)\n"
 msgstr ""
-"--prefetch-sectors n - prefetch n sektorer för RS03-kodning (använder ~nMiB)"
+"--prefetch-sectors n - prefetch n sektorer för RS03-kodning (använder "
+"~nMiB)\n"
 
 #: src/dvdisaster.c:1013
 #, fuzzy
 msgid ""
 "  --raw-mode n               - mode for raw reading CD media (20 or 21)\n"
-msgstr "--raw-mode n - läge för råläsning av CD-media (20 eller 21)"
+msgstr "--raw-mode n - läge för råläsning av CD-media (20 eller 21)\n"
 
 #: src/dvdisaster.c:1014
 #, fuzzy
 msgid ""
 "  --read-attempts n-m        - attempts n up to m reads of a defective "
 "sector\n"
-msgstr "--läs-försök n-m - försök n upp till m läsningar av en defekt sektor"
+msgstr "--läs-försök n-m - försök n upp till m läsningar av en defekt sektor\n"
 
 #: src/dvdisaster.c:1015
 #, fuzzy
 msgid "  --read-medium n            - read the whole medium up to n times\n"
-msgstr "--read-medium n - läs hela mediet upp till n gånger"
+msgstr "--read-medium n - läs hela mediet upp till n gånger\n"
 
 #: src/dvdisaster.c:1016
 #, fuzzy
 msgid "  --read-raw                 - performs read in raw mode if possible\n"
-msgstr "--read-raw - utför läsning i råläge om möjligt"
+msgstr "--read-raw - utför läsning i råläge om möjligt\n"
 
 #: src/dvdisaster.c:1017
 #, fuzzy
 msgid ""
 "  --regtest                  - tweaks output for compatibility with "
 "regtests\n"
-msgstr "--regtest - anpassar utdata för kompatibilitet med rättsts"
+msgstr "--regtest - anpassar utdata för kompatibilitet med rättsts\n"
 
 #: src/dvdisaster.c:1018
 #, fuzzy
 msgid "  --resource-file p          - get resource file from given path\n"
-msgstr "--resursfil p - hämta resursfil från given sökväg"
+msgstr "--resursfil p - hämta resursfil från given sökväg\n"
 
 #: src/dvdisaster.c:1019
 #, fuzzy
@@ -858,18 +866,18 @@ msgid ""
 " percent\n"
 msgstr ""
 "--speed-warning n - skriv ut varning om hastigheten ändras med mer än n "
-"procent"
+"procent\n"
 
 #: src/dvdisaster.c:1020
 #, fuzzy
 msgid "  --spinup-delay n           - wait n seconds for drive to spin up\n"
-msgstr "--spinup-delay n - vänta n sekunder tills enheten snurrar upp"
+msgstr "--spinup-delay n - vänta n sekunder tills enheten snurrar upp\n"
 
 #: src/dvdisaster.c:1021
 #, fuzzy
 msgid ""
 "  --version                  - print version and some configuration info\n"
-msgstr "--version - utskriftsversion och lite konfigurationsinformation"
+msgstr "--version - utskriftsversion och lite konfigurationsinformation\n"
 
 #: src/dvdisaster.c:1022
 #, fuzzy
@@ -878,13 +886,13 @@ msgid ""
 "--help for a list)\n"
 msgstr ""
 "--debug - tillåt avancerade farliga alternativ (använd med --help för en "
-"lista)"
+"lista)\n"
 
 #: src/dvdisaster.c:1026
 #, fuzzy
 msgid "Debugging options (purposefully undocumented and possibly harmful)\n"
 msgstr ""
-"Felsökningsalternativ (avsiktligt odokumenterade och möjligen skadliga)"
+"Felsökningsalternativ (avsiktligt odokumenterade och möjligen skadliga)\n"
 
 #: src/dvdisaster.c:1027
 #, fuzzy
@@ -893,24 +901,24 @@ msgid ""
 "unsupported ones\n"
 msgstr ""
 "--permissive-medium-type - tillåter fler mediatyper, även sådana som inte "
-"stöds teoretiskt"
+"stöds teoretiskt\n"
 
 #: src/dvdisaster.c:1028
 #, fuzzy
 msgid "  --byteset s,i,b          - set byte i in sector s to b\n"
-msgstr "--byteset s,i,b - sätt byte i i sektor s till b"
+msgstr "--byteset s,i,b - sätt byte i i sektor s till b\n"
 
 #: src/dvdisaster.c:1029
 #, fuzzy
 msgid ""
 "  --cdump                  - creates C #include file dumps instead of "
 "hexdumps\n"
-msgstr "--cdump - skapar C #include fildumpar istället för hexdumps"
+msgstr "--cdump - skapar C #include fildumpar istället för hexdumps\n"
 
 #: src/dvdisaster.c:1030
 #, fuzzy
 msgid "  --compare-images a,b     - compare sectors in images a and b\n"
-msgstr "--compare-images a,b - jämför sektorer i bilder a och b"
+msgstr "--compare-images a,b - jämför sektorer i bilder a och b\n"
 
 #: src/dvdisaster.c:1031
 #, fuzzy
@@ -918,27 +926,28 @@ msgid ""
 "  --copy-sector a,n,b,m    - copy sector n from image a to sector m in image"
 " b\n"
 msgstr ""
-"--copy-sector a,n,b,m - kopiera sektor n från bild a till sektor m i bild b"
+"--copy-sector a,n,b,m - kopiera sektor n från bild a till sektor m i bild "
+"b\n"
 
 #: src/dvdisaster.c:1032
 #, fuzzy
 msgid "  --erase sector           - erase the given sector\n"
-msgstr "--erase sektor - radera den givna sektorn"
+msgstr "--erase sektor - radera den givna sektorn\n"
 
 #: src/dvdisaster.c:1033
 #, fuzzy
 msgid "  --erase n-m              - erase sectors n - m, inclusively\n"
-msgstr "--radera n-m - radera sektorer n - m, inklusive"
+msgstr "--radera n-m - radera sektorer n - m, inklusive\n"
 
 #: src/dvdisaster.c:1034
 #, fuzzy
 msgid "  --examine-rs02           - force RS02 exhaustive search\n"
-msgstr "--examine-rs02 - tvinga RS02 uttömmande sökning"
+msgstr "--examine-rs02 - tvinga RS02 uttömmande sökning\n"
 
 #: src/dvdisaster.c:1035
 #, fuzzy
 msgid "  --examine-rs03           - force RS03 exhaustive search\n"
-msgstr "--examine-rs03 - tvinga RS03 uttömmande sökning"
+msgstr "--examine-rs03 - tvinga RS03 uttömmande sökning\n"
 
 #: src/dvdisaster.c:1036
 #, fuzzy
@@ -947,7 +956,7 @@ msgid ""
 "diffing\n"
 msgstr ""
 "--fixed-speed-values ​​- mata ut fasta varvtalsvärden för bättre "
-"utgångsdifferens"
+"utgångsdifferens\n"
 
 #: src/dvdisaster.c:1037
 #, fuzzy
@@ -956,12 +965,12 @@ msgid ""
 "full search)\n"
 msgstr ""
 "--ignore-rs03-header - ignorera RS03 header vid reparation (tvingar fram en "
-"fullständig sökning)"
+"fullständig sökning)\n"
 
 #: src/dvdisaster.c:1038
 #, fuzzy
 msgid "  --marked-image n         - create image with n marked random sectors\n"
-msgstr "--marked-image n - skapa bild med n markerade slumpmässiga sektorer"
+msgstr "--marked-image n - skapa bild med n markerade slumpmässiga sektorer\n"
 
 #: src/dvdisaster.c:1039
 #, fuzzy
@@ -969,26 +978,26 @@ msgid ""
 "  --merge-images a,b       - merge image a with b (a receives sectors from "
 "b)\n"
 msgstr ""
-"--merge-images a,b - slå samman bild a med b (a tar emot sektorer från b)"
+"--merge-images a,b - slå samman bild a med b (a tar emot sektorer från b)\n"
 
 #: src/dvdisaster.c:1040
 #, fuzzy
 msgid ""
 "  --random-errors e        - seed image with (correctable) random errors\n"
-msgstr "--random-errors e - fröbild med (korrigerbara) slumpmässiga fel"
+msgstr "--random-errors e - fröbild med (korrigerbara) slumpmässiga fel\n"
 
 #: src/dvdisaster.c:1041
 #, fuzzy
 msgid ""
 "  --random-image n         - create image with n sectors of random numbers\n"
-msgstr "--random-image n - skapa bild med n sektorer av slumptal"
+msgstr "--random-image n - skapa bild med n sektorer av slumptal\n"
 
 #: src/dvdisaster.c:1042
 #, fuzzy
 msgid ""
 "  --random-seed n          - random seed for built-in random number "
 "generator\n"
-msgstr "--random-seed n - random seed för inbyggd slumptalsgenerator"
+msgstr "--random-seed n - random seed för inbyggd slumptalsgenerator\n"
 
 #: src/dvdisaster.c:1043
 #, fuzzy
@@ -996,7 +1005,7 @@ msgid ""
 "  --raw-sector n           - shows hexdump of the given raw sector from "
 "medium in drive\n"
 msgstr ""
-"--råsektor n - visar hexdump av den givna råsektorn från medium i drivning"
+"--råsektor n - visar hexdump av den givna råsektorn från medium i drivning\n"
 
 #: src/dvdisaster.c:1044
 #, fuzzy
@@ -1005,12 +1014,12 @@ msgid ""
 "in drive\n"
 msgstr ""
 "--read-sector n - visar hexdump av den givna sektorn från medium i "
-"drivenheten"
+"drivenheten\n"
 
 #: src/dvdisaster.c:1045
 #, fuzzy
 msgid "  --screen-shot            - useful for generating screen shots\n"
-msgstr "--screen-shot - användbar för att generera skärmdumpar"
+msgstr "--screen-shot - användbar för att generera skärmdumpar\n"
 
 #: src/dvdisaster.c:1046
 #, fuzzy
@@ -1019,7 +1028,7 @@ msgid ""
 "used wrong\n"
 msgstr ""
 "--send-cdb arg - exekverar given cdb på enheten; dödar systemet om det "
-"används fel"
+"används fel\n"
 
 #: src/dvdisaster.c:1047
 #, fuzzy
@@ -1027,7 +1036,7 @@ msgid ""
 "  --set-version            - set program version for debugging purposes "
 "(dangerous!)\n"
 msgstr ""
-"--set-version - ställ in programversion för felsökningsändamål (farligt!)"
+"--set-version - ställ in programversion för felsökningsändamål (farligt!)\n"
 
 #: src/dvdisaster.c:1048
 #, fuzzy
@@ -1036,14 +1045,14 @@ msgid ""
 " it\n"
 msgstr ""
 "--show-header n - antar att en given sektor är en ecc header och skriver ut "
-"den"
+"den\n"
 
 #: src/dvdisaster.c:1049
 #, fuzzy
 msgid ""
 "  --show-sector n          - shows hexdump of the given sector in an image "
 "file\n"
-msgstr "--show-sector n - visar hexdump för den givna sektorn i en bildfil"
+msgstr "--show-sector n - visar hexdump för den givna sektorn i en bildfil\n"
 
 #: src/dvdisaster.c:1050
 #, fuzzy
@@ -1052,24 +1061,24 @@ msgid ""
 " by the ISO image\n"
 msgstr ""
 "--sim-cd image - simulera en SCSI-nivå CD med innehåll som tillhandahålls av"
-" ISO-avbildningen"
+" ISO-avbildningen\n"
 
 #: src/dvdisaster.c:1051
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "  --sim-defects n          - simulate n%% defective sectors on medium\n"
-msgstr "--sim-defekter n - simulera n%% defekta sektorer på medium"
+msgstr "--sim-defekter n - simulera n%% defekta sektorer på medium\n"
 
 #: src/dvdisaster.c:1052
 #, fuzzy
 msgid "  --truncate n             - truncates image to n sectors\n"
-msgstr "--Truncate n - trunkerar bilden till n sektorer"
+msgstr "--Truncate n - trunkerar bilden till n sektorer\n"
 
 #: src/dvdisaster.c:1053
 #, fuzzy
 msgid ""
 "  --zero-unreadable        - replace the \"unreadable sector\" markers with zeros\n"
 "\n"
-msgstr "--zero-unreadable - ersätt markörerna för \"oläsbar sektor\" med nollor"
+msgstr "--zero-unreadable - ersätt markörerna för \"oläsbar sektor\" med nollor\n"
 
 #: src/dvdisaster.c:1083
 #, fuzzy
@@ -1083,7 +1092,7 @@ msgid ""
 "preferences in the GUI instead.\n"
 msgstr ""
 "Använda GUI-läge: de flesta kommandoradsalternativ ignoreras. Titta på "
-"inställningarna i GUI istället."
+"inställningarna i GUI istället.\n"
 
 #: src/ecc-rs01.c:43
 msgid "Error correction file (RS01)"
@@ -1121,7 +1130,9 @@ msgid ""
 "\n"
 "Contents of Ecc Header:\n"
 "\n"
-msgstr "Innehåll i Ecc Header:"
+msgstr ""
+"\n"
+"Innehåll i Ecc Header:\n"
 
 #: src/help-dialogs.c:157 src/help-dialogs.c:559 src/help-dialogs.c:742
 #: src/medium-info.c:333 src/preferences.c:1202
@@ -1165,7 +1176,7 @@ msgstr ""
 "inte tillgänglig"
 
 #: src/help-dialogs.c:527
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "File\n"
 "%s\n"
@@ -1180,7 +1191,9 @@ msgstr ""
 msgid ""
 "\n"
 "<- Error: Text file truncated here"
-msgstr "<- Fel: Textfilen trunkeras här"
+msgstr ""
+"\n"
+"<- Fel: Textfilen trunkeras här"
 
 #: src/help-dialogs.c:740
 msgid "windowtitle|About dvdisaster"
@@ -1224,7 +1237,9 @@ msgstr ""
 msgid ""
 "\n"
 "e-mail: support@dvdisaster.org"
-msgstr "e-post: support@dvdisaster.org"
+msgstr ""
+"\n"
+"e-post: support@dvdisaster.org"
 
 #: src/help-dialogs.c:783
 #, fuzzy
@@ -1239,6 +1254,7 @@ msgid ""
 "Please do not bother the original authors of dvdisaster,\n"
 "submit bugreports against [GitHub] instead.\n"
 msgstr ""
+"\n"
 "Den här versionen är <b>inte original</b>. Den har förbättrats främst till\n"
 "lägg till stöd för BD-R TL/QL och HD-DVD, lägg till stöd för att ta bort ECC från ISO,\n"
 "lägg till ett alternativ för att generera BD-R RS03-bilder med mer redundans,\n"
@@ -1246,33 +1262,39 @@ msgstr ""
 "porta GUI till GTK3 och en massa andra saker.\n"
 "\n"
 "Vänligen stör inte de ursprungliga författarna av dvdisaster,\n"
-"skicka in felrapporter mot [GitHub] istället."
+"skicka in felrapporter mot [GitHub] istället.\n"
 
 #: src/help-dialogs.c:793
 #, fuzzy
 msgid ""
 "\n"
 "NetBSD port: Sergey Svishchev &lt;svs@ropnet.ru&gt;"
-msgstr "NetBSD-port: Sergey Svishchev &lt;svs@ropnet.ru&gt;"
+msgstr ""
+"\n"
+"NetBSD-port: Sergey Svishchev &lt;svs@ropnet.ru&gt;"
 
 #: src/image.c:156 src/image.c:161
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Image file %s not present or permission denied.\n"
-msgstr "Bildfilen %s finns inte eller tillstånd nekad."
+msgstr "Bildfilen %s finns inte eller tillstånd nekad.\n"
 
 #: src/image.c:172 src/image.c:177
 #, fuzzy
 msgid ""
 "\n"
 "Error correction file type unknown.\n"
-msgstr "Felkorrigeringsfiltyp okänd."
+msgstr ""
+"\n"
+"Felkorrigeringsfiltyp okänd.\n"
 
 #: src/image.c:188 src/image.c:194
 #, fuzzy
 msgid ""
 "\n"
 "Permission denied on ecc file (perhaps not writeable?).\n"
-msgstr "Tillstånd nekad på ecc-fil (kanske inte skrivbar?)."
+msgstr ""
+"\n"
+"Tillstånd nekad på ecc-fil (kanske inte skrivbar?).\n"
 
 #: src/image.c:206 src/image.c:212
 #, fuzzy
@@ -1281,8 +1303,9 @@ msgid ""
 "No error correction file present.\n"
 "No error correction data recognized in image.\n"
 msgstr ""
+"\n"
 "Det finns ingen felkorrigeringsfil.\n"
-"Inga felkorrigeringsdata kändes igen i bilden."
+"Inga felkorrigeringsdata kändes igen i bilden.\n"
 
 #: src/large-io.c:185
 #, fuzzy
@@ -1310,9 +1333,9 @@ msgstr ""
 "Du kan göra om operationen när du har frigjort mer utrymme."
 
 #: src/main-window.c:70
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "log: %s\n"
-msgstr "logg: %s"
+msgstr "logg: %s\n"
 
 #: src/main-window.c:97
 #, fuzzy
@@ -1512,24 +1535,24 @@ msgid "complete"
 msgstr "komplett"
 
 #: src/medium-info.c:155
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%s (%d sessions; last session %s)\n"
-msgstr "%s (%d sessioner; senaste session %s)"
+msgstr "%s (%d sessioner; senaste session %s)\n"
 
 #: src/medium-info.c:161
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> sectors (%<PRId64> MiB), from READ CAPACITY\n"
-msgstr "%<PRId64> sektorer (%<PRId64> MiB), från READ CAPACITY"
+msgstr "%<PRId64> sektorer (%<PRId64> MiB), från READ CAPACITY\n"
 
 #: src/medium-info.c:164
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> sectors (%<PRId64> MiB), from DVD structure\n"
-msgstr "%<PRId64>-sektorer (%<PRId64> MiB), från DVD-struktur"
+msgstr "%<PRId64>-sektorer (%<PRId64> MiB), från DVD-struktur\n"
 
 #: src/medium-info.c:168
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> sectors (%<PRId64> MiB)\n"
-msgstr "%<PRId64> sektorer (%<PRId64> MiB)"
+msgstr "%<PRId64> sektorer (%<PRId64> MiB)\n"
 
 #: src/medium-info.c:180 src/medium-info.c:475
 #, fuzzy
@@ -1537,9 +1560,9 @@ msgid "Filesystem info"
 msgstr "Filsysteminformation"
 
 #: src/medium-info.c:186
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d sectors (%<PRId64> MiB)\n"
-msgstr "%d sektorer (%<PRId64> MiB)"
+msgstr "%d sektorer (%<PRId64> MiB)\n"
 
 #: src/medium-info.c:207 src/medium-info.c:513
 #, fuzzy
@@ -1547,14 +1570,14 @@ msgid "Augmented image info"
 msgstr "Förstärkt bildinformation"
 
 #: src/medium-info.c:213
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%s, %d roots, %4.1f%% redundancy.\n"
-msgstr "%s, %d rötter, %4.1f%% redundans."
+msgstr "%s, %d rötter, %4.1f%% redundans.\n"
 
 #: src/medium-info.c:217
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRIu64> sectors (%<PRId64> MiB)\n"
-msgstr "%<PRIu64> sektorer (%<PRId64> MiB)"
+msgstr "%<PRIu64> sektorer (%<PRId64> MiB)\n"
 
 #: src/medium-info.c:229
 #, fuzzy
@@ -1866,6 +1889,41 @@ msgstr ""
 "Lista på tillgängliga metoder:\n"
 "\n"
 
+#: src/misc-gui.c:241
+#, fuzzy, c-format
+msgid ""
+"The error correction file is already present:\n"
+"\n"
+"%s\n"
+"\n"
+"Overwrite it?"
+msgstr ""
+"Felkorrigeringsfilen finns redan:\n"
+"\n"
+"%s\n"
+"\n"
+"Vill du skriva över det?"
+
+#: src/misc-gui.c:609
+#, fuzzy
+msgid "Do not ask again"
+msgstr "Fråga inte igen"
+
+#: src/misc-gui.c:629
+#, fuzzy, c-format
+msgid ""
+"Image file already exists and does not match the medium:\n"
+"\n"
+"%s\n"
+"\n"
+"The existing image file will be deleted."
+msgstr ""
+"Bildfilen finns redan och matchar inte mediet:\n"
+"\n"
+"%s\n"
+"\n"
+"Den befintliga bildfilen kommer att raderas."
+
 #: src/misc.c:225
 msgid ""
 "This software comes with  ABSOLUTELY NO WARRANTY.  This\n"
@@ -1905,12 +1963,12 @@ msgid "Image is not augmented (no dvdisaster signature found)."
 msgstr "Bilden är inte utökad (ingen dvdisaster-signatur hittades)."
 
 #: src/misc.c:779
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Invalid end data sector (%<PRId64>), aborting"
 msgstr "Ogiltig slutdatasektor (%<PRId64>), avbryter"
 
 #: src/misc.c:788
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "We're about to truncate the image from %<PRId64> sectors (%<PRId64> MiB)\n"
 "to %<PRId64> sectors (%<PRId64> MiB), removing any dvdisaster-added ECC data.\n"
@@ -1928,47 +1986,12 @@ msgstr "Avbröts på användarens begäran"
 #: src/misc.c:804
 #, fuzzy
 msgid "Image successfully truncated back to its original size.\n"
-msgstr "Bilden har trunkerats tillbaka till sin ursprungliga storlek."
+msgstr "Bilden har trunkerats tillbaka till sin ursprungliga storlek.\n"
 
 #: src/misc.c:808
 #, fuzzy
 msgid "Image successfully truncated"
 msgstr "Bilden har trunkerats"
-
-#: src/misc-gui.c:241
-#, c-format, fuzzy
-msgid ""
-"The error correction file is already present:\n"
-"\n"
-"%s\n"
-"\n"
-"Overwrite it?"
-msgstr ""
-"Felkorrigeringsfilen finns redan:\n"
-"\n"
-"%s\n"
-"\n"
-"Vill du skriva över det?"
-
-#: src/misc-gui.c:609
-#, fuzzy
-msgid "Do not ask again"
-msgstr "Fråga inte igen"
-
-#: src/misc-gui.c:629
-#, c-format, fuzzy
-msgid ""
-"Image file already exists and does not match the medium:\n"
-"\n"
-"%s\n"
-"\n"
-"The existing image file will be deleted."
-msgstr ""
-"Bildfilen finns redan och matchar inte mediet:\n"
-"\n"
-"%s\n"
-"\n"
-"Den befintliga bildfilen kommer att raderas."
 
 #: src/preferences.c:409
 msgid "Switched to the linear reading strategy."
@@ -2280,7 +2303,7 @@ msgstr ""
 "<b>Fyllning av oläsbara sektorer</b>\n"
 "\n"
 "dvdisaster markerar oläsbara sektorer med ett speciellt fyllningsmönster som är mycket osannolikt att inträffa i oskadade media.\n"
-"I andra dataåterställningsprogram är det vanligt att fylla oläsbara sektorer med ett visst bytevärde. För att möjliggöra interoperabilitet med sådana program kan du ange bytevärdet som de använder:"
+"I andra dataåterställningsprogram är det vanligt att fylla oläsbara sektorer med ett visst bytevärde. För att möjliggöra interoperabilitet med sådana program kan du ange bytevärdet som de använder:\n"
 
 #: src/preferences.c:1645
 #, fuzzy
@@ -2289,7 +2312,7 @@ msgid ""
 " German periodical.\n"
 msgstr ""
 "0xb0 (176 decimaler): för kompatibilitet med h2cdimage publicerad av "
-"\"c't\", en tysk tidskrift."
+"\"c't\", en tysk tidskrift.\n"
 
 #: src/preferences.c:1649
 #, fuzzy
@@ -2511,7 +2534,7 @@ msgstr "Minsta antal läsförsök"
 
 #: src/preferences.c:1991 src/preferences.c:1992 src/preferences.c:1997
 #: src/preferences.c:1998
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Min. %d reading attempts per sector"
 msgstr "Min. %d läsförsök per sektor"
 
@@ -2537,7 +2560,7 @@ msgstr "Maximalt antal läsförsök"
 
 #: src/preferences.c:2031 src/preferences.c:2032 src/preferences.c:2037
 #: src/preferences.c:2038
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Max. %d reading attempts per sector"
 msgstr "Max. %d läsförsök per sektor"
 
@@ -2569,7 +2592,7 @@ msgstr "Hoppa över %d sektorer efter läsfel"
 
 #: src/preferences.c:2077 src/preferences.c:2082 src/preferences.c:2083
 #: src/preferences.c:2088
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Stop reading when unreadable intervals &lt; %d"
 msgstr "Sluta läsa när oläsbara intervaller &lt; %d"
 
@@ -2608,7 +2631,7 @@ msgid ""
 msgstr ""
 "Mindre värden som 16, 32 eller 64 är en bra avvägning: Bearbetningstiden "
 "kommer att förkortas avsevärt, men fortfarande samlas tillräckligt med data "
-"för att reparera bilden."
+"för att reparera bilden.\n"
 
 #: src/preferences.c:2129
 #, fuzzy
@@ -2731,7 +2754,7 @@ msgid ""
 msgstr ""
 "<b>Felkorrigeringsmetod</b>\n"
 "\n"
-"dvdisaster skapar felkorrigeringsdata som används för att återställa oläsbara sektorer om skivan skadas senare. Det finns olika codecs och sätt tillgängliga för att lagra felkorrigeringsinformationen:"
+"dvdisaster skapar felkorrigeringsdata som används för att återställa oläsbara sektorer om skivan skadas senare. Det finns olika codecs och sätt tillgängliga för att lagra felkorrigeringsinformationen:\n"
 
 #: src/preferences.c:2341
 #, fuzzy
@@ -2740,7 +2763,7 @@ msgid ""
 "RS01 is the recommended codec for storing error correction data in separate files.\n"
 msgstr ""
 "RS01 codec\n"
-"RS01 är den rekommenderade codec för att lagra felkorrigeringsdata i separata filer."
+"RS01 är den rekommenderade codec för att lagra felkorrigeringsdata i separata filer.\n"
 
 #: src/preferences.c:2344
 #, fuzzy
@@ -2749,7 +2772,7 @@ msgid ""
 "RS02 is the currently recommended codec for augmenting images with error correction data.\n"
 msgstr ""
 "RS02 codec\n"
-"RS02 är den för närvarande rekommenderade codec för att utöka bilder med felkorrigeringsdata."
+"RS02 är den för närvarande rekommenderade codec för att utöka bilder med felkorrigeringsdata.\n"
 
 #: src/preferences.c:2348
 #, fuzzy
@@ -3144,7 +3167,7 @@ msgid "Sense error (0x%02x); "
 msgstr "Avkänningsfel (0x%02x); "
 
 #: src/print-sense.c:617
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Sense error: %s%c "
 msgstr "Avkänningsfel: %s%c"
 
@@ -3154,7 +3177,7 @@ msgid "unknown asc/ascq code (0x%02x, 0x%02x)."
 msgstr "okänd asc/ascq-kod (0x%02x, 0x%02x)."
 
 #: src/raw-editor.c:317
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%s loaded, LBA %<PRId64>, %d samples."
 msgstr "%s laddade, LBA %<PRId64>, %d prover."
 
@@ -3191,12 +3214,12 @@ msgid "Failed writing to sector %<PRId64> in image [%s]: %s"
 msgstr "Misslyckades med att skriva till sektor %<PRId64> i avbild [%s]: %s"
 
 #: src/raw-editor.c:427
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Buffer loaded from %s."
 msgstr "Bufferten laddad från %s."
 
 #: src/raw-editor.c:452
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Buffer saved to %s."
 msgstr "Bufferten har sparats till %s."
 
@@ -3206,52 +3229,52 @@ msgid "*** Well done: Sector has been recovered! ***"
 msgstr "*** Bra gjort: Sektorn har återställts! ***"
 
 #: src/raw-editor.c:537
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Current buffer state: P %d/%d, Q %d/%d"
 msgstr "Aktuellt buffertläge: P %d/%d, Q %d/%d"
 
 #: src/raw-editor.c:650
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%c Vector %d has >2 erasures (nothing done)."
 msgstr "%c Vektor %d har >2 raderingar (ingenting gjort)."
 
 #: src/raw-editor.c:679
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%c Vector %d already good."
 msgstr "%c Vektor %d redan bra."
 
 #: src/raw-editor.c:687
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%c Vector %d corrected (%d erasures)."
 msgstr "%c Vektor %d korrigerad (%d raderingar)."
 
 #: src/raw-editor.c:690
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%c Vector %d not correctable (%d erasures)."
 msgstr "%c Vektor %d kan inte korrigeras (%d raderingar)."
 
 #: src/raw-editor.c:705
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "no replacements for P vector %d available"
 msgstr "inga ersättningar för P vektor %d tillgängliga"
 
 #: src/raw-editor.c:721
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Exchanged P vector %d with version %d (of %d)."
 msgstr "Bytte P-vektor %d med version %d (av %d)."
 
 #: src/raw-editor.c:743
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "no replacements for Q vector %d available"
 msgstr "inga ersättningar för Q vektor %d tillgängliga"
 
 #: src/raw-editor.c:757
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Exchanged Q vector %d with version %d (of %d)."
 msgstr "Bytte Q-vektor %d med version %d (av %d)."
 
 #: src/raw-editor.c:818 src/raw-editor.c:831
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Showing sample %d (of %d)."
 msgstr "Visar prov %d (av %d)."
 
@@ -3266,7 +3289,7 @@ msgid "Sector with lowest Q failures selected."
 msgstr "Sektor med lägsta Q-fel har valts."
 
 #: src/raw-editor.c:898
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Smart L-EC: %s"
 msgstr "Smart L-EC: %s"
 
@@ -3401,14 +3424,14 @@ msgstr "Kunde inte öppna %s: %s"
 #: src/raw-sector-cache.c:62 src/raw-sector-cache.c:126
 #: src/raw-sector-cache.c:132 src/raw-sector-cache.c:136
 #: src/raw-sector-cache.c:164 src/raw-sector-cache.c:262
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed writing to defective sector file: %s"
 msgstr "Det gick inte att skriva till defekt sektorfil: %s"
 
 #: src/raw-sector-cache.c:82 src/raw-sector-cache.c:107
 #: src/raw-sector-cache.c:218 src/raw-sector-cache.c:314
 #: src/raw-sector-cache.c:354
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed reading from defective sector file: %s"
 msgstr "Misslyckades att läsa från defekt sektorfil: %s"
 
@@ -3420,7 +3443,7 @@ msgstr "Defekt sektorfil är trunkerad"
 #: src/raw-sector-cache.c:114 src/raw-sector-cache.c:140
 #: src/raw-sector-cache.c:152 src/raw-sector-cache.c:211
 #: src/raw-sector-cache.c:226
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed seeking in defective sector file: %s"
 msgstr "Det gick inte att söka i defekt sektorfil: %s"
 
@@ -3431,18 +3454,48 @@ msgstr ""
 "Fingeravtryck från medium och defekt sektorcache stämmer inte överens!"
 
 #: src/raw-sector-cache.c:198
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid " [Creating new cache file %s]\n"
-msgstr "[Skapar ny cachefil %s]"
+msgstr "[Skapar ny cachefil %s]\n"
 
 #: src/raw-sector-cache.c:270
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 " [Appended %d/%d sectors to cache file %s; LBA=%<PRId64>, ssize=%d, %d "
 "sectors]\n"
 msgstr ""
 "[Läggade till %d/%d sektorer till cachefil %s; LBA=%<PRId64>, ssize=%d, %d "
-"sektorer]"
+"sektorer]\n"
+
+#: src/read-adaptive-window.c:77
+msgid "Adaptive reading:"
+msgstr "Adaptiv läsning:"
+
+#: src/read-adaptive-window.c:105
+msgid "Sectors processed"
+msgstr "Sektorer behandlade"
+
+#: src/read-adaptive-window.c:108 src/scsi-layer.c:1800
+msgid "readable"
+msgstr "läsbar"
+
+#: src/read-adaptive-window.c:113
+msgid "correctable"
+msgstr "korrigerbar"
+
+#: src/read-adaptive-window.c:118
+msgid "missing"
+msgstr "saknas"
+
+#: src/read-adaptive-window.c:129
+#, fuzzy, c-format
+msgid "Readable: %d.%d%% / %d.%d%% required"
+msgstr "Läsbar: %d.%d%% / %d.%d%% krävs"
+
+#: src/read-adaptive-window.c:137
+#, c-format
+msgid "Total recoverable: %d.%d%%"
+msgstr "Totalt återhämtningsbara: %d.%d%%"
 
 #: src/read-adaptive.c:57 src/rs01-create.c:1023
 #, c-format
@@ -3467,7 +3520,7 @@ msgstr ""
 "%s"
 
 #: src/read-adaptive.c:121 src/read-linear.c:867
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* Warning: This ecc file requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
@@ -3478,7 +3531,7 @@ msgstr ""
 "* Varning: Denna ecc-fil kräver dvdisaster-%d.%d!\n"
 "* Att fortsätta kan utlösa felaktigt beteende.\n"
 "* Läs bilden utan att använda denna ecc-fil\n"
-"* eller uppgradera dvdisaster."
+"* eller uppgradera dvdisaster.\n"
 
 #: src/read-adaptive.c:154 src/rs01-common.c:82 src/rs01-common.c:237
 #: src/rs01-create.c:304 src/rs01-verify.c:817
@@ -3516,12 +3569,12 @@ msgstr ""
 
 #: src/read-adaptive.c:659 src/read-adaptive.c:669 src/read-adaptive.c:687
 #: src/read-adaptive.c:717
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%s-type ECC found\n"
-msgstr "%s-typ ECC hittades"
+msgstr "%s-typ ECC hittades\n"
 
 #: src/read-adaptive.c:672
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* Warning: This ecc file requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
@@ -3530,10 +3583,10 @@ msgid ""
 msgstr ""
 "* Varning: Denna ecc-fil kräver dvdisaster-%d.%d!\n"
 "* Att fortsätta kan utlösa felaktigt beteende.\n"
-"* Vänligen uppgradera dvdisaster."
+"* Vänligen uppgradera dvdisaster.\n"
 
 #: src/read-adaptive.c:690 src/read-linear.c:874
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* Warning: This image requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
@@ -3542,7 +3595,7 @@ msgid ""
 msgstr ""
 "* Varning: Den här bilden kräver dvdisaster-%d.%d!\n"
 "* Att fortsätta kan utlösa felaktigt beteende.\n"
-"* Vänligen uppgradera dvdisaster."
+"* Vänligen uppgradera dvdisaster.\n"
 
 #: src/read-adaptive.c:719
 #, fuzzy
@@ -3557,7 +3610,7 @@ msgstr ""
 "Läsmetoden \"dela och härska\" kommer fortfarande att tillämpas genom att försöka upptäcka och hoppa över\n"
 "svårt skadade zoner och prioritera bra zoner först. Men vi kommer inte att sluta läsa automatiskt\n"
 "när tillräckligt med data och ECC-data har återställts för att kunna bygga om bilden, som vi gör för RS02.\n"
-"Du bör avbryta läsningen och starta en \"verifiera\" dig själv då och då för att se om så är fallet."
+"Du bör avbryta läsningen och starta en \"verifiera\" dig själv då och då för att se om så är fallet.\n"
 
 #: src/read-adaptive.c:726 src/read-adaptive.c:785 src/read-adaptive.c:800
 #: src/read-adaptive.c:864 src/read-adaptive.c:953 src/read-adaptive.c:1014
@@ -3605,13 +3658,13 @@ msgid "Limiting sector range to [%<PRId64>,%<PRId64>].\n"
 msgstr "Begränsar sektorintervall till [%<PRId64>,%<PRId64>].\n"
 
 #: src/read-adaptive.c:859
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Sector %d is missing. Can not compare medium and ecc fingerprints.\n"
 "Double check that the medium and the ecc file belong together.\n"
 msgstr ""
 "Sektor %d saknas. Kan inte jämföra medium och ecc fingeravtryck.\n"
-"Dubbelkolla att mediet och ecc-filen hör ihop."
+"Dubbelkolla att mediet och ecc-filen hör ihop.\n"
 
 #: src/read-adaptive.c:872
 #, fuzzy
@@ -3620,7 +3673,7 @@ msgid ""
 "Medium and ecc file do not belong together.\n"
 msgstr ""
 "Fingeravtryck av medium- och ecc-fil stämmer inte överens.\n"
-"Medium och ecc-fil hör inte ihop."
+"Medium och ecc-fil hör inte ihop.\n"
 
 #: src/read-adaptive.c:913 src/read-linear.c:337
 msgid "Image file does not match the optical disc."
@@ -3731,7 +3784,7 @@ msgstr ""
 "* har liten fördel jämfört med linjär läsning, men kan\n"
 "* orsaka betydande slitage på frekvensomriktaren på grund av överdriven\n"
 "* söka operationer.\n"
-"* Överväg att använda linjär avläsning istället."
+"* Överväg att använda linjär avläsning istället.\n"
 
 #: src/read-adaptive.c:1502 src/read-linear.c:277
 #, c-format
@@ -3755,7 +3808,7 @@ msgstr ""
 "Tillräcklig data för att återskapa avbilden finns tillgänglig.\n"
 
 #: src/read-adaptive.c:1665 src/read-linear.c:1090
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Sector %<PRId64>: %s\n"
 "Can not recover from above error.\n"
@@ -3824,44 +3877,54 @@ msgid "No unreadable intervals with >= %d sectors left."
 msgstr "Inga oläsbara intervall med >= %d sektorer kvar."
 
 #: src/read-adaptive.c:2048
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "%s\n"
 "%2d.%1d%% of the image have been read (%<PRId64> sectors).\n"
 msgstr ""
+"\n"
 "%s\n"
-"%2d.%1d%% av bilden har lästs (%<PRId64> sektorer)."
+"%2d.%1d%% av bilden har lästs (%<PRId64> sektorer).\n"
 
-#: src/read-adaptive-window.c:77
-msgid "Adaptive reading:"
-msgstr "Adaptiv läsning:"
-
-#: src/read-adaptive-window.c:105
-msgid "Sectors processed"
-msgstr "Sektorer behandlade"
-
-#: src/read-adaptive-window.c:108 src/scsi-layer.c:1800
-msgid "readable"
-msgstr "läsbar"
-
-#: src/read-adaptive-window.c:113
-msgid "correctable"
-msgstr "korrigerbar"
-
-#: src/read-adaptive-window.c:118
-msgid "missing"
-msgstr "saknas"
-
-#: src/read-adaptive-window.c:129
-#, c-format, fuzzy
-msgid "Readable: %d.%d%% / %d.%d%% required"
-msgstr "Läsbar: %d.%d%% / %d.%d%% krävs"
-
-#: src/read-adaptive-window.c:137
+#: src/read-linear-window.c:97
 #, c-format
-msgid "Total recoverable: %d.%d%%"
-msgstr "Totalt återhämtningsbara: %d.%d%%"
+msgid "Current Speed: %d.%dx"
+msgstr "Aktuell hastighet: %d.%dx"
+
+#: src/read-linear-window.c:104 src/read-linear.c:515
+#, c-format
+msgid "Unreadable / skipped sectors: %<PRId64>"
+msgstr "Oläsbara / överhoppade sektorer: %<PRId64>"
+
+#: src/read-linear-window.c:261
+msgid "Medium state"
+msgstr "Mediastatus"
+
+#: src/read-linear-window.c:268
+msgid "Not touched this time"
+msgstr "Rörs inte denna gång"
+
+#: src/read-linear-window.c:272
+msgid "Already present"
+msgstr "Finns redan"
+
+#: src/read-linear-window.c:275
+msgid "Successfully read"
+msgstr "Läsning lyckades"
+
+#: src/read-linear-window.c:279 src/read-linear-window.c:306
+#: src/rs01-verify.c:132 src/rs02-verify.c:125 src/rs03-verify.c:135
+msgid "Sectors with CRC errors"
+msgstr "Sektorer med CRC-fel"
+
+#: src/read-linear-window.c:282
+msgid "Unreadable / skipped"
+msgstr "Oläsbar / överhoppad"
+
+#: src/read-linear-window.c:404
+msgid "Speed"
+msgstr "Hastighet"
 
 #: src/read-linear.c:122
 #, c-format
@@ -3922,11 +3985,6 @@ msgstr "klar.\n"
 msgid "Waiting %d seconds for drive to spin up...\n"
 msgstr "Väntar %d sekunder på att enheten ska varva upp...\n"
 
-#: src/read-linear.c:515 src/read-linear-window.c:104
-#, c-format
-msgid "Unreadable / skipped sectors: %<PRId64>"
-msgstr "Oläsbara / överhoppade sektorer: %<PRId64>"
-
 #: src/read-linear.c:605
 #, c-format
 msgid "Sector %<PRId64>: Speed increased to %4.1fx\n"
@@ -3938,7 +3996,7 @@ msgid "Sector %<PRId64>: Speed dropped to %4.1fx\n"
 msgstr "Sektor %<PRId64>: Hastighet minskad till %4.1fx\n"
 
 #: src/read-linear.c:614
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Read position: %3d.%1d%% (nn.nx), sector %<PRId64>/%<PRId64>, %<PRId64> "
 "sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
@@ -3947,7 +4005,7 @@ msgstr ""
 "sektorer lästa OK, %<PRId64> läsfel, %<PRId64> crc-fel"
 
 #: src/read-linear.c:615
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Read position: %3d.%1d%% (%4.1fx), sector %<PRId64>/%<PRId64>, %<PRId64> "
 "sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
@@ -3961,7 +4019,7 @@ msgid "* CRC error, sector: %lld\n"
 msgstr "* CRC-fel, sektor: %lld\n"
 
 #: src/read-linear.c:841
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "This ecc file requires dvdisaster-%d.%d!\n"
 "\n"
@@ -3974,10 +4032,10 @@ msgstr ""
 "\n"
 "Att fortsätta kan utlösa felaktigt beteende.\n"
 "Vänligen läs bilden utan att använda denna ecc-fil\n"
-"eller uppgradera dvdisaster."
+"eller uppgradera dvdisaster.\n"
 
 #: src/read-linear.c:849
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "This image requires dvdisaster-%d.%d!\n"
 "\n"
@@ -3988,7 +4046,7 @@ msgstr ""
 "Den här bilden kräver dvdisaster-%d.%d!\n"
 "\n"
 "Att fortsätta kan utlösa felaktigt beteende.\n"
-"Vänligen uppgradera dvdisaster."
+"Vänligen uppgradera dvdisaster.\n"
 
 #: src/read-linear.c:858 src/read-linear.c:973 src/read-linear.c:1106
 #, c-format
@@ -4005,9 +4063,9 @@ msgid "unexpected read error in image for sector %<PRId64>"
 msgstr "oväntat läsfel i avbild för sektor %<PRId64>"
 
 #: src/read-linear.c:1122
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Sector %<PRId64>: %3d C2 errors.%s\n"
-msgstr "Sektor %<PRId64>: %3d C2-fel.%s"
+msgstr "Sektor %<PRId64>: %3d C2-fel.%s\n"
 
 #: src/read-linear.c:1256
 #, c-format
@@ -4015,7 +4073,7 @@ msgid "Sector %<PRId64>: %s Skipping %d sectors.\n"
 msgstr "Sektor %<PRId64>: %s Hoppar över %d sektorer.\n"
 
 #: src/read-linear.c:1319
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<big>Trying to complete image, reading pass %d of %d.</big>\n"
 "%s"
@@ -4024,11 +4082,13 @@ msgstr ""
 "%s"
 
 #: src/read-linear.c:1321
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Trying to complete image, reading pass %d of %d.\n"
-msgstr "Försöker slutföra bilden, läser pass %d av %d."
+msgstr ""
+"\n"
+"Försöker slutföra bilden, läser pass %d av %d.\n"
 
 #: src/read-linear.c:1358
 #, c-format
@@ -4041,7 +4101,7 @@ msgid "%<PRId64> sectors read; %<PRId64> unreadable sectors."
 msgstr "%<PRId64> sektorer lästa; %<PRId64> oläsbara sektorer."
 
 #: src/read-linear.c:1367
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "All sectors are readable, but %d contain defective content."
 msgstr "Alla sektorer är läsbara, men %d innehåller defekt innehåll."
 
@@ -4078,7 +4138,7 @@ msgid "%<PRId64> unreadable sectors."
 msgstr "%<PRId64> oläsbara sektorer."
 
 #: src/read-linear.c:1400
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> CRC errors and a md5sum mismatch in the CRC section."
 msgstr "%<PRId64> CRC-fel och en md5sum-felmatchning i CRC-sektionen."
 
@@ -4101,7 +4161,7 @@ msgid "Reading finished: "
 msgstr "Läsning färdig: "
 
 #: src/read-linear.c:1432 src/read-linear.c:1443
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "%d sectors missing at the end of the disc.\n"
 "This is okay if the CD was written in TAO (track at once) mode.\n"
@@ -4114,13 +4174,14 @@ msgstr ""
 #: src/read-linear.c:1437
 #, fuzzy
 msgid "See the manual for details.\n"
-msgstr "Se manualen för detaljer."
+msgstr "Se manualen för detaljer.\n"
 
 #: src/read-linear.c:1439
 #, fuzzy
 msgid "The Image will be truncated accordingly. See the manual for details.\n"
 msgstr ""
-"Bilden kommer att trunkeras i enlighet med detta. Se manualen för detaljer."
+"Bilden kommer att trunkeras i enlighet med detta. Se manualen för "
+"detaljer.\n"
 
 #: src/read-linear.c:1448
 #, fuzzy
@@ -4129,7 +4190,7 @@ msgid ""
 "Use the --dao option to disable this message.\n"
 msgstr ""
 "Se manualen för detaljer.\n"
-"Använd alternativet --dao för att inaktivera detta meddelande."
+"Använd alternativet --dao för att inaktivera detta meddelande.\n"
 
 #: src/read-linear.c:1451
 #, fuzzy
@@ -4138,46 +4199,12 @@ msgid ""
 "Use the --dao option to disable image truncating.\n"
 msgstr ""
 "Bilden kommer att trunkeras i enlighet med detta. Se manualen för detaljer.\n"
-"Använd alternativet --dao för att inaktivera bildavkortning."
-
-#: src/read-linear-window.c:97
-#, c-format
-msgid "Current Speed: %d.%dx"
-msgstr "Aktuell hastighet: %d.%dx"
-
-#: src/read-linear-window.c:261
-msgid "Medium state"
-msgstr "Mediastatus"
-
-#: src/read-linear-window.c:268
-msgid "Not touched this time"
-msgstr "Rörs inte denna gång"
-
-#: src/read-linear-window.c:272
-msgid "Already present"
-msgstr "Finns redan"
-
-#: src/read-linear-window.c:275
-msgid "Successfully read"
-msgstr "Läsning lyckades"
-
-#: src/read-linear-window.c:279 src/read-linear-window.c:306
-#: src/rs01-verify.c:132 src/rs02-verify.c:125 src/rs03-verify.c:135
-msgid "Sectors with CRC errors"
-msgstr "Sektorer med CRC-fel"
-
-#: src/read-linear-window.c:282
-msgid "Unreadable / skipped"
-msgstr "Oläsbar / överhoppad"
-
-#: src/read-linear-window.c:404
-msgid "Speed"
-msgstr "Hastighet"
+"Använd alternativet --dao för att inaktivera bildavkortning.\n"
 
 #: src/recover-raw.c:66
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Sector %<PRId64> dumped to %s\n"
-msgstr "Sektor %<PRId64> dumpad till %s"
+msgstr "Sektor %<PRId64> dumpad till %s\n"
 
 #: src/rs01-common.c:251 src/rs02-verify.c:830 src/rs03-verify.c:1169
 #, c-format
@@ -4205,9 +4232,9 @@ msgid "Error writing CRC information: %s"
 msgstr "Fel vid skrivning av CRC-information: %s"
 
 #: src/rs01-common.c:353 src/rs02-verify.c:799 src/rs03-verify.c:1143
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* CRC error, sector: %<PRId64>\n"
-msgstr "* CRC-fel, sektor: %<PRId64>"
+msgstr "* CRC-fel, sektor: %<PRId64>\n"
 
 #: src/rs01-create.c:65
 #, c-format
@@ -4221,7 +4248,7 @@ msgstr ""
 "Ecc-filstorlek %<PRId64>m av användbart omfång [%<PRId64> .. %<PRId64>]"
 
 #: src/rs01-create.c:91 src/rs03-common.c:487
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Invalid redundancy specification '%s'.\n"
 "Valid formats: normal, high, <number>%%, <number>r, <number>m"
@@ -4273,19 +4300,19 @@ msgstr ""
 "<i>%s</i>"
 
 #: src/rs01-create.c:257 src/rs03-create.c:284
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Aborted to keep existing ecc file.</span>"
 msgstr "<span %s>Avbruten för att behålla befintlig ecc-fil.</span>"
 
 #: src/rs01-create.c:272 src/rs02-create.c:1036 src/rs03-create.c:1289
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Image file %s: %s."
 msgstr "Bildfil %s: %s."
 
 #: src/rs01-create.c:280 src/rs03-create.c:1308
 #, fuzzy
 msgid "No error correction file specified!\n"
-msgstr "Ingen felkorrigeringsfil specificerad!"
+msgstr "Ingen felkorrigeringsfil specificerad!\n"
 
 #: src/rs01-create.c:293
 #, c-format
@@ -4320,7 +4347,7 @@ msgid "Failed skipping ecc+crc header: %s"
 msgstr "Misslyckades med att hoppa över ecc+crc-huvud: %s"
 
 #: src/rs01-create.c:446 src/rs02-create.c:519
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Failed allocating memory for I/O cache.\n"
 "Cache size is currently %d MiB.\n"
@@ -4328,7 +4355,7 @@ msgid ""
 msgstr ""
 "Det gick inte att allokera minne för I/O-cache.\n"
 "Cachestorleken är för närvarande %d MiB.\n"
-"Försök att minska den."
+"Försök att minska den.\n"
 
 #: src/rs01-create.c:574 src/rs01-create.c:698 src/rs01-create.c:992
 #: src/rs02-create.c:964 src/rs03-create.c:1125
@@ -4749,7 +4776,7 @@ msgstr "<span %s>Felaktig avbild.</span>"
 #: src/rs01-verify.c:510 src/rs02-verify.c:710 src/rs03-verify.c:998
 #, fuzzy
 msgid "* quick mode        : image NOT scanned\n"
-msgstr "* snabbläge: bilden har INTE skannats"
+msgstr "* snabbläge: bilden har INTE skannats\n"
 
 #: src/rs01-verify.c:518
 #, c-format
@@ -4800,27 +4827,27 @@ msgstr "Ingen felkorrigeringsfil finns tillgänglig."
 #: src/rs01-verify.c:562
 #, fuzzy
 msgid "permission denied\n"
-msgstr "tillstånd nekad"
+msgstr "tillstånd nekad\n"
 
 #: src/rs01-verify.c:568
 #, fuzzy
 msgid "invalid\n"
-msgstr "ogiltig"
+msgstr "ogiltig\n"
 
 #: src/rs01-verify.c:571
 #, fuzzy
 msgid "defective header (unusable)\n"
-msgstr "defekt rubrik (obrukbar)"
+msgstr "defekt rubrik (obrukbar)\n"
 
 #: src/rs01-verify.c:574
 #, fuzzy
 msgid "unknown codec (unusable)\n"
-msgstr "okänd codec (oanvändbar)"
+msgstr "okänd codec (oanvändbar)\n"
 
 #: src/rs01-verify.c:577
 #, fuzzy
 msgid "unusable\n"
-msgstr "oanvändbar"
+msgstr "oanvändbar\n"
 
 #: src/rs01-verify.c:605 src/rs01-verify.c:615 src/rs02-verify.c:954
 #: src/rs02-verify.c:965
@@ -4847,7 +4874,7 @@ msgid "- requires         : dvdisaster-%d.%d (good)\n"
 msgstr "- kräver           : dvdisaster-%d.%d (bra)\n"
 
 #: src/rs01-verify.c:652 src/rs02-verify.c:999
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* requires         : dvdisaster-%d.%d (BAD)\n"
 "* Warning          : The following output might be incorrect.\n"
@@ -4855,7 +4882,7 @@ msgid ""
 msgstr ""
 "* kräver: dvdisaster-%d.%d (BAD)\n"
 "* Varning: Följande utgång kan vara felaktig.\n"
-"* : Vänligen uppgradera dvdisaster."
+"* : Vänligen uppgradera dvdisaster.\n"
 
 #: src/rs01-verify.c:664 src/rs02-verify.c:1013 src/rs03-verify.c:849
 #, c-format
@@ -4961,7 +4988,7 @@ msgstr "bra"
 #: src/rs01-verify.c:790
 #, fuzzy
 msgid "* quick mode        : ecc file NOT scanned\n"
-msgstr "* snabbläge: ecc-fil har INTE skannats"
+msgstr "* snabbläge: ecc-fil har INTE skannats\n"
 
 #: src/rs01-verify.c:798
 #, c-format
@@ -5043,7 +5070,7 @@ msgstr "%4.1f%% redundans (%d rötter)"
 #: src/rs01-window.c:425 src/rs01-window.c:833 src/rs01-window.c:839
 #: src/rs01-window.c:840 src/rs02-window.c:361 src/rs02-window.c:1343
 #: src/rs02-window.c:1349 src/rs02-window.c:1350
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d MiB of file cache"
 msgstr "%d MiB filcache"
 
@@ -5061,7 +5088,7 @@ msgid "Normal"
 msgstr "Normal"
 
 #: src/rs01-window.c:659 src/rs03-preferences.c:919
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Normal redundancy</b>\n"
 "\n"
@@ -5083,7 +5110,7 @@ msgid "High"
 msgstr "Hög"
 
 #: src/rs01-window.c:689 src/rs03-preferences.c:949
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>High redundancy</b>\n"
 "\n"
@@ -5105,7 +5132,7 @@ msgid "Other"
 msgstr "Annan"
 
 #: src/rs01-window.c:736 src/rs03-preferences.c:995
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Other redundancy</b>\n"
 "\n"
@@ -5214,7 +5241,7 @@ msgstr ""
 "i kompletta (oskadade) avbilder.\n"
 
 #: src/rs02-create.c:222
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Sector %<PRId64> in the image is marked unreadable\n"
 "and seems to come from a different medium.\n"
@@ -5236,10 +5263,10 @@ msgstr ""
 "Det betyder att vissa filer kan ha skadats i tysthet.\n"
 "\n"
 "Felkorrigeringsinformation kan bara vara\n"
-"bifogas till kompletta (oskadade) bilder."
+"bifogas till kompletta (oskadade) bilder.\n"
 
 #: src/rs02-create.c:239 src/rs02-create.c:304 src/rs02-create.c:314
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Preparing image (checksums, adding space): %3d%%"
 msgstr "Förbereder bild (kontrollsummor, lägger till utrymme): %3d%%"
 
@@ -5256,7 +5283,7 @@ msgid "Failed expanding the image: %s\n"
 msgstr "Misslyckades med att expandera avbilden: %s\n"
 
 #: src/rs02-create.c:303 src/rs02-create.c:313
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Preparing image (checksums taken from cache, adding space): %3d%%"
 msgstr ""
 "Förbereder bild (kontrollsummor tagna från cache, lägger till utrymme): "
@@ -5299,7 +5326,7 @@ msgstr ""
 " %<PRId64> MiB data, %<PRId64> MiB ecc (%d rötter; %4.1f%% redundans)."
 
 #: src/rs02-create.c:1086
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Not enough space on medium left for error correction data.\n"
 "Data portion of image: %<PRId64> sect.; maximum possible size: %<PRId64> sect.\n"
@@ -5312,13 +5339,11 @@ msgstr ""
 "inte ett alternativ, skapa en separat felkorrigeringsfil."
 
 #: src/rs02-create.c:1096 src/rs03-create.c:1382
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Using redundancies below 20% may not give\n"
 "the expected data loss protection.\n"
 msgstr ""
-"Att använda uppsägningar under 20% kanske inte ger\n"
-"det förväntade skyddet för dataförlust."
 
 #: src/rs02-create.c:1128 src/rs02-create.c:1136 src/rs03-create.c:1421
 #: src/rs03-create.c:1444
@@ -5455,15 +5480,15 @@ msgid "Error correction data"
 msgstr "Felkorrigeringsdata"
 
 #: src/rs02-verify.c:530 src/rs03-verify.c:483
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- erasure counts   :  avg =  %.1f; worst = %d per ecc block.\n"
-msgstr "- raderingsantal : avg = %.1f; sämsta = %d per ecc-block."
+msgstr "- raderingsantal : avg = %.1f; sämsta = %d per ecc-block.\n"
 
 #: src/rs02-verify.c:533 src/rs03-verify.c:486
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "- prognosis        : %<PRId64> of %<PRId64> sectors recoverable (%d.%d%%)\n"
-msgstr "- prognos : %<PRId64> av %<PRId64> sektorer kan återställas (%d.%d%%)"
+msgstr "- prognos : %<PRId64> av %<PRId64> sektorer kan återställas (%d.%d%%)\n"
 
 #: src/rs02-verify.c:539 src/rs03-verify.c:489
 #, fuzzy
@@ -5476,12 +5501,12 @@ msgid "Prognosis:"
 msgstr "Prognos:"
 
 #: src/rs02-verify.c:543 src/rs03-verify.c:493
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>avg =  %.1f; worst = %d per ecc block.</span>"
 msgstr "<span %s>avg = %.1f; sämsta = %d per ecc-block.</span>"
 
 #: src/rs02-verify.c:548 src/rs03-verify.c:498
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>%<PRId64> of %<PRId64> sectors recoverable (%d.%d%%)</span>"
 msgstr ""
 "<span %s>%<PRId64> av %<PRId64> sektorer kan återställas (%d.%d%%)</span>"
@@ -5543,7 +5568,7 @@ msgstr ""
 #: src/rs02-verify.c:892
 #, fuzzy
 msgid "* suspicious image : contains damaged ecc headers\n"
-msgstr "* misstänkt bild: innehåller skadade ecc-rubriker"
+msgstr "* misstänkt bild: innehåller skadade ecc-rubriker\n"
 
 #: src/rs02-verify.c:897 src/rs03-verify.c:1262
 #, c-format
@@ -5594,12 +5619,12 @@ msgstr ""
 #: src/rs02-verify.c:1018
 #, fuzzy
 msgid "Please upgrade your version of dvdisaster!"
-msgstr "Uppgradera din version av dvdisaster!"
+msgstr ""
 
 #: src/rs02-verify.c:1025
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- medium sectors   : %<PRId64> / %<PRId64> (good)\n"
-msgstr "- medelstora sektorer: %<PRId64> / %<PRId64> (bra)"
+msgstr "- medelstora sektorer: %<PRId64> / %<PRId64> (bra)\n"
 
 #: src/rs02-verify.c:1041
 #, c-format
@@ -5654,12 +5679,12 @@ msgid "<span %s>Good error correction data.</span>"
 msgstr "<span %s>Bra felkorrigeringsdata.</span>"
 
 #: src/rs02-verify.c:1133 src/rs03-verify.c:1348
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Full data recovery is likely.</span>"
 msgstr "<span %s>Fullständig dataåterställning är trolig.</span>"
 
 #: src/rs02-verify.c:1138 src/rs03-verify.c:1353
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Full data recovery is NOT possible.</span>"
 msgstr "<span %s>Fullständig dataåterställning är INTE möjlig.</span>"
 
@@ -5711,7 +5736,7 @@ msgid "query medium"
 msgstr "frågemedium"
 
 #: src/rs02-window.c:856
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>CD medium size</b>\n"
 "\n"
@@ -5739,7 +5764,7 @@ msgid "DVD 1 layer:"
 msgstr "DVD 1 lager:"
 
 #: src/rs02-window.c:919
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Single layer DVD medium size</b>\n"
 "\n"
@@ -5767,7 +5792,7 @@ msgid "DVD 2 layers:"
 msgstr "DVD 2 lager:"
 
 #: src/rs02-window.c:982
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Two layered DVD medium size</b>\n"
 "\n"
@@ -5795,7 +5820,7 @@ msgid "BD 1 layer:"
 msgstr "BD 1 lager:"
 
 #: src/rs02-window.c:1045
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Single layer BD medium size</b>\n"
 "\n"
@@ -5823,7 +5848,7 @@ msgid "BD 2 layers:"
 msgstr "BD 2 lager:"
 
 #: src/rs02-window.c:1107
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Two layered BD medium size</b>\n"
 "\n"
@@ -5851,7 +5876,7 @@ msgid "BDXL 3 layers:"
 msgstr "BDXL 3 lager:"
 
 #: src/rs02-window.c:1169
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Three layered BDXL medium size</b>\n"
 "\n"
@@ -5879,7 +5904,7 @@ msgid "BDXL 4 layers:"
 msgstr "BDXL 4 lager:"
 
 #: src/rs02-window.c:1232
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Four layered BDXL medium size</b>\n"
 "\n"
@@ -5906,7 +5931,7 @@ msgid "sectors."
 msgstr "sektorer."
 
 #: src/rs02-window.c:1308
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Use at most ... sectors</b>\n"
 "\n"
@@ -5930,27 +5955,27 @@ msgid "Image file %s not present."
 msgstr "Avbildsfil %s inte tillgänglig."
 
 #: src/rs03-common.c:459
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Redundancy %4.1f%% out of useful range [3.2%%..200%%]"
 msgstr "Redundans %4.1f%% utanför användbart intervall [3.2%%..200%%]"
 
 #: src/rs03-common.c:495
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Redundancy %d out of useful range [8..170]."
 msgstr "Redundans %d utanför användbart intervall [8..170]."
 
 #: src/rs03-common.c:533
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Medium size smaller than image size (%<PRId64> &lt; %<PRId64>)"
 msgstr "Mediumstorlek mindre än bildstorlek (%<PRId64> &lt; %<PRId64>)"
 
 #: src/rs03-common.c:535
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Medium size too small (%<PRId64> sectors, minimum is %d)"
 msgstr "Medium storlek för liten (%<PRId64> sektorer, minimum är %d)"
 
 #: src/rs03-common.c:537
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Not enough space for error correction data on the specified medium "
 "(%<PRId64> sectors). Increase the medium size or use a smaller image."
@@ -5959,27 +5984,27 @@ msgstr ""
 "(%<PRId64> sektorer). Öka mellanstorleken eller använd en mindre bild."
 
 #: src/rs03-create.c:418
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed expanding the ecc file: %s\n"
-msgstr "Det gick inte att expandera ecc-filen: %s"
+msgstr "Det gick inte att expandera ecc-filen: %s\n"
 
 #: src/rs03-create.c:419
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Preparing ecc file: %3d%%"
 msgstr "Förbereder ecc-fil: %3d%%"
 
 #: src/rs03-create.c:424
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Preparing image: %3d%%"
 msgstr "Förbereder bild: %3d%%"
 
 #: src/rs03-create.c:661
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed mmap()ing layer %d: %s\n"
-msgstr "Misslyckades mmap()ing lager %d: %s"
+msgstr "Misslyckades mmap()ing lager %d: %s\n"
 
 #: src/rs03-create.c:690
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Incomplete image\n"
 "\n"
@@ -6005,8 +6030,9 @@ msgid ""
 "Perform a \"Verify\" action for more information.\n"
 "\n"
 msgstr ""
+"\n"
 "Denna bild har troligen bearbetats från defekta källor.\n"
-"Utför en \"Verifiera\"-åtgärd för mer information."
+"Utför en \"Verifiera\"-åtgärd för mer information.\n"
 
 #: src/rs03-create.c:906
 #, fuzzy
@@ -6019,17 +6045,17 @@ msgid "I/O bound"
 msgstr "I/O bunden"
 
 #: src/rs03-create.c:1117
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%5.2fMiB/s current"
-msgstr "%5,2fMiB/s ström"
+msgstr ""
 
 #: src/rs03-create.c:1168
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d threads with %s encoding and %s I/O"
 msgstr "%d trådar med %s-kodning och %s I/O"
 
 #: src/rs03-create.c:1326
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Encoding with Method RS03: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; "
 "%4.1f%% redundancy), %<PRId64> MiB padding."
@@ -6038,7 +6064,7 @@ msgstr ""
 "%4.1f%% redundans), %<PRId64> MiB-utfyllnad."
 
 #: src/rs03-create.c:1329
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Encoding with Method RS03: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; "
 "%4.1f%% redundancy)."
@@ -6047,7 +6073,7 @@ msgstr ""
 "%4.1f%% redundans)."
 
 #: src/rs03-create.c:1350
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy), %<PRId64> MiB padding."
@@ -6056,7 +6082,7 @@ msgstr ""
 "%<PRId64> MiB-data, %<PRId64> MiB ecc (%d rötter; %4.1f%% redundans), %<PRId64> MiB-utfyllnad."
 
 #: src/rs03-create.c:1355
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
@@ -6065,7 +6091,7 @@ msgstr ""
 "%<PRId64> MiB-data, %<PRId64> MiB ecc (%d rötter; %4.1f%% redundans)."
 
 #: src/rs03-create.c:1361
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Creating the error correction file with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
@@ -6074,7 +6100,7 @@ msgstr ""
 "%<PRId64> MiB-data, %<PRId64> MiB ecc (%d rötter; %4.1f%% redundans)."
 
 #: src/rs03-create.c:1372
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Not enough space on medium left for error correction data.\n"
 "Data portion of image: %<PRId64> sect.; maximum possible size: %<PRId64> sect.\n"
@@ -6093,30 +6119,30 @@ msgid ""
 "remember it should you need to repair this image later!\n"
 msgstr ""
 "BD-R-storlek utan defekthantering aktiverad,\n"
-"kom ihåg det om du skulle behöva reparera den här bilden senare!"
+"kom ihåg det om du skulle behöva reparera den här bilden senare!\n"
 
 #: src/rs03-create.c:1432
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Avg performance: %5.2fs (%5.2fMiB/s) total\n"
-msgstr "Genomsnittlig prestanda: %5,2fs (%5,2fMiB/s) totalt"
+msgstr ""
 
 #: src/rs03-create.c:1435
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%5.2fMiB/s average"
-msgstr "%5,2fMiB/s i genomsnitt"
+msgstr ""
 
 #: src/rs03-create.c:1437
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d times CPU bound; %d times I/O bound"
 msgstr "%d gånger CPU-bunden; %d gånger I/O-bunden"
 
 #: src/rs03-fix.c:217
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Error correction file using Method RS03, %d roots, %4.1f%% redundancy."
 msgstr "Felkorrigeringsfil med metod RS03, %d rötter, %4.1f%% redundans."
 
 #: src/rs03-fix.c:221
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Image contains error correction data: Method RS03, %d roots, %4.1f%% "
 "redundancy."
@@ -6130,30 +6156,30 @@ msgid "; ecc file: "
 msgstr "; ecc fil:"
 
 #: src/rs03-fix.c:745
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "-> CRC-predicted error in sector %lld%s at byte %4d (value %02x '%c', "
 "expected %02x '%c')\n"
 msgstr ""
 "-> CRC-förutsagt fel i sektor %lld%s vid byte %4d (värde %02x '%c', "
-"förväntat %02x '%c')"
+"förväntat %02x '%c')\n"
 
 #: src/rs03-fix.c:748
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "-> Non-predicted error in sector %lld%s at byte %4d (value %02x '%c', "
 "expected %02x '%c')\n"
 msgstr ""
 "-> Oförutsett fel i sektor %lld%s vid byte %4d (värde %02x '%c', förväntat "
-"%02x '%c')"
+"%02x '%c')\n"
 
 #: src/rs03-fix.c:849
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed seeking to sector %<PRId64> in ecc file [%s]: %s"
 msgstr "Det gick inte att söka sektor %<PRId64> i ecc-filen [%s]: %s"
 
 #: src/rs03-fix.c:854
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "could not write ecc file sector %<PRId64>:\n"
 "%s"
@@ -6168,13 +6194,13 @@ msgstr "Målmedium för utökad bild"
 
 #: src/rs03-preferences.c:500 src/rs03-preferences.c:1098
 #: src/rs03-preferences.c:1104 src/rs03-preferences.c:1105
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d sectors"
 msgstr "%d sektorer"
 
 #: src/rs03-preferences.c:519 src/rs03-preferences.c:1214
 #: src/rs03-preferences.c:1220 src/rs03-preferences.c:1221
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d threads"
 msgstr "%d trådar"
 
@@ -6202,7 +6228,7 @@ msgid ""
 msgstr ""
 "<b>Felkorrigeringsdatalagring</b>\n"
 "\n"
-"Välj mellan två sätt att lagra felkorrigeringsinformationen:"
+"Välj mellan två sätt att lagra felkorrigeringsinformationen:\n"
 
 #: src/rs03-preferences.c:695
 #, fuzzy
@@ -6213,7 +6239,7 @@ msgid ""
 msgstr ""
 "Förstärkt bild (rekommenderas)\n"
 "Felkorrigeringsdata kommer att lagras tillsammans med användardata på samma medium. Detta kräver att du skapar en bildfil innan du skriver mediet. Felkorrigeringsdata kommer att läggas till den bilden och fyller upp det återstående utrymmet.\n"
-"Skadade sektorer i felkorrigeringsinformationen minskar dataåterställningskapaciteten, men omöjliggör inte återställning - ett andra medium för att behålla eller skydda felkorrigeringsinformationen krävs inte."
+"Skadade sektorer i felkorrigeringsinformationen minskar dataåterställningskapaciteten, men omöjliggör inte återställning - ett andra medium för att behålla eller skydda felkorrigeringsinformationen krävs inte.\n"
 
 #: src/rs03-preferences.c:705
 #, fuzzy
@@ -6222,7 +6248,7 @@ msgid ""
 "Error correction files are the only way of protecting existing media as they can be stored somewhere else. They are kept on a separate medium which must also be protected by dvdisaster. This prevents from losing the error correction files in case of a medium defect.\n"
 msgstr ""
 "Felkorrigeringsfil\n"
-"Felkorrigeringsfiler är det enda sättet att skydda befintliga media eftersom de kan lagras någon annanstans. De förvaras på ett separat medium som också måste skyddas av dvdisaster. Detta förhindrar att felkorrigeringsfilerna går förlorade i händelse av ett medium defekt."
+"Felkorrigeringsfiler är det enda sättet att skydda befintliga media eftersom de kan lagras någon annanstans. De förvaras på ett separat medium som också måste skyddas av dvdisaster. Detta förhindrar att felkorrigeringsfilerna går förlorade i händelse av ett medium defekt.\n"
 
 #: src/rs03-preferences.c:748
 #, fuzzy
@@ -6334,7 +6360,7 @@ msgstr "I/O-strategi"
 #: src/rs03-preferences.c:1152
 #, fuzzy
 msgid "I/O strategy: "
-msgstr "I/O-strategi:"
+msgstr ""
 
 #: src/rs03-preferences.c:1165
 #, fuzzy
@@ -6407,12 +6433,12 @@ msgstr "32 bitar"
 #: src/rs03-preferences.c:1298
 #, fuzzy
 msgid "64bit"
-msgstr "64 bitar"
+msgstr ""
 
 #: src/rs03-preferences.c:1305
 #, fuzzy
 msgid "SSE2"
-msgstr "SSE2"
+msgstr ""
 
 #: src/rs03-preferences.c:1312
 #, fuzzy
@@ -6472,7 +6498,7 @@ msgid "- Checking ecc blocks (deep verify) -"
 msgstr "- Kontrollera ecc-block (djup verifiering) -"
 
 #: src/rs03-verify.c:538
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Out of memory; try reducing sector prefetch!</span>"
 msgstr "<span %s>Minne fullt; försök att minska sektorns förhämtning!</span>"
 
@@ -6480,25 +6506,25 @@ msgstr "<span %s>Minne fullt; försök att minska sektorns förhämtning!</span>
 #, fuzzy
 msgid "* Ecc block test   : out of memory; try reducing sector prefetch!\n"
 msgstr ""
-"* Ecc-blocktest: slut på minne; försök att minska sektorns förhämtning!"
+"* Ecc-blocktest: slut på minne; försök att minska sektorns förhämtning!\n"
 
 #: src/rs03-verify.c:621 src/rs03-verify.c:1182
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d%% tested"
 msgstr "%d%% testade"
 
 #: src/rs03-verify.c:623
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- Ecc block test   : %d%% tested"
 msgstr "- Ecc-blocktest: %d%% testat"
 
 #: src/rs03-verify.c:628
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>%<PRId64> good, %<PRId64> bad; %d%% tested</span>"
 msgstr "<span %s>%<PRId64> bra, %<PRId64> dåligt; %d%% testade</span>"
 
 #: src/rs03-verify.c:630
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* Ecc block test   : %<PRId64> good, %<PRId64> bad; %d%% tested"
 msgstr "* Ecc-blocktest: %<PRId64> bra, %<PRId64> dåligt; %d%% testade"
 
@@ -6510,74 +6536,80 @@ msgstr "passera"
 #: src/rs03-verify.c:641
 #, fuzzy
 msgid "- Ecc block test   : pass\n"
-msgstr "- Ecc-blocktest: godkänt"
+msgstr "- Ecc-blocktest: godkänt\n"
 
 #: src/rs03-verify.c:645
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<span %s>%<PRId64> good, %<PRId64> bad; %<PRId64> bad sub blocks</span>"
 msgstr ""
 "<span %s>%<PRId64> bra, %<PRId64> dåligt; %<PRId64> dåliga underblock</span>"
 
 #: src/rs03-verify.c:647
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* Ecc block test   : %<PRId64> good, %<PRId64> bad; %<PRId64> bad sub "
 "blocks\n"
 msgstr ""
 "* Ecc-blocktest: %<PRId64> bra, %<PRId64> dåligt; %<PRId64> dåliga "
-"underblock"
+"underblock\n"
 
 #: src/rs03-verify.c:713
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "%s present.\n"
-msgstr "%s närvarande."
+msgstr ""
+"\n"
+"%s närvarande.\n"
 
 #: src/rs03-verify.c:716
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "%s not present.\n"
-msgstr "%s inte närvarande."
+msgstr ""
+"\n"
+"%s inte närvarande.\n"
 
 #: src/rs03-verify.c:727
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%s present.\n"
-msgstr "%s närvarande."
+msgstr "%s närvarande.\n"
 
 #: src/rs03-verify.c:744
 #, fuzzy
 msgid ""
 "\n"
 "Error correction properties:\n"
-msgstr "Egenskaper för felkorrigering:"
+msgstr ""
+"\n"
+"Egenskaper för felkorrigering:\n"
 
 #: src/rs03-verify.c:756
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Ecc file is %<PRId64> sectors shorter than expected."
 msgstr "Ecc-filen är %<PRId64> sektorer kortare än förväntat."
 
 #: src/rs03-verify.c:758
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Ecc file is %<PRId64> sectors longer than expected."
 msgstr "Ecc-filen är %<PRId64> sektorer längre än förväntat."
 
 #: src/rs03-verify.c:764
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* Warning          : %s\n"
-msgstr "* Varning: %s"
+msgstr "* Varning: %s\n"
 
 #: src/rs03-verify.c:773
 #, fuzzy
 msgid "- type             : Error correction file\n"
-msgstr "- typ : Felkorrigeringsfil"
+msgstr "- typ : Felkorrigeringsfil\n"
 
 #: src/rs03-verify.c:774
 #, fuzzy
 msgid "- type             : Augmented image\n"
-msgstr "- typ : Förstärkt bild"
+msgstr "- typ : Förstärkt bild\n"
 
 #: src/rs03-verify.c:777
 #, fuzzy
@@ -6595,12 +6627,12 @@ msgid "- created by       : dvdisaster"
 msgstr "- skapad av : dvdisaster"
 
 #: src/rs03-verify.c:835
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- requires         : dvdisaster-%s\n"
-msgstr "- kräver: dvdisaster-%s"
+msgstr "- kräver: dvdisaster-%s\n"
 
 #: src/rs03-verify.c:840
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* requires         : dvdisaster-%s (BAD)\n"
 "* Warning          : The following output might be incorrect.\n"
@@ -6608,7 +6640,7 @@ msgid ""
 msgstr ""
 "* kräver: dvdisaster-%s (BAD)\n"
 "* Varning: Följande utgång kan vara felaktig.\n"
-"* : Vänligen uppgradera dvdisaster."
+"* : Vänligen uppgradera dvdisaster.\n"
 
 #: src/rs03-verify.c:860
 #, fuzzy
@@ -6620,72 +6652,74 @@ msgstr "ingen tillgänglig"
 msgid ""
 "\n"
 "Data integrity:\n"
-msgstr "Dataintegritet:"
+msgstr ""
+"\n"
+"Dataintegritet:\n"
 
 #: src/rs03-verify.c:935
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> in image; %<PRId64> in ecc file"
 msgstr "%<PRId64> i bilden; %<PRId64> i ecc-fil"
 
 #: src/rs03-verify.c:939
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> sectors + %d bytes in image; %<PRId64> in ecc file"
 msgstr "%<PRId64> sektorer + %d byte i bilden; %<PRId64> i ecc-fil"
 
 #: src/rs03-verify.c:944
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- sectors          : %<PRId64> in image; "
 msgstr "- sektorer: %<PRId64> i bilden;"
 
 #: src/rs03-verify.c:945
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- sectors          : %<PRId64> sectors + %d bytes in image; "
 msgstr "- sektorer: %<PRId64> sektorer + %d byte i bilden;"
 
 #: src/rs03-verify.c:947
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> in ecc file\n"
-msgstr "%<PRId64> i ecc-fil"
+msgstr "%<PRId64> i ecc-fil\n"
 
 #: src/rs03-verify.c:950
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> total / %<PRId64> data"
 msgstr "%<PRId64> totalt / %<PRId64> data"
 
 #: src/rs03-verify.c:952
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- medium sectors   : %<PRId64> total / %<PRId64> data\n"
-msgstr "- medelsektorer : %<PRId64> totalt / %<PRId64> data"
+msgstr "- medelsektorer : %<PRId64> totalt / %<PRId64> data\n"
 
 #: src/rs03-verify.c:968
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>%s (%s expected)</span>"
 msgstr "<span %s>%s (%s förväntas)</span>"
 
 #: src/rs03-verify.c:973
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Image file is %d bytes shorter than expected.</span>"
 msgstr "<span %s>Bildfilen är %d byte kortare än förväntat.</span>"
 
 #: src/rs03-verify.c:975
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Image file is %d bytes longer than expected.</span>"
 msgstr "<span %s>Bildfilen är %d byte längre än förväntat.</span>"
 
 #: src/rs03-verify.c:988
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* sectors          : %s (%s expected); %<PRId64> sectors in ecc file\n"
-msgstr "* sektorer: %s (%s förväntas); %<PRId64>-sektorer i ecc-fil"
+msgstr "* sektorer: %s (%s förväntas); %<PRId64>-sektorer i ecc-fil\n"
 
 #: src/rs03-verify.c:991
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* medium sectors   : %s (%s expected)\n"
-msgstr "* medelstora sektorer: %s (%s förväntas)"
+msgstr "* medelstora sektorer: %s (%s förväntas)\n"
 
 #: src/rs03-verify.c:1019
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed seeking to start of ecc file: %s\n"
-msgstr "Det gick inte att söka efter start av ecc-fil: %s"
+msgstr "Det gick inte att söka efter start av ecc-fil: %s\n"
 
 #: src/rs03-verify.c:1118
 #, fuzzy
@@ -6693,17 +6727,17 @@ msgid " (in ecc file)"
 msgstr "(i ecc-fil)"
 
 #: src/rs03-verify.c:1126
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* missing sector   : %<PRId64>%s\n"
-msgstr "* saknad sektor: %<PRId64>%s"
+msgstr "* saknad sektor: %<PRId64>%s\n"
 
 #: src/rs03-verify.c:1127
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* missing sectors  : %<PRId64> - %<PRId64>%s\n"
-msgstr "* saknade sektorer: %<PRId64> - %<PRId64>%s"
+msgstr "* saknade sektorer: %<PRId64> - %<PRId64>%s\n"
 
 #: src/rs03-verify.c:1193 src/rs03-verify.c:1238
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>%<PRId64> sectors missing; %<PRId64> signature errors</span>"
 msgstr "<span %s>%<PRId64> sektorer saknas; %<PRId64> signaturfel</span>"
 
@@ -6713,35 +6747,35 @@ msgid "Error correction file:"
 msgstr "Felkorrigeringsfil:"
 
 #: src/rs03-verify.c:1256
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "- good image/file  : all sectors present\n"
 "- data md5sum      : %s\n"
 msgstr ""
 "- bra bild/fil: alla sektorer finns\n"
-"- data md5sum : %s"
+"- data md5sum : %s\n"
 
 #: src/rs03-verify.c:1260
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* BAD image/file   : %<PRId64> sectors missing\n"
-msgstr "* DÅLIG bild/fil: %<PRId64> sektorer saknas"
+msgstr "* DÅLIG bild/fil: %<PRId64> sektorer saknas\n"
 
 #: src/rs03-verify.c:1274
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "  ... crc section    : %<PRId64> sectors missing; %<PRId64> signature "
 "errors\n"
-msgstr "... crc-sektion: %<PRId64>-sektorer saknas; %<PRId64> signaturfel"
+msgstr "... crc-sektion: %<PRId64>-sektorer saknas; %<PRId64> signaturfel\n"
 
 #: src/rs03-verify.c:1302
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Skipped; not useful on known defective image</span>"
 msgstr "<span %s>Hoppade över; inte användbart på känd defekt bild</span>"
 
 #: src/rs03-verify.c:1305
 #, fuzzy
 msgid "* Ecc block test   : skipped; not useful on defective image\n"
-msgstr "* Ecc block test: hoppat över; inte användbart på defekt bild"
+msgstr "* Ecc block test: hoppat över; inte användbart på defekt bild\n"
 
 #: src/rs03-window.c:87
 #, fuzzy
@@ -6768,7 +6802,7 @@ msgid "No CD/DVD drives found."
 msgstr "Inga cd/dvd-enheter hittades."
 
 #: src/scsi-darwin.c:229
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Could not open %s (%s)."
 msgstr "Kunde inte öppna %s (%s)."
 
@@ -6787,7 +6821,7 @@ msgid ""
 "No drives will be pre-selected.\n"
 msgstr ""
 "Inga optiska enheter hittades i /dev.\n"
-"Inga enheter kommer att vara förvalda."
+"Inga enheter kommer att vara förvalda.\n"
 
 #: src/scsi-layer.c:106
 #, c-format
@@ -6818,7 +6852,7 @@ msgid "Device %s (%s) is a hard disk."
 msgstr "Enhet %s (%s) är en hårddisk."
 
 #: src/scsi-layer.c:453
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Incomplete %s"
 msgstr "Ofullständig %s"
 
@@ -6911,31 +6945,31 @@ msgstr ""
 "Kunde inte fråga efter fysiska dvdstruktur.\n"
 
 #: src/scsi-layer.c:720 src/scsi-layer.c:730
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "READ DVD STRUCTURE: implausible medium size, %<PRId64>-%<PRId64>=%<PRId64> "
 "sectors\n"
 msgstr ""
 "LÄS DVD-STRUKTUR: osannolik medelstorlek, %<PRId64>-%<PRId64>=%<PRId64> "
-"sektorer"
+"sektorer\n"
 
 #: src/scsi-layer.c:1002
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "%s\n"
 "Could not query BD disc structure length.\n"
 msgstr ""
 "%s\n"
-"Det gick inte att fråga BD-skivans strukturlängd."
+"Det gick inte att fråga BD-skivans strukturlängd.\n"
 
 #: src/scsi-layer.c:1026
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "%s\n"
 "Could not query BD disc structure.\n"
 msgstr ""
 "%s\n"
-"Det gick inte att fråga BD-skivans struktur."
+"Det gick inte att fråga BD-skivans struktur.\n"
 
 #: src/scsi-layer.c:1746
 #, c-format
@@ -6988,12 +7022,12 @@ msgstr ""
 "Kunde inte fråga efter mediumstorlek.\n"
 
 #: src/scsi-layer.c:1899
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "READ CAPACITY: implausible medium size, %<PRId64> sectors\n"
-msgstr "LÄSKAPACITET: osannolik medelstor storlek, %<PRId64> sektorer"
+msgstr "LÄSKAPACITET: osannolik medelstor storlek, %<PRId64> sektorer\n"
 
 #: src/scsi-layer.c:1982
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Different media sizes depending on query method:\n"
 "READ CAPACITY:      %<PRId64> sectors\n"
@@ -7002,7 +7036,7 @@ msgid ""
 msgstr ""
 "Olika mediastorlekar beroende på frågemetod:\n"
 "LÄS KAPACITET: %<PRId64> sektorer\n"
-"LÄS DVD STRUKTUR: %<PRId64> sektorer"
+"LÄS DVD STRUKTUR: %<PRId64> sektorer\n"
 
 #: src/scsi-layer.c:1987
 msgid ""
@@ -7049,62 +7083,62 @@ msgstr ""
 "Försök använda en annan enhet."
 
 #: src/scsi-layer.c:2196 src/scsi-layer.c:2222
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "%s\n"
 "Could not load/unload the medium.\n"
 msgstr ""
 "%s\n"
-"Kunde inte ladda/avlasta mediet."
+"Kunde inte ladda/avlasta mediet.\n"
 
 #: src/scsi-layer.c:2212
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "%s\n"
 "Could not unlock the medium.\n"
 msgstr ""
 "%s\n"
-"Det gick inte att låsa upp mediet."
+"Det gick inte att låsa upp mediet.\n"
 
 #: src/scsi-layer.c:2275
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Waiting 10 seconds for drive: %d\n"
-msgstr "Väntar 10 sekunder på körning: %d"
+msgstr "Väntar 10 sekunder på körning: %d\n"
 
 #: src/scsi-layer.c:2550
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Sectors %<PRId64> - %<PRId64>: %s\n"
-msgstr "Sektorer %<PRId64> - %<PRId64>: %s"
+msgstr "Sektorer %<PRId64> - %<PRId64>: %s\n"
 
 #: src/scsi-layer.c:2564
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Sector %<PRId64>, try %d: %s Sector returned: %d.\n"
-msgstr "Sektor %<PRId64>, försök %d: %s Sektor returnerade: %d."
+msgstr "Sektor %<PRId64>, försök %d: %s Sektor returnerade: %d.\n"
 
 #: src/scsi-layer.c:2570
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Sector %<PRId64>, try %d: %s\n"
-msgstr "Sektor %<PRId64>, försök %d: %s"
+msgstr "Sektor %<PRId64>, försök %d: %s\n"
 
 #: src/scsi-layer.c:2581
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Sector %<PRId64>, try %d: success\n"
-msgstr "Sektor %<PRId64>, försök %d: framgång"
+msgstr "Sektor %<PRId64>, försök %d: framgång\n"
 
 #: src/scsi-layer.c:2653
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Device %s: no medium present\n"
-msgstr "Enhet %s: inget medium närvarande"
+msgstr "Enhet %s: inget medium närvarande\n"
 
 #: src/scsi-layer.c:2658
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Device %s does not become ready:\n"
 "%s\n"
 "\n"
 msgstr ""
 "Enheten %s blir inte klar:\n"
-"%s"
+"%s\n"
 
 #: src/scsi-layer.c:2664
 #, c-format
@@ -7121,12 +7155,12 @@ msgid "Drive failed to report media type."
 msgstr "Det gick inte att rapportera mediatyp på Drive."
 
 #: src/scsi-layer.c:2686 src/scsi-layer.c:2799
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "This software does not support \"%s\" type media."
 msgstr "Denna programvara stöder inte media av typen \"%s\"."
 
 #: src/scsi-layer.c:2694
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "This software does not support multisession (%d sessions) media."
 msgstr "Denna programvara stöder inte multisession (%d sessioner) media."
 
@@ -7141,7 +7175,7 @@ msgid ", RAW reading"
 msgstr ", RAW-läsning"
 
 #: src/scsi-layer.c:2729
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ", Mode page 1 ERP = %02xh"
 msgstr ", Läge sida 1 ERP = %02xh"
 
@@ -7153,7 +7187,7 @@ msgstr ", C2-skanning"
 #: src/scsi-layer.c:2739
 #, fuzzy
 msgid "Using READ(10).\n"
-msgstr "Använd READ(10)."
+msgstr "Använd READ(10).\n"
 
 #: src/scsi-layer.c:2776
 #, c-format
@@ -7172,10 +7206,10 @@ msgid ""
 "No drives will be pre-selected.\n"
 msgstr ""
 "Inga optiska enheter hittades.\n"
-"Inga enheter kommer att vara förvalda."
+"Inga enheter kommer att vara förvalda.\n"
 
 #: src/scsi-simulated.c:39
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Simulated CD (%s)"
 msgstr "Simulerad CD (%s)"
 
@@ -7197,7 +7231,7 @@ msgstr ""
 "Otillåtet enhetsnamn \"%s\" (använd enheterna \"C:\" ... \"Z:\")"
 
 #: src/scsi-win32.c:267
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Could not open device %s."
 msgstr "Kunde inte öppna enheten %s."
 
@@ -7206,7 +7240,7 @@ msgid "Documentation not installed."
 msgstr "Dokumentationen är inte installerad."
 
 #: src/show-manual.c:160
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Documentation file\n"
 "%s\n"
@@ -7214,7 +7248,7 @@ msgid ""
 msgstr ""
 "Dokumentationsfil\n"
 "%s\n"
-"hittades inte."
+"hittades inte.\n"
 
 #: src/show-manual.c:176
 #, fuzzy
@@ -7237,16 +7271,16 @@ msgid "Could not fork to start xdg-open"
 msgstr "Kunde inte dela för att starta xdg-open"
 
 #: src/show-manual.c:227
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "execvp could not execute \"open\":\n"
 "%s\n"
 msgstr ""
 "execvp kunde inte köra \"öppen\":\n"
-"%s"
+"%s\n"
 
 #: src/show-manual.c:231
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "execvp could not execute \"xdg-open\":\n"
 "%s\n"
@@ -7254,7 +7288,7 @@ msgid ""
 msgstr ""
 "execvp kunde inte köra \"xdg-open\":\n"
 "%s\n"
-"Är xdg-open korrekt installerat?"
+"Är xdg-open korrekt installerat?\n"
 
 #: src/udf.c:259
 msgid "Unnamed"
@@ -7277,15 +7311,16 @@ msgid ""
 "dvdisaster creates error correction data to protect\n"
 "optical media (CD,DVD,BD) against data loss.\n"
 msgstr ""
+"\n"
 "dvdisaster skapar felkorrigeringsdata för att skydda\n"
-"optiska media (CD,DVD,BD) mot dataförlust."
+"optiska media (CD,DVD,BD) mot dataförlust.\n"
 
 #: src/welcome-window.c:78
 #, fuzzy
 msgid ""
 "Please see the [manual] for typical uses of dvdisaster.\n"
 "\n"
-msgstr "Se [manualen] för typiska användningar av dvdisaster."
+msgstr "Se [manualen] för typiska användningar av dvdisaster.\n"
 
 #: src/welcome-window.c:81
 #, fuzzy
@@ -7322,11 +7357,9 @@ msgstr ""
 msgid "Show this message again"
 msgstr "Visa detta meddelande igen"
 
-#, c-format
 #~ msgid "Failed seeking to sector %lld in image: %s"
 #~ msgstr "Misslyckades med att söka fram till sektor %lld i avbild: %s"
 
-#, c-format
 #~ msgid "Failed reading sector %lld in image: %s"
 #~ msgstr "Misslyckades med att läsa sektor %lld i avbild: %s"
 
