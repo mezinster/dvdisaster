@@ -464,7 +464,8 @@ msgstr "--threads мусіць быць 1..%d\n"
 
 #: src/dvdisaster.c:422
 msgid "--cache-size must at least be 8MiB; 16MiB or higher is recommended."
-msgstr "--cache-size мусіць быць не менш за 8MiB; рэкамендуецца 16MiB або вышэй."
+msgstr ""
+"--cache-size мусіць быць не менш за 8MiB; рэкамендуецца 16MiB або вышэй."
 
 #: src/dvdisaster.c:424
 #, c-format
@@ -612,16 +613,28 @@ msgid "Tweaking options (see manual before using!)\n"
 msgstr "Дадатковыя параметры (прачытайце кіраўніцтва перад выкарыстаннем!)\n"
 
 #: src/dvdisaster.c:981
-msgid "  -a, --assume x             - assume image is augmented with given codec (RS02 or RS03)\n"
-msgstr "  -a, --assume x             - лічыць, што вобраз дапоўнены пазначаным кодэкам (RS02 або RS03)\n"
+msgid ""
+"  -a, --assume x             - assume image is augmented with given codec "
+"(RS02 or RS03)\n"
+msgstr ""
+"  -a, --assume x             - лічыць, што вобраз дапоўнены пазначаным "
+"кодэкам (RS02 або RS03)\n"
 
 #: src/dvdisaster.c:982
-msgid "  -j, --jump n               - jump n sectors forward after a read error (default: 16)\n"
-msgstr "  -j, --jump n               - прапускаць n сектараў пасля памылкі чытання (па змаўчанні: 16)\n"
+msgid ""
+"  -j, --jump n               - jump n sectors forward after a read error "
+"(default: 16)\n"
+msgstr ""
+"  -j, --jump n               - прапускаць n сектараў пасля памылкі чытання "
+"(па змаўчанні: 16)\n"
 
 #: src/dvdisaster.c:983
-msgid "  -m, --method x             - list/select error correction methods (default: RS01)\n"
-msgstr "  -m, --method x             - спіс/выбар метадаў карэкцыі памылак (па змаўчанні: RS01)\n"
+msgid ""
+"  -m, --method x             - list/select error correction methods "
+"(default: RS01)\n"
+msgstr ""
+"  -m, --method x             - спіс/выбар метадаў карэкцыі памылак (па "
+"змаўчанні: RS01)\n"
 
 #: src/dvdisaster.c:984
 #, c-format
@@ -641,48 +654,86 @@ msgstr ""
 "                               або лічбу сектараў\n"
 
 #: src/dvdisaster.c:990
-msgid "  -v, --verbose              - more logs, set env VERBOSE=1 for pre-options parsing logs\n"
-msgstr "  -v, --verbose              - больш журналяў; задайце VERBOSE=1 для журналяў да парсінгу параметраў\n"
+msgid ""
+"  -v, --verbose              - more logs, set env VERBOSE=1 for pre-options "
+"parsing logs\n"
+msgstr ""
+"  -v, --verbose              - больш журналяў; задайце VERBOSE=1 для "
+"журналяў да парсінгу параметраў\n"
 
 #: src/dvdisaster.c:991
-msgid "  -x, --threads n            - use n threads for en-/decoding (if supported by codec)\n"
-msgstr "  -x, --threads n            - выкарыстоўваць n патокаў для кадавання/дэкадавання (калі кодэк падтрымлівае)\n"
+msgid ""
+"  -x, --threads n            - use n threads for en-/decoding (if supported "
+"by codec)\n"
+msgstr ""
+"  -x, --threads n            - выкарыстоўваць n патокаў для "
+"кадавання/дэкадавання (калі кодэк падтрымлівае)\n"
 
 #: src/dvdisaster.c:992
-msgid "  --adaptive-read            - use optimized strategy for reading damaged media\n"
-msgstr "  --adaptive-read            - выкарыстоўваць аптымізаваную стратэгію чытання пашкоджаных носьбітаў\n"
+msgid ""
+"  --adaptive-read            - use optimized strategy for reading damaged "
+"media\n"
+msgstr ""
+"  --adaptive-read            - выкарыстоўваць аптымізаваную стратэгію "
+"чытання пашкоджаных носьбітаў\n"
 
 #: src/dvdisaster.c:993
-msgid "  --auto-suffix              - automatically add .iso and .ecc file suffixes\n"
-msgstr "  --auto-suffix              - аўтаматычна дадаваць суфіксы файлаў .iso і .ecc\n"
+msgid ""
+"  --auto-suffix              - automatically add .iso and .ecc file "
+"suffixes\n"
+msgstr ""
+"  --auto-suffix              - аўтаматычна дадаваць суфіксы файлаў .iso і "
+".ecc\n"
 
 #: src/dvdisaster.c:994
-msgid "  --cache-size n             - image cache size in MiB during -c mode (default: 32MiB)\n"
-msgstr "  --cache-size n             - памер кэша вобраза ў MiB у рэжыме -c (па змаўчанні: 32MiB)\n"
+msgid ""
+"  --cache-size n             - image cache size in MiB during -c mode "
+"(default: 32MiB)\n"
+msgstr ""
+"  --cache-size n             - памер кэша вобраза ў MiB у рэжыме -c (па "
+"змаўчанні: 32MiB)\n"
 
 #: src/dvdisaster.c:995
 msgid "  --dao                      - assume DAO disc; do not trim image end\n"
-msgstr "  --dao                      - лічыць дыск DAO; не абразаць канец вобраза\n"
+msgstr ""
+"  --dao                      - лічыць дыск DAO; не абразаць канец вобраза\n"
 
 #: src/dvdisaster.c:996
-msgid "  --defective-dump d         - directory for saving incomplete raw sectors\n"
-msgstr "  --defective-dump d         - дырэкторыя для захавання няпоўных сырых сектараў\n"
+msgid ""
+"  --defective-dump d         - directory for saving incomplete raw sectors\n"
+msgstr ""
+"  --defective-dump d         - дырэкторыя для захавання няпоўных сырых "
+"сектараў\n"
 
 #: src/dvdisaster.c:998
-msgid "  --driver=sg/cdrom          - use sg(default) or alternative cdrom driver (see man page!)\n"
-msgstr "  --driver=sg/cdrom          - выкарыстоўваць sg(па змаўчанні) або альтэрнатыўны драйвер cdrom (гл. man!)\n"
+msgid ""
+"  --driver=sg/cdrom          - use sg(default) or alternative cdrom driver "
+"(see man page!)\n"
+msgstr ""
+"  --driver=sg/cdrom          - выкарыстоўваць sg(па змаўчанні) або "
+"альтэрнатыўны драйвер cdrom (гл. man!)\n"
 
 #: src/dvdisaster.c:1000
-msgid "  --bruteforce-rs03-search   - enable bruteforce linear scan for RS03 data (slow!)\n"
-msgstr "  --bruteforce-rs03-search   - уключыць пасеквенцыйны перабор для пошуку даных RS03 (павольна!)\n"
+msgid ""
+"  --bruteforce-rs03-search   - enable bruteforce linear scan for RS03 data "
+"(slow!)\n"
+msgstr ""
+"  --bruteforce-rs03-search   - уключыць пасеквенцыйны перабор для пошуку "
+"даных RS03 (павольна!)\n"
 
 #: src/dvdisaster.c:1001
 msgid "  --eject                    - eject medium after successful read\n"
-msgstr "  --eject                    - выштурхнуць носьбіт пасля паспяховага чытання\n"
+msgstr ""
+"  --eject                    - выштурхнуць носьбіт пасля паспяховага "
+"чытання\n"
 
 #: src/dvdisaster.c:1002
-msgid "  --encoding-algorithm x     - possible values: 32bit, 64bit, SSE2, AltiVec\n"
-msgstr "  --encoding-algorithm x     - магчымыя значэнні: 32bit, 64bit, SSE2, AltiVec\n"
+msgid ""
+"  --encoding-algorithm x     - possible values: 32bit, 64bit, SSE2, "
+"AltiVec\n"
+msgstr ""
+"  --encoding-algorithm x     - магчымыя значэнні: 32bit, 64bit, SSE2, "
+"AltiVec\n"
 
 #: src/dvdisaster.c:1003
 msgid "  --encoding-io-strategy x   - possible values: readwrite, mmap\n"
@@ -693,44 +744,76 @@ msgid "  --fill-unreadable n        - fill unreadable sectors with byte n\n"
 msgstr "  --fill-unreadable n        - запаўняць нечытэльныя сектары байтам n\n"
 
 #: src/dvdisaster.c:1005
-msgid "  --ignore-fatal-sense       - continue reading after potentially fatal error conditon\n"
-msgstr "  --ignore-fatal-sense       - працягваць чытанне пасля патэнцыйна фатальнай памылкі\n"
+msgid ""
+"  --ignore-fatal-sense       - continue reading after potentially fatal "
+"error conditon\n"
+msgstr ""
+"  --ignore-fatal-sense       - працягваць чытанне пасля патэнцыйна фатальнай"
+" памылкі\n"
 
 #: src/dvdisaster.c:1006
-msgid "  --ignore-iso-size          - ignore image size from ISO/UDF data (dangerous - see man page!)\n"
-msgstr "  --ignore-iso-size          - ігнараваць памер вобраза з даных ISO/UDF (небяспечна - гл. man!)\n"
+msgid ""
+"  --ignore-iso-size          - ignore image size from ISO/UDF data "
+"(dangerous - see man page!)\n"
+msgstr ""
+"  --ignore-iso-size          - ігнараваць памер вобраза з даных ISO/UDF "
+"(небяспечна - гл. man!)\n"
 
 #: src/dvdisaster.c:1007
-msgid "  --internal-rereads n       - drive may attempt n rereads before reporting an error\n"
-msgstr "  --internal-rereads n       - прылада можа зрабіць n паўторных чытанняў перад паведамленнем аб памылцы\n"
+msgid ""
+"  --internal-rereads n       - drive may attempt n rereads before reporting "
+"an error\n"
+msgstr ""
+"  --internal-rereads n       - прылада можа зрабіць n паўторных чытанняў "
+"перад паведамленнем аб памылцы\n"
 
 #: src/dvdisaster.c:1008
 msgid "  --medium-info              - print info about medium in drive\n"
-msgstr "  --medium-info              - вывесці інфармацыю аб носьбіце ў прыладзе\n"
+msgstr ""
+"  --medium-info              - вывесці інфармацыю аб носьбіце ў прыладзе\n"
 
 #: src/dvdisaster.c:1009
-msgid "  --no-bdr-defect-management - use bigger RS03 images for BD-R (see man page!)\n"
-msgstr "  --no-bdr-defect-management - выкарыстоўваць большыя вобразы RS03 для BD-R (гл. man!)\n"
+msgid ""
+"  --no-bdr-defect-management - use bigger RS03 images for BD-R (see man "
+"page!)\n"
+msgstr ""
+"  --no-bdr-defect-management - выкарыстоўваць большыя вобразы RS03 для BD-R "
+"(гл. man!)\n"
 
 #: src/dvdisaster.c:1010
 msgid "  --no-progress              - do not print progress information\n"
 msgstr "  --no-progress              - не выводзіць інфармацыю аб прагрэсе\n"
 
 #: src/dvdisaster.c:1011
-msgid "  --old-ds-marker            - mark missing sectors compatible with dvdisaster <= 0.70\n"
-msgstr "  --old-ds-marker            - пазначаць адсутныя сектары сумесна з dvdisaster <= 0.70\n"
+msgid ""
+"  --old-ds-marker            - mark missing sectors compatible with "
+"dvdisaster <= 0.70\n"
+msgstr ""
+"  --old-ds-marker            - пазначаць адсутныя сектары сумесна з "
+"dvdisaster <= 0.70\n"
 
 #: src/dvdisaster.c:1012
-msgid "  --prefetch-sectors n       - prefetch n sectors for RS03 encoding (uses ~nMiB)\n"
-msgstr "  --prefetch-sectors n       - папярэдняя загрузка n сектараў для кадавання RS03 (выкарыстоўвае ~nMiB)\n"
+msgid ""
+"  --prefetch-sectors n       - prefetch n sectors for RS03 encoding (uses "
+"~nMiB)\n"
+msgstr ""
+"  --prefetch-sectors n       - папярэдняя загрузка n сектараў для кадавання "
+"RS03 (выкарыстоўвае ~nMiB)\n"
 
 #: src/dvdisaster.c:1013
-msgid "  --raw-mode n               - mode for raw reading CD media (20 or 21)\n"
-msgstr "  --raw-mode n               - рэжым сырога чытання носьбітаў CD (20 або 21)\n"
+msgid ""
+"  --raw-mode n               - mode for raw reading CD media (20 or 21)\n"
+msgstr ""
+"  --raw-mode n               - рэжым сырога чытання носьбітаў CD (20 або "
+"21)\n"
 
 #: src/dvdisaster.c:1014
-msgid "  --read-attempts n-m        - attempts n up to m reads of a defective sector\n"
-msgstr "  --read-attempts n-m        - спробы ад n да m чытанняў дэфектнага сектара\n"
+msgid ""
+"  --read-attempts n-m        - attempts n up to m reads of a defective "
+"sector\n"
+msgstr ""
+"  --read-attempts n-m        - спробы ад n да m чытанняў дэфектнага "
+"сектара\n"
 
 #: src/dvdisaster.c:1015
 msgid "  --read-medium n            - read the whole medium up to n times\n"
@@ -738,55 +821,85 @@ msgstr "  --read-medium n            - чытаць увесь носьбіт д
 
 #: src/dvdisaster.c:1016
 msgid "  --read-raw                 - performs read in raw mode if possible\n"
-msgstr "  --read-raw                 - выконвае чытанне ў сыром рэжыме, калі магчыма\n"
+msgstr ""
+"  --read-raw                 - выконвае чытанне ў сыром рэжыме, калі "
+"магчыма\n"
 
 #: src/dvdisaster.c:1017
-msgid "  --regtest                  - tweaks output for compatibility with regtests\n"
-msgstr "  --regtest                  - наладжвае вывад для сумяшчальнасці з рэгрэснымі тэстамі\n"
+msgid ""
+"  --regtest                  - tweaks output for compatibility with "
+"regtests\n"
+msgstr ""
+"  --regtest                  - наладжвае вывад для сумяшчальнасці з "
+"рэгрэснымі тэстамі\n"
 
 #: src/dvdisaster.c:1018
 msgid "  --resource-file p          - get resource file from given path\n"
-msgstr "  --resource-file p          - атрымаць файл рэсурсаў па зададзеным шляху\n"
+msgstr ""
+"  --resource-file p          - атрымаць файл рэсурсаў па зададзеным шляху\n"
 
 #: src/dvdisaster.c:1019
-msgid "  --speed-warning n          - print warning if speed changes by more than n percent\n"
-msgstr "  --speed-warning n          - выводзіць папярэджанне, калі хуткасць змяняецца больш чым на n адсоткаў\n"
+msgid ""
+"  --speed-warning n          - print warning if speed changes by more than n"
+" percent\n"
+msgstr ""
+"  --speed-warning n          - выводзіць папярэджанне, калі хуткасць "
+"змяняецца больш чым на n адсоткаў\n"
 
 #: src/dvdisaster.c:1020
 msgid "  --spinup-delay n           - wait n seconds for drive to spin up\n"
 msgstr "  --spinup-delay n           - чакаць n секунд для раскруткі прылады\n"
 
 #: src/dvdisaster.c:1021
-msgid "  --version                  - print version and some configuration info\n"
-msgstr "  --version                  - вывесці версію і некаторую інфармацыю аб канфігурацыі\n"
+msgid ""
+"  --version                  - print version and some configuration info\n"
+msgstr ""
+"  --version                  - вывесці версію і некаторую інфармацыю аб "
+"канфігурацыі\n"
 
 #: src/dvdisaster.c:1022
-msgid "  --debug                    - allow advanced dangerous options (use with --help for a list)\n"
-msgstr "  --debug                    - дазволіць пашыраныя небяспечныя параметры (з --help для спісу)\n"
+msgid ""
+"  --debug                    - allow advanced dangerous options (use with "
+"--help for a list)\n"
+msgstr ""
+"  --debug                    - дазволіць пашыраныя небяспечныя параметры (з "
+"--help для спісу)\n"
 
 #: src/dvdisaster.c:1026
 msgid "Debugging options (purposefully undocumented and possibly harmful)\n"
 msgstr "Параметры адладкі (наўмысна недакументаваныя і магчыма небяспечныя)\n"
 
 #: src/dvdisaster.c:1027
-msgid "  --permissive-medium-type - allow more media types, even theoretically unsupported ones\n"
-msgstr "  --permissive-medium-type - дазволіць больш тыпаў носьбітаў, нават тэарэтычна непадтрымліваемых\n"
+msgid ""
+"  --permissive-medium-type - allow more media types, even theoretically "
+"unsupported ones\n"
+msgstr ""
+"  --permissive-medium-type - дазволіць больш тыпаў носьбітаў, нават "
+"тэарэтычна непадтрымліваемых\n"
 
 #: src/dvdisaster.c:1028
 msgid "  --byteset s,i,b          - set byte i in sector s to b\n"
 msgstr "  --byteset s,i,b          - усталяваць байт i у сектары s на b\n"
 
 #: src/dvdisaster.c:1029
-msgid "  --cdump                  - creates C #include file dumps instead of hexdumps\n"
-msgstr "  --cdump                  - стварае дампы ў выглядзе C #include замест hexdumps\n"
+msgid ""
+"  --cdump                  - creates C #include file dumps instead of "
+"hexdumps\n"
+msgstr ""
+"  --cdump                  - стварае дампы ў выглядзе C #include замест "
+"hexdumps\n"
 
 #: src/dvdisaster.c:1030
 msgid "  --compare-images a,b     - compare sectors in images a and b\n"
 msgstr "  --compare-images a,b     - параўнаць сектары ў вобразах a і b\n"
 
 #: src/dvdisaster.c:1031
-msgid "  --copy-sector a,n,b,m    - copy sector n from image a to sector m in image b\n"
-msgstr "  --copy-sector a,n,b,m    - скапіраваць сектар n з вобраза a у сектар m у вобразе b\n"
+msgid ""
+"  --copy-sector a,n,b,m    - copy sector n from image a to sector m in image"
+" b\n"
+msgstr ""
+"  --copy-sector a,n,b,m    - скапіраваць сектар n з вобраза a у сектар m у "
+"вобразе b\n"
 
 #: src/dvdisaster.c:1032
 msgid "  --erase sector           - erase the given sector\n"
@@ -805,69 +918,122 @@ msgid "  --examine-rs03           - force RS03 exhaustive search\n"
 msgstr "  --examine-rs03           - прымусовы поўны пошук RS03\n"
 
 #: src/dvdisaster.c:1036
-msgid "  --fixed-speed-values     - output fixed speed values for better output diffing\n"
-msgstr "  --fixed-speed-values     - выводзіць фіксаваныя значэнні хуткасці для лепшага параўнання\n"
+msgid ""
+"  --fixed-speed-values     - output fixed speed values for better output "
+"diffing\n"
+msgstr ""
+"  --fixed-speed-values     - выводзіць фіксаваныя значэнні хуткасці для "
+"лепшага параўнання\n"
 
 #: src/dvdisaster.c:1037
-msgid "  --ignore-rs03-header     - ignore RS03 header when repairing (forcing a full search)\n"
-msgstr "  --ignore-rs03-header     - ігнараваць загаловак RS03 пры аднаўленні (прымусовы поўны пошук)\n"
+msgid ""
+"  --ignore-rs03-header     - ignore RS03 header when repairing (forcing a "
+"full search)\n"
+msgstr ""
+"  --ignore-rs03-header     - ігнараваць загаловак RS03 пры аднаўленні "
+"(прымусовы поўны пошук)\n"
 
 #: src/dvdisaster.c:1038
 msgid "  --marked-image n         - create image with n marked random sectors\n"
-msgstr "  --marked-image n         - стварыць вобраз з n пазначанымі выпадковымі сектарамі\n"
+msgstr ""
+"  --marked-image n         - стварыць вобраз з n пазначанымі выпадковымі "
+"сектарамі\n"
 
 #: src/dvdisaster.c:1039
-msgid "  --merge-images a,b       - merge image a with b (a receives sectors from b)\n"
-msgstr "  --merge-images a,b       - аб'яднаць вобраз a з b (a атрымлівае сектары з b)\n"
+msgid ""
+"  --merge-images a,b       - merge image a with b (a receives sectors from "
+"b)\n"
+msgstr ""
+"  --merge-images a,b       - аб'яднаць вобраз a з b (a атрымлівае сектары з "
+"b)\n"
 
 #: src/dvdisaster.c:1040
-msgid "  --random-errors e        - seed image with (correctable) random errors\n"
-msgstr "  --random-errors e        - запоўніць вобраз (выпраўляльнымі) выпадковымі памылкамі\n"
+msgid ""
+"  --random-errors e        - seed image with (correctable) random errors\n"
+msgstr ""
+"  --random-errors e        - запоўніць вобраз (выпраўляльнымі) выпадковымі "
+"памылкамі\n"
 
 #: src/dvdisaster.c:1041
-msgid "  --random-image n         - create image with n sectors of random numbers\n"
-msgstr "  --random-image n         - стварыць вобраз з n сектарамі выпадковых лічбаў\n"
+msgid ""
+"  --random-image n         - create image with n sectors of random numbers\n"
+msgstr ""
+"  --random-image n         - стварыць вобраз з n сектарамі выпадковых "
+"лічбаў\n"
 
 #: src/dvdisaster.c:1042
-msgid "  --random-seed n          - random seed for built-in random number generator\n"
-msgstr "  --random-seed n          - зерне выпадковасці для ўбудаванага генератара выпадковых лічбаў\n"
+msgid ""
+"  --random-seed n          - random seed for built-in random number "
+"generator\n"
+msgstr ""
+"  --random-seed n          - зерне выпадковасці для ўбудаванага генератара "
+"выпадковых лічбаў\n"
 
 #: src/dvdisaster.c:1043
-msgid "  --raw-sector n           - shows hexdump of the given raw sector from medium in drive\n"
-msgstr "  --raw-sector n           - паказвае hexdump пазначанага сырога сектара з носьбіта ў прыладзе\n"
+msgid ""
+"  --raw-sector n           - shows hexdump of the given raw sector from "
+"medium in drive\n"
+msgstr ""
+"  --raw-sector n           - паказвае hexdump пазначанага сырога сектара з "
+"носьбіта ў прыладзе\n"
 
 #: src/dvdisaster.c:1044
-msgid "  --read-sector n          - shows hexdump of the given sector from medium in drive\n"
-msgstr "  --read-sector n          - паказвае hexdump пазначанага сектара з носьбіта ў прыладзе\n"
+msgid ""
+"  --read-sector n          - shows hexdump of the given sector from medium "
+"in drive\n"
+msgstr ""
+"  --read-sector n          - паказвае hexdump пазначанага сектара з носьбіта"
+" ў прыладзе\n"
 
 #: src/dvdisaster.c:1045
 msgid "  --screen-shot            - useful for generating screen shots\n"
 msgstr "  --screen-shot            - карысна для стварэння скрыншотаў\n"
 
 #: src/dvdisaster.c:1046
-msgid "  --send-cdb arg           - executes given cdb at drive; kills system if used wrong\n"
-msgstr "  --send-cdb arg           - выконвае зададзены cdb на прыладзе; знішчае сістэму пры няправільным выкарыстанні\n"
+msgid ""
+"  --send-cdb arg           - executes given cdb at drive; kills system if "
+"used wrong\n"
+msgstr ""
+"  --send-cdb arg           - выконвае зададзены cdb на прыладзе; знішчае "
+"сістэму пры няправільным выкарыстанні\n"
 
 #: src/dvdisaster.c:1047
-msgid "  --set-version            - set program version for debugging purposes (dangerous!)\n"
-msgstr "  --set-version            - усталяваць версію праграмы для мэт адладкі (небяспечна!)\n"
+msgid ""
+"  --set-version            - set program version for debugging purposes "
+"(dangerous!)\n"
+msgstr ""
+"  --set-version            - усталяваць версію праграмы для мэт адладкі "
+"(небяспечна!)\n"
 
 #: src/dvdisaster.c:1048
-msgid "  --show-header n          - assumes given sector is a ecc header and prints it\n"
-msgstr "  --show-header n          - лічыць пазначаны сектар загалоўкам ECC і выводзіць яго\n"
+msgid ""
+"  --show-header n          - assumes given sector is a ecc header and prints"
+" it\n"
+msgstr ""
+"  --show-header n          - лічыць пазначаны сектар загалоўкам ECC і "
+"выводзіць яго\n"
 
 #: src/dvdisaster.c:1049
-msgid "  --show-sector n          - shows hexdump of the given sector in an image file\n"
-msgstr "  --show-sector n          - паказвае hexdump пазначанага сектара ў файле вобраза\n"
+msgid ""
+"  --show-sector n          - shows hexdump of the given sector in an image "
+"file\n"
+msgstr ""
+"  --show-sector n          - паказвае hexdump пазначанага сектара ў файле "
+"вобраза\n"
 
 #: src/dvdisaster.c:1050
-msgid "  --sim-cd image           - simulate a SCSI-Level CD with contents supplied by the ISO image\n"
-msgstr "  --sim-cd image           - сімуляваць SCSI-ўзровень CD з змесцівам, пазначаным ISO вобразам\n"
+msgid ""
+"  --sim-cd image           - simulate a SCSI-Level CD with contents supplied"
+" by the ISO image\n"
+msgstr ""
+"  --sim-cd image           - сімуляваць SCSI-ўзровень CD з змесцівам, "
+"пазначаным ISO вобразам\n"
 
 #: src/dvdisaster.c:1051
 #, c-format
 msgid "  --sim-defects n          - simulate n%% defective sectors on medium\n"
-msgstr "  --sim-defects n          - сімуляваць n%% дэфектных сектараў на носьбіце\n"
+msgstr ""
+"  --sim-defects n          - сімуляваць n%% дэфектных сектараў на носьбіце\n"
 
 #: src/dvdisaster.c:1052
 msgid "  --truncate n             - truncates image to n sectors\n"
@@ -886,8 +1052,12 @@ msgid "Optical drive 52X FW 1.02"
 msgstr "Аптычная прылада 52X FW 1.02"
 
 #: src/dvdisaster.c:1088
-msgid "Using GUI mode: most command-line options are ignored. Look at the preferences in the GUI instead.\n"
-msgstr "Выкарыстоўваецца рэжым GUI: большасць параметраў каманднага радка ігнаруецца. Выкарыстоўвайце налады ў GUI.\n"
+msgid ""
+"Using GUI mode: most command-line options are ignored. Look at the "
+"preferences in the GUI instead.\n"
+msgstr ""
+"Выкарыстоўваецца рэжым GUI: большасць параметраў каманднага радка "
+"ігнаруецца. Выкарыстоўвайце налады ў GUI.\n"
 
 #: src/ecc-rs01.c:43
 msgid "Error correction file (RS01)"
@@ -910,8 +1080,12 @@ msgid "Multithreaded RS codec (RS03)"
 msgstr "Шматструменны кодэк RS (RS03)"
 
 #: src/ecc-rs03.c:45
-msgid "Multithreaded Reed-Solomon codec for error correction files and augmented images"
-msgstr "Шматструменны кодэк Рыда-Саламона для файлаў карэкцыі памылак і дапоўненых вобразаў"
+msgid ""
+"Multithreaded Reed-Solomon codec for error correction files and augmented "
+"images"
+msgstr ""
+"Шматструменны кодэк Рыда-Саламона для файлаў карэкцыі памылак і дапоўненых "
+"вобразаў"
 
 #: src/endian.c:78
 msgid ""
@@ -987,12 +1161,13 @@ msgid "windowtitle|About dvdisaster"
 msgstr "Пра dvdisaster"
 
 #: src/help-dialogs.c:759 src/misc.c:219
+#, fuzzy
 msgid ""
 "Copyright 2004-2017 Carsten Gnoerlich.\n"
 "Copyright 2019-2021 The dvdisaster development team."
 msgstr ""
-"Copyright 2004-2017 Carsten Gnoerlich.\n"
-"Copyright 2019-2021 The dvdisaster development team."
+"Аўтарскае права 2004-2017 Карстэн Гноерліх.\n"
+"Copyright 2019-2021 Каманда распрацоўшчыкаў dvdisaster."
 
 #: src/help-dialogs.c:767
 msgid ""
@@ -1017,12 +1192,13 @@ msgstr ""
 "па ўмовах [GNU General Public License].\n"
 
 #: src/help-dialogs.c:777
+#, fuzzy
 msgid ""
 "\n"
 "e-mail: support@dvdisaster.org"
 msgstr ""
 "\n"
-"e-mail: support@dvdisaster.org"
+"электронная пошта: support@dvdisaster.org"
 
 #: src/help-dialogs.c:783
 msgid ""
@@ -1047,12 +1223,13 @@ msgstr ""
 "адпраўляйце паведамленні аб памылках у [GitHub].\n"
 
 #: src/help-dialogs.c:793
+#, fuzzy
 msgid ""
 "\n"
 "NetBSD port: Sergey Svishchev &lt;svs@ropnet.ru&gt;"
 msgstr ""
 "\n"
-"NetBSD port: Sergey Svishchev &lt;svs@ropnet.ru&gt;"
+"Порт NetBSD: Сяргей Свішчаў &lt;svs@ropnet.ru&gt;"
 
 #: src/image.c:156 src/image.c:161
 #, c-format
@@ -1145,7 +1322,8 @@ msgstr ""
 
 #: src/main-window.c:177
 msgid "Internal error: No suitable method for repairing image."
-msgstr "Унутраная памылка: не знойдзены прыдатны метад для аднаўлення вобраза."
+msgstr ""
+"Унутраная памылка: не знойдзены прыдатны метад для аднаўлення вобраза."
 
 #: src/main-window.c:286
 msgid "button|Read"
@@ -1156,8 +1334,12 @@ msgid "tooltip|Read Image"
 msgstr "Чытаць вобраз"
 
 #: src/main-window.c:290
-msgid "Reads an optical disc image into a file (or tries to complete an existing image file)."
-msgstr "Счытвае вобраз аптычнага дыска ў файл (або спрабуе дапоўніць існуючы файл вобраза)."
+msgid ""
+"Reads an optical disc image into a file (or tries to complete an existing "
+"image file)."
+msgstr ""
+"Счытвае вобраз аптычнага дыска ў файл (або спрабуе дапоўніць існуючы файл "
+"вобраза)."
 
 #: src/main-window.c:304
 msgid "button|Create"
@@ -1236,8 +1418,11 @@ msgid "tooltip|Protocol for current action"
 msgstr "Пратакол бягучага дзеяння"
 
 #: src/main-window.c:494
-msgid "Displays additional information created during the current or last action."
-msgstr "Паказвае дадатковую інфармацыю, створаную падчас бягучага або апошняга дзеяння."
+msgid ""
+"Displays additional information created during the current or last action."
+msgstr ""
+"Паказвае дадатковую інфармацыю, створаную падчас бягучага або апошняга "
+"дзеяння."
 
 #: src/main-window.c:502
 msgid "View log"
@@ -1577,8 +1762,11 @@ msgid "tooltip|Preferences"
 msgstr "Параметры"
 
 #: src/menubar.c:551
-msgid "Customize settings for creating images, error correction files and other stuff."
-msgstr "Наладжвае параметры стварэння вобразаў, файлаў карэкцыі памылак і іншага."
+msgid ""
+"Customize settings for creating images, error correction files and other "
+"stuff."
+msgstr ""
+"Наладжвае параметры стварэння вобразаў, файлаў карэкцыі памылак і іншага."
 
 #: src/menubar.c:561
 msgid "tooltip|User manual"
@@ -1586,7 +1774,8 @@ msgstr "Кіраўніцтва карыстальніка"
 
 #: src/menubar.c:562
 msgid "Displays the user manual (external PDF viewer required)."
-msgstr "Паказвае кіраўніцтва карыстальніка (патрабуецца знешні прагляднік PDF)."
+msgstr ""
+"Паказвае кіраўніцтва карыстальніка (патрабуецца знешні прагляднік PDF)."
 
 #: src/menubar.c:572
 msgid "tooltip|Quit"
@@ -1952,7 +2141,9 @@ msgstr "Метткі адсутнічаючых сектараў"
 
 #: src/preferences.c:1554
 msgid "Use old style missing sector tags (not recommended)"
-msgstr "Выкарыстоўваць метткі адсутнічаючых сектараў старога стылю (не рэкамендуецца)"
+msgstr ""
+"Выкарыстоўваць метткі адсутнічаючых сектараў старога стылю (не "
+"рэкамендуецца)"
 
 #: src/preferences.c:1575
 msgid ""
@@ -1989,12 +2180,23 @@ msgstr ""
 "В іншым праграмным забеспячэнні аднаўлення даных звычайна запаўняюць нечытэльныя сектары пэўным значэннем байта. Каб дазволіць узгодненасць з такімі праграмамі, вы можаце адказаць значэнне байта, якое яны выкарыстоўваюць:\n"
 
 #: src/preferences.c:1645
-msgid "0xb0 (176 decimal): for compatibility with h2cdimage published by \"c't\", a German periodical.\n"
-msgstr "0xb0 (176 дзесятковы): для сумяшчальнасці з h2cdimage, апублікаваны \"c't\", германскім перыёдыкам.\n"
+msgid ""
+"0xb0 (176 decimal): for compatibility with h2cdimage published by \"c't\", a"
+" German periodical.\n"
+msgstr ""
+"0xb0 (176 дзесятковы): для сумяшчальнасці з h2cdimage, апублікаваны \"c't\","
+" германскім перыёдыкам.\n"
 
 #: src/preferences.c:1649
-msgid "<b>Note:</b> Using zero filling (0x00, decimal 0) is highly discouraged. Most media contain regular zero filled sectors which can not be told apart from unreadable sectors if zero filling is used."
-msgstr "<b>Заўвага:</b> Выкарыстанне запаўнення нулямі (0x00, дзесятковы 0) рэзка не рэкамендуецца. Большасць носьбітаў утрымліваюць звычайныя нулем запоўненыя сектары, якія нельга адрозніць ад нечытэльных сектараў, калі выкарыстоўваецца запаўненне нулямі."
+msgid ""
+"<b>Note:</b> Using zero filling (0x00, decimal 0) is highly discouraged. "
+"Most media contain regular zero filled sectors which can not be told apart "
+"from unreadable sectors if zero filling is used."
+msgstr ""
+"<b>Заўвага:</b> Выкарыстанне запаўнення нулямі (0x00, дзесятковы 0) рэзка не"
+" рэкамендуецца. Большасць носьбітаў утрымліваюць звычайныя нулем запоўненыя "
+"сектары, якія нельга адрозніць ад нечытэльных сектараў, калі "
+"выкарыстоўваецца запаўненне нулямі."
 
 #: src/preferences.c:1656
 msgid "Drive"
@@ -2255,12 +2457,23 @@ msgstr ""
 "Эфекты на <b>лінейную стратэгію чытання</b>:"
 
 #: src/preferences.c:2121
-msgid "Skipping a large number of sectors (e.g. 1024) gives a quick overview of damaged areas, but will usually not collect enough data for repairing the image."
-msgstr "Прапуск большай колькасці сектараў (напр. 1024) дае хуткі агляд пашкоджаных абласцей, але звычайна не зберыць дастаткова даных для аднаўлення вобраза."
+msgid ""
+"Skipping a large number of sectors (e.g. 1024) gives a quick overview of "
+"damaged areas, but will usually not collect enough data for repairing the "
+"image."
+msgstr ""
+"Прапуск большай колькасці сектараў (напр. 1024) дае хуткі агляд пашкоджаных "
+"абласцей, але звычайна не зберыць дастаткова даных для аднаўлення вобраза."
 
 #: src/preferences.c:2125
-msgid "Smaller values like 16, 32 or 64 are a good trade-off: The processing time will beconsiderably shortened, but still enough data for repairing the image is collected.\n"
-msgstr "Меншыя значэнні, такія як 16, 32 або 64, - добра компраміс: Час абработкі будзе значна скарочаны, але ўсё жо дастаткова даных для аднаўлення вобраза.\n"
+msgid ""
+"Smaller values like 16, 32 or 64 are a good trade-off: The processing time "
+"will beconsiderably shortened, but still enough data for repairing the image"
+" is collected.\n"
+msgstr ""
+"Меншыя значэнні, такія як 16, 32 або 64, - добра компраміс: Час абработкі "
+"будзе значна скарочаны, але ўсё жо дастаткова даных для аднаўлення "
+"вобраза.\n"
 
 #: src/preferences.c:2129
 msgid ""
@@ -2946,38 +3159,40 @@ msgstr "Smart L-EC"
 #: src/raw-sector-cache.c:338 src/scsi-darwin.c:218 src/scsi-freebsd.c:133
 #: src/scsi-freebsd.c:143 src/scsi-linux.c:117 src/scsi-linux.c:126
 #: src/scsi-netbsd.c:128 src/scsi-netbsd.c:138 src/scsi-win32.c:256
-#, c-format
+#, c-format, fuzzy
 msgid "Could not open %s: %s"
-msgstr "Could not open %s: %s"
+msgstr "Немагчыма адкрыць %s: %s"
 
 #: src/raw-sector-cache.c:62 src/raw-sector-cache.c:126
 #: src/raw-sector-cache.c:132 src/raw-sector-cache.c:136
 #: src/raw-sector-cache.c:164 src/raw-sector-cache.c:262
-#, c-format
+#, c-format, fuzzy
 msgid "Failed writing to defective sector file: %s"
-msgstr "Failed writing to defective sector file: %s"
+msgstr "Памылка запісу ў няспраўны файл сектара: %s"
 
 #: src/raw-sector-cache.c:82 src/raw-sector-cache.c:107
 #: src/raw-sector-cache.c:218 src/raw-sector-cache.c:314
 #: src/raw-sector-cache.c:354
-#, c-format
+#, c-format, fuzzy
 msgid "Failed reading from defective sector file: %s"
-msgstr "Failed reading from defective sector file: %s"
+msgstr "Памылка чытання з дэфектнага файла сектара: %s"
 
 #: src/raw-sector-cache.c:90
+#, fuzzy
 msgid "Defective sector file is truncated"
-msgstr "Defective sector file is truncated"
+msgstr "Дэфектны файл сектара абрэзаны"
 
 #: src/raw-sector-cache.c:114 src/raw-sector-cache.c:140
 #: src/raw-sector-cache.c:152 src/raw-sector-cache.c:211
 #: src/raw-sector-cache.c:226
-#, c-format
+#, c-format, fuzzy
 msgid "Failed seeking in defective sector file: %s"
-msgstr "Failed seeking in defective sector file: %s"
+msgstr "Памылка пошуку ў няспраўным файле сектара: %s"
 
 #: src/raw-sector-cache.c:171
+#, fuzzy
 msgid "Fingerprints of medium and defective sector cache do not match!"
-msgstr "Fingerprints of medium and defective sector cache do not match!"
+msgstr "Адбіткі пальцаў кэша сярэдняга і дэфектнага сектараў не супадаюць!"
 
 #: src/raw-sector-cache.c:198
 #, c-format
@@ -2986,8 +3201,12 @@ msgstr " [Стварэнне новага файла кэша %s]\n"
 
 #: src/raw-sector-cache.c:270
 #, c-format
-msgid " [Appended %d/%d sectors to cache file %s; LBA=%<PRId64>, ssize=%d, %d sectors]\n"
-msgstr " [Дабаўлена %d/%d сектараў у файл кэша %s; LBA=%<PRId64>, ssize=%d, %d сектараў]\n"
+msgid ""
+" [Appended %d/%d sectors to cache file %s; LBA=%<PRId64>, ssize=%d, %d "
+"sectors]\n"
+msgstr ""
+" [Дабаўлена %d/%d сектараў у файл кэша %s; LBA=%<PRId64>, ssize=%d, %d "
+"сектараў]\n"
 
 #: src/read-adaptive-window.c:77
 msgid "Adaptive reading:"
@@ -3010,39 +3229,40 @@ msgid "missing"
 msgstr "missing"
 
 #: src/read-adaptive-window.c:129
-#, c-format
+#, c-format, fuzzy
 msgid "Readable: %d.%d%% / %d.%d%% required"
-msgstr "Readable: %d.%d%% / %d.%d%% required"
+msgstr "Чытальны: патрабуецца %d.%d%% / %d.%d%%."
 
 #: src/read-adaptive-window.c:137
-#, c-format
+#, c-format, fuzzy
 msgid "Total recoverable: %d.%d%%"
-msgstr "Total recoverable: %d.%d%%"
+msgstr "Усяго можна аднавіць: %d.%d%%"
 
 #: src/read-adaptive.c:57 src/rs01-create.c:1023
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Error closing error correction file:\n"
 "%s"
 msgstr ""
-"Error closing error correction file:\n"
+"Памылка закрыцця файла выпраўлення памылак:\n"
 "%s"
 
 #: src/read-adaptive.c:80 src/read-adaptive.c:117
+#, fuzzy
 msgid "Invalid or damaged ecc file"
-msgstr "Invalid or damaged ecc file"
+msgstr "Няправільны або пашкоджаны файл ecc"
 
 #: src/read-adaptive.c:104
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Can't read ecc header:\n"
 "%s"
 msgstr ""
-"Can't read ecc header:\n"
+"Не магу прачытаць загаловак ecc:\n"
 "%s"
 
 #: src/read-adaptive.c:121 src/read-linear.c:867
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "* Warning: This ecc file requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
@@ -3050,37 +3270,45 @@ msgid ""
 "*          or upgrade dvdisaster.\n"
 "\n"
 msgstr ""
-"* Warning: This ecc file requires dvdisaster-%d.%d!\n"
-"*          Proceeding could trigger incorrect behaviour.\n"
-"*          Please read the image without using this ecc file\n"
-"*          or upgrade dvdisaster.\n"
-"\n"
+"* Папярэджанне: гэты файл ecc патрабуе dvdisaster-%d.%d!\n"
+"* Працяг можа выклікаць няправільныя паводзіны.\n"
+"* Калі ласка, прачытайце малюнак, не выкарыстоўваючы гэты файл ecc\n"
+"* або абнавіць dvdisaster.\n"
 
 #: src/read-adaptive.c:154 src/rs01-common.c:82 src/rs01-common.c:237
 #: src/rs01-create.c:304 src/rs01-verify.c:817
-#, c-format
+#, c-format, fuzzy
 msgid "Failed skipping the ecc header: %s"
-msgstr "Failed skipping the ecc header: %s"
+msgstr "Не ўдалося прапусціць загаловак ecc: %s"
 
 #: src/read-adaptive.c:163 src/read-adaptive.c:173 src/rs01-common.c:94
 #: src/rs01-common.c:104 src/rs01-common.c:347
-#, c-format
+#, c-format, fuzzy
 msgid "Error reading CRC information: %s"
-msgstr "Error reading CRC information: %s"
+msgstr "Памылка чытання інфармацыі CRC: %s"
 
 #: src/read-adaptive.c:375 src/read-adaptive.c:1679
+#, fuzzy
 msgid "Aborted by unrecoverable error."
-msgstr "Aborted by unrecoverable error."
+msgstr "Перарвана з-за непапраўнай памылкі."
 
 #: src/read-adaptive.c:508
-#, c-format
-msgid "Repairable: %2d.%1d%% (correctable: %<PRId64>; now reading [%<PRId64>..%<PRId64>], size %<PRId64>)"
-msgstr "Repairable: %2d.%1d%% (correctable: %<PRId64>; now reading [%<PRId64>..%<PRId64>], size %<PRId64>)"
+#, c-format, fuzzy
+msgid ""
+"Repairable: %2d.%1d%% (correctable: %<PRId64>; now reading "
+"[%<PRId64>..%<PRId64>], size %<PRId64>)"
+msgstr ""
+"Выпраўлена: %2d.%1d%% (выпраўлена: %<PRId64>; зараз чытаецца "
+"[%<PRId64>..%<PRId64>], памер %<PRId64>)"
 
 #: src/read-adaptive.c:513
-#, c-format
-msgid "Repairable: %2d.%1d%% (missing: %<PRId64>; now reading [%<PRId64>..%<PRId64>], size %<PRId64>)"
-msgstr "Repairable: %2d.%1d%% (missing: %<PRId64>; now reading [%<PRId64>..%<PRId64>], size %<PRId64>)"
+#, c-format, fuzzy
+msgid ""
+"Repairable: %2d.%1d%% (missing: %<PRId64>; now reading "
+"[%<PRId64>..%<PRId64>], size %<PRId64>)"
+msgstr ""
+"Выпраўляльны: %2d.%1d%% (адсутнічае: %<PRId64>; зараз чытаецца "
+"[%<PRId64>..%<PRId64>], памер %<PRId64>)"
 
 #: src/read-adaptive.c:659 src/read-adaptive.c:669 src/read-adaptive.c:687
 #: src/read-adaptive.c:717
@@ -3089,32 +3317,31 @@ msgid "%s-type ECC found\n"
 msgstr "%s-тыпа ECC знойдзены\n"
 
 #: src/read-adaptive.c:672
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "* Warning: This ecc file requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
 "*          Please upgrade dvdisaster.\n"
 "\n"
 msgstr ""
-"* Warning: This ecc file requires dvdisaster-%d.%d!\n"
-"*          Proceeding could trigger incorrect behaviour.\n"
-"*          Please upgrade dvdisaster.\n"
-"\n"
+"* Папярэджанне: гэты файл ecc патрабуе dvdisaster-%d.%d!\n"
+"* Працяг можа выклікаць няправільныя паводзіны.\n"
+"* Абнавіце dvdisaster.\n"
 
 #: src/read-adaptive.c:690 src/read-linear.c:874
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "* Warning: This image requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
 "*          Please upgrade dvdisaster.\n"
 "\n"
 msgstr ""
-"* Warning: This image requires dvdisaster-%d.%d!\n"
-"*          Proceeding could trigger incorrect behaviour.\n"
-"*          Please upgrade dvdisaster.\n"
-"\n"
+"* Папярэджанне: для гэтай выявы патрабуецца dvdisaster-%d.%d!\n"
+"* Працяг можа выклікаць няправільныя паводзіны.\n"
+"* Абнавіце dvdisaster.\n"
 
 #: src/read-adaptive.c:719
+#, fuzzy
 msgid ""
 "Adaptive reading has not been adapted yet to handle RS03-augmented images in an optimal way.\n"
 "The 'divide and conquer' reading method will still be applied, by attempting to detect and skip\n"
@@ -3122,31 +3349,33 @@ msgid ""
 "once enough data and ECC data have been recovered to be able to rebuild the image, as we do for RS02.\n"
 "You should stop the reading and launch a 'verify' yourself from time to time to see if this is the case.\n"
 msgstr ""
-"Adaptive reading has not been adapted yet to handle RS03-augmented images in an optimal way.\n"
-"The 'divide and conquer' reading method will still be applied, by attempting to detect and skip\n"
-"badly damaged zones and give priority to good zones first. However we won't stop reading automatically\n"
-"once enough data and ECC data have been recovered to be able to rebuild the image, as we do for RS02.\n"
-"You should stop the reading and launch a 'verify' yourself from time to time to see if this is the case.\n"
+"Адаптыўнае чытанне яшчэ не адаптавана для аптымальнай апрацоўкі выяваў, дапоўненых RS03.\n"
+"Метад чытання \"падзяляй і ўладар\" па-ранейшаму будзе прымяняцца, спрабуючы выявіць і прапусціць\n"
+"моцна пашкоджаныя зоны і спачатку аддавайце перавагу добрым зонам. Аднак мы не спынім чытаць аўтаматычна\n"
+"як толькі будзе адноўлена дастатковую колькасць дадзеных і дадзеных ECC, каб можна было аднавіць вобраз, як мы робім для RS02.\n"
+"Вы павінны спыніць чытанне і час ад часу самастойна запускаць «праверку», каб даведацца, ці так гэта.\n"
 
 #: src/read-adaptive.c:726 src/read-adaptive.c:785 src/read-adaptive.c:800
 #: src/read-adaptive.c:864 src/read-adaptive.c:953 src/read-adaptive.c:1014
 #: src/read-adaptive.c:1327 src/read-adaptive.c:1605
+#, fuzzy
 msgid "Aborted by user request!"
-msgstr "Aborted by user request!"
+msgstr "Адменена па запыце карыстальніка!"
 
 #: src/read-adaptive.c:736
-#, c-format
+#, c-format, fuzzy
 msgid "Stopping when unreadable intervals < %d."
-msgstr "Stopping when unreadable intervals < %d."
+msgstr "Спыняецца, калі нечытэльныя інтэрвалы < %d."
 
 #: src/read-adaptive.c:738 src/read-adaptive.c:744
-#, c-format
+#, c-format, fuzzy
 msgid "Adaptive reading: %s\n"
-msgstr "Adaptive reading: %s\n"
+msgstr "Адаптыўнае чытанне: %s\n"
 
 #: src/read-adaptive.c:743
+#, fuzzy
 msgid "Trying to collect enough data for error correction."
-msgstr "Trying to collect enough data for error correction."
+msgstr "Спроба сабраць дастаткова даных для выпраўлення памылак."
 
 #: src/read-adaptive.c:778
 #, c-format
@@ -3231,13 +3460,21 @@ msgstr "Вызначэнне выправляльных сектараў"
 
 #: src/read-adaptive.c:1203
 #, c-format
-msgid "Analysing existing image file: %<PRId64> readable, %<PRId64> correctable, %<PRId64> still missing.\n"
-msgstr "Аналіз існуючага файла вобраза: %<PRId64> чытаемыя, %<PRId64> выправляльныя, %<PRId64> ўсё яшчэ адсутнічаюць.\n"
+msgid ""
+"Analysing existing image file: %<PRId64> readable, %<PRId64> correctable, "
+"%<PRId64> still missing.\n"
+msgstr ""
+"Аналіз існуючага файла вобраза: %<PRId64> чытаемыя, %<PRId64> выправляльныя,"
+" %<PRId64> ўсё яшчэ адсутнічаюць.\n"
 
 #: src/read-adaptive.c:1205
 #, c-format
-msgid "Analysing existing image file: %<PRId64> readable, %<PRId64> still missing.\n"
-msgstr "Аналіз існуючага файла вобраза: %<PRId64> чытаемыя, %<PRId64> ўсё яшчэ адсутнічаюць.\n"
+msgid ""
+"Analysing existing image file: %<PRId64> readable, %<PRId64> still "
+"missing.\n"
+msgstr ""
+"Аналіз існуючага файла вобраза: %<PRId64> чытаемыя, %<PRId64> ўсё яшчэ "
+"адсутнічаюць.\n"
 
 #: src/read-adaptive.c:1255 src/read-linear.c:748
 msgid "Ignore once"
@@ -3269,14 +3506,16 @@ msgid "Medium: not yet determined"
 msgstr "Носьбіт: яшчэ не вызначаны"
 
 #: src/read-adaptive.c:1435
+#, fuzzy
 msgid ""
 "Adaptive reading is unavailable in this version.\n"
 "It will be re-introduced in one of the next versions."
 msgstr ""
-"Adaptive reading is unavailable in this version.\n"
-"It will be re-introduced in one of the next versions."
+"Адаптыўнае чытанне недаступнае ў гэтай версіі.\n"
+"Ён будзе паўторна прадстаўлены ў адной з наступных версій."
 
 #: src/read-adaptive.c:1444
+#, fuzzy
 msgid ""
 "* Warning: Using adaptive reading without error correction data\n"
 "*          has little advantage over linear reading, but may\n"
@@ -3284,80 +3523,79 @@ msgid ""
 "*          seek operations.\n"
 "*          Please consider using linear reading instead.\n"
 msgstr ""
-"* Warning: Using adaptive reading without error correction data\n"
-"*          has little advantage over linear reading, but may\n"
-"*          cause significant wear on the drive due to excessive\n"
-"*          seek operations.\n"
-"*          Please consider using linear reading instead.\n"
+"* Папярэджанне: выкарыстанне адаптыўнага счытвання без даных для выпраўлення памылак\n"
+"* мае невялікія перавагі перад лінейным чытаннем, але можа\n"
+"* выклікаць значны знос дыска з-за празмернага\n"
+"* шукаць аперацыі.\n"
+"* Калі ласка, разгледзьце магчымасць выкарыстання лінейнага чытання.\n"
 
 #: src/read-adaptive.c:1502 src/read-linear.c:277
-#, c-format
+#, c-format, fuzzy
 msgid "Creating new %s image.\n"
-msgstr "Creating new %s image.\n"
+msgstr "Стварэнне новага відарыса %s.\n"
 
 #: src/read-adaptive.c:1505 src/read-linear.c:270
+#, fuzzy
 msgid "Reading new medium image."
-msgstr "Reading new medium image."
+msgstr "Чытанне новага носьбіта малюнка."
 
 #: src/read-adaptive.c:1524 src/read-linear.c:298
+#, fuzzy
 msgid "Completing existing medium image."
-msgstr "Completing existing medium image."
+msgstr "Завяршэнне існуючага сярэдняга відарыса."
 
 #: src/read-adaptive.c:1557 src/read-adaptive.c:1871
+#, fuzzy
 msgid ""
 "\n"
 "Sufficient data for reconstructing the image is available.\n"
 msgstr ""
 "\n"
-"Sufficient data for reconstructing the image is available.\n"
+"Маецца дастаткова дадзеных для рэканструкцыі выявы.\n"
 
 #: src/read-adaptive.c:1665 src/read-linear.c:1090
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Sector %<PRId64>: %s\n"
 "Can not recover from above error.\n"
 "Use the --ignore-fatal-sense option to override."
 msgstr ""
-"Sector %<PRId64>: %s\n"
-"Can not recover from above error.\n"
-"Use the --ignore-fatal-sense option to override."
+"Сектар %<PRId64>: %s\n"
+"Немагчыма аднавіць памылку вышэй.\n"
+"Выкарыстоўвайце опцыю --ignore-fatal-sense для перавызначэння."
 
 #: src/read-adaptive.c:1670 src/read-linear.c:1096
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Sector %<PRId64>: %s\n"
 "\n"
 "It may not be possible to recover from this error.\n"
 "Should the reading continue and ignore this error?"
 msgstr ""
-"Sector %<PRId64>: %s\n"
-"\n"
-"It may not be possible to recover from this error.\n"
-"Should the reading continue and ignore this error?"
 
 #: src/read-adaptive.c:1726 src/rs01-fix.c:422 src/rs02-fix.c:431
 #: src/rs03-fix.c:484
-#, c-format
+#, c-format, fuzzy
 msgid "CRC error in sector %<PRId64>\n"
-msgstr "CRC error in sector %<PRId64>\n"
+msgstr ""
 
 #: src/read-adaptive.c:1891 src/scsi-layer.c:1819
-#, c-format
+#, c-format, fuzzy
 msgid "Sectors %<PRId64>-%<PRId64>: %s\n"
-msgstr "Sectors %<PRId64>-%<PRId64>: %s\n"
+msgstr ""
 
 #: src/read-adaptive.c:1894 src/read-linear.c:1284 src/scsi-layer.c:1818
-#, c-format
+#, c-format, fuzzy
 msgid "Sector %<PRId64>: %s\n"
-msgstr "Sector %<PRId64>: %s\n"
+msgstr "Сектар %<PRId64>: %s\n"
 
 #: src/read-adaptive.c:2021
-#, c-format
+#, c-format, fuzzy
 msgid "Only %2d.%1d%% of the image are readable or correctable"
-msgstr "Only %2d.%1d%% of the image are readable or correctable"
+msgstr ""
 
 #: src/read-adaptive.c:2024
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "\n"
 "%s\n"
@@ -3365,23 +3603,24 @@ msgid ""
 msgstr ""
 "\n"
 "%s\n"
-"(%<PRId64> readable,  %<PRId64> correctable,  %<PRId64> still missing).\n"
+"(%<PRId64> чытаецца, %<PRId64> выпраўляецца, %<PRId64> усё яшчэ адсутнічае).\n"
 
 #: src/read-adaptive.c:2037
+#, fuzzy
 msgid ""
 "\n"
 "Good! All sectors have been read.\n"
 msgstr ""
 "\n"
-"Good! All sectors have been read.\n"
+"Добра! Прачытаны ўсе сектары.\n"
 
 #: src/read-adaptive.c:2045
-#, c-format
+#, c-format, fuzzy
 msgid "No unreadable intervals with >= %d sectors left."
-msgstr "No unreadable intervals with >= %d sectors left."
+msgstr "Няма нечытэльных інтэрвалаў з >= %d сектараў."
 
 #: src/read-adaptive.c:2048
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "\n"
 "%s\n"
@@ -3389,25 +3628,26 @@ msgid ""
 msgstr ""
 "\n"
 "%s\n"
-"%2d.%1d%% of the image have been read (%<PRId64> sectors).\n"
+"%2d.%1d%% выявы прачытана (%<PRId64> сектараў).\n"
 
 #: src/read-linear-window.c:97
-#, c-format
+#, c-format, fuzzy
 msgid "Current Speed: %d.%dx"
-msgstr "Current Speed: %d.%dx"
+msgstr "Бягучая хуткасць: %d.%dx"
 
 #: src/read-linear-window.c:104 src/read-linear.c:515
-#, c-format
+#, c-format, fuzzy
 msgid "Unreadable / skipped sectors: %<PRId64>"
-msgstr "Unreadable / skipped sectors: %<PRId64>"
+msgstr "Нечытэльныя/прапушчаныя сектары: %<PRId64>"
 
 #: src/read-linear-window.c:261
 msgid "Medium state"
 msgstr "Medium state"
 
 #: src/read-linear-window.c:268
+#, fuzzy
 msgid "Not touched this time"
-msgstr "Not touched this time"
+msgstr "На гэты раз не чапалі"
 
 #: src/read-linear-window.c:272
 msgid "Already present"
@@ -3419,8 +3659,9 @@ msgstr "Successfully read"
 
 #: src/read-linear-window.c:279 src/read-linear-window.c:306
 #: src/rs01-verify.c:132 src/rs02-verify.c:125 src/rs03-verify.c:135
+#, fuzzy
 msgid "Sectors with CRC errors"
-msgstr "Sectors with CRC errors"
+msgstr "Сектары з памылкамі CRC"
 
 #: src/read-linear-window.c:282
 msgid "Unreadable / skipped"
@@ -3431,85 +3672,99 @@ msgid "Speed"
 msgstr "Speed"
 
 #: src/read-linear.c:122
-#, c-format
-msgid "<span %s>Aborted by unrecoverable error.</span> %<PRId64> sectors read, %<PRId64> sectors unreadable/skipped so far."
-msgstr "<span %s>Aborted by unrecoverable error.</span> %<PRId64> sectors read, %<PRId64> sectors unreadable/skipped so far."
+#, c-format, fuzzy
+msgid ""
+"<span %s>Aborted by unrecoverable error.</span> %<PRId64> sectors read, "
+"%<PRId64> sectors unreadable/skipped so far."
+msgstr ""
+"<span %s>Спынена з-за невыпраўнай памылкі.</span> %<PRId64> сектараў "
+"прачытана, %<PRId64> сектараў пакуль нечытэльных/прапушчаных."
 
 #: src/read-linear.c:176
+#, fuzzy
 msgid ""
 "Automatic error correction file creation\n"
 "is only possible after a full reading pass.\n"
 msgstr ""
-"Automatic error correction file creation\n"
-"is only possible after a full reading pass.\n"
+"Аўтаматычнае стварэнне файла з выпраўленнем памылак\n"
+"магчыма толькі пасля поўнага праходжання чытання.\n"
 
 #: src/read-linear.c:211
 msgid "Scanning aborted"
 msgstr "Scanning aborted"
 
 #: src/read-linear.c:214 src/read-linear.c:244
+#, fuzzy
 msgid "Scanning medium for read errors."
-msgstr "Scanning medium for read errors."
+msgstr "Сканаванне носьбіта на наяўнасць памылак чытання."
 
 #: src/read-linear.c:250 src/read-linear.c:281
+#, fuzzy
 msgid "Reading CRC information"
-msgstr "Reading CRC information"
+msgstr "Чытанне інфармацыі CRC"
 
 #: src/read-linear.c:344
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Reading aborted.</span> Please select a different image file."
-msgstr "<span %s>Reading aborted.</span> Please select a different image file."
+msgstr "<span %s>Чытанне спынена.</span> Выберыце іншы файл выявы."
 
 #: src/read-linear.c:363
-#, c-format
+#, c-format, fuzzy
 msgid "Completing image %s. Continuing with sector %<PRId64>.\n"
-msgstr "Completing image %s. Continuing with sector %<PRId64>.\n"
+msgstr "Завяршэнне выявы %s. Працягваем сектар %<PRId64>.\n"
 
 #: src/read-linear.c:369
-#, c-format
+#, c-format, fuzzy
 msgid "Completing image %s. Only missing sectors will be read.\n"
-msgstr "Completing image %s. Only missing sectors will be read.\n"
+msgstr "Завяршэнне выявы %s. Будуць прачытаны толькі адсутныя сектары.\n"
 
 #: src/read-linear.c:442 src/read-linear.c:447
+#, fuzzy
 msgid "Reading CRC information from ecc data"
-msgstr "Reading CRC information from ecc data"
+msgstr ""
 
 #: src/read-linear.c:473
 msgid "done.\n"
 msgstr "done.\n"
 
 #: src/read-linear.c:493 src/scsi-layer.c:2153
-#, c-format
+#, c-format, fuzzy
 msgid "Waiting %d seconds for drive to spin up...\n"
-msgstr "Waiting %d seconds for drive to spin up...\n"
+msgstr "Чаканне %d секунд, пакуль дыск разгортваецца...\n"
 
 #: src/read-linear.c:605
-#, c-format
+#, c-format, fuzzy
 msgid "Sector %<PRId64>: Speed increased to %4.1fx\n"
-msgstr "Sector %<PRId64>: Speed increased to %4.1fx\n"
+msgstr "Сектар %<PRId64>: хуткасць павялічана да %4.1fx\n"
 
 #: src/read-linear.c:608
-#, c-format
+#, c-format, fuzzy
 msgid "Sector %<PRId64>: Speed dropped to %4.1fx\n"
-msgstr "Sector %<PRId64>: Speed dropped to %4.1fx\n"
+msgstr "Сектар %<PRId64>: Хуткасць знізілася да %4.1fx\n"
 
 #: src/read-linear.c:614
-#, c-format
-msgid "Read position: %3d.%1d%% (nn.nx), sector %<PRId64>/%<PRId64>, %<PRId64> sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
-msgstr "Read position: %3d.%1d%% (nn.nx), sector %<PRId64>/%<PRId64>, %<PRId64> sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
+#, c-format, fuzzy
+msgid ""
+"Read position: %3d.%1d%% (nn.nx), sector %<PRId64>/%<PRId64>, %<PRId64> "
+"sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
+msgstr ""
 
 #: src/read-linear.c:615
-#, c-format
-msgid "Read position: %3d.%1d%% (%4.1fx), sector %<PRId64>/%<PRId64>, %<PRId64> sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
-msgstr "Read position: %3d.%1d%% (%4.1fx), sector %<PRId64>/%<PRId64>, %<PRId64> sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
+#, c-format, fuzzy
+msgid ""
+"Read position: %3d.%1d%% (%4.1fx), sector %<PRId64>/%<PRId64>, %<PRId64> "
+"sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
+msgstr ""
+"Пазіцыя чытання: %3d.%1d%% (%4.1fx), сектар %<PRId64>/%<PRId64>, %<PRId64> "
+"сектары чытаюцца нармальна, %<PRId64> памылкі чытання, %<PRId64> памылкі crc"
 
 #: src/read-linear.c:708
-#, c-format
+#, c-format, fuzzy
 msgid "* CRC error, sector: %lld\n"
-msgstr "* CRC error, sector: %lld\n"
+msgstr "* Памылка CRC, сектар: %lld\n"
 
 #: src/read-linear.c:841
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "This ecc file requires dvdisaster-%d.%d!\n"
 "\n"
@@ -3518,15 +3773,14 @@ msgid ""
 "or upgrade dvdisaster.\n"
 "\n"
 msgstr ""
-"This ecc file requires dvdisaster-%d.%d!\n"
+"Гэты файл ecc патрабуе dvdisaster-%d.%d!\n"
 "\n"
-"Proceeding could trigger incorrect behaviour.\n"
-"Please read the image without using this ecc file\n"
-"or upgrade dvdisaster.\n"
-"\n"
+"Працяг можа выклікаць няправільныя паводзіны.\n"
+"Калі ласка, прачытайце малюнак, не выкарыстоўваючы гэты файл ecc\n"
+"або абнавіць dvdisaster.\n"
 
 #: src/read-linear.c:849
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "This image requires dvdisaster-%d.%d!\n"
 "\n"
@@ -3534,108 +3788,112 @@ msgid ""
 "Please upgrade dvdisaster.\n"
 "\n"
 msgstr ""
-"This image requires dvdisaster-%d.%d!\n"
+"Гэты вобраз патрабуе dvdisaster-%d.%d!\n"
 "\n"
-"Proceeding could trigger incorrect behaviour.\n"
-"Please upgrade dvdisaster.\n"
-"\n"
+"Працяг можа выклікаць няправільныя паводзіны.\n"
+"Калі ласка, абнавіце dvdisaster.\n"
 
-#
-#
-#
 #: src/read-linear.c:858 src/read-linear.c:973 src/read-linear.c:1106
-#, c-format
-msgid "<span %s>Aborted by user request!</span> %<PRId64> sectors read, %<PRId64> sectors unreadable/skipped so far."
-msgstr "<span %s>Aborted by user request!</span> %<PRId64> sectors read, %<PRId64> sectors unreadable/skipped so far."
+#, c-format, fuzzy
+msgid ""
+"<span %s>Aborted by user request!</span> %<PRId64> sectors read, %<PRId64> "
+"sectors unreadable/skipped so far."
+msgstr ""
+"<span %s>Спынена па запыце карыстальніка!</span> %<PRId64> прачытаных "
+"сектараў, %<PRId64> нечытальных/прапушчаных сектараў."
 
 #: src/read-linear.c:1030
-#, c-format
+#, c-format, fuzzy
 msgid "unexpected read error in image for sector %<PRId64>"
-msgstr "unexpected read error in image for sector %<PRId64>"
+msgstr "нечаканая памылка чытання выявы для сектара %<PRId64>"
 
 #: src/read-linear.c:1122
-#, c-format
+#, c-format, fuzzy
 msgid "Sector %<PRId64>: %3d C2 errors.%s\n"
-msgstr "Sector %<PRId64>: %3d C2 errors.%s\n"
+msgstr "Сектар %<PRId64>: %3d памылкі C2.%s\n"
 
 #: src/read-linear.c:1256
-#, c-format
+#, c-format, fuzzy
 msgid "Sector %<PRId64>: %s Skipping %d sectors.\n"
-msgstr "Sector %<PRId64>: %s Skipping %d sectors.\n"
+msgstr "Сектар %<PRId64>: %s прапускае %d сектара.\n"
 
 #: src/read-linear.c:1319
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<big>Trying to complete image, reading pass %d of %d.</big>\n"
 "%s"
 msgstr ""
-"<big>Trying to complete image, reading pass %d of %d.</big>\n"
-"%s"
 
 #: src/read-linear.c:1321
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "\n"
 "Trying to complete image, reading pass %d of %d.\n"
 msgstr ""
 "\n"
-"Trying to complete image, reading pass %d of %d.\n"
+"Спроба завяршыць малюнак, праход чытання %d з %d.\n"
 
 #: src/read-linear.c:1358
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> sectors read.     "
-msgstr "%<PRId64> sectors read.     "
+msgstr "Счытаныя сектары %<PRId64>."
 
 #: src/read-linear.c:1359
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> sectors read; %<PRId64> unreadable sectors."
-msgstr "%<PRId64> sectors read; %<PRId64> unreadable sectors."
+msgstr "%<PRId64> прачытаныя сектары; %<PRId64> нечытэльных сектараў."
 
 #: src/read-linear.c:1367
-#, c-format
+#, c-format, fuzzy
 msgid "All sectors are readable, but %d contain defective content."
-msgstr "All sectors are readable, but %d contain defective content."
+msgstr "Усе сектары даступныя для чытання, але %d змяшчае дэфектны кантэнт."
 
 #: src/read-linear.c:1377
-#, c-format
-msgid "All sectors successfully read, but wrong image length (%<PRId64> sectors difference)"
-msgstr "All sectors successfully read, but wrong image length (%<PRId64> sectors difference)"
+#, c-format, fuzzy
+msgid ""
+"All sectors successfully read, but wrong image length (%<PRId64> sectors "
+"difference)"
+msgstr ""
 
 #: src/read-linear.c:1383
+#, fuzzy
 msgid "All sectors successfully read, but wrong ecc md5sum."
-msgstr "All sectors successfully read, but wrong ecc md5sum."
+msgstr "Усе сектары паспяхова прачытаны, але няправільны ecc md5sum."
 
 #: src/read-linear.c:1389
+#, fuzzy
 msgid "All sectors successfully read, but incomplete or damaged checksums."
-msgstr "All sectors successfully read, but incomplete or damaged checksums."
+msgstr ""
 
 #: src/read-linear.c:1390
+#, fuzzy
 msgid "All sectors successfully read. Checksums match."
-msgstr "All sectors successfully read. Checksums match."
+msgstr "Усе сектары паспяхова прачытаны. Кантрольныя сумы супадаюць."
 
 #: src/read-linear.c:1392
+#, fuzzy
 msgid "All sectors successfully read."
-msgstr "All sectors successfully read."
+msgstr "Усе сектары паспяхова прачытаны."
 
 #: src/read-linear.c:1397
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> unreadable sectors."
-msgstr "%<PRId64> unreadable sectors."
+msgstr "%<PRId64> нечытэльных сектараў."
 
 #: src/read-linear.c:1400
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> CRC errors and a md5sum mismatch in the CRC section."
-msgstr "%<PRId64> CRC errors and a md5sum mismatch in the CRC section."
+msgstr "%<PRId64> Памылкі CRC і несупадзенне md5sum у раздзеле CRC."
 
 #: src/read-linear.c:1402
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> CRC errors."
-msgstr "%<PRId64> CRC errors."
+msgstr "%<PRId64> Памылкі CRC."
 
 #: src/read-linear.c:1404
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> CRC errors, %<PRId64> unreadable sectors."
-msgstr "%<PRId64> CRC errors, %<PRId64> unreadable sectors."
+msgstr ""
 
 #: src/read-linear.c:1414
 msgid "Scanning finished: "
@@ -3646,141 +3904,147 @@ msgid "Reading finished: "
 msgstr "Reading finished: "
 
 #: src/read-linear.c:1432 src/read-linear.c:1443
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%d sectors missing at the end of the disc.\n"
 "This is okay if the CD was written in TAO (track at once) mode.\n"
 "%s"
 msgstr ""
-"%d sectors missing at the end of the disc.\n"
-"This is okay if the CD was written in TAO (track at once) mode.\n"
+"У канцы дыска адсутнічае %d сектара.\n"
+"Гэта нармальна, калі кампакт-дыск быў запісаны ў рэжыме TAO (трэк адразу).\n"
 "%s"
 
 #: src/read-linear.c:1437
+#, fuzzy
 msgid "See the manual for details.\n"
-msgstr "See the manual for details.\n"
+msgstr "Падрабязнасці глядзіце ў інструкцыі.\n"
 
 #: src/read-linear.c:1439
+#, fuzzy
 msgid "The Image will be truncated accordingly. See the manual for details.\n"
-msgstr "The Image will be truncated accordingly. See the manual for details.\n"
+msgstr ""
+"Відарыс будзе абрэзаны адпаведна. Падрабязнасці глядзіце ў інструкцыі.\n"
 
 #: src/read-linear.c:1448
+#, fuzzy
 msgid ""
 "See the manual for details.\n"
 "Use the --dao option to disable this message.\n"
 msgstr ""
-"See the manual for details.\n"
-"Use the --dao option to disable this message.\n"
+"Падрабязнасці глядзіце ў інструкцыі.\n"
+"Выкарыстоўвайце опцыю --dao, каб адключыць гэта паведамленне.\n"
 
 #: src/read-linear.c:1451
+#, fuzzy
 msgid ""
 "The Image will be truncated accordingly. See the manual for details.\n"
 "Use the --dao option to disable image truncating.\n"
 msgstr ""
-"The Image will be truncated accordingly. See the manual for details.\n"
-"Use the --dao option to disable image truncating.\n"
+"Відарыс будзе абрэзаны адпаведна. Падрабязнасці глядзіце ў інструкцыі.\n"
+"Выкарыстоўвайце параметр --dao, каб адключыць абразанне выявы.\n"
 
 #: src/recover-raw.c:66
-#, c-format
+#, c-format, fuzzy
 msgid "Sector %<PRId64> dumped to %s\n"
-msgstr "Sector %<PRId64> dumped to %s\n"
+msgstr "Сектар %<PRId64> перанесены ў %s\n"
 
 #: src/rs01-common.c:251 src/rs02-verify.c:830 src/rs03-verify.c:1169
-#, c-format
+#, c-format, fuzzy
 msgid "- testing sectors  : %3d%%"
-msgstr "- testing sectors  : %3d%%"
+msgstr "- тэставыя сектары: %3d%%"
 
 #: src/rs01-common.c:252
-#, c-format
+#, c-format, fuzzy
 msgid "Scanning image sectors: %3d%%"
-msgstr "Scanning image sectors: %3d%%"
+msgstr "Сканаванне сектараў выявы: %3d%%"
 
 #: src/rs01-common.c:305 src/rs02-verify.c:786
-#, c-format
+#, c-format, fuzzy
 msgid "* missing sector   : %<PRId64>\n"
-msgstr "* missing sector   : %<PRId64>\n"
+msgstr "* адсутнічае сектар: %<PRId64>\n"
 
 #: src/rs01-common.c:306 src/rs02-verify.c:787
-#, c-format
+#, c-format, fuzzy
 msgid "* missing sectors  : %<PRId64> - %<PRId64>\n"
-msgstr "* missing sectors  : %<PRId64> - %<PRId64>\n"
+msgstr "* адсутнічаюць сектары: %<PRId64> - %<PRId64>\n"
 
 #: src/rs01-common.c:324 src/rs01-common.c:395 src/rs01-create.c:321
-#, c-format
+#, c-format, fuzzy
 msgid "Error writing CRC information: %s"
-msgstr "Error writing CRC information: %s"
+msgstr "Памылка запісу інфармацыі CRC: %s"
 
 #: src/rs01-common.c:353 src/rs02-verify.c:799 src/rs03-verify.c:1143
-#, c-format
+#, c-format, fuzzy
 msgid "* CRC error, sector: %<PRId64>\n"
-msgstr "* CRC error, sector: %<PRId64>\n"
+msgstr ""
 
 #: src/rs01-create.c:65
-#, c-format
+#, c-format, fuzzy
 msgid "Redundancy %4.1f%% out of useful range [3.2%%..64.5%%]"
-msgstr "Redundancy %4.1f%% out of useful range [3.2%%..64.5%%]"
+msgstr "Надмернасць %4.1f%% па-за карысным дыяпазонам [3.2%%..64.5%%]"
 
 #: src/rs01-create.c:81 src/rs03-common.c:473
-#, c-format
+#, c-format, fuzzy
 msgid "Ecc file size %<PRId64>m out of useful range [%<PRId64> .. %<PRId64>]"
-msgstr "Ecc file size %<PRId64>m out of useful range [%<PRId64> .. %<PRId64>]"
+msgstr ""
 
 #: src/rs01-create.c:91 src/rs03-common.c:487
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Invalid redundancy specification '%s'.\n"
 "Valid formats: normal, high, <number>%%, <number>r, <number>m"
 msgstr ""
-"Invalid redundancy specification '%s'.\n"
-"Valid formats: normal, high, <number>%%, <number>r, <number>m"
+"Няправільная спецыфікацыя рэзервавання \"%s\".\n"
+"Дапушчальныя фарматы: normal, high, <number>%%, <number>r, <number>m"
 
 #: src/rs01-create.c:98
-#, c-format
+#, c-format, fuzzy
 msgid "Redundancy %d out of useful range [8..100]."
-msgstr "Redundancy %d out of useful range [8..100]."
+msgstr "Надмернасць %d па-за карысным дыяпазонам [8..100]."
 
 #: src/rs01-create.c:110 src/rs01-create.c:111
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "\n"
 "Image file %s deleted.\n"
 msgstr ""
 "\n"
-"Image file %s deleted.\n"
+"Файл выявы %s выдалены.\n"
 
 #: src/rs01-create.c:118
-#, c-format
+#, c-format, fuzzy
 msgid "Image file %s not deleted: %s\n"
-msgstr "Image file %s not deleted: %s\n"
+msgstr "Файл выявы %s не выдалены: %s\n"
 
 #: src/rs01-create.c:152 src/rs01-fix.c:79 src/rs02-create.c:61
 #: src/rs02-fix.c:55 src/rs03-create.c:152 src/rs03-fix.c:54
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Aborted by unrecoverable error.</span>"
-msgstr "<span %s>Aborted by unrecoverable error.</span>"
+msgstr "<span %s>Спынена з-за непапраўнай памылкі.</span>"
 
 #: src/rs01-create.c:217
+#, fuzzy
 msgid "Error correction file creation aborted"
-msgstr "Error correction file creation aborted"
+msgstr "Стварэнне файла выпраўлення памылак спынена"
 
 #: src/rs01-create.c:240
-#, c-format
+#, c-format, fuzzy
 msgid "Encoding with Method RS01: %d roots, %4.1f%% redundancy."
-msgstr "Encoding with Method RS01: %d roots, %4.1f%% redundancy."
+msgstr "Кадзіраванне метадам RS01: %d каранёў, %4.1f%% надмернасці."
 
 #: src/rs01-create.c:245 src/rs03-create.c:1339
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<big>Creating the error correction file.</big>\n"
 "<i>%s</i>"
 msgstr ""
-"<big>Creating the error correction file.</big>\n"
+"<big>Стварэнне файла выпраўлення памылак.</big>\n"
 "<i>%s</i>"
 
 #: src/rs01-create.c:257 src/rs03-create.c:284
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Aborted to keep existing ecc file.</span>"
-msgstr "<span %s>Aborted to keep existing ecc file.</span>"
+msgstr "<span %s>Спынена, каб захаваць існуючы файл ecc.</span>"
 
 #: src/rs01-create.c:272 src/rs02-create.c:1036 src/rs03-create.c:1289
 #, c-format
@@ -3788,53 +4052,57 @@ msgid "Image file %s: %s."
 msgstr "Image file %s: %s."
 
 #: src/rs01-create.c:280 src/rs03-create.c:1308
+#, fuzzy
 msgid "No error correction file specified!\n"
-msgstr "No error correction file specified!\n"
+msgstr "Файл для выпраўлення памылак не пазначаны!\n"
 
 #: src/rs01-create.c:293
-#, c-format
+#, c-format, fuzzy
 msgid "Writing sector checksums: %3d%%"
-msgstr "Writing sector checksums: %3d%%"
+msgstr "Запіс кантрольных сум сектара: %3d%%"
 
 #: src/rs01-create.c:296
+#, fuzzy
 msgid "<b>1. Writing image sector checksums:</b>"
-msgstr "<b>1. Writing image sector checksums:</b>"
+msgstr "<b>1. Запіс кантрольных сум сектара выявы:</b>"
 
 #: src/rs01-create.c:340 src/rs01-window.c:134
+#, fuzzy
 msgid "<b>1. Calculating image sector checksums:</b>"
-msgstr "<b>1. Calculating image sector checksums:</b>"
+msgstr "<b>1. Вылічэнне кантрольных сум сектара выявы:</b>"
 
 #: src/rs01-create.c:357 src/rs01-create.c:498 src/rs01-create.c:590
-#, c-format
-msgid "<span %s>Aborted by user request!</span> (partial error correction file removed)"
-msgstr "<span %s>Aborted by user request!</span> (partial error correction file removed)"
+#, c-format, fuzzy
+msgid ""
+"<span %s>Aborted by user request!</span> (partial error correction file "
+"removed)"
+msgstr ""
+"<span %s>Скасавана па запыце карыстальніка!</span> (частковы файл "
+"выпраўлення памылак выдалены)"
 
 #: src/rs01-create.c:366
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> sectors unread or missing due to errors.\n"
-msgstr "%<PRId64> sectors unread or missing due to errors.\n"
+msgstr "%<PRId64> сектары непрачытаныя або адсутнічаюць з-за памылак.\n"
 
 #: src/rs01-create.c:419
-#, c-format
+#, c-format, fuzzy
 msgid "Failed skipping ecc+crc header: %s"
-msgstr "Failed skipping ecc+crc header: %s"
+msgstr "Не атрымалася прапусціць загаловак ecc+crc: %s"
 
 #: src/rs01-create.c:446 src/rs02-create.c:519
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Failed allocating memory for I/O cache.\n"
 "Cache size is currently %d MiB.\n"
 "Try reducing it.\n"
 msgstr ""
-"Failed allocating memory for I/O cache.\n"
-"Cache size is currently %d MiB.\n"
-"Try reducing it.\n"
 
 #: src/rs01-create.c:574 src/rs01-create.c:698 src/rs01-create.c:992
 #: src/rs02-create.c:964 src/rs03-create.c:1125
-#, c-format
+#, c-format, fuzzy
 msgid "Ecc generation: %3d.%1d%%"
-msgstr "Ecc generation: %3d.%1d%%"
+msgstr "Генерацыя Ecc: %3d.%1d%%"
 
 #: src/rs01-create.c:717 src/rs01-fix.c:207 src/rs01-fix.c:232
 #: src/rs01-fix.c:278 src/rs01-fix.c:308 src/rs01-fix.c:325 src/rs01-fix.c:378
@@ -3843,90 +4111,94 @@ msgstr "Ecc generation: %3d.%1d%%"
 #: src/rs02-verify.c:743 src/rs03-create.c:257 src/rs03-fix.c:252
 #: src/rs03-fix.c:295 src/rs03-fix.c:317 src/rs03-fix.c:391
 #: src/rs03-verify.c:563 src/rs03-verify.c:1037
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Aborted by user request!</span>"
-msgstr "<span %s>Aborted by user request!</span>"
+msgstr "<span %s>Спынена па запыце карыстальніка!</span>"
 
 #: src/rs01-create.c:1005
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "could not write to ecc file \"%s\":\n"
 "%s"
 msgstr ""
-"could not write to ecc file \"%s\":\n"
+"не атрымалася запісаць у файл ecc \"%s\":\n"
 "%s"
 
 #: src/rs01-create.c:1020
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Can't write ecc header:\n"
 "%s"
 msgstr ""
-"Can't write ecc header:\n"
+"Не магу запісаць загаловак ecc:\n"
 "%s"
 
 #: src/rs01-create.c:1028 src/rs02-create.c:1127 src/rs03-create.c:1419
-#, c-format
+#, c-format, fuzzy
 msgid "Ecc generation: 100.0%%\n"
-msgstr "Ecc generation: 100.0%%\n"
+msgstr "Генерацыя Ecc: 100,0%%\n"
 
 #: src/rs01-create.c:1029 src/rs03-create.c:1426
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Error correction file \"%s\" created.\n"
 "Make sure to keep this file on a reliable medium.\n"
 msgstr ""
-"Error correction file \"%s\" created.\n"
-"Make sure to keep this file on a reliable medium.\n"
+"Створаны файл выпраўлення памылак \"%s\".\n"
+"Захоўвайце гэты файл на надзейным носьбіце.\n"
 
 #: src/rs01-create.c:1036 src/rs03-create.c:1451
+#, fuzzy
 msgid ""
 "The error correction file has been successfully created.\n"
 "Make sure to keep this file on a reliable medium."
 msgstr ""
-"The error correction file has been successfully created.\n"
-"Make sure to keep this file on a reliable medium."
+"Файл выпраўлення памылак быў паспяхова створаны.\n"
+"Захоўвайце гэты файл на надзейным носьбіце."
 
 #: src/rs01-fix.c:41 src/rs02-fix.c:415
-#, c-format
+#, c-format, fuzzy
 msgid "Failed seeking in crc area: %s"
-msgstr "Failed seeking in crc area: %s"
+msgstr "Памылка пошуку ў вобласці crc: %s"
 
 #: src/rs01-fix.c:46 src/rs02-fix.c:418 src/rs02-verify.c:462
-#, c-format
+#, c-format, fuzzy
 msgid "problem reading crc data: %s"
-msgstr "problem reading crc data: %s"
+msgstr "праблема чытання дадзеных crc: %s"
 
 #: src/rs01-fix.c:138 src/rs02-fix.c:169 src/rs03-fix.c:166
+#, fuzzy
 msgid "Repairing of image aborted"
-msgstr "Repairing of image aborted"
+msgstr "Выпраўленне выявы спынена"
 
 #: src/rs01-fix.c:144
-#, c-format
+#, c-format, fuzzy
 msgid "Error correction file using Method RS01, %d roots, %4.1f%% redundancy."
-msgstr "Error correction file using Method RS01, %d roots, %4.1f%% redundancy."
+msgstr ""
+"Файл выпраўлення памылак з выкарыстаннем метаду RS01, %d каранёў, %4.1f%% "
+"надмернасці."
 
 #: src/rs01-fix.c:151 src/rs02-fix.c:174 src/rs02-fix.c:205 src/rs03-fix.c:175
 #: src/rs03-fix.c:226
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<big>Repairing the image.</big>\n"
 "<i>%s</i>"
 msgstr ""
-"<big>Repairing the image.</big>\n"
+"<big>Выпраўленне выявы.</big>\n"
 "<i>%s</i>"
 
 #: src/rs01-fix.c:156 src/rs02-fix.c:211 src/rs03-fix.c:232
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "\n"
 "Fix mode(%s): Repairable sectors will be fixed in the image.\n"
 msgstr ""
 "\n"
-"Fix mode(%s): Repairable sectors will be fixed in the image.\n"
+"Рэжым выпраўлення (%s): сектары, якія можна выправіць, будуць выпраўлены на малюнку.\n"
 
 #: src/rs01-fix.c:191
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "The image file is %lld sectors longer as noted in the\n"
 "ecc file. This might simply be zero padding, especially\n"
@@ -3935,181 +4207,195 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"The image file is %lld sectors longer as noted in the\n"
-"ecc file. This might simply be zero padding, especially\n"
-"on dual layer DVD media, but could also mean that\n"
-"the image and ecc files do not belong together.\n"
+"Файл выявы на %lld сектараў даўжэйшы, як адзначана ў\n"
+"файл ecc. Асабліва гэта можа быць проста нулявое абіўка\n"
+"на двухслаёвых носьбітах DVD, але таксама можа азначаць гэта\n"
+"файлы выявы і ecc не адносяцца адзін да аднаго.\n"
 "\n"
 "%s"
 
 #: src/rs01-fix.c:199 src/rs02-fix.c:225 src/rs03-fix.c:287
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Image file is %<PRId64> sectors longer than expected.\n"
 "Assuming this is a TAO mode medium.\n"
 "%<PRId64> sectors will be removed from the image end.\n"
 msgstr ""
-"Image file is %<PRId64> sectors longer than expected.\n"
-"Assuming this is a TAO mode medium.\n"
-"%<PRId64> sectors will be removed from the image end.\n"
+"Файл выявы на %<PRId64> сектараў даўжэй чаканага.\n"
+"Мяркуючы, што гэта носьбіт у рэжыме TAO.\n"
+"Сектары %<PRId64> будуць выдалены з канца выявы.\n"
 
 #: src/rs01-fix.c:227 src/rs02-fix.c:248 src/rs03-fix.c:312
+#, fuzzy
 msgid "Is it okay to remove the superfluous sectors?"
-msgstr "Is it okay to remove the superfluous sectors?"
+msgstr "Ці можна выдаляць лішнія сектары?"
 
 #: src/rs01-fix.c:244 src/rs01-fix.c:261 src/rs02-fix.c:262 src/rs02-fix.c:276
 #: src/rs03-fix.c:328 src/rs03-fix.c:344
-#, c-format
+#, c-format, fuzzy
 msgid "Image has been truncated by %<PRId64> sectors.\n"
-msgstr "Image has been truncated by %<PRId64> sectors.\n"
+msgstr ""
 
 #: src/rs01-fix.c:252 src/rs02-fix.c:270 src/rs03-fix.c:336
+#, fuzzy
 msgid ""
 "Add the --truncate option to the program call\n"
 "to have the superfluous sectors removed."
 msgstr ""
-"Add the --truncate option to the program call\n"
-"to have the superfluous sectors removed."
+"Дадайце опцыю --truncate да выкліку праграмы\n"
+"каб выдаліць лішнія сектары."
 
 #: src/rs01-fix.c:270 src/rs03-fix.c:244
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "The image file is %d bytes longer than noted\n"
 "in the ecc file. Shall the superfluous bytes\n"
 "be removed from the image file?\n"
 msgstr ""
-"The image file is %d bytes longer than noted\n"
-"in the ecc file. Shall the superfluous bytes\n"
-"be removed from the image file?\n"
+"Файл відарыса на %d байт даўжэйшы за адзначаны\n"
+"у файле ecc. Выдаленне лішніх байтаў\n"
+"выдаліць з файла выявы?\n"
 
 #: src/rs01-fix.c:286 src/rs03-fix.c:261
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "The image file is %d bytes longer than noted\n"
 "in the ecc file.\n"
 "Add the --truncate option to the program call\n"
 "to have the superfluous sectors removed."
 msgstr ""
-"The image file is %d bytes longer than noted\n"
-"in the ecc file.\n"
-"Add the --truncate option to the program call\n"
-"to have the superfluous sectors removed."
+"Файл відарыса на %d байт даўжэйшы за адзначаны\n"
+"у файле ecc.\n"
+"Дадайце опцыю --truncate да выкліку праграмы\n"
+"каб выдаліць лішнія сектары."
 
 #: src/rs01-fix.c:295 src/rs03-fix.c:270
-#, c-format
+#, c-format, fuzzy
 msgid "Image has been truncated by %d bytes.\n"
-msgstr "Image has been truncated by %d bytes.\n"
+msgstr "Відарыс быў скарочаны на %d байт.\n"
 
 #: src/rs01-fix.c:303
+#, fuzzy
 msgid ""
 "Image file appears to be truncated.\n"
 "Consider completing it with another reading pass before going on.\n"
 msgstr ""
-"Image file appears to be truncated.\n"
-"Consider completing it with another reading pass before going on.\n"
+"Здаецца, файл выявы абрэзаны.\n"
+"Падумайце пра тое, каб завяршыць яго яшчэ адным пропускам для чытання, перш чым працягваць.\n"
 
 #: src/rs01-fix.c:319
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Sector %d is missing. Can not compare image and ecc fingerprints.\n"
 "Double check that image and ecc file belong together.\n"
 msgstr ""
-"Sector %d is missing. Can not compare image and ecc fingerprints.\n"
-"Double check that image and ecc file belong together.\n"
+"Сектар %d адсутнічае. Немагчыма параўнаць выяву і адбіткі пальцаў ECC.\n"
+"Двойчы праверце, што выява і ecc-файл адносяцца адзін да аднаго.\n"
 
 #: src/rs01-fix.c:332
+#, fuzzy
 msgid ""
 "Fingerprints of image and ecc file do not match.\n"
 "Image and ecc file do not belong together.\n"
 msgstr ""
-"Fingerprints of image and ecc file do not match.\n"
-"Image and ecc file do not belong together.\n"
+"Адбіткі выявы і файла ecc не супадаюць.\n"
+"Выява і ecc-файл не належаць адзін аднаму.\n"
 
 #: src/rs01-fix.c:447
-#, c-format
+#, c-format, fuzzy
 msgid "* %3d unrepairable sectors: "
-msgstr "* %3d unrepairable sectors: "
+msgstr "* %3d невыпраўляльныя сектары:"
 
 #: src/rs01-fix.c:495
-#, c-format
+#, c-format, fuzzy
 msgid "Failed seeking in ecc area: %s"
-msgstr "Failed seeking in ecc area: %s"
+msgstr "Памылка пошуку ў зоне ecc: %s"
 
 #: src/rs01-fix.c:499
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Can't read ecc file:\n"
 "%s"
 msgstr ""
-"Can't read ecc file:\n"
+"Не магу прачытаць файл ecc:\n"
 "%s"
 
 #: src/rs01-fix.c:695
-#, c-format
-msgid "-> Error located in sector %<PRId64> at byte %4d (value %02x '%c', expected %02x '%c')\n"
-msgstr "-> Error located in sector %<PRId64> at byte %4d (value %02x '%c', expected %02x '%c')\n"
+#, c-format, fuzzy
+msgid ""
+"-> Error located in sector %<PRId64> at byte %4d (value %02x '%c', expected "
+"%02x '%c')\n"
+msgstr ""
+"-> Памылка, размешчаная ў сектары %<PRId64> у байце %4d (значэнне %02x '%c',"
+" чаканае %02x '%c')\n"
 
 #: src/rs01-fix.c:702
-#, c-format
+#, c-format, fuzzy
 msgid "Unexpected byte error in sector %<PRId64>, byte %d\n"
-msgstr "Unexpected byte error in sector %<PRId64>, byte %d\n"
+msgstr "Нечаканая памылка байта ў сектары %<PRId64>, байт %d\n"
 
 #: src/rs01-fix.c:708
-#, c-format
+#, c-format, fuzzy
 msgid "Bad error location %d; corrupted .ecc file?\n"
-msgstr "Bad error location %d; corrupted .ecc file?\n"
+msgstr "Няправільнае размяшчэнне памылкі %d; пашкоджаны файл .ecc?\n"
 
 #: src/rs01-fix.c:718 src/rs02-fix.c:716 src/rs03-fix.c:787
-#, c-format
+#, c-format, fuzzy
 msgid "  %3d repaired sectors: "
-msgstr "  %3d repaired sectors: "
+msgstr "%3d адрамантаваныя сектары:"
 
 #: src/rs01-fix.c:737 src/rs02-fix.c:758 src/rs03-fix.c:838
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "could not write medium sector %<PRId64>:\n"
 "%s"
 msgstr ""
-"could not write medium sector %<PRId64>:\n"
+"не атрымалася запісаць сярэдні сектар %<PRId64>:\n"
 "%s"
 
 #: src/rs01-fix.c:766 src/rs02-fix.c:797 src/rs03-fix.c:895
-#, c-format
+#, c-format, fuzzy
 msgid "Ecc progress: %3d.%1d%%"
-msgstr "Ecc progress: %3d.%1d%%"
+msgstr "Прагрэс Ecc: %3d.%1d%%"
 
 #: src/rs01-fix.c:778 src/rs02-fix.c:811 src/rs03-fix.c:907
-#, c-format
+#, c-format, fuzzy
 msgid "Ecc progress: 100.0%%\n"
-msgstr "Ecc progress: 100.0%%\n"
+msgstr "Прагрэс Ecc: 100,0%%\n"
 
 #: src/rs01-fix.c:779
-#, c-format
+#, c-format, fuzzy
 msgid "Repaired sectors: %<PRId64>     \n"
-msgstr "Repaired sectors: %<PRId64>     \n"
+msgstr ""
 
 #: src/rs01-fix.c:781 src/rs02-fix.c:816 src/rs03-fix.c:914
-#, c-format
+#, c-format, fuzzy
 msgid "Unrepaired sectors: %<PRId64>\n"
-msgstr "Unrepaired sectors: %<PRId64>\n"
+msgstr "Невыпраўленыя сектары: %<PRId64>\n"
 
 #: src/rs01-fix.c:783 src/rs02-fix.c:818 src/rs03-fix.c:916
-#, c-format
-msgid "Image sectors could not be fully restored (%<PRId64> repaired; <span %s>%<PRId64> unrepaired</span>)"
-msgstr "Image sectors could not be fully restored (%<PRId64> repaired; <span %s>%<PRId64> unrepaired</span>)"
+#, c-format, fuzzy
+msgid ""
+"Image sectors could not be fully restored (%<PRId64> repaired; <span "
+"%s>%<PRId64> unrepaired</span>)"
+msgstr ""
+"Немагчыма цалкам аднавіць сектары выявы (%<PRId64> адрамантавана; <span "
+"%s>%<PRId64> не адрамантавана</span>)"
 
 #: src/rs01-fix.c:789 src/rs02-fix.c:824 src/rs03-fix.c:923
+#, fuzzy
 msgid "Good! All sectors are already present."
-msgstr "Good! All sectors are already present."
+msgstr "Добра! Усе сектары ўжо прысутнічаюць."
 
 #: src/rs01-fix.c:793 src/rs02-fix.c:828 src/rs03-fix.c:928
+#, fuzzy
 msgid "Good! All sectors are repaired."
-msgstr "Good! All sectors are repaired."
+msgstr "Добра! Усе сектары адрамантаваны."
 
 #: src/rs01-fix.c:798 src/rs02-fix.c:833 src/rs03-fix.c:934
-#, c-format
+#, c-format, fuzzy
 msgid "Erasure counts per ecc block:  avg =  %.1f; worst = %d.\n"
-msgstr "Erasure counts per ecc block:  avg =  %.1f; worst = %d.\n"
+msgstr "Колькасць сціранняў на блок ecc: сярэдняе = %.1f; горшы = %d.\n"
 
 #: src/rs01-fix.c:803 src/rs02-fix.c:838 src/rs03-fix.c:939
 msgid "Repair results:"
@@ -4154,8 +4440,9 @@ msgid "Image state"
 msgstr "Image state"
 
 #: src/rs01-verify.c:277
+#, fuzzy
 msgid "Error correction file summary"
-msgstr "Error correction file summary"
+msgstr "Зводка файла выпраўлення памылак"
 
 #: src/rs01-verify.c:304 src/rs02-verify.c:300 src/rs03-verify.c:239
 msgid "Created by:"
@@ -4186,106 +4473,112 @@ msgid "Comparison aborted"
 msgstr "Comparison aborted"
 
 #: src/rs01-verify.c:425 src/rs01-verify.c:546
+#, fuzzy
 msgid "Comparing image and error correction files."
-msgstr "Comparing image and error correction files."
+msgstr "Параўнанне малюнкаў і файлаў для выпраўлення памылак."
 
 #: src/rs01-verify.c:426 src/rs03-verify.c:725 src/rs03-verify.c:733
+#, fuzzy
 msgid "- Checking image file -"
-msgstr "- Checking image file -"
+msgstr "- Праверка файла выявы -"
 
 #: src/rs01-verify.c:440 src/rs01-verify.c:552 src/rs01-verify.c:565
 msgid "not present\n"
 msgstr "not present\n"
 
 #: src/rs01-verify.c:447 src/rs02-verify.c:625
-#, c-format
+#, c-format, fuzzy
 msgid "present, contains %<PRId64> medium sectors.\n"
-msgstr "present, contains %<PRId64> medium sectors.\n"
+msgstr "прысутнічае, змяшчае %<PRId64> сярэдніх сектараў.\n"
 
 #: src/rs01-verify.c:451
-#, c-format
+#, c-format, fuzzy
 msgid "present, contains %<PRId64> medium sectors and %d bytes.\n"
-msgstr "present, contains %<PRId64> medium sectors and %d bytes.\n"
+msgstr "прысутнічае, змяшчае %<PRId64> сярэдніх сектараў і %d байт.\n"
 
 #: src/rs01-verify.c:453 src/rs01-verify.c:682 src/rs01-verify.c:699
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> sectors + %d bytes"
-msgstr "%<PRId64> sectors + %d bytes"
+msgstr "%<PRId64> сектараў + %d байт"
 
 #: src/rs01-verify.c:477
-#, c-format
+#, c-format, fuzzy
 msgid "* truncated image  : %<PRId64> sectors too short\n"
-msgstr "* truncated image  : %<PRId64> sectors too short\n"
+msgstr ""
 
 #: src/rs01-verify.c:479
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>%<PRId64> (%<PRId64> sectors too short)</span>"
-msgstr "<span %s>%<PRId64> (%<PRId64> sectors too short)</span>"
+msgstr ""
 
 #: src/rs01-verify.c:501
-#, c-format
+#, c-format, fuzzy
 msgid "* image too long   : %<PRId64> excess sectors\n"
-msgstr "* image too long   : %<PRId64> excess sectors\n"
+msgstr ""
 
 #: src/rs01-verify.c:503
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>%<PRId64> (%<PRId64> excess sectors)</span>"
-msgstr "<span %s>%<PRId64> (%<PRId64> excess sectors)</span>"
+msgstr "<span %s>%<PRId64> (%<PRId64> лішніх сектараў)</span>"
 
 #: src/rs01-verify.c:506 src/rs01-verify.c:538
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Bad image.</span>"
-msgstr "<span %s>Bad image.</span>"
+msgstr "<span %s>Дрэнная выява.</span>"
 
 #: src/rs01-verify.c:510 src/rs02-verify.c:710 src/rs03-verify.c:998
+#, fuzzy
 msgid "* quick mode        : image NOT scanned\n"
-msgstr "* quick mode        : image NOT scanned\n"
+msgstr ""
 
 #: src/rs01-verify.c:518
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "- good image       : all sectors present\n"
 "- image md5sum     : %s\n"
 msgstr ""
-"- good image       : all sectors present\n"
-"- image md5sum     : %s\n"
+"- добры малюнак: прысутнічаюць усе сектары\n"
+"- выява md5sum : %s\n"
 
 #: src/rs01-verify.c:520 src/rs02-verify.c:928 src/rs03-verify.c:1324
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Good image.</span>"
-msgstr "<span %s>Good image.</span>"
+msgstr "<span %s>Добрая выява.</span>"
 
 #: src/rs01-verify.c:524
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "* suspicious image : all sectors present, but %<PRId64> CRC errors\n"
 "- image md5sum     : %s\n"
 msgstr ""
-"* suspicious image : all sectors present, but %<PRId64> CRC errors\n"
-"- image md5sum     : %s\n"
+"* падазроная выява: прысутнічаюць усе сектары, але %<PRId64> памылкі CRC\n"
+"- выява md5sum : %s\n"
 
 #: src/rs01-verify.c:527
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Image complete, but contains checksum errors!</span>"
-msgstr "<span %s>Image complete, but contains checksum errors!</span>"
+msgstr "<span %s>Выява поўная, але змяшчае памылкі кантрольнай сумы!</span>"
 
 #: src/rs01-verify.c:533 src/rs02-verify.c:895
-#, c-format
+#, c-format, fuzzy
 msgid "* BAD image        : %<PRId64> sectors missing\n"
-msgstr "* BAD image        : %<PRId64> sectors missing\n"
+msgstr "* ДРЭННАЯ выява: %<PRId64> сектараў адсутнічае\n"
 
 #: src/rs01-verify.c:534 src/rs02-verify.c:899 src/rs03-verify.c:1265
-#, c-format
+#, c-format, fuzzy
 msgid "* BAD image        : %<PRId64> sectors missing, %<PRId64> CRC errors\n"
-msgstr "* BAD image        : %<PRId64> sectors missing, %<PRId64> CRC errors\n"
+msgstr ""
+"* ДРЭННАЯ выява: адсутнічаюць сектары %<PRId64>, памылкі CRC %<PRId64>\n"
 
 #: src/rs01-verify.c:547 src/rs03-verify.c:1219
+#, fuzzy
 msgid "- Checking ecc file -"
-msgstr "- Checking ecc file -"
+msgstr "- Праверка файла ecc -"
 
 #: src/rs01-verify.c:554 src/rs01-verify.c:582
+#, fuzzy
 msgid "No error correction file present."
-msgstr "No error correction file present."
+msgstr ""
 
 #: src/rs01-verify.c:562
 msgid "permission denied\n"
@@ -4296,12 +4589,14 @@ msgid "invalid\n"
 msgstr "invalid\n"
 
 #: src/rs01-verify.c:571
+#, fuzzy
 msgid "defective header (unusable)\n"
-msgstr "defective header (unusable)\n"
+msgstr "дэфектны загаловак (непрыдатны для выкарыстання)\n"
 
 #: src/rs01-verify.c:574
+#, fuzzy
 msgid "unknown codec (unusable)\n"
-msgstr "unknown codec (unusable)\n"
+msgstr "невядомы кодэк (непрыдатны)\n"
 
 #: src/rs01-verify.c:577
 msgid "unusable\n"
@@ -4309,162 +4604,175 @@ msgstr "unusable\n"
 
 #: src/rs01-verify.c:605 src/rs01-verify.c:615 src/rs02-verify.c:954
 #: src/rs02-verify.c:965
+#, fuzzy
 msgid "created by dvdisaster"
-msgstr "created by dvdisaster"
+msgstr "створаны dvdisaster"
 
 #: src/rs01-verify.c:624
+#, fuzzy
 msgid "created by dvdisaster-0.41.x.\n"
-msgstr "created by dvdisaster-0.41.x.\n"
+msgstr "створаны dvdisaster-0.41.x.\n"
 
 #: src/rs01-verify.c:633 src/rs02-verify.c:978 src/rs03-verify.c:787
-#, c-format
+#, c-format, fuzzy
 msgid "- method           : %4s, %d roots, %4.1f%% redundancy.\n"
-msgstr "- method           : %4s, %d roots, %4.1f%% redundancy.\n"
+msgstr "- метад: %4s, %d карані, %4.1f%% надмернасць.\n"
 
 #: src/rs01-verify.c:637 src/rs02-verify.c:982 src/rs03-verify.c:791
-#, c-format
+#, c-format, fuzzy
 msgid "%4s, %d roots, %4.1f%% redundancy"
-msgstr "%4s, %d roots, %4.1f%% redundancy"
+msgstr "%4s, %d каранёў, %4.1f%% лішак"
 
 #: src/rs01-verify.c:644 src/rs02-verify.c:989
-#, c-format
+#, c-format, fuzzy
 msgid "- requires         : dvdisaster-%d.%d (good)\n"
-msgstr "- requires         : dvdisaster-%d.%d (good)\n"
+msgstr "- патрабуецца: dvdisaster-%d.%d (добра)\n"
 
 #: src/rs01-verify.c:652 src/rs02-verify.c:999
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "* requires         : dvdisaster-%d.%d (BAD)\n"
 "* Warning          : The following output might be incorrect.\n"
 "*                  : Please upgrade dvdisaster.\n"
 msgstr ""
-"* requires         : dvdisaster-%d.%d (BAD)\n"
-"* Warning          : The following output might be incorrect.\n"
-"*                  : Please upgrade dvdisaster.\n"
+"* патрабуецца: dvdisaster-%d.%d (ДРЭШНА)\n"
+"* Папярэджанне: наступны вынік можа быць няправільным.\n"
+"* : Абнавіце dvdisaster.\n"
 
 #: src/rs01-verify.c:664 src/rs02-verify.c:1013 src/rs03-verify.c:849
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Please upgrade your version of dvdisaster!</span>"
-msgstr "<span %s>Please upgrade your version of dvdisaster!</span>"
+msgstr "<span %s>Калі ласка, абнавіце сваю версію dvdisaster!</span>"
 
 #: src/rs01-verify.c:675
-#, c-format
+#, c-format, fuzzy
 msgid "- medium sectors   : %<PRId64>\n"
-msgstr "- medium sectors   : %<PRId64>\n"
+msgstr "- сярэднія сектары: %<PRId64>\n"
 
 #: src/rs01-verify.c:679
-#, c-format
+#, c-format, fuzzy
 msgid "- medium sectors   : %<PRId64> sectors + %d bytes\n"
-msgstr "- medium sectors   : %<PRId64> sectors + %d bytes\n"
+msgstr "- сярэднія сектары: %<PRId64> сектараў + %d байт\n"
 
 #: src/rs01-verify.c:692
-#, c-format
+#, c-format, fuzzy
 msgid "- medium sectors   : %<PRId64> (good)\n"
-msgstr "- medium sectors   : %<PRId64> (good)\n"
+msgstr "- сярэднія сектары: %<PRId64> (добра)\n"
 
 #: src/rs01-verify.c:696
-#, c-format
+#, c-format, fuzzy
 msgid "- medium sectors   : %<PRId64> sectors + %d bytes (good)\n"
-msgstr "- medium sectors   : %<PRId64> sectors + %d bytes (good)\n"
+msgstr ""
 
 #: src/rs01-verify.c:707 src/rs02-verify.c:1033
-#, c-format
+#, c-format, fuzzy
 msgid "* medium sectors   : %<PRId64> (BAD, perhaps TAO/DAO mismatch)\n"
-msgstr "* medium sectors   : %<PRId64> (BAD, perhaps TAO/DAO mismatch)\n"
+msgstr "* сярэднія сектары: %<PRId64> (Дрэнна, магчыма, несупадзенне TAO/DAO)\n"
 
 #: src/rs01-verify.c:719 src/rs02-verify.c:1035
-#, c-format
+#, c-format, fuzzy
 msgid "* medium sectors   : %<PRId64> (BAD)\n"
-msgstr "* medium sectors   : %<PRId64> (BAD)\n"
+msgstr ""
 
 #: src/rs01-verify.c:723 src/rs01-verify.c:732
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Image size does not match error correction file.</span>"
-msgstr "<span %s>Image size does not match error correction file.</span>"
+msgstr "<span %s>Памер выявы не адпавядае файлу выпраўлення памылак.</span>"
 
 #: src/rs01-verify.c:726
-#, c-format
+#, c-format, fuzzy
 msgid "* medium sectors   : %<PRId64> sectors + %d bytes (BAD)\n"
-msgstr "* medium sectors   : %<PRId64> sectors + %d bytes (BAD)\n"
+msgstr "* сярэднія сектары : %<PRId64> сектараў + %d байт (ДРАШНА)\n"
 
 #: src/rs01-verify.c:729
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>%<PRId64> sectors + %d bytes</span>"
-msgstr "<span %s>%<PRId64> sectors + %d bytes</span>"
+msgstr "<span %s>%<PRId64> сектараў + %d байт</span>"
 
 #: src/rs01-verify.c:745
-#, c-format
+#, c-format, fuzzy
 msgid "- image md5sum     : %s (good)\n"
-msgstr "- image md5sum     : %s (good)\n"
+msgstr "- выява md5sum: %s (добра)\n"
 
 #: src/rs01-verify.c:749
-#, c-format
+#, c-format, fuzzy
 msgid "* image md5sum     : %s (BAD)\n"
-msgstr "* image md5sum     : %s (BAD)\n"
+msgstr "* выява md5sum: %s (ДРЭШНА)\n"
 
 #: src/rs01-verify.c:757
-#, c-format
+#, c-format, fuzzy
 msgid "- image md5sum     : %s\n"
-msgstr "- image md5sum     : %s\n"
+msgstr ""
 
 #: src/rs01-verify.c:764 src/rs03-verify.c:871
-msgid "* fingerprint match: NOT POSSIBLE - related sector is missing in image!\n"
-msgstr "* fingerprint match: NOT POSSIBLE - related sector is missing in image!\n"
+#, fuzzy
+msgid ""
+"* fingerprint match: NOT POSSIBLE - related sector is missing in image!\n"
+msgstr ""
+"* супадзенне адбіткаў пальцаў: НЕМАГЧЫМА - звязаны сектар адсутнічае на "
+"малюнку!\n"
 
 #: src/rs01-verify.c:766 src/rs03-verify.c:873
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>missing sector prevents calculation</span>"
-msgstr "<span %s>missing sector prevents calculation</span>"
+msgstr "<span %s>адсутны сектар перашкаджае разліку</span>"
 
 #: src/rs01-verify.c:772 src/rs03-verify.c:878
+#, fuzzy
 msgid "* fingerprint match: MISMATCH - .iso and .ecc don't belong together!\n"
-msgstr "* fingerprint match: MISMATCH - .iso and .ecc don't belong together!\n"
+msgstr ""
+"* супадзенне адбіткаў пальцаў: НЕСУДПАДЗЕННЕ - .iso і .ecc не адносяцца "
+"адзін да аднаго!\n"
 
 #: src/rs01-verify.c:775 src/rs03-verify.c:881
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>mismatch</span>"
-msgstr "<span %s>mismatch</span>"
+msgstr "<span %s>несупадзенне</span>"
 
 #: src/rs01-verify.c:778 src/rs03-verify.c:884
-#, c-format
-msgid "<span %s>Image and error correction files do not belong together!</span>"
-msgstr "<span %s>Image and error correction files do not belong together!</span>"
+#, c-format, fuzzy
+msgid ""
+"<span %s>Image and error correction files do not belong together!</span>"
+msgstr "<span %s>Файлы выявы і выпраўлення памылак не адносяцца разам!</span>"
 
 #: src/rs01-verify.c:781 src/rs03-verify.c:887
+#, fuzzy
 msgid "- fingerprint match: good\n"
-msgstr "- fingerprint match: good\n"
+msgstr "- супадзенне адбіткаў пальцаў: добра\n"
 
 #: src/rs01-verify.c:782 src/rs03-verify.c:888
 msgid "good"
 msgstr "good"
 
 #: src/rs01-verify.c:790
+#, fuzzy
 msgid "* quick mode        : ecc file NOT scanned\n"
-msgstr "* quick mode        : ecc file NOT scanned\n"
+msgstr "* хуткі рэжым: файл ecc НЕ сканаваны\n"
 
 #: src/rs01-verify.c:798
-#, c-format
+#, c-format, fuzzy
 msgid "- ecc blocks       : %<PRId64> (good)\n"
-msgstr "- ecc blocks       : %<PRId64> (good)\n"
+msgstr "- блокі ecc: %<PRId64> (добра)\n"
 
 #: src/rs01-verify.c:802
-#, c-format
+#, c-format, fuzzy
 msgid "* ecc blocks       : %<PRId64> (BAD, expected %<PRId64>)\n"
-msgstr "* ecc blocks       : %<PRId64> (BAD, expected %<PRId64>)\n"
+msgstr "* блокі ecc : %<PRId64> (Дрэнна, чакаецца %<PRId64>)\n"
 
 #: src/rs01-verify.c:805
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>%<PRId64> (bad, expected %<PRId64>)</span>"
-msgstr "<span %s>%<PRId64> (bad, expected %<PRId64>)</span>"
+msgstr "<span %s>%<PRId64> (дрэнна, чакаецца %<PRId64>)</span>"
 
 #: src/rs01-verify.c:827
-#, c-format
+#, c-format, fuzzy
 msgid "- ecc md5sum       : %3d%%"
-msgstr "- ecc md5sum       : %3d%%"
+msgstr "- ecc md5sum: %3d%%"
 
 #: src/rs01-verify.c:845
+#, fuzzy
 msgid "* ecc md5sum       : BAD, ecc file may be damaged!\n"
-msgstr "* ecc md5sum       : BAD, ecc file may be damaged!\n"
+msgstr "* ecc md5sum : ДРЭНА, файл ecc можа быць пашкоджаны!\n"
 
 #: src/rs01-verify.c:846
 #, c-format
@@ -4472,27 +4780,29 @@ msgid "<span %s>bad</span>"
 msgstr "<span %s>bad</span>"
 
 #: src/rs01-verify.c:848
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Error correction file may be damaged!</span>"
-msgstr "<span %s>Error correction file may be damaged!</span>"
+msgstr "<span %s>Файл выпраўлення памылак можа быць пашкоджаны!</span>"
 
 #: src/rs01-verify.c:851 src/rs02-verify.c:1099
-#, c-format
+#, c-format, fuzzy
 msgid "- ecc md5sum       : %s (good)\n"
-msgstr "- ecc md5sum       : %s (good)\n"
+msgstr "- ecc md5sum: %s (добра)\n"
 
 #: src/rs01-verify.c:864
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Good error correction file.</span>"
-msgstr "<span %s>Good error correction file.</span>"
+msgstr "<span %s>Добры файл выпраўлення памылак.</span>"
 
 #: src/rs01-window.c:145 src/rs02-window.c:93 src/rs03-window.c:100
+#, fuzzy
 msgid "<b>2. Creating error correction data:</b>"
-msgstr "<b>2. Creating error correction data:</b>"
+msgstr "<b>2. Стварэнне даных для выпраўлення памылак:</b>"
 
 #: src/rs01-window.c:171
+#, fuzzy
 msgid "Show reading speed curve"
-msgstr "Show reading speed curve"
+msgstr "Паказаць крывую хуткасці чытання"
 
 #: src/rs01-window.c:210 src/rs02-window.c:147 src/rs03-window.c:184
 #, c-format
@@ -4500,9 +4810,9 @@ msgid "Repaired: %<PRId64>"
 msgstr "Repaired: %<PRId64>"
 
 #: src/rs01-window.c:211 src/rs02-window.c:149 src/rs03-window.c:185
-#, c-format
+#, c-format, fuzzy
 msgid "Unrepairable: <span %s>%<PRId64></span>"
-msgstr "Unrepairable: <span %s>%<PRId64></span>"
+msgstr "Невыпраўляльнае: <span %s>%<PRId64></span>"
 
 #: src/rs01-window.c:212 src/rs02-window.c:151 src/rs03-window.c:186
 #, c-format
@@ -4515,9 +4825,9 @@ msgstr "Errors/Ecc block"
 
 #: src/rs01-window.c:408 src/rs02-window.c:344 src/rs03-preferences.c:473
 #: src/rs03-preferences.c:483
-#, c-format
+#, c-format, fuzzy
 msgid "%4.1f%% redundancy (%d roots)"
-msgstr "%4.1f%% redundancy (%d roots)"
+msgstr ""
 
 #: src/rs01-window.c:425 src/rs01-window.c:833 src/rs01-window.c:839
 #: src/rs01-window.c:840 src/rs02-window.c:361 src/rs02-window.c:1343
@@ -4527,8 +4837,9 @@ msgid "%d MiB of file cache"
 msgstr "%d MiB of file cache"
 
 #: src/rs01-window.c:627 src/rs03-preferences.c:84 src/rs03-preferences.c:715
+#, fuzzy
 msgid "Redundancy for new error correction files"
-msgstr "Redundancy for new error correction files"
+msgstr "Надмернасць для новых файлаў выпраўлення памылак"
 
 #: src/rs01-window.c:636 src/rs03-preferences.c:895
 msgid "Normal redundancy"
@@ -4539,17 +4850,17 @@ msgid "Normal"
 msgstr "Normal"
 
 #: src/rs01-window.c:659 src/rs03-preferences.c:919
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>Normal redundancy</b>\n"
 "\n"
 "The preset \"normal\" creates a redundancy of 14.3%%.\n"
 "It invokes optimized program code to speed up the error correction file creation."
 msgstr ""
-"<b>Normal redundancy</b>\n"
+"<b>Нармальнае рэзерваванне</b>\n"
 "\n"
-"The preset \"normal\" creates a redundancy of 14.3%%.\n"
-"It invokes optimized program code to speed up the error correction file creation."
+"Прадусталяванае \"нармальна\" стварае надмернасць 14,3%%.\n"
+"Ён выклікае аптымізаваны праграмны код для паскарэння стварэння файла выпраўлення памылак."
 
 #: src/rs01-window.c:666 src/rs03-preferences.c:926
 msgid "High redundancy"
@@ -4560,17 +4871,17 @@ msgid "High"
 msgstr "High"
 
 #: src/rs01-window.c:689 src/rs03-preferences.c:949
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>High redundancy</b>\n"
 "\n"
 "The preset \"high\" creates a redundancy of 33.5%%.\n"
 "It invokes optimized program code to speed up the error correction file creation."
 msgstr ""
-"<b>High redundancy</b>\n"
+"<b>Высокая надмернасць</b>\n"
 "\n"
-"The preset \"high\" creates a redundancy of 33.5%%.\n"
-"It invokes optimized program code to speed up the error correction file creation."
+"Прадусталяванае \"высокае\" стварае надмернасць 33,5%%.\n"
+"Ён выклікае аптымізаваны праграмны код для паскарэння стварэння файла выпраўлення памылак."
 
 #: src/rs01-window.c:697 src/rs03-preferences.c:956
 msgid "Other redundancy"
@@ -4581,31 +4892,34 @@ msgid "Other"
 msgstr "Other"
 
 #: src/rs01-window.c:736 src/rs03-preferences.c:995
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>Other redundancy</b>\n"
 "\n"
 "Specifies the redundancy by percent.\n"
 "An error correction file with x%% redundancy will be approximately x%% of the size of the corresponding image file."
 msgstr ""
-"<b>Other redundancy</b>\n"
+"<b>Іншыя рэзервы</b>\n"
 "\n"
-"Specifies the redundancy by percent.\n"
-"An error correction file with x%% redundancy will be approximately x%% of the size of the corresponding image file."
+"Вызначае празмернасць у працэнтах.\n"
+"Файл выпраўлення памылак з надмернасцю x%% будзе складаць прыблізна x%% ад памеру адпаведнага файла выявы."
 
 #: src/rs01-window.c:744 src/rs03-preferences.c:1003
+#, fuzzy
 msgid "Space-delimited redundancy"
-msgstr "Space-delimited redundancy"
+msgstr "Надмернасць, размежаваная прабелам"
 
 #: src/rs01-window.c:745 src/rs02-window.c:1273 src/rs03-preferences.c:1004
 msgid "Use at most"
 msgstr "Use at most"
 
 #: src/rs01-window.c:770 src/rs03-preferences.c:1029
+#, fuzzy
 msgid "MiB for error correction data"
-msgstr "MiB for error correction data"
+msgstr "MiB для даных выпраўлення памылак"
 
 #: src/rs01-window.c:787 src/rs03-preferences.c:1046
+#, fuzzy
 msgid ""
 "<b>Space-delimited redundancy</b>\n"
 "\n"
@@ -4613,11 +4927,11 @@ msgid ""
 "\n"
 "<b>Advance notice:</b> When using the same size setting for images of vastly different size, smaller images receive more redundancy than larger ones. This is usually not what you want."
 msgstr ""
-"<b>Space-delimited redundancy</b>\n"
+"<b>Падзеленае прабелам надмернасць</b>\n"
 "\n"
-"Specifies the maximum size of the error correction file in MiB. dvdisaster will choose a suitable redundancy setting so that the overall size of the error correction file does not exceed the given limit.\n"
+"Вызначае максімальны памер файла выпраўлення памылак у MiB. dvdisaster абярэ адпаведную наладу рэзервавання, каб агульны памер файла выпраўлення памылак не перавышаў дадзенага ліміту.\n"
 "\n"
-"<b>Advance notice:</b> When using the same size setting for images of vastly different size, smaller images receive more redundancy than larger ones. This is usually not what you want."
+"<b>Папярэдняя заўвага:</b> пры выкарыстанні аднолькавых налад памеру для відарысаў значна рознага памеру, меншыя выявы атрымліваюць больш лішкаў, чым большыя. Звычайна гэта не тое, што вы хочаце."
 
 #: src/rs01-window.c:830 src/rs02-window.c:1340
 msgid "Memory utilization"
@@ -4632,56 +4946,62 @@ msgid "Use"
 msgstr "Use"
 
 #: src/rs01-window.c:875 src/rs02-window.c:1386
+#, fuzzy
 msgid ""
 "<b>File cache</b>\n"
 "\n"
 "dvdisaster optimizes access to the image and error correction files by maintaining its own cache. The preset of 32MiB is suitable for most systems."
 msgstr ""
-"<b>File cache</b>\n"
+"<b>Кэш файлаў</b>\n"
 "\n"
-"dvdisaster optimizes access to the image and error correction files by maintaining its own cache. The preset of 32MiB is suitable for most systems."
+"dvdisaster аптымізуе доступ да малюнкаў і файлаў выпраўлення памылак, захоўваючы ўласны кэш. Папярэдняя ўстаноўка 32 МіБ падыходзіць для большасці сістэм."
 
 #: src/rs02-common.c:578 src/rs02-common.c:590 src/rs02-verify.c:652
 #: src/rs03-common.c:652
-#, c-format
+#, c-format, fuzzy
 msgid "Failed seeking to ecc header at %<PRId64>: %s\n"
-msgstr "Failed seeking to ecc header at %<PRId64>: %s\n"
+msgstr "Не атрымалася знайсці загаловак ecc у %<PRId64>: %s\n"
 
 #: src/rs02-common.c:582 src/rs02-common.c:594 src/rs03-common.c:656
-#, c-format
+#, c-format, fuzzy
 msgid "Failed writing ecc header at %<PRId64>: %s\n"
-msgstr "Failed writing ecc header at %<PRId64>: %s\n"
+msgstr "Памылка запісу загалоўка ecc у %<PRId64>: %s\n"
 
 #: src/rs02-create.c:111 src/rs03-create.c:250
-#, c-format
-msgid "<span %s>Aborted by user request!</span> (partial ecc data removed from image)"
-msgstr "<span %s>Aborted by user request!</span> (partial ecc data removed from image)"
+#, c-format, fuzzy
+msgid ""
+"<span %s>Aborted by user request!</span> (partial ecc data removed from "
+"image)"
+msgstr ""
+"<span %s>Спынена па запыце карыстальніка!</span> (часткова дадзеныя ecc "
+"выдалены з выявы)"
 
 #: src/rs02-create.c:142 src/rs03-create.c:302
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Image \"%s\" already contains error correction information.\n"
 "Truncating image to data part (%<PRId64> sectors).\n"
 msgstr ""
-"Image \"%s\" already contains error correction information.\n"
-"Truncating image to data part (%<PRId64> sectors).\n"
+"Відарыс \"%s\" ужо змяшчае інфармацыю аб выпраўленні памылак.\n"
+"Скарачэнне відарыса да часткі дадзеных (сектары %<PRId64>).\n"
 
 #: src/rs02-create.c:157 src/rs03-create.c:329
 msgid "Image size is now"
 msgstr "Image size is now"
 
 #: src/rs02-create.c:218
+#, fuzzy
 msgid ""
 "Image contains unread(able) sectors.\n"
 "Error correction information can only be\n"
 "appended to complete (undamaged) images.\n"
 msgstr ""
-"Image contains unread(able) sectors.\n"
-"Error correction information can only be\n"
-"appended to complete (undamaged) images.\n"
+"Выява змяшчае нечытальныя (немагчымыя) сектары.\n"
+"Інфармацыя аб выпраўленні памылак можа быць толькі\n"
+"дадаецца да поўных (непашкоджаных) малюнкаў.\n"
 
 #: src/rs02-create.c:222
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Sector %<PRId64> in the image is marked unreadable\n"
 "and seems to come from a different medium.\n"
@@ -4694,51 +5014,54 @@ msgid ""
 "Error correction information can only be\n"
 "appended to complete (undamaged) images.\n"
 msgstr ""
-"Sector %<PRId64> in the image is marked unreadable\n"
-"and seems to come from a different medium.\n"
+"Сектар %<PRId64> на малюнку пазначаны нечытэльным\n"
+"і, здаецца, паходзіць з іншага асяроддзя.\n"
 "\n"
-"The image was probably mastered from defective content.\n"
-"For example it might contain one or more files which came\n"
-"from a damaged medium which was NOT fully recovered.\n"
-"This means that some files may have been silently corrupted.\n"
+"Відарыс, верагодна, зроблены з дэфектнага кантэнту.\n"
+"Напрыклад, ён можа ўтрымліваць адзін або некалькі файлаў, якія прыйшлі\n"
+"з пашкоджанага носьбіта, які не быў цалкам адноўлены.\n"
+"Гэта азначае, што некаторыя файлы маглі быць ціха пашкоджаныя.\n"
 "\n"
-"Error correction information can only be\n"
-"appended to complete (undamaged) images.\n"
+"Інфармацыя аб выпраўленні памылак можа быць толькі\n"
+"дадаецца да поўных (непашкоджаных) малюнкаў.\n"
 
 #: src/rs02-create.c:239 src/rs02-create.c:304 src/rs02-create.c:314
-#, c-format
+#, c-format, fuzzy
 msgid "Preparing image (checksums, adding space): %3d%%"
-msgstr "Preparing image (checksums, adding space): %3d%%"
+msgstr "Падрыхтоўка выявы (кантрольныя сумы, дабаўленне прабелу): %3d%%"
 
 #: src/rs02-create.c:273 src/rs02-create.c:283 src/rs02-fix.c:90
 #: src/rs03-create.c:438 src/rs03-create.c:449 src/rs03-fix.c:87
-#, c-format
+#, c-format, fuzzy
 msgid "Failed seeking to end of image: %s\n"
-msgstr "Failed seeking to end of image: %s\n"
+msgstr "Не атрымалася перайсці да канца відарыса: %s\n"
 
 #: src/rs02-create.c:277 src/rs02-create.c:298 src/rs02-fix.c:103
 #: src/rs03-create.c:423 src/rs03-fix.c:105
-#, c-format
+#, c-format, fuzzy
 msgid "Failed expanding the image: %s\n"
-msgstr "Failed expanding the image: %s\n"
+msgstr "Не атрымалася разгарнуць выяву: %s\n"
 
 #: src/rs02-create.c:303 src/rs02-create.c:313
-#, c-format
+#, c-format, fuzzy
 msgid "Preparing image (checksums taken from cache, adding space): %3d%%"
-msgstr "Preparing image (checksums taken from cache, adding space): %3d%%"
+msgstr ""
+"Падрыхтоўка выявы (кантрольныя сумы ўзятыя з кэша, дабаўленне прасторы): "
+"%3d%%"
 
 #: src/rs02-create.c:1027 src/rs03-create.c:1271
+#, fuzzy
 msgid "Error correction data creation aborted"
-msgstr "Error correction data creation aborted"
+msgstr "Стварэнне даных для выпраўлення памылак спынена"
 
 #: src/rs02-create.c:1055 src/rs02-create.c:1073 src/rs03-create.c:1275
 #: src/rs03-create.c:1334
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<big>Augmenting the image with error correction data.</big>\n"
 "<i>%s</i>"
 msgstr ""
-"<big>Augmenting the image with error correction data.</big>\n"
+"<big>Дапаўненне выявы дадзенымі выпраўлення памылак.</big>\n"
 "<i>%s</i>"
 
 #: src/rs02-create.c:1056 src/rs03-create.c:1276
@@ -4746,67 +5069,73 @@ msgid "- checking image -"
 msgstr "- checking image -"
 
 #: src/rs02-create.c:1069
-#, c-format
-msgid "Encoding with Method RS02: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
-msgstr "Encoding with Method RS02: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
+#, c-format, fuzzy
+msgid ""
+"Encoding with Method RS02: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; "
+"%4.1f%% redundancy)."
+msgstr ""
+"Кадзіраванне метадам RS02: даныя %<PRId64> MiB, %<PRId64> MiB ecc (%d "
+"карані; %4.1f%% надмернасць)."
 
 #: src/rs02-create.c:1077
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Augmenting image with Method RS02:\n"
 " %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
 msgstr ""
-"Augmenting image with Method RS02:\n"
-" %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
+"Дапаўненне выявы метадам RS02:\n"
+" %<PRId64> Даныя MiB, %<PRId64> MiB ecc (%d карані; %4.1f%% надмернасць)."
 
 #: src/rs02-create.c:1086
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Not enough space on medium left for error correction data.\n"
 "Data portion of image: %<PRId64> sect.; maximum possible size: %<PRId64> sect.\n"
 "If reducing the image size or using a larger medium is\n"
 "not an option, please create a separate error correction file."
 msgstr ""
-"Not enough space on medium left for error correction data.\n"
-"Data portion of image: %<PRId64> sect.; maximum possible size: %<PRId64> sect.\n"
-"If reducing the image size or using a larger medium is\n"
-"not an option, please create a separate error correction file."
+"Недастаткова месца на сярэднім злева для даных выпраўлення памылак.\n"
+"Частка даных выявы: %<PRId64> разд.; максімальна магчымы памер: %<PRId64> секц.\n"
+"Калі паменшыць памер выявы або выкарыстоўваць большы носьбіт\n"
+"не варыянт, стварыце асобны файл выпраўлення памылак."
 
 #: src/rs02-create.c:1096 src/rs03-create.c:1382
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Using redundancies below 20% may not give\n"
 "the expected data loss protection.\n"
 msgstr ""
-"Using redundancies below 20% may not give\n"
-"the expected data loss protection.\n"
 
 #: src/rs02-create.c:1128 src/rs02-create.c:1136 src/rs03-create.c:1421
 #: src/rs03-create.c:1444
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Image has been augmented with error correction data.\n"
 "New image size is %<PRId64> MiB (%<PRId64> sectors).\n"
 msgstr ""
-"Image has been augmented with error correction data.\n"
-"New image size is %<PRId64> MiB (%<PRId64> sectors).\n"
+"Выява была дапоўнена дадзенымі для выпраўлення памылак.\n"
+"Новы памер выявы складае %<PRId64> МіБ (%<PRId64> сектараў).\n"
 
 #: src/rs02-fix.c:108 src/rs02-fix.c:114 src/rs03-fix.c:110 src/rs03-fix.c:116
-#, c-format
+#, c-format, fuzzy
 msgid "Expanding image: %3d%%"
-msgstr "Expanding image: %3d%%"
+msgstr ""
 
 #: src/rs02-fix.c:175 src/rs03-fix.c:176
 msgid "Opening files..."
 msgstr "Opening files..."
 
 #: src/rs02-fix.c:200
-#, c-format
-msgid "Image contains error correction data: Method RS02, %d roots, %4.1f%% redundancy."
-msgstr "Image contains error correction data: Method RS02, %d roots, %4.1f%% redundancy."
+#, c-format, fuzzy
+msgid ""
+"Image contains error correction data: Method RS02, %d roots, %4.1f%% "
+"redundancy."
+msgstr ""
+"Выява змяшчае даныя для выпраўлення памылак: Метад RS02, %d каранёў, %4.1f%%"
+" надмернасці."
 
 #: src/rs02-fix.c:218 src/rs03-fix.c:279
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "The image file is %lld sectors longer as noted in the\n"
 "ecc data. This might simply be zero padding, but could\n"
@@ -4815,32 +5144,40 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"The image file is %lld sectors longer as noted in the\n"
-"ecc data. This might simply be zero padding, but could\n"
-"also mean that the image was manipulated after appending\n"
-"the error correction information.\n"
+"Файл выявы на %lld сектараў даўжэйшы, як адзначана ў\n"
+"дадзеныя ecc. Гэта можа быць проста нулявое абіўка, але можа\n"
+"таксама азначае, што выява была апрацавана пасля дадання\n"
+"інфармацыя аб выпраўленні памылак.\n"
 "\n"
 "%s"
 
 #: src/rs02-fix.c:463 src/rs03-fix.c:518
-#, c-format
+#, c-format, fuzzy
 msgid "* Ecc block %<PRId64>: %3d unrepairable sectors: "
-msgstr "* Ecc block %<PRId64>: %3d unrepairable sectors: "
+msgstr "* Блок Ecc %<PRId64>: %3d невыпраўляльныя сектары:"
 
 #: src/rs02-fix.c:685
-#, c-format
-msgid "-> CRC-predicted error in sector %lld at byte %4d (value %02x '%c', expected %02x '%c')\n"
-msgstr "-> CRC-predicted error in sector %lld at byte %4d (value %02x '%c', expected %02x '%c')\n"
+#, c-format, fuzzy
+msgid ""
+"-> CRC-predicted error in sector %lld at byte %4d (value %02x '%c', expected"
+" %02x '%c')\n"
+msgstr ""
+"-> Прадказаная CRC памылка ў сектары %lld у байце %4d (значэнне %02x '%c', "
+"чаканае %02x '%c')\n"
 
 #: src/rs02-fix.c:688
-#, c-format
-msgid "-> Non-predicted error in sector %lld at byte %4d (value %02x '%c', expected %02x '%c')\n"
-msgstr "-> Non-predicted error in sector %lld at byte %4d (value %02x '%c', expected %02x '%c')\n"
+#, c-format, fuzzy
+msgid ""
+"-> Non-predicted error in sector %lld at byte %4d (value %02x '%c', expected"
+" %02x '%c')\n"
+msgstr ""
+"-> Непрадказаная памылка ў сектары %lld у байце %4d (значэнне %02x '%c', "
+"чаканае %02x '%c')\n"
 
 #: src/rs02-fix.c:813 src/rs03-fix.c:910
-#, c-format
+#, c-format, fuzzy
 msgid "Repaired sectors: %<PRId64> (%<PRId64> data, %<PRId64> ecc)\n"
-msgstr "Repaired sectors: %<PRId64> (%<PRId64> data, %<PRId64> ecc)\n"
+msgstr "Адрамантаваныя сектары: %<PRId64> (%<PRId64> даныя, %<PRId64> ecc)\n"
 
 #: src/rs02-recognize.c:50
 msgid "Skip RS02 test"
@@ -4851,10 +5188,12 @@ msgid "Continue searching"
 msgstr "Continue searching"
 
 #: src/rs02-recognize.c:56
+#, fuzzy
 msgid "Disable RS02 initialization in the preferences"
-msgstr "Disable RS02 initialization in the preferences"
+msgstr "Адключыць ініцыялізацыю RS02 у наладах"
 
 #: src/rs02-recognize.c:303
+#, fuzzy
 msgid ""
 "Faster medium initialization\n"
 "\n"
@@ -4862,11 +5201,11 @@ msgid ""
 "Press \"Skip RS02 test\" if you are certain that this medium was\n"
 "not augmented with RS02 error correction data."
 msgstr ""
-"Faster medium initialization\n"
+"Больш хуткая ініцыялізацыя асяроддзя\n"
 "\n"
-"Searching this medium for error correction data may take a long time.\n"
-"Press \"Skip RS02 test\" if you are certain that this medium was\n"
-"not augmented with RS02 error correction data."
+"Пошук дадзеных для выпраўлення памылак на гэтым носьбіце можа заняць шмат часу.\n"
+"Націсніце «Прапусціць тэст RS02», калі вы ўпэўнены, што гэты носьбіт быў\n"
+"не дапоўнены дадзенымі выпраўлення памылак RS02."
 
 #: src/rs02-verify.c:50 src/rs02-verify.c:216 src/rs02-verify.c:332
 #: src/rs03-verify.c:62 src/rs03-verify.c:257 src/rs03-verify.c:329
@@ -4894,18 +5233,20 @@ msgid "Ecc section:"
 msgstr "Ecc section:"
 
 #: src/rs02-verify.c:273
+#, fuzzy
 msgid "Error correction data"
-msgstr "Error correction data"
+msgstr "Дадзеныя аб выпраўленні памылак"
 
 #: src/rs02-verify.c:530 src/rs03-verify.c:483
-#, c-format
+#, c-format, fuzzy
 msgid "- erasure counts   :  avg =  %.1f; worst = %d per ecc block.\n"
-msgstr "- erasure counts   :  avg =  %.1f; worst = %d per ecc block.\n"
+msgstr "- колькасць сціранняў: сярэдняе = %.1f; найгоршы = %d на блок ecc.\n"
 
 #: src/rs02-verify.c:533 src/rs03-verify.c:486
-#, c-format
-msgid "- prognosis        : %<PRId64> of %<PRId64> sectors recoverable (%d.%d%%)\n"
-msgstr "- prognosis        : %<PRId64> of %<PRId64> sectors recoverable (%d.%d%%)\n"
+#, c-format, fuzzy
+msgid ""
+"- prognosis        : %<PRId64> of %<PRId64> sectors recoverable (%d.%d%%)\n"
+msgstr "- прагноз: %<PRId64> з %<PRId64> сектараў можна аднавіць (%d.%d%%)\n"
 
 #: src/rs02-verify.c:539 src/rs03-verify.c:489
 msgid "Erasure counts:"
@@ -4916,201 +5257,217 @@ msgid "Prognosis:"
 msgstr "Prognosis:"
 
 #: src/rs02-verify.c:543 src/rs03-verify.c:493
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>avg =  %.1f; worst = %d per ecc block.</span>"
-msgstr "<span %s>avg =  %.1f; worst = %d per ecc block.</span>"
+msgstr "<span %s>сярэдняе = %.1f; найгоршы = %d на блок ecc.</span>"
 
 #: src/rs02-verify.c:548 src/rs03-verify.c:498
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>%<PRId64> of %<PRId64> sectors recoverable (%d.%d%%)</span>"
-msgstr "<span %s>%<PRId64> of %<PRId64> sectors recoverable (%d.%d%%)</span>"
+msgstr ""
+"<span %s>%<PRId64> з %<PRId64> сектараў, якія можна аднавіць "
+"(%d.%d%%)</span>"
 
 #: src/rs02-verify.c:603 src/rs03-verify.c:695
 msgid "Check aborted"
 msgstr "Check aborted"
 
 #: src/rs02-verify.c:621 src/rs03-verify.c:732
+#, fuzzy
 msgid "Checking the image file."
-msgstr "Checking the image file."
+msgstr "Праверка файла выявы."
 
 #: src/rs02-verify.c:622
+#, fuzzy
 msgid "Image contains error correction data."
-msgstr "Image contains error correction data."
+msgstr "Выява змяшчае даныя для выпраўлення памылак."
 
 #: src/rs02-verify.c:635 src/rs03-verify.c:980
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Image file is %<PRId64> sectors shorter than expected.</span>"
-msgstr "<span %s>Image file is %<PRId64> sectors shorter than expected.</span>"
+msgstr ""
+"<span %s>Файл выявы на %<PRId64> сектараў карацейшы, чым чакалася.</span>"
 
 #: src/rs02-verify.c:636 src/rs03-verify.c:983
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Image file is %<PRId64> sectors longer than expected.</span>"
-msgstr "<span %s>Image file is %<PRId64> sectors longer than expected.</span>"
+msgstr "<span %s>Файл выявы на %<PRId64> сектараў даўжэй чаканага.</span>"
 
 #: src/rs02-verify.c:656
-#, c-format
+#, c-format, fuzzy
 msgid "Failed reading ecc header at %<PRId64>: %s\n"
-msgstr "Failed reading ecc header at %<PRId64>: %s\n"
+msgstr "Памылка чытання загалоўка ecc у %<PRId64>: %s\n"
 
 #: src/rs02-verify.c:701
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>%<PRId64> ok, %<PRId64> CRC errors, %<PRId64> missing</span>"
-msgstr "<span %s>%<PRId64> ok, %<PRId64> CRC errors, %<PRId64> missing</span>"
+msgstr ""
 
 #: src/rs02-verify.c:836 src/rs02-verify.c:861 src/rs03-verify.c:1188
 #: src/rs03-verify.c:1233
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>%<PRId64> sectors missing; %<PRId64> CRC errors</span>"
-msgstr "<span %s>%<PRId64> sectors missing; %<PRId64> CRC errors</span>"
+msgstr ""
 
 #: src/rs02-verify.c:841 src/rs02-verify.c:846 src/rs02-verify.c:866
 #: src/rs02-verify.c:871 src/rs03-verify.c:1198 src/rs03-verify.c:1243
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>%<PRId64> sectors missing</span>"
-msgstr "<span %s>%<PRId64> sectors missing</span>"
+msgstr "<span %s>%<PRId64> адсутнічаюць сектары</span>"
 
 #: src/rs02-verify.c:886
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "- good image       : all sectors present\n"
 "- data md5sum      : %s\n"
 msgstr ""
-"- good image       : all sectors present\n"
-"- data md5sum      : %s\n"
 
 #: src/rs02-verify.c:892
+#, fuzzy
 msgid "* suspicious image : contains damaged ecc headers\n"
-msgstr "* suspicious image : contains damaged ecc headers\n"
+msgstr ""
 
 #: src/rs02-verify.c:897 src/rs03-verify.c:1262
-#, c-format
+#, c-format, fuzzy
 msgid "* suspicious image : all sectors present, but %<PRId64> CRC errors\n"
-msgstr "* suspicious image : all sectors present, but %<PRId64> CRC errors\n"
+msgstr ""
+"* падазроная выява: прысутнічаюць усе сектары, але %<PRId64> памылкі CRC\n"
 
 #: src/rs02-verify.c:903
-#, c-format
-msgid "  ... ecc headers    : %<PRId64> ok, %<PRId64> CRC errors, %<PRId64> missing\n"
-msgstr "  ... ecc headers    : %<PRId64> ok, %<PRId64> CRC errors, %<PRId64> missing\n"
+#, c-format, fuzzy
+msgid ""
+"  ... ecc headers    : %<PRId64> ok, %<PRId64> CRC errors, %<PRId64> "
+"missing\n"
+msgstr ""
+"... загалоўкі ecc: %<PRId64> нармальна, %<PRId64> памылкі CRC, %<PRId64> "
+"адсутнічае\n"
 
 #: src/rs02-verify.c:905 src/rs03-verify.c:1268
-#, c-format
+#, c-format, fuzzy
 msgid "  ... data section   : %<PRId64> sectors missing; %<PRId64> CRC errors\n"
-msgstr "  ... data section   : %<PRId64> sectors missing; %<PRId64> CRC errors\n"
+msgstr ""
+"... раздзел дадзеных : адсутнічаюць сектары %<PRId64>; %<PRId64> Памылкі "
+"CRC\n"
 
 #: src/rs02-verify.c:908 src/rs03-verify.c:1271
-#, c-format
+#, c-format, fuzzy
 msgid "  ... data md5sum    : %s\n"
-msgstr "  ... data md5sum    : %s\n"
+msgstr "... даныя md5sum : %s\n"
 
 #: src/rs02-verify.c:909 src/rs03-verify.c:1277
-#, c-format
+#, c-format, fuzzy
 msgid "  ... crc section    : %<PRId64> sectors missing\n"
-msgstr "  ... crc section    : %<PRId64> sectors missing\n"
+msgstr "... раздзел crc : адсутнічаюць сектары %<PRId64>\n"
 
 #: src/rs02-verify.c:910 src/rs03-verify.c:1279
-#, c-format
+#, c-format, fuzzy
 msgid "  ... ecc section    : %<PRId64> sectors missing\n"
-msgstr "  ... ecc section    : %<PRId64> sectors missing\n"
+msgstr ""
 
 #: src/rs02-verify.c:933 src/rs03-verify.c:1329
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Damaged image.</span>"
-msgstr "<span %s>Damaged image.</span>"
+msgstr "<span %s>Пашкоджаная выява.</span>"
 
 #: src/rs02-verify.c:941
+#, fuzzy
 msgid ""
 "\n"
 "Error correction data: "
 msgstr ""
-"\n"
-"Error correction data: "
 
 #: src/rs02-verify.c:1018
+#, fuzzy
 msgid "Please upgrade your version of dvdisaster!"
-msgstr "Please upgrade your version of dvdisaster!"
+msgstr ""
 
 #: src/rs02-verify.c:1025
-#, c-format
+#, c-format, fuzzy
 msgid "- medium sectors   : %<PRId64> / %<PRId64> (good)\n"
-msgstr "- medium sectors   : %<PRId64> / %<PRId64> (good)\n"
+msgstr "- сярэднія сектары: %<PRId64> / %<PRId64> (добра)\n"
 
 #: src/rs02-verify.c:1041
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Image size does not match recorded size.</span>"
-msgstr "<span %s>Image size does not match recorded size.</span>"
+msgstr "<span %s>Памер выявы не адпавядае памеру запісу.</span>"
 
 #: src/rs02-verify.c:1055
-#, c-format
+#, c-format, fuzzy
 msgid "- data md5sum      : %s (good)\n"
-msgstr "- data md5sum      : %s (good)\n"
+msgstr "- даныя md5sum: %s (добра)\n"
 
 #: src/rs02-verify.c:1056
-#, c-format
+#, c-format, fuzzy
 msgid "* data md5sum      : %s (BAD)\n"
-msgstr "* data md5sum      : %s (BAD)\n"
+msgstr "* даныя md5sum : %s (ДРЭШНА)\n"
 
 #: src/rs02-verify.c:1067 src/rs03-verify.c:862
-#, c-format
+#, c-format, fuzzy
 msgid "- data md5sum      : %s\n"
-msgstr "- data md5sum      : %s\n"
+msgstr "- даныя md5sum: %s\n"
 
 #: src/rs02-verify.c:1078
-#, c-format
+#, c-format, fuzzy
 msgid "- crc md5sum       : %s (good)\n"
-msgstr "- crc md5sum       : %s (good)\n"
+msgstr "- crc md5sum: %s (добра)\n"
 
 #: src/rs02-verify.c:1082
-#, c-format
+#, c-format, fuzzy
 msgid "* crc md5sum       : %s (BAD)\n"
-msgstr "* crc md5sum       : %s (BAD)\n"
+msgstr "* crc md5sum : %s (Дрэнна)\n"
 
 #: src/rs02-verify.c:1088
-#, c-format
+#, c-format, fuzzy
 msgid "- crc md5sum       : %s\n"
-msgstr "- crc md5sum       : %s\n"
+msgstr "- crc md5sum: %s\n"
 
 #: src/rs02-verify.c:1103
-#, c-format
+#, c-format, fuzzy
 msgid "* ecc md5sum       : %s (BAD)\n"
-msgstr "* ecc md5sum       : %s (BAD)\n"
+msgstr "* ecc md5sum : %s (Дрэнна)\n"
 
 #: src/rs02-verify.c:1109
-#, c-format
+#, c-format, fuzzy
 msgid "- ecc md5sum       : %s\n"
-msgstr "- ecc md5sum       : %s\n"
+msgstr "- ecc md5sum: %s\n"
 
 #: src/rs02-verify.c:1127 src/rs03-verify.c:902
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Good error correction data.</span>"
-msgstr "<span %s>Good error correction data.</span>"
+msgstr "<span %s>Добрыя даныя выпраўлення памылак.</span>"
 
 #: src/rs02-verify.c:1133 src/rs03-verify.c:1348
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Full data recovery is likely.</span>"
-msgstr "<span %s>Full data recovery is likely.</span>"
+msgstr "<span %s>Магчымасць поўнага аднаўлення даных.</span>"
 
 #: src/rs02-verify.c:1138 src/rs03-verify.c:1353
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Full data recovery is NOT possible.</span>"
-msgstr "<span %s>Full data recovery is NOT possible.</span>"
+msgstr "<span %s>Поўнае аднаўленне даных НЕмагчыма.</span>"
 
 #: src/rs02-window.c:82
+#, fuzzy
 msgid "<b>1. Preparing image:</b>"
-msgstr "<b>1. Preparing image:</b>"
+msgstr "<b>1. Падрыхтоўка выявы:</b>"
 
 #: src/rs02-window.c:746
 msgid "Maximum image size"
 msgstr "Maximum image size"
 
 #: src/rs02-window.c:758
+#, fuzzy
 msgid "Using the smallest possible size from table"
-msgstr "Using the smallest possible size from table"
+msgstr "Выкарыстоўваючы найменшы магчымы памер з табліцы"
 
 #: src/rs02-window.c:759
+#, fuzzy
 msgid "Use smallest possible size from following table (in sectors):"
-msgstr "Use smallest possible size from following table (in sectors):"
+msgstr ""
+"Выкарыстоўвайце найменшы магчымы памер з наступнай табліцы (у сектарах):"
 
 #: src/rs02-window.c:784
+#, fuzzy
 msgid ""
 "<b>Determine augmented image size from table</b>\n"
 "\n"
@@ -5118,11 +5475,11 @@ msgid ""
 "\n"
 "In order to pick a suitable medium the available media capacities must be known. Default sizes for CD and one/two layered DVD and BD are given in the table. You can edit these sizes according to your needs."
 msgstr ""
-"<b>Determine augmented image size from table</b>\n"
+"<b>Вызначыць памер дапоўненай выявы з табліцы</b>\n"
 "\n"
-"Augmented images fill up unused medium space with error correction information. Activate this option if you want the augmented image to fit on the smallest possible medium.\n"
+"Дапоўненыя выявы запаўняюць нявыкарыстаную асяроддзе інфармацыі інфармацыяй аб выпраўленні памылак. Уключыце гэту опцыю, калі хочаце, каб дапоўненая выява змясцілася на мінімальна магчымым носьбіце.\n"
 "\n"
-"In order to pick a suitable medium the available media capacities must be known. Default sizes for CD and one/two layered DVD and BD are given in the table. You can edit these sizes according to your needs."
+"Для таго, каб выбраць прыдатны носьбіт, неабходна ведаць наяўную ёмістасць носьбіта. Памеры па змаўчанні для CD і адна/двухслаёвых DVD і BD прыведзены ў табліцы. Вы можаце рэдагаваць гэтыя памеры ў адпаведнасці з вашымі патрэбамі."
 
 #: src/rs02-window.c:811
 msgid "CD-R / CD-RW:"
@@ -5137,7 +5494,7 @@ msgid "query medium"
 msgstr "query medium"
 
 #: src/rs02-window.c:856
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>CD medium size</b>\n"
 "\n"
@@ -5149,22 +5506,22 @@ msgid ""
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
 msgstr ""
-"<b>CD medium size</b>\n"
+"<b>CD сярэдняга памеру</b>\n"
 "\n"
-"This is the maximum capacity assumed for 80min CD media. Images smaller than this value will be augmented with error correction information so that they will fit on the specified CD.\n"
+"Гэта максімальная ёмістасць, якая мяркуецца для 80-хвіліннага кампакт-дыска. Выявы меншага за гэта значэнне будуць дапоўнены інфармацыяй аб выпраўленні памылак, каб яны змяшчаліся на ўказаным кампакт-дыску.\n"
 "\n"
-"You can enter the medium size in sectors of 2K each, or press the \"query medium\" button to use the size of a medium currently inserted in the selected drive. Sometimes this value is incorrect, though.\n"
-"Use the arrow button to revert to the last saved value.\n"
+"Вы можаце ўвесці памер носьбіта ў сектарах па 2 Кб кожны або націснуць кнопку \"запыт носьбіта\", каб выкарыстоўваць памер носьбіта, устаўленага ў абраны дыск. Аднак часам гэта значэнне няправільнае.\n"
+"Выкарыстоўвайце кнопку са стрэлкай, каб вярнуцца да апошняга захаванага значэння.\n"
 "\n"
-"Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
-"Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
+"Калі ласка, звярніце ўвагу, што дапоўненыя відарысы павялічацца не больш чым у тры разы, паколькі максімальна магчымая надмернасць складае 200%%.\n"
+"Нават калі гэты ліміт не дасягнуты, па тэхнічных прычынах дапоўненая выява можа быць на некалькі сектараў меншай, чым вызначана."
 
 #: src/rs02-window.c:874
 msgid "DVD 1 layer:"
 msgstr "DVD 1 layer:"
 
 #: src/rs02-window.c:919
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>Single layer DVD medium size</b>\n"
 "\n"
@@ -5176,22 +5533,22 @@ msgid ""
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
 msgstr ""
-"<b>Single layer DVD medium size</b>\n"
+"<b>Аднаслаёвы DVD сярэдняга памеру</b>\n"
 "\n"
-"This is the maximum capacity assumed for single layer DVD media. Images exceeding the smaller media sizes but smaller than this value will be augmented with error correction information so that they will fit on the specified DVD.\n"
+"Гэта максімальная ёмістасць, якая мяркуецца для аднаслаёвых носьбітаў DVD. Выявы, якія перавышаюць меншы памер носьбіта, але меншыя за гэта значэнне, будуць дапоўнены інфармацыяй аб выпраўленні памылак, каб яны змяшчаліся на ўказаным DVD.\n"
 "\n"
-"You can enter the medium size in sectors of 2K each, or press the \"query medium\" button to use the size of a medium currently inserted in the selected drive. Sometimes this value is incorrect, though.\n"
-"Use the arrow button to revert to the last saved value.\n"
+"Вы можаце ўвесці памер носьбіта ў сектарах па 2 Кб кожны або націснуць кнопку \"запыт носьбіта\", каб выкарыстоўваць памер носьбіта, устаўленага ў абраны дыск. Аднак часам гэта значэнне няправільнае.\n"
+"Выкарыстоўвайце кнопку са стрэлкай, каб вярнуцца да апошняга захаванага значэння.\n"
 "\n"
-"Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
-"Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
+"Калі ласка, звярніце ўвагу, што дапоўненыя відарысы павялічацца не больш чым у тры разы, паколькі максімальна магчымая надмернасць складае 200%%.\n"
+"Нават калі гэты ліміт не дасягнуты, па тэхнічных прычынах дапоўненая выява можа быць на некалькі сектараў меншай, чым вызначана."
 
 #: src/rs02-window.c:937
 msgid "DVD 2 layers:"
 msgstr "DVD 2 layers:"
 
 #: src/rs02-window.c:982
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>Two layered DVD medium size</b>\n"
 "\n"
@@ -5203,22 +5560,22 @@ msgid ""
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
 msgstr ""
-"<b>Two layered DVD medium size</b>\n"
+"<b>Двухслаёвы DVD сярэдняга памеру</b>\n"
 "\n"
-"This is the maximum capacity assumed for two layered DVD media. Images exceeding the smaller media sizes but smaller than this value will be augmented with error correction information so that they will fit on the specified DVD.\n"
+"Гэта максімальная ёмістасць, якая мяркуецца для двухслаёвых носьбітаў DVD. Выявы, якія перавышаюць меншы памер носьбіта, але меншыя за гэта значэнне, будуць дапоўнены інфармацыяй аб выпраўленні памылак, каб яны змяшчаліся на ўказаным DVD.\n"
 "\n"
-"You can enter the medium size in sectors of 2K each, or press the \"query medium\" button to use the size of a medium currently inserted in the selected drive. Sometimes this value is incorrect, though.\n"
-"Use the arrow button to revert to the last saved value.\n"
+"Вы можаце ўвесці памер носьбіта ў сектарах па 2 Кб кожны або націснуць кнопку \"запыт носьбіта\", каб выкарыстоўваць памер носьбіта, устаўленага ў абраны дыск. Аднак часам гэта значэнне няправільнае.\n"
+"Выкарыстоўвайце кнопку са стрэлкай, каб вярнуцца да апошняга захаванага значэння.\n"
 "\n"
-"Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
-"Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
+"Калі ласка, звярніце ўвагу, што дапоўненыя відарысы павялічацца не больш чым у тры разы, паколькі максімальна магчымая надмернасць складае 200%%.\n"
+"Нават калі гэты ліміт не дасягнуты, па тэхнічных прычынах дапоўненая выява можа быць на некалькі сектараў меншай, чым вызначана."
 
 #: src/rs02-window.c:1000
 msgid "BD 1 layer:"
 msgstr "BD 1 layer:"
 
 #: src/rs02-window.c:1045
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>Single layer BD medium size</b>\n"
 "\n"
@@ -5230,22 +5587,22 @@ msgid ""
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
 msgstr ""
-"<b>Single layer BD medium size</b>\n"
+"<b>Аднаслаёвы BD сярэдняга памеру</b>\n"
 "\n"
-"This is the maximum capacity assumed for single layer BD media. Images exceeding the smaller media sizes but smaller than this value will be augmented with error correction information so that they will fit on the specified BD.\n"
+"Гэта максімальная ёмістасць, якая мяркуецца для аднаслаёвых носьбітаў BD. Выявы, якія перавышаюць меншы памер носьбіта, але меншыя за гэта значэнне, будуць дапоўнены інфармацыяй аб выпраўленні памылак, каб яны змяшчаліся на ўказаным BD.\n"
 "\n"
-"You can enter the medium size in sectors of 2K each, or press the \"query medium\" button to use the size of a blank medium currently inserted in the selected drive.\n"
-"Use the arrow button to revert to the last saved value.\n"
+"Вы можаце ўвесці памер носьбіта ў сектарах па 2K кожны або націснуць кнопку \"запыт носьбіта\", каб выкарыстоўваць памер пустога носьбіта, устаўленага ў абраны дыск.\n"
+"Выкарыстоўвайце кнопку са стрэлкай, каб вярнуцца да апошняга захаванага значэння.\n"
 "\n"
-"Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
-"Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
+"Калі ласка, звярніце ўвагу, што дапоўненыя відарысы павялічацца не больш чым у тры разы, паколькі максімальна магчымая надмернасць складае 200%%.\n"
+"Нават калі гэты ліміт не дасягнуты, па тэхнічных прычынах дапоўненая выява можа быць на некалькі сектараў меншай, чым вызначана."
 
 #: src/rs02-window.c:1062
 msgid "BD 2 layers:"
 msgstr "BD 2 layers:"
 
 #: src/rs02-window.c:1107
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>Two layered BD medium size</b>\n"
 "\n"
@@ -5257,22 +5614,22 @@ msgid ""
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
 msgstr ""
-"<b>Two layered BD medium size</b>\n"
+"<b>Двухслаёвы BD сярэдняга памеру</b>\n"
 "\n"
-"This is the maximum capacity assumed for two layered BD media. Images exceeding the smaller media sizes but smaller than this value will be augmented with error correction information so that they will fit on the specified BD.\n"
+"Гэта максімальная ёмістасць, якая мяркуецца для двухслаёвых носьбітаў BD. Выявы, якія перавышаюць меншы памер носьбіта, але меншыя за гэта значэнне, будуць дапоўнены інфармацыяй аб выпраўленні памылак, каб яны змяшчаліся на ўказаным BD.\n"
 "\n"
-"You can enter the medium size in sectors of 2K each, or press the \"query medium\" button to use the size of a blank medium currently inserted in the selected drive.\n"
-"Use the arrow button to revert to the last saved value.\n"
+"Вы можаце ўвесці памер носьбіта ў сектарах па 2K кожны або націснуць кнопку \"запыт носьбіта\", каб выкарыстоўваць памер пустога носьбіта, устаўленага ў абраны дыск.\n"
+"Выкарыстоўвайце кнопку са стрэлкай, каб вярнуцца да апошняга захаванага значэння.\n"
 "\n"
-"Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
-"Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
+"Калі ласка, звярніце ўвагу, што дапоўненыя відарысы павялічацца не больш чым у тры разы, паколькі максімальна магчымая надмернасць складае 200%%.\n"
+"Нават калі гэты ліміт не дасягнуты, па тэхнічных прычынах дапоўненая выява можа быць на некалькі сектараў меншай, чым вызначана."
 
 #: src/rs02-window.c:1124
 msgid "BDXL 3 layers:"
 msgstr "BDXL 3 layers:"
 
 #: src/rs02-window.c:1169
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>Three layered BDXL medium size</b>\n"
 "\n"
@@ -5284,22 +5641,22 @@ msgid ""
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
 msgstr ""
-"<b>Three layered BDXL medium size</b>\n"
+"<b>Трохслаёвы BDXL сярэдняга памеру</b>\n"
 "\n"
-"This is the maximum capacity assumed for three layered BDXL media. Images exceeding the smaller media sizes but smaller than this value will be augmented with error correction information so that they will fit on the specified BD.\n"
+"Гэта максімальная ёмістасць, якая мяркуецца для трохслаёвых носьбітаў BDXL. Выявы, якія перавышаюць меншы памер носьбіта, але меншыя за гэта значэнне, будуць дапоўнены інфармацыяй аб выпраўленні памылак, каб яны змяшчаліся на ўказаным BD.\n"
 "\n"
-"You can enter the medium size in sectors of 2K each, or press the \"query medium\" button to use the size of a blank medium currently inserted in the selected drive.\n"
-"Use the arrow button to revert to the last saved value.\n"
+"Вы можаце ўвесці памер носьбіта ў сектарах па 2K кожны або націснуць кнопку \"запыт носьбіта\", каб выкарыстоўваць памер пустога носьбіта, устаўленага ў абраны дыск.\n"
+"Выкарыстоўвайце кнопку са стрэлкай, каб вярнуцца да апошняга захаванага значэння.\n"
 "\n"
-"Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
-"Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
+"Калі ласка, звярніце ўвагу, што дапоўненыя відарысы павялічацца не больш чым у тры разы, паколькі максімальна магчымая надмернасць складае 200%%.\n"
+"Нават калі гэты ліміт не дасягнуты, па тэхнічных прычынах дапоўненая выява можа быць на некалькі сектараў меншай, чым вызначана."
 
 #: src/rs02-window.c:1188
 msgid "BDXL 4 layers:"
 msgstr "BDXL 4 layers:"
 
 #: src/rs02-window.c:1232
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>Four layered BDXL medium size</b>\n"
 "\n"
@@ -5311,22 +5668,22 @@ msgid ""
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
 msgstr ""
-"<b>Four layered BDXL medium size</b>\n"
+"<b>Чатырохслаёвы BDXL сярэдняга памеру</b>\n"
 "\n"
-"This is the maximum capacity assumed for four layered BDXL media. Images exceeding the smaller media sizes but smaller than this value will be augmented with error correction information so that they will fit on the specified BD.\n"
+"Гэта максімальная ёмістасць, якая мяркуецца для чатырохслаёвых носьбітаў BDXL. Выявы, якія перавышаюць меншы памер носьбіта, але меншыя за гэта значэнне, будуць дапоўнены інфармацыяй аб выпраўленні памылак, каб яны змяшчаліся на ўказаным BD.\n"
 "\n"
-"You can enter the medium size in sectors of 2K each, or press the \"query medium\" button to use the size of a blank medium currently inserted in the selected drive.\n"
-"Use the arrow button to revert to the last saved value.\n"
+"Вы можаце ўвесці памер носьбіта ў сектарах па 2K кожны або націснуць кнопку \"запыт носьбіта\", каб выкарыстоўваць памер пустога носьбіта, устаўленага ў абраны дыск.\n"
+"Выкарыстоўвайце кнопку са стрэлкай, каб вярнуцца да апошняга захаванага значэння.\n"
 "\n"
-"Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
-"Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
+"Калі ласка, звярніце ўвагу, што дапоўненыя відарысы павялічацца не больш чым у тры разы, паколькі максімальна магчымая надмернасць складае 200%%.\n"
+"Нават калі гэты ліміт не дасягнуты, па тэхнічных прычынах дапоўненая выява можа быць на некалькі сектараў меншай, чым вызначана."
 
 #: src/rs02-window.c:1294
 msgid "sectors."
 msgstr "sectors."
 
 #: src/rs02-window.c:1308
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "<b>Use at most ... sectors</b>\n"
 "\n"
@@ -5336,66 +5693,71 @@ msgid ""
 "Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
 "Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
 msgstr ""
-"<b>Use at most ... sectors</b>\n"
+"<b>Выкарыстоўваць не больш за ... сектараў</b>\n"
 "\n"
-"Use this option to override the table settings; the augmented image will be expanded to the size given in this field.\n"
-"This allows for the creation of DVD-sized augmented images which would normally be fitted to CD size, and to use non standard media.\n"
+"Выкарыстоўвайце гэты параметр, каб перавызначыць налады табліцы; дапоўненая выява будзе пашырана да памеру, указанага ў гэтым полі.\n"
+"Гэта дазваляе ствараць дапоўненыя выявы памерам з DVD, якія звычайна падыходзяць пад памер CD, і выкарыстоўваць нестандартныя носьбіты.\n"
 "\n"
-"Please note that augmented images will at most triple in size as the highest possible redundancy is 200%%.\n"
-"Even if this limit is not reached the augmented image may be a few sectors smaller than specified for technical reasons."
+"Калі ласка, звярніце ўвагу, што дапоўненыя відарысы павялічацца не больш чым у тры разы, паколькі максімальна магчымая надмернасць складае 200%%.\n"
+"Нават калі гэты ліміт не дасягнуты, па тэхнічных прычынах дапоўненая выява можа быць на некалькі сектараў меншай, чым вызначана."
 
 #: src/rs03-common.c:442
-#, c-format
+#, c-format, fuzzy
 msgid "Image file %s not present."
-msgstr "Image file %s not present."
+msgstr "Файл выявы %s адсутнічае."
 
 #: src/rs03-common.c:459
-#, c-format
+#, c-format, fuzzy
 msgid "Redundancy %4.1f%% out of useful range [3.2%%..200%%]"
-msgstr "Redundancy %4.1f%% out of useful range [3.2%%..200%%]"
+msgstr "Надмернасць %4.1f%% па-за карысным дыяпазонам [3.2%%..200%%]"
 
 #: src/rs03-common.c:495
-#, c-format
+#, c-format, fuzzy
 msgid "Redundancy %d out of useful range [8..170]."
-msgstr "Redundancy %d out of useful range [8..170]."
+msgstr "Надмернасць %d па-за карысным дыяпазонам [8..170]."
 
 #: src/rs03-common.c:533
-#, c-format
+#, c-format, fuzzy
 msgid "Medium size smaller than image size (%<PRId64> &lt; %<PRId64>)"
-msgstr "Medium size smaller than image size (%<PRId64> &lt; %<PRId64>)"
+msgstr "Сярэдні памер меншы за памер выявы (%<PRId64> &lt; %<PRId64>)"
 
 #: src/rs03-common.c:535
-#, c-format
+#, c-format, fuzzy
 msgid "Medium size too small (%<PRId64> sectors, minimum is %d)"
-msgstr "Medium size too small (%<PRId64> sectors, minimum is %d)"
+msgstr "Сярэдні памер занадта малы (%<PRId64> сектараў, мінімум %d)"
 
 #: src/rs03-common.c:537
-#, c-format
-msgid "Not enough space for error correction data on the specified medium (%<PRId64> sectors). Increase the medium size or use a smaller image."
-msgstr "Not enough space for error correction data on the specified medium (%<PRId64> sectors). Increase the medium size or use a smaller image."
+#, c-format, fuzzy
+msgid ""
+"Not enough space for error correction data on the specified medium "
+"(%<PRId64> sectors). Increase the medium size or use a smaller image."
+msgstr ""
+"Недастаткова месца для дадзеных выпраўлення памылак на ўказаным носьбіце "
+"(%<PRId64> сектараў). Павялічце сярэдні памер або выкарыстоўвайце меншы "
+"малюнак."
 
 #: src/rs03-create.c:418
-#, c-format
+#, c-format, fuzzy
 msgid "Failed expanding the ecc file: %s\n"
-msgstr "Failed expanding the ecc file: %s\n"
+msgstr "Не атрымалася разгарнуць файл ecc: %s\n"
 
 #: src/rs03-create.c:419
-#, c-format
+#, c-format, fuzzy
 msgid "Preparing ecc file: %3d%%"
-msgstr "Preparing ecc file: %3d%%"
+msgstr ""
 
 #: src/rs03-create.c:424
-#, c-format
+#, c-format, fuzzy
 msgid "Preparing image: %3d%%"
-msgstr "Preparing image: %3d%%"
+msgstr "Рыхтуецца выява: %3d%%"
 
 #: src/rs03-create.c:661
-#, c-format
+#, c-format, fuzzy
 msgid "Failed mmap()ing layer %d: %s\n"
-msgstr "Failed mmap()ing layer %d: %s\n"
+msgstr "Памылка mmap()ing слоя %d: %s\n"
 
 #: src/rs03-create.c:690
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Incomplete image\n"
 "\n"
@@ -5405,25 +5767,22 @@ msgid ""
 "be created when the image is still fully readable.\n"
 "Exiting and removing partial error correction data."
 msgstr ""
-"Incomplete image\n"
+"Няпоўны малюнак\n"
 "\n"
-"The image contains missing sectors,\n"
-"e.g. sector %<PRId64>.\n"
-"%sError correction data works like a backup; it must\n"
-"be created when the image is still fully readable.\n"
-"Exiting and removing partial error correction data."
+"На малюнку адсутнічаюць сектары,\n"
+"напр. сектар %<PRId64>.\n"
+"%sДаныя выпраўлення памылак працуюць як рэзервовая копія; гэта павінна\n"
+"быць створаны, калі выява ўсё яшчэ цалкам чытаецца.\n"
+"Выхад і выдаленне даных частковага выпраўлення памылак."
 
 #: src/rs03-create.c:698
+#, fuzzy
 msgid ""
 "\n"
 "This image was probably mastered from defective source(s).\n"
 "Perform a \"Verify\" action for more information.\n"
 "\n"
 msgstr ""
-"\n"
-"This image was probably mastered from defective source(s).\n"
-"Perform a \"Verify\" action for more information.\n"
-"\n"
 
 #: src/rs03-create.c:906
 msgid "CPU bound"
@@ -5439,72 +5798,81 @@ msgid "%5.2fMiB/s current"
 msgstr "%5.2fMiB/s current"
 
 #: src/rs03-create.c:1168
-#, c-format
+#, c-format, fuzzy
 msgid "%d threads with %s encoding and %s I/O"
-msgstr "%d threads with %s encoding and %s I/O"
+msgstr "%d паток з %s кадзіроўкай і %s уводам-вывадам"
 
 #: src/rs03-create.c:1326
-#, c-format
-msgid "Encoding with Method RS03: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy), %<PRId64> MiB padding."
-msgstr "Encoding with Method RS03: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy), %<PRId64> MiB padding."
+#, c-format, fuzzy
+msgid ""
+"Encoding with Method RS03: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; "
+"%4.1f%% redundancy), %<PRId64> MiB padding."
+msgstr ""
+"Кадзіраванне метадам RS03: даныя %<PRId64> MiB, %<PRId64> MiB ecc (%d "
+"карані; %4.1f%% надмернасць), %<PRId64> запаўненне MiB."
 
 #: src/rs03-create.c:1329
-#, c-format
-msgid "Encoding with Method RS03: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
-msgstr "Encoding with Method RS03: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
+#, c-format, fuzzy
+msgid ""
+"Encoding with Method RS03: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; "
+"%4.1f%% redundancy)."
+msgstr ""
+"Кадзіраванне метадам RS03: даныя %<PRId64> MiB, %<PRId64> MiB ecc (%d "
+"карані; %4.1f%% надмернасць)."
 
 #: src/rs03-create.c:1350
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy), %<PRId64> MiB padding."
 msgstr ""
-"Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
-"%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy), %<PRId64> MiB padding."
+"Дапаўненне выявы метадам RS03 [%d патокаў, %s, %s увод-вывад]:\n"
+"%<PRId64> даныя MiB, %<PRId64> MiB ecc (%d карані; %4.1f%% надмернасць), %<PRId64> запаўненне MiB."
 
 #: src/rs03-create.c:1355
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
 msgstr ""
-"Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
-"%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
+"Дапаўненне выявы метадам RS03 [%d патокаў, %s, %s увод-вывад]:\n"
+"%<PRId64> Даныя MiB, %<PRId64> MiB ecc (%d карані; %4.1f%% надмернасць)."
 
 #: src/rs03-create.c:1361
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Creating the error correction file with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
 msgstr ""
-"Creating the error correction file with Method RS03 [%d threads, %s, %s I/O]:\n"
-"%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
+"Стварэнне файла выпраўлення памылак метадам RS03 [%d патокаў, %s, %s увод-вывад]:\n"
+"%<PRId64> Даныя MiB, %<PRId64> MiB ecc (%d карані; %4.1f%% надмернасць)."
 
 #: src/rs03-create.c:1372
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Not enough space on medium left for error correction data.\n"
 "Data portion of image: %<PRId64> sect.; maximum possible size: %<PRId64> sect.\n"
 "If reducing the image size or using a larger medium is not\n"
 "an option, please create a separate error correction file."
 msgstr ""
-"Not enough space on medium left for error correction data.\n"
-"Data portion of image: %<PRId64> sect.; maximum possible size: %<PRId64> sect.\n"
-"If reducing the image size or using a larger medium is not\n"
-"an option, please create a separate error correction file."
+"Недастаткова месца на сярэднім злева для даных выпраўлення памылак.\n"
+"Частка даных выявы: %<PRId64> разд.; максімальна магчымы памер: %<PRId64> секц.\n"
+"Калі памяншэнне памеру выявы або выкарыстанне носьбіта большага памеру - гэта не так\n"
+"варыянт, стварыце асобны файл выпраўлення памылак."
 
 #: src/rs03-create.c:1398
+#, fuzzy
 msgid ""
 "BD-R size with no defect management enabled,\n"
 "remember it should you need to repair this image later!\n"
 msgstr ""
-"BD-R size with no defect management enabled,\n"
-"remember it should you need to repair this image later!\n"
+"Памер BD-R без уключанага кіравання дэфектамі,\n"
+"памятайце, калі вам спатрэбіцца адрамантаваць гэты відарыс пазней!\n"
 
 #: src/rs03-create.c:1432
-#, c-format
+#, c-format, fuzzy
 msgid "Avg performance: %5.2fs (%5.2fMiB/s) total\n"
-msgstr "Avg performance: %5.2fs (%5.2fMiB/s) total\n"
+msgstr ""
 
 #: src/rs03-create.c:1435
 #, c-format
@@ -5512,51 +5880,64 @@ msgid "%5.2fMiB/s average"
 msgstr "%5.2fMiB/s average"
 
 #: src/rs03-create.c:1437
-#, c-format
+#, c-format, fuzzy
 msgid "%d times CPU bound; %d times I/O bound"
-msgstr "%d times CPU bound; %d times I/O bound"
+msgstr "%d раз прывязаны працэсар; %d раз увод-вывад звязаны"
 
 #: src/rs03-fix.c:217
-#, c-format
+#, c-format, fuzzy
 msgid "Error correction file using Method RS03, %d roots, %4.1f%% redundancy."
-msgstr "Error correction file using Method RS03, %d roots, %4.1f%% redundancy."
+msgstr ""
 
 #: src/rs03-fix.c:221
-#, c-format
-msgid "Image contains error correction data: Method RS03, %d roots, %4.1f%% redundancy."
-msgstr "Image contains error correction data: Method RS03, %d roots, %4.1f%% redundancy."
+#, c-format, fuzzy
+msgid ""
+"Image contains error correction data: Method RS03, %d roots, %4.1f%% "
+"redundancy."
+msgstr ""
+"Выява змяшчае даныя для выпраўлення памылак: Метад RS03, %d каранёў, %4.1f%%"
+" надмернасці."
 
 #: src/rs03-fix.c:684 src/rs03-fix.c:817
 msgid "; ecc file: "
 msgstr "; ecc file: "
 
 #: src/rs03-fix.c:745
-#, c-format
-msgid "-> CRC-predicted error in sector %lld%s at byte %4d (value %02x '%c', expected %02x '%c')\n"
-msgstr "-> CRC-predicted error in sector %lld%s at byte %4d (value %02x '%c', expected %02x '%c')\n"
+#, c-format, fuzzy
+msgid ""
+"-> CRC-predicted error in sector %lld%s at byte %4d (value %02x '%c', "
+"expected %02x '%c')\n"
+msgstr ""
+"-> Прадказаная CRC памылка ў сектары %lld%s у байце %4d (значэнне %02x '%c',"
+" чаканае %02x '%c')\n"
 
 #: src/rs03-fix.c:748
-#, c-format
-msgid "-> Non-predicted error in sector %lld%s at byte %4d (value %02x '%c', expected %02x '%c')\n"
-msgstr "-> Non-predicted error in sector %lld%s at byte %4d (value %02x '%c', expected %02x '%c')\n"
+#, c-format, fuzzy
+msgid ""
+"-> Non-predicted error in sector %lld%s at byte %4d (value %02x '%c', "
+"expected %02x '%c')\n"
+msgstr ""
+"-> Непрадказаная памылка ў сектары %lld%s у байце %4d (значэнне %02x '%c', "
+"чаканае %02x '%c')\n"
 
 #: src/rs03-fix.c:849
-#, c-format
+#, c-format, fuzzy
 msgid "Failed seeking to sector %<PRId64> in ecc file [%s]: %s"
-msgstr "Failed seeking to sector %<PRId64> in ecc file [%s]: %s"
+msgstr "Не атрымалася знайсці сектар %<PRId64> у файле ecc [%s]: %s"
 
 #: src/rs03-fix.c:854
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "could not write ecc file sector %<PRId64>:\n"
 "%s"
 msgstr ""
-"could not write ecc file sector %<PRId64>:\n"
+"не атрымалася запісаць сектар файла ecc %<PRId64>:\n"
 "%s"
 
 #: src/rs03-preferences.c:100 src/rs03-preferences.c:714
+#, fuzzy
 msgid "Target medium for augmented image"
-msgstr "Target medium for augmented image"
+msgstr "Мэтавы носьбіт для дапоўненага відарыса"
 
 #: src/rs03-preferences.c:500 src/rs03-preferences.c:1098
 #: src/rs03-preferences.c:1104 src/rs03-preferences.c:1105
@@ -5571,8 +5952,9 @@ msgid "%d threads"
 msgstr "%d threads"
 
 #: src/rs03-preferences.c:642 src/rs03-preferences.c:649
+#, fuzzy
 msgid "Error correction data storage"
-msgstr "Error correction data storage"
+msgstr "Захоўванне дадзеных аб выпраўленні памылак"
 
 #: src/rs03-preferences.c:650
 msgid "Store ECC data in: "
@@ -5583,60 +5965,73 @@ msgid "File"
 msgstr "File"
 
 #: src/rs03-preferences.c:690
+#, fuzzy
 msgid ""
 "<b>Error correction data storage</b>\n"
 "\n"
 "Select between two ways of storing the error correction information:\n"
 msgstr ""
-"<b>Error correction data storage</b>\n"
+"<b>Сховішча даных аб выпраўленні памылак</b>\n"
 "\n"
-"Select between two ways of storing the error correction information:\n"
+"Выберыце адзін з двух спосабаў захавання інфармацыі аб выпраўленні памылак:\n"
 
 #: src/rs03-preferences.c:695
+#, fuzzy
 msgid ""
 "Augmented image (recommended)\n"
 "The error correction data will be stored along with the user data on the same medium. This requires the creation of an image file prior to writing the medium. The error correction data will be appended to that image and fill up the remaining space.\n"
 "Damaged sectors in the error correction information reduce the data recovery capacity, but do not make recovery impossible - a second medium for keeping or protecting the error correction information is not required.\n"
 msgstr ""
-"Augmented image (recommended)\n"
-"The error correction data will be stored along with the user data on the same medium. This requires the creation of an image file prior to writing the medium. The error correction data will be appended to that image and fill up the remaining space.\n"
-"Damaged sectors in the error correction information reduce the data recovery capacity, but do not make recovery impossible - a second medium for keeping or protecting the error correction information is not required.\n"
+"Дапоўненая выява (рэкамендуецца)\n"
+"Даныя выпраўлення памылак будуць захоўвацца разам з дадзенымі карыстальніка на адным носьбіце. Гэта патрабуе стварэння файла выявы перад запісам носьбіта. Дадзеныя аб выпраўленні памылак будуць дададзены да выявы і запоўняць пакінутую прастору.\n"
+"Пашкоджаныя сектары ў інфармацыі аб выпраўленні памылак зніжаюць здольнасць аднаўлення даных, але не робяць аднаўленне немагчымым - другі носьбіт для захавання або абароны інфармацыі аб выпраўленні памылак не патрабуецца.\n"
 
 #: src/rs03-preferences.c:705
+#, fuzzy
 msgid ""
 "Error correction file\n"
 "Error correction files are the only way of protecting existing media as they can be stored somewhere else. They are kept on a separate medium which must also be protected by dvdisaster. This prevents from losing the error correction files in case of a medium defect.\n"
 msgstr ""
-"Error correction file\n"
-"Error correction files are the only way of protecting existing media as they can be stored somewhere else. They are kept on a separate medium which must also be protected by dvdisaster. This prevents from losing the error correction files in case of a medium defect.\n"
+"Файл выпраўлення памылак\n"
+"Файлы выпраўлення памылак - адзіны спосаб абараніць існуючыя носьбіты, бо яны могуць захоўвацца ў іншым месцы. Яны захоўваюцца на асобным носьбіце, які таксама павінен быць абаронены dvdisaster. Гэта прадухіляе страту файлаў выпраўлення памылак у выпадку сярэдняга дэфекту.\n"
 
 #: src/rs03-preferences.c:748
+#, fuzzy
 msgid "Autodetect (recommended)"
-msgstr "Autodetect (recommended)"
+msgstr "Аўтаматычнае вызначэнне (рэкамендуецца)"
 
 #: src/rs03-preferences.c:752
-msgid "Automatically selects the smallest medium type that can fit the image with at least minimal error correction. This is the safe default."
-msgstr "Automatically selects the smallest medium type that can fit the image with at least minimal error correction. This is the safe default."
+#, fuzzy
+msgid ""
+"Automatically selects the smallest medium type that can fit the image with "
+"at least minimal error correction. This is the safe default."
+msgstr ""
+"Аўтаматычна выбірае найменшы тып сярэдняга памеру, які можа змясціцца на "
+"малюнку з прынамсі мінімальнай карэкцыяй памылак. Гэта бяспечнае па "
+"змаўчанні."
 
 #: src/rs03-preferences.c:767
 msgid "Force medium type:"
 msgstr "Force medium type:"
 
 #: src/rs03-preferences.c:771
+#, fuzzy
 msgid ""
 "Select this to target a specific medium type. Use this when you know you will burn to a larger disc than what autodetect would choose. For example, select \"BD (25 GB)\" to maximize redundancy when burning a small image to a Blu-ray disc.\n"
 "\n"
 "The \"no DM\" variants are for Blu-ray discs burned with defect management disabled. This trades the drive's built-in bad sector remapping for slightly more usable space on the disc. Only use these if you explicitly disabled defect management in your burning software. If unsure, use the regular (non-DM) sizes."
 msgstr ""
-"Select this to target a specific medium type. Use this when you know you will burn to a larger disc than what autodetect would choose. For example, select \"BD (25 GB)\" to maximize redundancy when burning a small image to a Blu-ray disc.\n"
+"Выберыце гэта, каб арыентавацца на пэўны тып носьбіта. Выкарыстоўвайце гэта, калі ведаеце, што запішаце на дыск большага аб'ёму, чым тое, што выбрала б аўтавызначэнне. Напрыклад, выберыце «BD (25 ГБ)», каб павялічыць надмернасць пры запісе невялікай выявы на дыск Blu-ray.\n"
 "\n"
-"The \"no DM\" variants are for Blu-ray discs burned with defect management disabled. This trades the drive's built-in bad sector remapping for slightly more usable space on the disc. Only use these if you explicitly disabled defect management in your burning software. If unsure, use the regular (non-DM) sizes."
+"Варыянты \"no DM\" прызначаны для дыскаў Blu-ray, запісаных з адключаным кіраваннем дэфектамі. Гэта мяняе ўбудаваную функцыю перапрызначэння пашкоджаных сектараў дыска на крыху больш карыснай прасторы на дыску. Выкарыстоўвайце іх, толькі калі вы відавочна адключылі кіраванне дэфектамі ў праграмным забеспячэнні для запісу. Калі вы не ўпэўненыя, выкарыстоўвайце звычайныя памеры (не DM)."
 
 #: src/rs03-preferences.c:807
+#, fuzzy
 msgid "Manual sector count (read tooltip!):"
-msgstr "Manual sector count (read tooltip!):"
+msgstr "Ручны падлік сектараў (прачытайце падказку!):"
 
 #: src/rs03-preferences.c:811
+#, fuzzy
 msgid ""
 "Specify the exact number of 2048-byte sectors to use as the target medium capacity. Only use this if you know the precise sector count of your target medium.\n"
 "\n"
@@ -5644,25 +6039,26 @@ msgid ""
 "\n"
 "When using this option with the command line, pass the sector count with -n <number>. You will need to specify the same value again when attempting to repair the image."
 msgstr ""
-"Specify the exact number of 2048-byte sectors to use as the target medium capacity. Only use this if you know the precise sector count of your target medium.\n"
+"Укажыце дакладную колькасць 2048-байтных сектараў для выкарыстання ў якасці мэтавай сярэдняй ёмістасці. Выкарыстоўвайце гэта, толькі калі вы ведаеце дакладную колькасць сектараў вашага мэтавага носьбіта.\n"
 "\n"
-"WARNING: You should remember this value for future repairs! Write it down on the disc itself. If the RS03 header on the disc gets damaged, dvdisaster needs the sector count to locate the backup header and ECC root sectors. Without it, the bruteforce RS03 search option (slow!) will be needed to recover the layout.\n"
+"ПАПЯРЭДЖАННЕ: Вы павінны запомніць гэта значэнне для будучага рамонту! Запішыце гэта на сам дыск. Калі загаловак RS03 на дыску пашкоджаны, dvdisaster патрабуе колькасці сектараў, каб знайсці рэзервовы загаловак і каранёвыя сектары ECC. Без гэтага для аднаўлення макета спатрэбіцца пошук bruteforce RS03 (павольны!).\n"
 "\n"
-"When using this option with the command line, pass the sector count with -n <number>. You will need to specify the same value again when attempting to repair the image."
+"Пры выкарыстанні гэтага параметра з камандным радком перадайце колькасць сектараў з -n <нумар>. Вам трэба будзе зноў указаць тое ж значэнне пры спробе аднавіць малюнак."
 
 #: src/rs03-preferences.c:835
 msgid "sectors"
 msgstr "sectors"
 
 #: src/rs03-preferences.c:876
+#, fuzzy
 msgid ""
 "<i>For augmented images, the redundancy is determined by how much space\n"
 "is available on the target medium, beyond what the image data occupies.\n"
 "Larger target means more protection (up to 200% redundancy).</i>"
 msgstr ""
-"<i>For augmented images, the redundancy is determined by how much space\n"
-"is available on the target medium, beyond what the image data occupies.\n"
-"Larger target means more protection (up to 200% redundancy).</i>"
+"<i>Для дапоўненых відарысаў празмернасць вызначаецца тым, колькі месца\n"
+"даступны на мэтавым носьбіце, акрамя таго, што займаюць дадзеныя выявы.\n"
+"Большая мэта азначае большую абарону (да 200% рэзервавання).</i>"
 
 #: src/rs03-preferences.c:1091
 msgid "I/O parameters"
@@ -5677,6 +6073,7 @@ msgid "Preload"
 msgstr "Preload"
 
 #: src/rs03-preferences.c:1139
+#, fuzzy
 msgid ""
 "<b>Sector preloading</b>\n"
 "\n"
@@ -5687,14 +6084,14 @@ msgid ""
 "\n"
 "A preload value of n will used approx. n MiB of RAM."
 msgstr ""
-"<b>Sector preloading</b>\n"
+"<b>Папярэдняя загрузка сектара</b>\n"
 "\n"
-"dvdisaster optimizes access to the image and error correction data by preloading and caching parts of them.\n"
+"dvdisaster аптымізуе доступ да малюнкаў і дадзеных выпраўлення памылак шляхам папярэдняй загрузкі і кэшавання іх частак.\n"
 "\n"
-"The optimal preload value depends on the storage system used for the image and error correction files.\n"
-"Use small preload values for systems with low latency and seek time, e.g. SSDs. For magnetic hard disks performance may be better using larger preload values.\n"
+"Аптымальнае значэнне папярэдняй загрузкі залежыць ад сістэмы захоўвання, якая выкарыстоўваецца для файлаў выявы і выпраўлення памылак.\n"
+"Выкарыстоўвайце невялікія значэнні папярэдняй загрузкі для сістэм з нізкай затрымкай і часам пошуку, напрыклад. SSD-назапашвальнікі. Для магнітных цвёрдых дыскаў прадукцыйнасць можа быць лепшай пры большых значэннях папярэдняй нагрузкі.\n"
 "\n"
-"A preload value of n will used approx. n MiB of RAM."
+"Значэнне папярэдняй нагрузкі n будзе выкарыстоўвацца прыбл. n МіБ аператыўнай памяці."
 
 #: src/rs03-preferences.c:1151
 msgid "I/O strategy"
@@ -5713,6 +6110,7 @@ msgid "memory mapped"
 msgstr "memory mapped"
 
 #: src/rs03-preferences.c:1191
+#, fuzzy
 msgid ""
 "<b>I/O strategy</b>\n"
 "\n"
@@ -5722,19 +6120,20 @@ msgid ""
 "\n"
 "The <b>memory mapped</b> option uses the kernel's memory mapping scheme for direct access to the image file. This has the advantage of minimal overhead, but may be adversely affected by poor caching and preloading decisions made by the kernel (since the kernel does not know what dvdisaster is going to do with the data). This scheme performs well when encoding in a RAM-based file system (such as /dev/shm on GNU/Linux) and on very fast media with low latency such as SSDs."
 msgstr ""
-"<b>I/O strategy</b>\n"
+"<b>Стратэгія ўводу-вываду</b>\n"
 "\n"
-"This option controls how dvdisaster performs its disk I/O while creating error correction data. Try both options and see which performs best on your hardware setting.\n"
+"Гэты параметр кантралюе, як dvdisaster выконвае ўвод-вывад дыска падчас стварэння даных для выпраўлення памылак. Паспрабуйце абодва варыянты і паглядзіце, які лепш за ўсё працуе на вашым апаратным забеспячэнні.\n"
 "\n"
-"The <b>read/write</b> option activates dvdisaster's own I/O scheduler which reads and writes image data using normal file I/O. The advantage of this scheme is that dvdisaster knows exactly which data needs to be cached and preloaded; the disadvantage is that all data needs to be copied between the kernel and dvdisaster's own buffers. Usually, this I/O scheme works best on slow storage with high latency and seek times; e.g. on all storage involving spinning platters.\n"
+"Параметр <b>чытанне/запіс</b> актывуе ўласны планавальнік уводу/вываду dvdisaster, які счытвае і запісвае даныя выявы з дапамогай звычайнага файлавага ўводу/вываду. Перавага гэтай схемы ў тым, што dvdisaster дакладна ведае, якія дадзеныя трэба кэшаваць і папярэдне загрузіць; недахопам з'яўляецца тое, што ўсе дадзеныя неабходна капіяваць паміж ядром і ўласнымі буферамі dvdisaster. Звычайна гэтая схема ўводу-вываду лепш за ўсё працуе на павольным сховішчы з вялікай затрымкай і часам пошуку; напр. на ўсіх сховішчах, якія ўключаюць круцільныя талеркі.\n"
 "\n"
-"The <b>memory mapped</b> option uses the kernel's memory mapping scheme for direct access to the image file. This has the advantage of minimal overhead, but may be adversely affected by poor caching and preloading decisions made by the kernel (since the kernel does not know what dvdisaster is going to do with the data). This scheme performs well when encoding in a RAM-based file system (such as /dev/shm on GNU/Linux) and on very fast media with low latency such as SSDs."
+"Параметр <b>супастаўленне памяці</b> выкарыстоўвае схему адлюстравання памяці ядра для прамога доступу да файла выявы. Перавагай гэтага з'яўляюцца мінімальныя накладныя выдаткі, але на гэта можа негатыўна паўплываць дрэннае кэшаванне і рашэнні аб папярэдняй загрузцы, прынятыя ядром (паколькі ядро ​​не ведае, што dvdisaster збіраецца рабіць з дадзенымі). Гэтая схема добра працуе пры кадзіраванні ў файлавай сістэме на аснове аператыўнай памяці (напрыклад, /dev/shm у GNU/Linux) і на вельмі хуткіх носьбітах з нізкай затрымкай, такіх як SSD."
 
 #: src/rs03-preferences.c:1211 src/rs03-preferences.c:1215
 msgid "Multithreading"
 msgstr "Multithreading"
 
 #: src/rs03-preferences.c:1256
+#, fuzzy
 msgid ""
 "<b>Multithreading</b>\n"
 "\n"
@@ -5744,13 +6143,13 @@ msgid ""
 "\n"
 "Performance will not scale linearly with the number of CPU cores. Hard disk performance is more limiting than raw CPU power. When using 4 cores or more, memory bandwidth may also affect performance."
 msgstr ""
-"<b>Multithreading</b>\n"
+"<b>Шматструменнасць</b>\n"
 "\n"
-"RS03 can use multiple threads (and therefore CPU cores)for encoding.\n"
-"For systems with 4 cores or less, set the number of threads to the number of cores. If you have more cores, leave one unused for doing I/O and graphics updates.\n"
-"E.g. use 7 threads on an 8 core system.\n"
+"RS03 можа выкарыстоўваць некалькі патокаў (і, такім чынам, ядра працэсара) для кадавання.\n"
+"Для сістэм з 4 ядрамі або менш задайце колькасць патокаў на колькасць ядраў. Калі ў вас больш ядраў, пакіньце адно невыкарыстоўваным для выканання ўводу-вываду і абнаўлення графікі.\n"
+"напрыклад выкарыстоўваць 7 патокаў у 8-ядзернай сістэме.\n"
 "\n"
-"Performance will not scale linearly with the number of CPU cores. Hard disk performance is more limiting than raw CPU power. When using 4 cores or more, memory bandwidth may also affect performance."
+"Прадукцыйнасць не будзе лінейна маштабавацца з колькасцю ядраў працэсара. Прадукцыйнасць жорсткага дыска больш абмежаваная, чым магутнасць працэсара. Пры выкарыстанні 4 і больш ядраў прапускная здольнасць памяці таксама можа паўплываць на прадукцыйнасць."
 
 #: src/rs03-preferences.c:1271 src/rs03-preferences.c:1278
 msgid "Encoding algorithm"
@@ -5781,6 +6180,7 @@ msgid "auto"
 msgstr "auto"
 
 #: src/rs03-preferences.c:1346
+#, fuzzy
 msgid ""
 "<b>Encoding algorithm</b>\n"
 "\n"
@@ -5789,16 +6189,17 @@ msgid ""
 "\n"
 "Available extensions are SSE2 for x86 based processors and AltiVec on PowerPC processors. These extensions encode with 128bit wide operations and will usually provide the fastest encoding variant. If \"auto\" is selected, the SSE2/AltiVec algorithms will be selected if the processor supports them; otherwise the 64bit algorithm will be used."
 msgstr ""
-"<b>Encoding algorithm</b>\n"
+"<b>Алгарытм кадавання</b>\n"
 "\n"
-"This option affects the speed of generating RS03 error correction data.\n"
-"dvdisaster can either use a generic encoding algorithm using 32bit or 64bit wide operations running on the integer unit of the processor, or use processor specific extensions.\n"
+"Гэты параметр уплывае на хуткасць генерацыі даных для выпраўлення памылак RS03.\n"
+"dvdisaster можа альбо выкарыстоўваць агульны алгарытм кадавання з выкарыстаннем 32-ці 64-бітных аперацый, якія выконваюцца на цэлалікавым блоку працэсара, альбо выкарыстоўваць спецыфічныя для працэсара пашырэнні.\n"
 "\n"
-"Available extensions are SSE2 for x86 based processors and AltiVec on PowerPC processors. These extensions encode with 128bit wide operations and will usually provide the fastest encoding variant. If \"auto\" is selected, the SSE2/AltiVec algorithms will be selected if the processor supports them; otherwise the 64bit algorithm will be used."
+"Даступныя пашырэнні SSE2 для працэсараў на аснове x86 і AltiVec для працэсараў PowerPC. Гэтыя пашырэнні кадуюць з дапамогай 128-бітных аперацый і звычайна забяспечваюць самы хуткі варыянт кадавання. Калі выбрана «аўта», будуць выбраны алгарытмы SSE2/AltiVec, калі працэсар іх падтрымлівае; у адваротным выпадку будзе выкарыстоўвацца 64-бітны алгарытм."
 
 #: src/rs03-verify.c:204
+#, fuzzy
 msgid "Error correction properties"
-msgstr "Error correction properties"
+msgstr "Уласцівасці выпраўлення памылак"
 
 #: src/rs03-verify.c:221
 msgid "Type:"
@@ -5813,21 +6214,28 @@ msgid "Ecc block test:"
 msgstr "Ecc block test:"
 
 #: src/rs03-verify.c:523 src/rs03-verify.c:724 src/rs03-verify.c:1218
+#, fuzzy
 msgid "Checking the image and error correction files."
-msgstr "Checking the image and error correction files."
+msgstr "Праверка малюнкаў і файлаў з выпраўленнем памылак."
 
 #: src/rs03-verify.c:524
+#, fuzzy
 msgid "- Checking ecc blocks (deep verify) -"
-msgstr "- Checking ecc blocks (deep verify) -"
+msgstr "- Праверка блокаў ecc (глыбокая праверка) -"
 
 #: src/rs03-verify.c:538
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Out of memory; try reducing sector prefetch!</span>"
-msgstr "<span %s>Out of memory; try reducing sector prefetch!</span>"
+msgstr ""
+"<span %s>Не хапае памяці; паспрабуйце паменшыць папярэднюю выбарку "
+"сектара!</span>"
 
 #: src/rs03-verify.c:540
+#, fuzzy
 msgid "* Ecc block test   : out of memory; try reducing sector prefetch!\n"
-msgstr "* Ecc block test   : out of memory; try reducing sector prefetch!\n"
+msgstr ""
+"* Тэст блока Ecc: не хапае памяці; паспрабуйце паменшыць папярэднюю выбарку "
+"сектара!\n"
 
 #: src/rs03-verify.c:621 src/rs03-verify.c:1182
 #, c-format
@@ -5835,37 +6243,44 @@ msgid "%d%% tested"
 msgstr "%d%% tested"
 
 #: src/rs03-verify.c:623
-#, c-format
+#, c-format, fuzzy
 msgid "- Ecc block test   : %d%% tested"
-msgstr "- Ecc block test   : %d%% tested"
+msgstr "- Тэст блока Ecc: праверана %d%%."
 
 #: src/rs03-verify.c:628
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>%<PRId64> good, %<PRId64> bad; %d%% tested</span>"
-msgstr "<span %s>%<PRId64> good, %<PRId64> bad; %d%% tested</span>"
+msgstr "<span %s>%<PRId64> добра, %<PRId64> дрэнна; %d%% праверана</span>"
 
 #: src/rs03-verify.c:630
-#, c-format
+#, c-format, fuzzy
 msgid "* Ecc block test   : %<PRId64> good, %<PRId64> bad; %d%% tested"
-msgstr "* Ecc block test   : %<PRId64> good, %<PRId64> bad; %d%% tested"
+msgstr ""
+"* Тэст блока Ecc: %<PRId64> добра, %<PRId64> дрэнна; %d%% пратэставана"
 
 #: src/rs03-verify.c:639
 msgid "pass"
 msgstr "pass"
 
 #: src/rs03-verify.c:641
+#, fuzzy
 msgid "- Ecc block test   : pass\n"
-msgstr "- Ecc block test   : pass\n"
+msgstr "- Тэст блока Ecc: прайшло\n"
 
 #: src/rs03-verify.c:645
-#, c-format
-msgid "<span %s>%<PRId64> good, %<PRId64> bad; %<PRId64> bad sub blocks</span>"
-msgstr "<span %s>%<PRId64> good, %<PRId64> bad; %<PRId64> bad sub blocks</span>"
+#, c-format, fuzzy
+msgid ""
+"<span %s>%<PRId64> good, %<PRId64> bad; %<PRId64> bad sub blocks</span>"
+msgstr ""
+"<span %s>%<PRId64> добра, %<PRId64> дрэнна; %<PRId64> няспраўныя "
+"падблокі</span>"
 
 #: src/rs03-verify.c:647
-#, c-format
-msgid "* Ecc block test   : %<PRId64> good, %<PRId64> bad; %<PRId64> bad sub blocks\n"
-msgstr "* Ecc block test   : %<PRId64> good, %<PRId64> bad; %<PRId64> bad sub blocks\n"
+#, c-format, fuzzy
+msgid ""
+"* Ecc block test   : %<PRId64> good, %<PRId64> bad; %<PRId64> bad sub "
+"blocks\n"
+msgstr ""
 
 #: src/rs03-verify.c:713
 #, c-format
@@ -5891,63 +6306,68 @@ msgid "%s present.\n"
 msgstr "%s present.\n"
 
 #: src/rs03-verify.c:744
+#, fuzzy
 msgid ""
 "\n"
 "Error correction properties:\n"
 msgstr ""
 "\n"
-"Error correction properties:\n"
+"Уласцівасці выпраўлення памылак:\n"
 
 #: src/rs03-verify.c:756
-#, c-format
+#, c-format, fuzzy
 msgid "Ecc file is %<PRId64> sectors shorter than expected."
-msgstr "Ecc file is %<PRId64> sectors shorter than expected."
+msgstr "Файл Ecc на %<PRId64> сектараў карацейшы, чым чакалася."
 
 #: src/rs03-verify.c:758
-#, c-format
+#, c-format, fuzzy
 msgid "Ecc file is %<PRId64> sectors longer than expected."
-msgstr "Ecc file is %<PRId64> sectors longer than expected."
+msgstr "Файл Ecc на %<PRId64> сектараў даўжэй чаканага."
 
 #: src/rs03-verify.c:764
-#, c-format
+#, c-format, fuzzy
 msgid "* Warning          : %s\n"
-msgstr "* Warning          : %s\n"
+msgstr "* Папярэджанне: %s\n"
 
 #: src/rs03-verify.c:773
+#, fuzzy
 msgid "- type             : Error correction file\n"
-msgstr "- type             : Error correction file\n"
+msgstr "- тып: файл выпраўлення памылак\n"
 
 #: src/rs03-verify.c:774
+#, fuzzy
 msgid "- type             : Augmented image\n"
-msgstr "- type             : Augmented image\n"
+msgstr ""
 
 #: src/rs03-verify.c:777
+#, fuzzy
 msgid "Error correction file"
-msgstr "Error correction file"
+msgstr ""
 
 #: src/rs03-verify.c:780
 msgid "Augmented image"
 msgstr "Augmented image"
 
 #: src/rs03-verify.c:808 src/rs03-verify.c:816
+#, fuzzy
 msgid "- created by       : dvdisaster"
-msgstr "- created by       : dvdisaster"
+msgstr "- створаны: dvdisaster"
 
 #: src/rs03-verify.c:835
-#, c-format
+#, c-format, fuzzy
 msgid "- requires         : dvdisaster-%s\n"
-msgstr "- requires         : dvdisaster-%s\n"
+msgstr "- патрабуецца: dvdisaster-%s\n"
 
 #: src/rs03-verify.c:840
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "* requires         : dvdisaster-%s (BAD)\n"
 "* Warning          : The following output might be incorrect.\n"
 "*                  : Please upgrade dvdisaster.\n"
 msgstr ""
-"* requires         : dvdisaster-%s (BAD)\n"
-"* Warning          : The following output might be incorrect.\n"
-"*                  : Please upgrade dvdisaster.\n"
+"* патрабуецца : dvdisaster-%s (ДРЭШНА)\n"
+"* Папярэджанне: наступны вынік можа быць няправільным.\n"
+"* : Абнавіце dvdisaster.\n"
 
 #: src/rs03-verify.c:860
 msgid "none available"
@@ -5962,124 +6382,131 @@ msgstr ""
 "Data integrity:\n"
 
 #: src/rs03-verify.c:935
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> in image; %<PRId64> in ecc file"
-msgstr "%<PRId64> in image; %<PRId64> in ecc file"
+msgstr "%<PRId64> на малюнку; %<PRId64> у файле ecc"
 
 #: src/rs03-verify.c:939
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> sectors + %d bytes in image; %<PRId64> in ecc file"
-msgstr "%<PRId64> sectors + %d bytes in image; %<PRId64> in ecc file"
+msgstr "%<PRId64> сектараў + %d байт у выяве; %<PRId64> у файле ecc"
 
 #: src/rs03-verify.c:944
-#, c-format
+#, c-format, fuzzy
 msgid "- sectors          : %<PRId64> in image; "
-msgstr "- sectors          : %<PRId64> in image; "
+msgstr "- сектары: %<PRId64> на малюнку;"
 
 #: src/rs03-verify.c:945
-#, c-format
+#, c-format, fuzzy
 msgid "- sectors          : %<PRId64> sectors + %d bytes in image; "
-msgstr "- sectors          : %<PRId64> sectors + %d bytes in image; "
+msgstr "- сектары : %<PRId64> сектараў + %d байт у выяве;"
 
 #: src/rs03-verify.c:947
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> in ecc file\n"
-msgstr "%<PRId64> in ecc file\n"
+msgstr ""
 
 #: src/rs03-verify.c:950
-#, c-format
+#, c-format, fuzzy
 msgid "%<PRId64> total / %<PRId64> data"
-msgstr "%<PRId64> total / %<PRId64> data"
+msgstr ""
 
 #: src/rs03-verify.c:952
-#, c-format
+#, c-format, fuzzy
 msgid "- medium sectors   : %<PRId64> total / %<PRId64> data\n"
-msgstr "- medium sectors   : %<PRId64> total / %<PRId64> data\n"
+msgstr ""
 
 #: src/rs03-verify.c:968
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>%s (%s expected)</span>"
-msgstr "<span %s>%s (%s expected)</span>"
+msgstr ""
 
 #: src/rs03-verify.c:973
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Image file is %d bytes shorter than expected.</span>"
-msgstr "<span %s>Image file is %d bytes shorter than expected.</span>"
+msgstr ""
 
 #: src/rs03-verify.c:975
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Image file is %d bytes longer than expected.</span>"
-msgstr "<span %s>Image file is %d bytes longer than expected.</span>"
+msgstr "<span %s>Файл выявы на %d байт большы, чым чакалася.</span>"
 
 #: src/rs03-verify.c:988
-#, c-format
+#, c-format, fuzzy
 msgid "* sectors          : %s (%s expected); %<PRId64> sectors in ecc file\n"
-msgstr "* sectors          : %s (%s expected); %<PRId64> sectors in ecc file\n"
+msgstr "* сектары: %s (чакаецца %s); %<PRId64> сектараў у файле ecc\n"
 
 #: src/rs03-verify.c:991
-#, c-format
+#, c-format, fuzzy
 msgid "* medium sectors   : %s (%s expected)\n"
-msgstr "* medium sectors   : %s (%s expected)\n"
+msgstr "* сярэднія сектары: %s (чакаецца %s)\n"
 
 #: src/rs03-verify.c:1019
-#, c-format
+#, c-format, fuzzy
 msgid "Failed seeking to start of ecc file: %s\n"
-msgstr "Failed seeking to start of ecc file: %s\n"
+msgstr "Не ўдалося пачаць файл ecc: %s\n"
 
 #: src/rs03-verify.c:1118
 msgid " (in ecc file)"
 msgstr " (in ecc file)"
 
 #: src/rs03-verify.c:1126
-#, c-format
+#, c-format, fuzzy
 msgid "* missing sector   : %<PRId64>%s\n"
-msgstr "* missing sector   : %<PRId64>%s\n"
+msgstr ""
 
 #: src/rs03-verify.c:1127
-#, c-format
+#, c-format, fuzzy
 msgid "* missing sectors  : %<PRId64> - %<PRId64>%s\n"
-msgstr "* missing sectors  : %<PRId64> - %<PRId64>%s\n"
+msgstr "* адсутнічаюць сектары: %<PRId64> - %<PRId64>%s\n"
 
 #: src/rs03-verify.c:1193 src/rs03-verify.c:1238
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>%<PRId64> sectors missing; %<PRId64> signature errors</span>"
-msgstr "<span %s>%<PRId64> sectors missing; %<PRId64> signature errors</span>"
+msgstr ""
+"Адсутнічаюць сектары <span %s>%<PRId64>; %<PRId64> памылкі подпісу</span>"
 
 #: src/rs03-verify.c:1221
+#, fuzzy
 msgid "Error correction file:"
-msgstr "Error correction file:"
+msgstr "Файл выпраўлення памылак:"
 
 #: src/rs03-verify.c:1256
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "- good image/file  : all sectors present\n"
 "- data md5sum      : %s\n"
 msgstr ""
-"- good image/file  : all sectors present\n"
-"- data md5sum      : %s\n"
 
 #: src/rs03-verify.c:1260
-#, c-format
+#, c-format, fuzzy
 msgid "* BAD image/file   : %<PRId64> sectors missing\n"
-msgstr "* BAD image/file   : %<PRId64> sectors missing\n"
+msgstr ""
 
 #: src/rs03-verify.c:1274
-#, c-format
-msgid "  ... crc section    : %<PRId64> sectors missing; %<PRId64> signature errors\n"
-msgstr "  ... crc section    : %<PRId64> sectors missing; %<PRId64> signature errors\n"
+#, c-format, fuzzy
+msgid ""
+"  ... crc section    : %<PRId64> sectors missing; %<PRId64> signature "
+"errors\n"
+msgstr ""
+"... раздзел crc : адсутнічаюць сектары %<PRId64>; %<PRId64> памылкі "
+"подпісу\n"
 
 #: src/rs03-verify.c:1302
-#, c-format
+#, c-format, fuzzy
 msgid "<span %s>Skipped; not useful on known defective image</span>"
-msgstr "<span %s>Skipped; not useful on known defective image</span>"
+msgstr ""
+"<span %s>Прапушчана; не карысна для заведама дэфектнага відарыса</span>"
 
 #: src/rs03-verify.c:1305
+#, fuzzy
 msgid "* Ecc block test   : skipped; not useful on defective image\n"
-msgstr "* Ecc block test   : skipped; not useful on defective image\n"
+msgstr ""
 
 #: src/rs03-window.c:87
+#, fuzzy
 msgid "<b>1. Reserving space:</b>"
-msgstr "<b>1. Reserving space:</b>"
+msgstr ""
 
 #: src/rs03-window.c:114
 msgid "<b>Encoder info:</b>"
@@ -6094,57 +6521,60 @@ msgid "<b>State:</b>"
 msgstr "<b>State:</b>"
 
 #: src/scsi-darwin.c:183
+#, fuzzy
 msgid "No CD/DVD drives found."
-msgstr "No CD/DVD drives found."
+msgstr "Прывады CD/DVD не знойдзены."
 
 #: src/scsi-darwin.c:229
-#, c-format
+#, c-format, fuzzy
 msgid "Could not open %s (%s)."
-msgstr "Could not open %s (%s)."
+msgstr "Немагчыма адкрыць %s (%s)."
 
 #: src/scsi-freebsd.c:49 src/scsi-linux.c:53
+#, fuzzy
 msgid ""
 "Can not access /dev for devices\n"
 "No drives will be pre-selected.\n"
 msgstr ""
-"Can not access /dev for devices\n"
-"No drives will be pre-selected.\n"
+"Немагчыма атрымаць доступ да /dev для прылад\n"
+"Папярэдне выбраных дыскаў не будзе.\n"
 
 #: src/scsi-freebsd.c:104 src/scsi-linux.c:93 src/scsi-win32.c:84
+#, fuzzy
 msgid ""
 "No optical drives found in /dev.\n"
 "No drives will be pre-selected.\n"
 msgstr ""
-"No optical drives found in /dev.\n"
-"No drives will be pre-selected.\n"
+"Няма аптычных прывадаў у /dev.\n"
+"Папярэдне выбраных дыскаў не будзе.\n"
 
 #: src/scsi-layer.c:106
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Can open %s, but INQUIRY fails.\n"
 "Chances are that you're using ide-scsi emulation for an ATAPI drive,\n"
 "and try to access it via /dev/cdrom or /dev/hd?.\n"
 "Either use /dev/scd? or /dev/sr? instead, or disable ide-scsi emulation.\n"
 msgstr ""
-"Can open %s, but INQUIRY fails.\n"
-"Chances are that you're using ide-scsi emulation for an ATAPI drive,\n"
-"and try to access it via /dev/cdrom or /dev/hd?.\n"
-"Either use /dev/scd? or /dev/sr? instead, or disable ide-scsi emulation.\n"
+"Можна адкрыць %s, але ЗАПЫТ не атрымліваецца.\n"
+"Хутчэй за ўсё, вы выкарыстоўваеце эмуляцыю ide-scsi для дыска ATAPI,\n"
+"і паспрабуйце атрымаць да яго доступ праз /dev/cdrom або /dev/hd?.\n"
+"Альбо выкарыстоўваць /dev/scd? або /dev/sr? замест гэтага або адключыце эмуляцыю ide-scsi.\n"
 
 #: src/scsi-layer.c:114
-#, c-format
+#, c-format, fuzzy
 msgid "INQUIRY failed. Something is wrong with drive %s.\n"
-msgstr "INQUIRY failed. Something is wrong with drive %s.\n"
+msgstr "ЗАПЫТ не атрымаўся. Нешта не так з дыскам %s.\n"
 
 #: src/scsi-layer.c:143
-#, c-format
+#, c-format, fuzzy
 msgid "Device %s (%s) is not an optical drive."
-msgstr "Device %s (%s) is not an optical drive."
+msgstr "Прылада %s (%s) не з'яўляецца аптычным прывадам."
 
 #: src/scsi-layer.c:144
-#, c-format
+#, c-format, fuzzy
 msgid "Device %s (%s) is a hard disk."
-msgstr "Device %s (%s) is a hard disk."
+msgstr "Прылада %s (%s) - жорсткі дыск."
 
 #: src/scsi-layer.c:453
 #, c-format
@@ -6152,206 +6582,214 @@ msgid "Incomplete %s"
 msgstr "Incomplete %s"
 
 #: src/scsi-layer.c:491
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not query TOC length.\n"
 msgstr ""
 "%s\n"
-"Could not query TOC length.\n"
+"Не атрымалася запытаць даўжыню TOC.\n"
 
 #: src/scsi-layer.c:496
 msgid "blank"
 msgstr "blank"
 
 #: src/scsi-layer.c:511 src/scsi-layer.c:572
-#, c-format
+#, c-format, fuzzy
 msgid "TOC info too long (%d), probably multisession.\n"
-msgstr "TOC info too long (%d), probably multisession.\n"
+msgstr "Інфармацыя аб змесце занадта доўгая (%d), магчыма, шматсесійная.\n"
 
 #: src/scsi-layer.c:526
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not read TOC.\n"
 msgstr ""
 "%s\n"
-"Could not read TOC.\n"
+"Немагчыма прачытаць TOC.\n"
 
 #: src/scsi-layer.c:553
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not query full TOC length.\n"
 msgstr ""
 "%s\n"
-"Could not query full TOC length.\n"
+"Не атрымалася запытаць поўную даўжыню TOC.\n"
 
 #: src/scsi-layer.c:566
-#, c-format
+#, c-format, fuzzy
 msgid "TOC info too short, length %d.\n"
-msgstr "TOC info too short, length %d.\n"
+msgstr "Інфармацыя аб змесце занадта кароткая, даўжыня %d.\n"
 
 #: src/scsi-layer.c:588
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not read full TOC.\n"
 msgstr ""
 "%s\n"
-"Could not read full TOC.\n"
+"Немагчыма прачытаць поўны змест.\n"
 
 #: src/scsi-layer.c:597
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "\n"
 "Unexpected TOC format (length %d):\n"
 msgstr ""
 "\n"
-"Unexpected TOC format (length %d):\n"
+"Нечаканы фармат TOC (даўжыня %d):\n"
 
 #: src/scsi-layer.c:605
+#, fuzzy
 msgid "Consider sending a bug report.\n"
-msgstr "Consider sending a bug report.\n"
+msgstr "Паспрабуйце адправіць справаздачу пра памылку.\n"
 
 #: src/scsi-layer.c:661
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not query dvd structure length.\n"
 msgstr ""
 "%s\n"
-"Could not query dvd structure length.\n"
+"Немагчыма запытаць даўжыню структуры DVD.\n"
 
 #: src/scsi-layer.c:673
-#, c-format
+#, c-format, fuzzy
 msgid "Could not query dvd physical structure - implausible packet length %d\n"
-msgstr "Could not query dvd physical structure - implausible packet length %d\n"
+msgstr ""
+"Не атрымалася запытаць фізічную структуру DVD - непраўдападобная даўжыня "
+"пакета %d\n"
 
 #: src/scsi-layer.c:691
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not query physical dvd structure.\n"
 msgstr ""
 "%s\n"
-"Could not query physical dvd structure.\n"
+"Не атрымалася запытаць фізічную структуру DVD.\n"
 
 #: src/scsi-layer.c:720 src/scsi-layer.c:730
-#, c-format
-msgid "READ DVD STRUCTURE: implausible medium size, %<PRId64>-%<PRId64>=%<PRId64> sectors\n"
-msgstr "READ DVD STRUCTURE: implausible medium size, %<PRId64>-%<PRId64>=%<PRId64> sectors\n"
+#, c-format, fuzzy
+msgid ""
+"READ DVD STRUCTURE: implausible medium size, %<PRId64>-%<PRId64>=%<PRId64> "
+"sectors\n"
+msgstr ""
+"ЧЫТАЙЦЕ СТРУКТУРУ DVD: непраўдападобны сярэдні памер, "
+"%<PRId64>-%<PRId64>=%<PRId64> сектараў\n"
 
 #: src/scsi-layer.c:1002
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not query BD disc structure length.\n"
 msgstr ""
 "%s\n"
-"Could not query BD disc structure length.\n"
+"Не атрымалася запытаць даўжыню структуры дыска BD.\n"
 
 #: src/scsi-layer.c:1026
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not query BD disc structure.\n"
 msgstr ""
 "%s\n"
-"Could not query BD disc structure.\n"
+"Не атрымалася запытаць структуру дыска BD.\n"
 
 #: src/scsi-layer.c:1746
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not query dvd structure length for format code 1.\n"
 msgstr ""
 "%s\n"
-"Could not query dvd structure length for format code 1.\n"
+"Не атрымалася запытаць даўжыню структуры DVD для кода фармату 1.\n"
 
 #: src/scsi-layer.c:1757
-#, c-format
+#, c-format, fuzzy
 msgid "Could not query dvd copyright info - implausible packet length %d\n"
-msgstr "Could not query dvd copyright info - implausible packet length %d\n"
+msgstr ""
+"Не атрымалася запытаць інфармацыю аб аўтарскіх правах на DVD - "
+"непраўдападобная даўжыня пакета %d\n"
 
 #: src/scsi-layer.c:1772
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not query copyright info.\n"
 msgstr ""
 "%s\n"
-"Could not query copyright info.\n"
+"Не атрымалася запытаць інфармацыю аб аўтарскіх правах.\n"
 
 #: src/scsi-layer.c:1834
+#, fuzzy
 msgid "is undecideable because of read error"
-msgstr "is undecideable because of read error"
+msgstr "немагчыма вырашыць з-за памылкі чытання"
 
 #: src/scsi-layer.c:1840
 msgid "looks GOOD"
 msgstr "looks GOOD"
 
 #: src/scsi-layer.c:1846
+#, fuzzy
 msgid "gives unformatted size (UNUSABLE)"
-msgstr "gives unformatted size (UNUSABLE)"
+msgstr "дае нефарматаваны памер (НЕВЫКАРЫСТАННЫ)"
 
 #: src/scsi-layer.c:1851
 msgid "is UNUSABLE"
 msgstr "is UNUSABLE"
 
 #: src/scsi-layer.c:1877
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not query medium size.\n"
 msgstr ""
 "%s\n"
-"Could not query medium size.\n"
+"Не атрымалася запытаць сярэдні памер.\n"
 
 #: src/scsi-layer.c:1899
-#, c-format
+#, c-format, fuzzy
 msgid "READ CAPACITY: implausible medium size, %<PRId64> sectors\n"
-msgstr "READ CAPACITY: implausible medium size, %<PRId64> sectors\n"
+msgstr "ЁМКАСЦЬ ЧЫТАННЯ: непраўдападобны сярэдні памер, %<PRId64> сектараў\n"
 
 #: src/scsi-layer.c:1982
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Different media sizes depending on query method:\n"
 "READ CAPACITY:      %<PRId64> sectors\n"
 "READ DVD STRUCTURE: %<PRId64> sectors\n"
 "\n"
 msgstr ""
-"Different media sizes depending on query method:\n"
-"READ CAPACITY:      %<PRId64> sectors\n"
-"READ DVD STRUCTURE: %<PRId64> sectors\n"
-"\n"
+"Розныя памеры медыя ў залежнасці ад метаду запыту:\n"
+"ЁМКАСЦЬ ЧЫТАННЯ: %<PRId64> сектараў\n"
+"ЧЫТАЙЦЕ СТРУКТУРУ DVD: %<PRId64> сектараў\n"
 
 #: src/scsi-layer.c:1987
+#, fuzzy
 msgid ""
 "Evaluation of returned medium sizes:\n"
 "\n"
-msgstr ""
-"Evaluation of returned medium sizes:\n"
-"\n"
+msgstr "Ацэнка вернутых сярэдніх памераў:\n"
 
 #: src/scsi-layer.c:2042
+#, fuzzy
 msgid "Using value from READ CAPACITY"
-msgstr "Using value from READ CAPACITY"
+msgstr "Выкарыстанне значэння з READ CAPACITY"
 
 #: src/scsi-layer.c:2046
+#, fuzzy
 msgid "Using value from READ DVD STRUCTURE"
-msgstr "Using value from READ DVD STRUCTURE"
+msgstr "Выкарыстоўваючы значэнне з READ DVD STRUCTURE"
 
 #: src/scsi-layer.c:2056
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "FAILED to determine image size.\n"
 "Using smaller value as this is right on >90%% of all drives,\n"
 "but CONTINUE AT YOUR OWN RISK (the image may be incomplete/unusable)"
 msgstr ""
-"FAILED to determine image size.\n"
-"Using smaller value as this is right on >90%% of all drives,\n"
-"but CONTINUE AT YOUR OWN RISK (the image may be incomplete/unusable)"
 
 #: src/scsi-layer.c:2061
 #, c-format
@@ -6363,71 +6801,69 @@ msgstr ""
 "\n"
 
 #: src/scsi-layer.c:2069
+#, fuzzy
 msgid ""
 "Failed to determine image size.\n"
 "Try using a different drive."
 msgstr ""
-"Failed to determine image size.\n"
-"Try using a different drive."
+"Не ўдалося вызначыць памер выявы.\n"
+"Паспрабуйце выкарыстоўваць іншы дыск."
 
 #: src/scsi-layer.c:2196 src/scsi-layer.c:2222
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not load/unload the medium.\n"
 msgstr ""
 "%s\n"
-"Could not load/unload the medium.\n"
+"Не атрымалася загрузіць/выгрузіць носьбіт.\n"
 
 #: src/scsi-layer.c:2212
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "%s\n"
 "Could not unlock the medium.\n"
 msgstr ""
 "%s\n"
-"Could not unlock the medium.\n"
+"Не ўдалося разблакіраваць носьбіт.\n"
 
 #: src/scsi-layer.c:2275
-#, c-format
+#, c-format, fuzzy
 msgid "Waiting 10 seconds for drive: %d\n"
-msgstr "Waiting 10 seconds for drive: %d\n"
+msgstr "Чаканне руху 10 секунд: %d\n"
 
 #: src/scsi-layer.c:2550
-#, c-format
+#, c-format, fuzzy
 msgid "Sectors %<PRId64> - %<PRId64>: %s\n"
-msgstr "Sectors %<PRId64> - %<PRId64>: %s\n"
+msgstr "Сектары %<PRId64> - %<PRId64>: %s\n"
 
 #: src/scsi-layer.c:2564
-#, c-format
+#, c-format, fuzzy
 msgid "Sector %<PRId64>, try %d: %s Sector returned: %d.\n"
-msgstr "Sector %<PRId64>, try %d: %s Sector returned: %d.\n"
+msgstr "Сектар %<PRId64>, паспрабуйце %d: %s Сектар вернуты: %d.\n"
 
 #: src/scsi-layer.c:2570
-#, c-format
+#, c-format, fuzzy
 msgid "Sector %<PRId64>, try %d: %s\n"
-msgstr "Sector %<PRId64>, try %d: %s\n"
+msgstr "Сектар %<PRId64>, паспрабуйце %d: %s\n"
 
 #: src/scsi-layer.c:2581
-#, c-format
+#, c-format, fuzzy
 msgid "Sector %<PRId64>, try %d: success\n"
-msgstr "Sector %<PRId64>, try %d: success\n"
+msgstr "Сектар %<PRId64>, паспрабуйце %d: поспех\n"
 
 #: src/scsi-layer.c:2653
-#, c-format
+#, c-format, fuzzy
 msgid "Device %s: no medium present\n"
-msgstr "Device %s: no medium present\n"
+msgstr "Прылада %s: носьбіт адсутнічае\n"
 
 #: src/scsi-layer.c:2658
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Device %s does not become ready:\n"
 "%s\n"
 "\n"
 msgstr ""
-"Device %s does not become ready:\n"
-"%s\n"
-"\n"
 
 #: src/scsi-layer.c:2664
 #, c-format
@@ -6439,18 +6875,21 @@ msgstr ""
 "Device: %s, %s\n"
 
 #: src/scsi-layer.c:2671
+#, fuzzy
 msgid "Drive failed to report media type."
-msgstr "Drive failed to report media type."
+msgstr "Дыску не ўдалося паведаміць тып носьбіта."
 
 #: src/scsi-layer.c:2686 src/scsi-layer.c:2799
-#, c-format
+#, c-format, fuzzy
 msgid "This software does not support \"%s\" type media."
-msgstr "This software does not support \"%s\" type media."
+msgstr "Гэта праграмнае забеспячэнне не падтрымлівае носьбіты тыпу \"%s\"."
 
 #: src/scsi-layer.c:2694
-#, c-format
+#, c-format, fuzzy
 msgid "This software does not support multisession (%d sessions) media."
-msgstr "This software does not support multisession (%d sessions) media."
+msgstr ""
+"Гэта праграмнае забеспячэнне не падтрымлівае мультысесійныя (%d сеансаў) "
+"носьбіты."
 
 #: src/scsi-layer.c:2725 src/scsi-layer.c:2734
 msgid "Using READ CD"
@@ -6461,9 +6900,9 @@ msgid ", RAW reading"
 msgstr ", RAW reading"
 
 #: src/scsi-layer.c:2729
-#, c-format
+#, c-format, fuzzy
 msgid ", Mode page 1 ERP = %02xh"
-msgstr ", Mode page 1 ERP = %02xh"
+msgstr ", старонка рэжыму 1 ERP = %02xh"
 
 #: src/scsi-layer.c:2732
 msgid ", C2 scanning"
@@ -6474,22 +6913,23 @@ msgid "Using READ(10).\n"
 msgstr "Using READ(10).\n"
 
 #: src/scsi-layer.c:2776
-#, c-format
+#, c-format, fuzzy
 msgid "Medium: %s, %<PRId64> sectors%s"
-msgstr "Medium: %s, %<PRId64> sectors%s"
+msgstr "Носьбіт: %s, %<PRId64> сектараў%s"
 
 #: src/scsi-layer.c:2780
-#, c-format
+#, c-format, fuzzy
 msgid "Medium \"%s\": %s, %<PRId64> sectors%s created %s"
-msgstr "Medium \"%s\": %s, %<PRId64> sectors%s created %s"
+msgstr "Носьбіт \"%s\": %s, %<PRId64> сектара%s створана %s"
 
 #: src/scsi-netbsd.c:105
+#, fuzzy
 msgid ""
 "No optical drives found.\n"
 "No drives will be pre-selected.\n"
 msgstr ""
-"No optical drives found.\n"
-"No drives will be pre-selected.\n"
+"Аптычныя прывады не знойдзены.\n"
+"Папярэдне выбраных дыскаў не будзе.\n"
 
 #: src/scsi-simulated.c:39
 #, c-format
@@ -6497,77 +6937,81 @@ msgid "Simulated CD (%s)"
 msgstr "Simulated CD (%s)"
 
 #: src/scsi-unknown.c:37
+#, fuzzy
 msgid ""
 "* Unsupported operating system - no SCSI layer available.\n"
 "* No drives can be used.\n"
 msgstr ""
-"* Unsupported operating system - no SCSI layer available.\n"
-"* No drives can be used.\n"
 
 #: src/scsi-win32.c:168
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "\n"
 "Illegal device name \"%s\" (use devices \"C:\" ... \"Z:\")"
 msgstr ""
 "\n"
-"Illegal device name \"%s\" (use devices \"C:\" ... \"Z:\")"
+"Недапушчальная назва прылады \"%s\" (выкарыстоўвайце прылады \"C:\" ... \"Z:\")"
 
 #: src/scsi-win32.c:267
-#, c-format
+#, c-format, fuzzy
 msgid "Could not open device %s."
-msgstr "Could not open device %s."
+msgstr "Немагчыма адкрыць прыладу %s."
 
 #: src/show-manual.c:145
+#, fuzzy
 msgid "Documentation not installed."
-msgstr "Documentation not installed."
+msgstr "Дакументацыя не ўстаноўлена."
 
 #: src/show-manual.c:160
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "Documentation file\n"
 "%s\n"
 "not found.\n"
 msgstr ""
-"Documentation file\n"
+"Файл дакументацыі\n"
 "%s\n"
-"not found.\n"
+"не знойдзены.\n"
 
 #: src/show-manual.c:176
+#, fuzzy
 msgid "Could not create pipe before fork"
-msgstr "Could not create pipe before fork"
+msgstr "Немагчыма стварыць канал перад разгалінаваннем"
 
 #: src/show-manual.c:181 src/show-manual.c:186
+#, fuzzy
 msgid "Could not set pipe flags before fork"
-msgstr "Could not set pipe flags before fork"
+msgstr "Немагчыма ўсталяваць сцягі канала перад разгалінаваннем"
 
 #: src/show-manual.c:195
+#, fuzzy
 msgid "Could not fork to start open"
-msgstr "Could not fork to start open"
+msgstr "Не ўдалося адкрыць разгалінаванне"
 
 #: src/show-manual.c:197
+#, fuzzy
 msgid "Could not fork to start xdg-open"
-msgstr "Could not fork to start xdg-open"
+msgstr "Немагчыма разгалінаваць запуск xdg-open"
 
 #: src/show-manual.c:227
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "execvp could not execute \"open\":\n"
 "%s\n"
 msgstr ""
-"execvp could not execute \"open\":\n"
+"execvp не можа выканаць «адкрыць»:\n"
 "%s\n"
 
 #: src/show-manual.c:231
-#, c-format
+#, c-format, fuzzy
 msgid ""
 "execvp could not execute \"xdg-open\":\n"
 "%s\n"
 "Is xdg-open installed correctly?\n"
 msgstr ""
-"execvp could not execute \"xdg-open\":\n"
+"execvp не можа выканаць «xdg-open»:\n"
 "%s\n"
-"Is xdg-open installed correctly?\n"
+"Ці правільна ўсталяваны xdg-open?\n"
 
 #: src/udf.c:259
 msgid "Unnamed"
@@ -6578,32 +7022,35 @@ msgid "Example disc"
 msgstr "Example disc"
 
 #: src/welcome-window.c:73
+#, fuzzy
 msgid "<span weight=\"bold\" size=\"xx-large\">Welcome to dvdisaster!</span>"
-msgstr "<span weight=\"bold\" size=\"xx-large\">Welcome to dvdisaster!</span>"
+msgstr "<span weight=\"bold\" size=\"xx-large\">Вітаем у dvdisaster!</span>"
 
 #: src/welcome-window.c:75
+#, fuzzy
 msgid ""
 "\n"
 "dvdisaster creates error correction data to protect\n"
 "optical media (CD,DVD,BD) against data loss.\n"
 msgstr ""
 "\n"
-"dvdisaster creates error correction data to protect\n"
-"optical media (CD,DVD,BD) against data loss.\n"
+"dvdisaster стварае дадзеныя для выпраўлення памылак для абароны\n"
+"аптычныя носьбіты (CD, DVD, BD) супраць страты даных.\n"
 
 #: src/welcome-window.c:78
+#, fuzzy
 msgid ""
 "Please see the [manual] for typical uses of dvdisaster.\n"
 "\n"
-msgstr ""
-"Please see the [manual] for typical uses of dvdisaster.\n"
-"\n"
+msgstr "Глядзіце [кіраўніцтва] для тыповага выкарыстання dvdisaster.\n"
 
 #: src/welcome-window.c:81
+#, fuzzy
 msgid "<i>New in this Version:</i>"
-msgstr "<i>New in this Version:</i>"
+msgstr "<i>Новае ў гэтай версіі:</i>"
 
 #: src/welcome-window.c:84
+#, fuzzy
 msgid ""
 "This is <b>v0.79.10-pl6</b>. The [patchlevel series] are enhanced on top of the last upstream release to:\n"
 "- add support for BD-R TL/QL and HD-DVD,\n"
@@ -6616,17 +7063,18 @@ msgid ""
 "\n"
 "Please refer to the <i>Help &gt; Change log</i> menu for all the details."
 msgstr ""
-"This is <b>v0.79.10-pl6</b>. The [patchlevel series] are enhanced on top of the last upstream release to:\n"
-"- add support for BD-R TL/QL and HD-DVD,\n"
-"- add support for stripping ECC from ISOs,\n"
-"- add an option to generate BD-R RS03 images with more redundancy and custom medium sizes,\n"
-"- add an option to bruteforce search for RS03 roots on a custom medium size whose size has been forgotten,\n"
-"- re-enable adaptive reading support,\n"
-"- port the GUI to GTK3,\n"
-"- ... and a lot more.\n"
+"Гэта <b>v0.79.10-pl6</b>. [Серыі патч-ўзроўняў] удасканалены ў апошнім выпуску ўверх па плыні да:\n"
+"- дадаць падтрымку BD-R TL/QL і HD-DVD,\n"
+"- дадаць падтрымку выдалення ECC з ISO,\n"
+"- дадаць опцыю для генерацыі выяваў BD-R RS03 з большай надмернасцю і нестандартнымі сярэднімі памерамі,\n"
+"- дадаць опцыю для грубага пошуку каранёў RS03 на карыстацкім сярэднім памеры, памер якога быў забыты,\n"
+"- паўторна ўключыць падтрымку адаптыўнага чытання,\n"
+"- перанесці GUI на GTK3,\n"
+"- ... і многае іншае.\n"
 "\n"
-"Please refer to the <i>Help &gt; Change log</i> menu for all the details."
+"Калі ласка, звярніцеся да <i>Даведкі &gt; Змяніць журнал</i> меню для ўсіх дэталяў."
 
 #: src/welcome-window.c:97
+#, fuzzy
 msgid "Show this message again"
-msgstr "Show this message again"
+msgstr "Паказаць гэта паведамленне зноў"
