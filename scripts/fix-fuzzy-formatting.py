@@ -5,7 +5,8 @@ Problems introduced by GoogleTranslator:
   1. Newline mismatches: msgid starts/ends with \\n but msgstr doesn't
   2. %S instead of %s (translator capitalized format specifier)
   3. %% -> % (translator unescaped double-percent literal)
-  4. Residual format spec mismatches: detected via msgfmt and cleared
+  4. %<PRID64> instead of %<PRId64> (translator uppercased inttypes macro)
+  5. Residual format spec mismatches: detected via msgfmt and cleared
 
 Strategy:
   - Fix newlines, then fix known format corruptions
@@ -42,6 +43,24 @@ def fix_format_specifiers(msgid: str, msgstr: str) -> str:
         return msgstr
     # %S -> %s (translator capitalized the specifier)
     msgstr = re.sub(r'%S\b', '%s', msgstr)
+    # %<PRID64> -> %<PRId64>, %<PRIU64> -> %<PRIu64>, etc.
+    # (translator capitalizes the inttypes.h macro names)
+    def restore_pri_case(m):
+        original = re.search(r'%<(PRI\w+)>', msgid)
+        return original.group(0) if original else m.group(0)
+    # Replace each corrupted PRIxNN specifier using the correct form from msgid
+    if re.search(r'%<PRI', msgid, re.IGNORECASE):
+        msgid_specs = re.findall(r'%<PRI\w+>', msgid)
+        def fix_pri(m):
+            # Find matching spec from msgid by position count
+            fix_pri.idx = getattr(fix_pri, 'idx', 0)
+            if fix_pri.idx < len(msgid_specs):
+                result = msgid_specs[fix_pri.idx]
+                fix_pri.idx += 1
+                return result
+            return m.group(0)
+        fix_pri.idx = 0
+        msgstr = re.sub(r'%<PRI\w+>', fix_pri, msgstr, flags=re.IGNORECASE)
     # Restore missing %% where msgid has more %% occurrences than msgstr
     id_count = len(re.findall(r'%%', msgid))
     str_count = len(re.findall(r'%%', msgstr))
