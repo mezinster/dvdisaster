@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dvdisaster 0.70.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-06 16:01+0200\n"
+"POT-Creation-Date: 2026-04-24 08:26+0400\n"
 "PO-Revision-Date: 2009-07-23 08:11+0300\n"
 "Last-Translator: Igor Gorbounov <igor.gorbounov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -50,13 +50,13 @@ msgid "Number of erasures must be > 0 and <= %d\n"
 msgstr "Число стертых мест должно быть > 0 и <= %d\n"
 
 #: src/debug.c:72 src/debug.c:162
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Generating random correctable erasures (%s; for %d roots, max erasures = %d).\n"
 msgstr ""
-"Генерация случайных корректируемых стираний (%s; для корней %d максимальное "
-"количество стираний = %d)."
+"\n"
+"Генерация случайных корректируемых стираний (%s; для корней %d максимальное количество стираний = %d).\n"
 
 #: src/debug.c:105 src/debug.c:193 src/debug.c:241 src/debug.c:365
 #: src/debug.c:708 src/debug.c:808 src/debug.c:851 src/debug.c:1182
@@ -86,7 +86,7 @@ msgid "Progress: %3d%%"
 msgstr "Степень выполнения: %3d%%"
 
 #: src/debug.c:126 src/debug.c:256 src/debug.c:381
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Progress: 100%%\n"
 "Recover the image using the --fix option before doing another --random-errors run.\n"
@@ -94,26 +94,30 @@ msgid ""
 msgstr ""
 "Прогресс: 100%%\n"
 "Восстановите образ, используя параметр --fix, прежде чем выполнять еще один запуск --random-errors.\n"
-"В противном случае вы накопите блок >= %d стираний/ECC, и изображение будет потеряно."
+"В противном случае вы накопите блок >= %d стираний/ECC, и изображение будет потеряно.\n"
 
 #: src/debug.c:301
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "RS03 error correction file with %d roots.\n"
-msgstr "Файл исправления ошибок RS03 с корнями %d."
+msgstr ""
+"\n"
+"Файл исправления ошибок RS03 с корнями %d.\n"
 
 #: src/debug.c:302
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "RS03 augmented image with %d roots.\n"
-msgstr "Дополненное изображение RS03 с корнями %d."
+msgstr ""
+"\n"
+"Дополненное изображение RS03 с корнями %d.\n"
 
 #: src/debug.c:303
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Generating at most %d random correctable erasures.\n"
-msgstr "Генерация не более %d случайных корректируемых стираний."
+msgstr "Генерация не более %d случайных корректируемых стираний.\n"
 
 #: src/debug.c:445 src/debug.c:503 src/debug.c:566 src/debug.c:607
 #: src/debug.c:690 src/debug.c:796 src/debug.c:837 src/debug.c:883
@@ -304,7 +308,7 @@ msgid ""
 "* further messages are suppressed unless the -v option is given.\n"
 msgstr ""
 "* ...найдено больше невосстанавливаемых секторов...\n"
-"* дальнейшие сообщения подавляются, если не указана опция -v."
+"* дальнейшие сообщения подавляются, если не указана опция -v.\n"
 
 #: src/ds-marker.c:311
 #, c-format
@@ -322,7 +326,7 @@ msgstr ""
 "\n"
 
 #: src/ds-marker.c:312
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "* \n"
@@ -331,6 +335,7 @@ msgid ""
 "*  %s\n"
 "* "
 msgstr ""
+"\n"
 "* \n"
 "* Этикетка оригинального (дефектного) носителя была следующей:\n"
 "* \n"
@@ -338,7 +343,7 @@ msgstr ""
 "*"
 
 #: src/ds-marker.c:322
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Unrecoverable sector found!\n"
 "\n"
@@ -364,10 +369,10 @@ msgstr ""
 "Это означает, что некоторые файлы могли быть незаметно повреждены.%s\n"
 "Поскольку изображение уже создано дефектным, оно не может быть\n"
 "отремонтировано dvdisaster. Также невозможно будет создать\n"
-"данные для исправления ошибок для него. Извините за плохие новости."
+"данные для исправления ошибок для него. Извините за плохие новости.\n"
 
 #: src/ds-marker.c:345
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Unrecoverable sector found!\n"
 "\n"
@@ -393,7 +398,7 @@ msgstr ""
 "Это означает, что некоторые файлы могли быть незаметно повреждены.%s\n"
 "Поскольку изображение уже создано дефектным, оно не может быть\n"
 "отремонтировано dvdisaster. Также невозможно будет создать\n"
-"данные для исправления ошибок для него. Извините за плохие новости."
+"данные для исправления ошибок для него. Извините за плохие новости.\n"
 
 #: src/ds-marker.c:371
 #, c-format
@@ -423,7 +428,7 @@ msgstr ""
 "данные для исправления ошибок. Жаль, что новости плохие.\n"
 
 #: src/ds-marker.c:394
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Unrecoverable sector found!\n"
 "\n"
@@ -441,7 +446,7 @@ msgstr ""
 "Файл ecc, вероятно, был взят с носителя, который\n"
 "НЕ был полностью восстановлен. Это означает, что некоторые отрасли\n"
 "в файле ecc отсутствуют и его исправление ошибок\n"
-"мощность будет снижена."
+"мощность будет снижена.\n"
 
 #. TRANSLATORS:
 #. This is a dummy entry which is supposed to translate into "ok".
@@ -465,7 +470,7 @@ msgid "--cache-size must at least be 8MiB; 16MiB or higher is recommended."
 msgstr "--cache-size должен быть не меньше 8МБ; рекомендуется 16МБ и больше."
 
 #: src/dvdisaster.c:424
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "--cache-size maximum is %dMiB."
 msgstr "Максимальный размер --cache составляет %dMiB."
 
@@ -519,7 +524,7 @@ msgid "--fixed-speed-values is only allowed in debug mode"
 msgstr "--fixed-speed-values ​​разрешен только в режиме отладки"
 
 #: src/dvdisaster.c:562
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "--prefetch-sectors must be in range 32...%d"
 msgstr "--prefetch-sectors должен находиться в диапазоне 32...%d"
 
@@ -587,6 +592,7 @@ msgid ""
 "  dvdisaster -u, --unlink # Delete .iso files (when other actions complete)\n"
 "\n"
 msgstr ""
+"\n"
 "Общие примеры использования:\n"
 "  dvdisaster -r, --read # Считать образ носителя на жесткий диск.\n"
 "                          # Используйте -rn-m для чтения определенного диапазона секторов, например. -р100-200\n"
@@ -595,10 +601,10 @@ msgstr ""
 "  dvdisaster -s, --scan # Сканировать носитель на наличие ошибок чтения.\n"
 "  dvdisaster -t, --test # Проверка целостности файлов .iso и .ecc.\n"
 "  dvdisaster -z, --strip # Удалить данные ECC из расширенного .iso.\n"
-"  dvdisaster -u, --unlink # Удалить файлы .iso (после завершения других действий)"
+"  dvdisaster -u, --unlink # Удалить файлы .iso (после завершения других действий)\n"
 
 #: src/dvdisaster.c:970
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Drive and file specification:\n"
 "  -d, --device device         - read from given device   (default: %s)\n"
@@ -612,7 +618,7 @@ msgstr ""
 "  -p, --prefix prefix — префикс файла .iso/.ecc (по умолчанию: medium.* )\n"
 "  -i, --image imagefile — имя файла изображения (по умолчанию: medium.iso)\n"
 "  -e, --ecc eccfile — имя файла четности (по умолчанию: medium.ecc)\n"
-"  -o, --ecc-target imagefile — куда поместить данные ecc в RS03"
+"  -o, --ecc-target imagefile — куда поместить данные ecc в RS03\n"
 
 #: src/dvdisaster.c:980
 msgid "Tweaking options (see manual before using!)\n"
@@ -625,7 +631,7 @@ msgid ""
 "(RS02 or RS03)\n"
 msgstr ""
 "-a, --assume x — предположить, что изображение дополнено данным кодеком "
-"(RS02 или RS03)"
+"(RS02 или RS03)\n"
 
 #: src/dvdisaster.c:982
 #, fuzzy
@@ -634,7 +640,7 @@ msgid ""
 "(default: 16)\n"
 msgstr ""
 "-j, --jump n — перейти на n секторов вперед после ошибки чтения (по "
-"умолчанию: 16)"
+"умолчанию: 16)\n"
 
 #: src/dvdisaster.c:983
 #, fuzzy
@@ -643,10 +649,10 @@ msgid ""
 "(default: RS01)\n"
 msgstr ""
 "-m, --method x — список/выбор методов исправления ошибок (по умолчанию: "
-"RS01)"
+"RS01)\n"
 
 #: src/dvdisaster.c:984
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "  -n, --redundancy x         - error correction data redundancy\n"
 "                               e.g. 20%%, 32r (roots), 200m (MiB), normal, high\n"
@@ -660,7 +666,7 @@ msgstr ""
 "                               для дополненных изображений RS02/RS03 также принимается средний размер:\n"
 "                               CD, DVD, DVD9, BD, BD2, BDXL3, BDXL4,\n"
 "                               BDNODM, BD2NODM, BDXL3NODM, BDXL4NODM,\n"
-"                               или количество необработанных секторов"
+"                               или количество необработанных секторов\n"
 
 #: src/dvdisaster.c:990
 #, fuzzy
@@ -669,7 +675,7 @@ msgid ""
 "parsing logs\n"
 msgstr ""
 "-v, --verbose — больше журналов, установите env VERBOSE=1 для "
-"предварительных опций анализа журналов"
+"предварительных опций анализа журналов\n"
 
 #: src/dvdisaster.c:991
 #, fuzzy
@@ -678,7 +684,7 @@ msgid ""
 "by codec)\n"
 msgstr ""
 "-x, --threads n — использовать n потоков для кодирования/декодирования (если"
-" поддерживается кодеком)"
+" поддерживается кодеком)\n"
 
 #: src/dvdisaster.c:992
 #, fuzzy
@@ -687,14 +693,14 @@ msgid ""
 "media\n"
 msgstr ""
 "--adaptive-read — использовать оптимизированную стратегию чтения "
-"поврежденных носителей"
+"поврежденных носителей\n"
 
 #: src/dvdisaster.c:993
 #, fuzzy
 msgid ""
 "  --auto-suffix              - automatically add .iso and .ecc file "
 "suffixes\n"
-msgstr "--auto-suffix — автоматически добавлять суффиксы файлов .iso и .ecc"
+msgstr "--auto-suffix — автоматически добавлять суффиксы файлов .iso и .ecc\n"
 
 #: src/dvdisaster.c:994
 #, fuzzy
@@ -703,19 +709,20 @@ msgid ""
 "(default: 32MiB)\n"
 msgstr ""
 "--cache-size n — размер кэша изображения в МиБ в режиме -c (по умолчанию: 32"
-" МБ)"
+" МБ)\n"
 
 #: src/dvdisaster.c:995
 #, fuzzy
 msgid "  --dao                      - assume DAO disc; do not trim image end\n"
-msgstr "--dao — принять диск DAO; не обрезать конец изображения"
+msgstr "--dao — принять диск DAO; не обрезать конец изображения\n"
 
 #: src/dvdisaster.c:996
 #, fuzzy
 msgid ""
 "  --defective-dump d         - directory for saving incomplete raw sectors\n"
 msgstr ""
-"--defective-dump d — каталог для сохранения неполных необработанных секторов"
+"--defective-dump d — каталог для сохранения неполных необработанных "
+"секторов\n"
 
 #: src/dvdisaster.c:998
 #, fuzzy
@@ -724,7 +731,7 @@ msgid ""
 "(see man page!)\n"
 msgstr ""
 "--driver=sg/cdrom — использовать sg(по умолчанию) или альтернативный драйвер"
-" cdrom (см. справочную страницу!)"
+" cdrom (см. справочную страницу!)\n"
 
 #: src/dvdisaster.c:1000
 #, fuzzy
@@ -732,12 +739,13 @@ msgid ""
 "  --bruteforce-rs03-search   - enable bruteforce linear scan for RS03 data "
 "(slow!)\n"
 msgstr ""
-"--bruteforce-rs03-search — включить линейный перебор данных RS03 (медленно!)"
+"--bruteforce-rs03-search — включить линейный перебор данных RS03 "
+"(медленно!)\n"
 
 #: src/dvdisaster.c:1001
 #, fuzzy
 msgid "  --eject                    - eject medium after successful read\n"
-msgstr "--eject — извлечь носитель после успешного чтения"
+msgstr "--eject — извлечь носитель после успешного чтения\n"
 
 #: src/dvdisaster.c:1002
 #, fuzzy
@@ -745,17 +753,17 @@ msgid ""
 "  --encoding-algorithm x     - possible values: 32bit, 64bit, SSE2, "
 "AltiVec\n"
 msgstr ""
-"--encoding-algorithm x — возможные значения: 32бит, 64бит, SSE2, AltiVec"
+"--encoding-algorithm x — возможные значения: 32бит, 64бит, SSE2, AltiVec\n"
 
 #: src/dvdisaster.c:1003
 #, fuzzy
 msgid "  --encoding-io-strategy x   - possible values: readwrite, mmap\n"
-msgstr "--encoding-io-strategy x — возможные значения: readwrite, mmap"
+msgstr "--encoding-io-strategy x — возможные значения: readwrite, mmap\n"
 
 #: src/dvdisaster.c:1004
 #, fuzzy
 msgid "  --fill-unreadable n        - fill unreadable sectors with byte n\n"
-msgstr "--fill-unreadable n — заполнить нечитаемые сектора байтом n"
+msgstr "--fill-unreadable n — заполнить нечитаемые сектора байтом n\n"
 
 #: src/dvdisaster.c:1005
 #, fuzzy
@@ -763,7 +771,8 @@ msgid ""
 "  --ignore-fatal-sense       - continue reading after potentially fatal "
 "error conditon\n"
 msgstr ""
-"--ignore-fatal-sense — продолжить чтение после потенциально фатальной ошибки"
+"--ignore-fatal-sense — продолжить чтение после потенциально фатальной "
+"ошибки\n"
 
 #: src/dvdisaster.c:1006
 #, fuzzy
@@ -772,7 +781,7 @@ msgid ""
 "(dangerous - see man page!)\n"
 msgstr ""
 "--ignore-iso-size — игнорировать размер изображения из данных ISO/UDF "
-"(опасно — см. справочную страницу!)"
+"(опасно — см. справочную страницу!)\n"
 
 #: src/dvdisaster.c:1007
 #, fuzzy
@@ -781,12 +790,12 @@ msgid ""
 "an error\n"
 msgstr ""
 "--internal-rereads n — диск может попытаться выполнить n повторных операций "
-"чтения, прежде чем сообщить об ошибке"
+"чтения, прежде чем сообщить об ошибке\n"
 
 #: src/dvdisaster.c:1008
 #, fuzzy
 msgid "  --medium-info              - print info about medium in drive\n"
-msgstr "--medium-info — вывести информацию о носителе на диске"
+msgstr "--medium-info — вывести информацию о носителе на диске\n"
 
 #: src/dvdisaster.c:1009
 #, fuzzy
@@ -795,12 +804,12 @@ msgid ""
 "page!)\n"
 msgstr ""
 "--no-bdr-defect-management — использовать образы RS03 большего размера для "
-"BD-R (см. справочную страницу!)"
+"BD-R (см. справочную страницу!)\n"
 
 #: src/dvdisaster.c:1010
 #, fuzzy
 msgid "  --no-progress              - do not print progress information\n"
-msgstr "--no-progress — не печатать информацию о ходе выполнения"
+msgstr "--no-progress — не печатать информацию о ходе выполнения\n"
 
 #: src/dvdisaster.c:1011
 #, fuzzy
@@ -809,7 +818,7 @@ msgid ""
 "dvdisaster <= 0.70\n"
 msgstr ""
 "--old-ds-marker — отметить недостающие сектора, совместимые с dvdisaster <= "
-"0.70"
+"0.70\n"
 
 #: src/dvdisaster.c:1012
 #, fuzzy
@@ -818,43 +827,43 @@ msgid ""
 "~nMiB)\n"
 msgstr ""
 "--prefetch-sectors n — предварительно выбрать n секторов для кодирования "
-"RS03 (использует ~nMiB)"
+"RS03 (использует ~nMiB)\n"
 
 #: src/dvdisaster.c:1013
 #, fuzzy
 msgid ""
 "  --raw-mode n               - mode for raw reading CD media (20 or 21)\n"
-msgstr "--raw-mode n — режим чтения необработанных компакт-дисков (20 или 21)"
+msgstr "--raw-mode n — режим чтения необработанных компакт-дисков (20 или 21)\n"
 
 #: src/dvdisaster.c:1014
 #, fuzzy
 msgid ""
 "  --read-attempts n-m        - attempts n up to m reads of a defective "
 "sector\n"
-msgstr "--read-attempts n-m — попыток n до m чтения дефектного сектора"
+msgstr "--read-attempts n-m — попыток n до m чтения дефектного сектора\n"
 
 #: src/dvdisaster.c:1015
 #, fuzzy
 msgid "  --read-medium n            - read the whole medium up to n times\n"
-msgstr "--read-medium n — прочитать весь носитель до n раз"
+msgstr "--read-medium n — прочитать весь носитель до n раз\n"
 
 #: src/dvdisaster.c:1016
 #, fuzzy
 msgid "  --read-raw                 - performs read in raw mode if possible\n"
 msgstr ""
-"--read-raw — выполняет чтение в необработанном режиме, если это возможно"
+"--read-raw — выполняет чтение в необработанном режиме, если это возможно\n"
 
 #: src/dvdisaster.c:1017
 #, fuzzy
 msgid ""
 "  --regtest                  - tweaks output for compatibility with "
 "regtests\n"
-msgstr "--regtest — настраивает вывод для совместимости с регулярными тестами"
+msgstr "--regtest — настраивает вывод для совместимости с регулярными тестами\n"
 
 #: src/dvdisaster.c:1018
 #, fuzzy
 msgid "  --resource-file p          - get resource file from given path\n"
-msgstr "--resource-file p — получить файл ресурсов по заданному пути"
+msgstr "--resource-file p — получить файл ресурсов по заданному пути\n"
 
 #: src/dvdisaster.c:1019
 #, fuzzy
@@ -863,18 +872,18 @@ msgid ""
 " percent\n"
 msgstr ""
 "--speed-warning n — вывести предупреждение, если скорость изменится более "
-"чем на n процентов"
+"чем на n процентов\n"
 
 #: src/dvdisaster.c:1020
 #, fuzzy
 msgid "  --spinup-delay n           - wait n seconds for drive to spin up\n"
-msgstr "--spinup-delay n — подождать n секунд, пока диск раскрутится"
+msgstr "--spinup-delay n — подождать n секунд, пока диск раскрутится\n"
 
 #: src/dvdisaster.c:1021
 #, fuzzy
 msgid ""
 "  --version                  - print version and some configuration info\n"
-msgstr "--version — версия для печати и некоторая информация о конфигурации"
+msgstr "--version — версия для печати и некоторая информация о конфигурации\n"
 
 #: src/dvdisaster.c:1022
 #, fuzzy
@@ -883,7 +892,7 @@ msgid ""
 "--help for a list)\n"
 msgstr ""
 "--debug — разрешить расширенные опасные параметры (используйте с --help для "
-"получения списка)"
+"получения списка)\n"
 
 #: src/dvdisaster.c:1026
 msgid "Debugging options (purposefully undocumented and possibly harmful)\n"
@@ -897,12 +906,12 @@ msgid ""
 "unsupported ones\n"
 msgstr ""
 "--permissive-medium-type — разрешить больше типов мультимедиа, даже "
-"теоретически неподдерживаемых"
+"теоретически неподдерживаемых\n"
 
 #: src/dvdisaster.c:1028
 #, fuzzy
 msgid "  --byteset s,i,b          - set byte i in sector s to b\n"
-msgstr "--byteset s,i,b — установить байт i в секторе s в b"
+msgstr "--byteset s,i,b — установить байт i в секторе s в b\n"
 
 #: src/dvdisaster.c:1029
 #, fuzzy
@@ -910,12 +919,12 @@ msgid ""
 "  --cdump                  - creates C #include file dumps instead of "
 "hexdumps\n"
 msgstr ""
-"--cdump — создает дампы файлов C #include вместо шестнадцатеричных дампов"
+"--cdump — создает дампы файлов C #include вместо шестнадцатеричных дампов\n"
 
 #: src/dvdisaster.c:1030
 #, fuzzy
 msgid "  --compare-images a,b     - compare sectors in images a and b\n"
-msgstr "--compare-images a,b — сравнить сектора на изображениях a и b"
+msgstr "--compare-images a,b — сравнить сектора на изображениях a и b\n"
 
 #: src/dvdisaster.c:1031
 #, fuzzy
@@ -924,27 +933,27 @@ msgid ""
 " b\n"
 msgstr ""
 "--copy-sector a,n,b,m — скопировать сектор n из изображения a в сектор m в "
-"изображении b"
+"изображении b\n"
 
 #: src/dvdisaster.c:1032
 #, fuzzy
 msgid "  --erase sector           - erase the given sector\n"
-msgstr "--erase Sector — стереть указанный сектор"
+msgstr "--erase Sector — стереть указанный сектор\n"
 
 #: src/dvdisaster.c:1033
 #, fuzzy
 msgid "  --erase n-m              - erase sectors n - m, inclusively\n"
-msgstr "--erase n-m — стереть секторов n — m включительно"
+msgstr "--erase n-m — стереть секторов n — m включительно\n"
 
 #: src/dvdisaster.c:1034
 #, fuzzy
 msgid "  --examine-rs02           - force RS02 exhaustive search\n"
-msgstr "--examine-rs02 — принудительно выполнить полный поиск RS02"
+msgstr "--examine-rs02 — принудительно выполнить полный поиск RS02\n"
 
 #: src/dvdisaster.c:1035
 #, fuzzy
 msgid "  --examine-rs03           - force RS03 exhaustive search\n"
-msgstr "--examine-rs03 — принудительно выполнить полный поиск RS03"
+msgstr "--examine-rs03 — принудительно выполнить полный поиск RS03\n"
 
 #: src/dvdisaster.c:1036
 #, fuzzy
@@ -953,7 +962,7 @@ msgid ""
 "diffing\n"
 msgstr ""
 "--fixed-speed-values ​​— выводить фиксированные значения скорости для "
-"лучшего вывода различий"
+"лучшего вывода различий\n"
 
 #: src/dvdisaster.c:1037
 #, fuzzy
@@ -962,13 +971,14 @@ msgid ""
 "full search)\n"
 msgstr ""
 "--ignore-rs03-header — игнорировать заголовок RS03 при восстановлении "
-"(принудительный полный поиск)"
+"(принудительный полный поиск)\n"
 
 #: src/dvdisaster.c:1038
 #, fuzzy
 msgid "  --marked-image n         - create image with n marked random sectors\n"
 msgstr ""
-"--marked-image n — создать изображение с n отмеченными случайными секторами"
+"--marked-image n — создать изображение с n отмеченными случайными "
+"секторами\n"
 
 #: src/dvdisaster.c:1039
 #, fuzzy
@@ -976,7 +986,8 @@ msgid ""
 "  --merge-images a,b       - merge image a with b (a receives sectors from "
 "b)\n"
 msgstr ""
-"--merge-images a,b — объединить изображение a с b (a получает сектора от b)"
+"--merge-images a,b — объединить изображение a с b (a получает сектора от "
+"b)\n"
 
 #: src/dvdisaster.c:1040
 #, fuzzy
@@ -984,13 +995,13 @@ msgid ""
 "  --random-errors e        - seed image with (correctable) random errors\n"
 msgstr ""
 "--random-errors e — начальное изображение с (исправимыми) случайными "
-"ошибками"
+"ошибками\n"
 
 #: src/dvdisaster.c:1041
 #, fuzzy
 msgid ""
 "  --random-image n         - create image with n sectors of random numbers\n"
-msgstr "--random-image n — создать изображение с n секторами случайных чисел"
+msgstr "--random-image n — создать изображение с n секторами случайных чисел\n"
 
 #: src/dvdisaster.c:1042
 #, fuzzy
@@ -999,7 +1010,7 @@ msgid ""
 "generator\n"
 msgstr ""
 "--random-seed n — случайное начальное число для встроенного генератора "
-"случайных чисел"
+"случайных чисел\n"
 
 #: src/dvdisaster.c:1043
 #, fuzzy
@@ -1008,7 +1019,7 @@ msgid ""
 "medium in drive\n"
 msgstr ""
 "--raw-sector n — показывает шестнадцатеричный дамп данного необработанного "
-"сектора с носителя на диске"
+"сектора с носителя на диске\n"
 
 #: src/dvdisaster.c:1044
 #, fuzzy
@@ -1017,12 +1028,12 @@ msgid ""
 "in drive\n"
 msgstr ""
 "--read-sector n — показывает шестнадцатеричный дамп данного сектора с "
-"носителя на диске"
+"носителя на диске\n"
 
 #: src/dvdisaster.c:1045
 #, fuzzy
 msgid "  --screen-shot            - useful for generating screen shots\n"
-msgstr "--screen-shot — полезно для создания снимков экрана"
+msgstr "--screen-shot — полезно для создания снимков экрана\n"
 
 #: src/dvdisaster.c:1046
 #, fuzzy
@@ -1031,7 +1042,7 @@ msgid ""
 "used wrong\n"
 msgstr ""
 "--send-cdb arg — выполнить заданный cdb на диске; убивает систему при "
-"неправильном использовании"
+"неправильном использовании\n"
 
 #: src/dvdisaster.c:1047
 #, fuzzy
@@ -1039,7 +1050,7 @@ msgid ""
 "  --set-version            - set program version for debugging purposes "
 "(dangerous!)\n"
 msgstr ""
-"--set-version — установить версию программы для целей отладки (опасно!)"
+"--set-version — установить версию программы для целей отладки (опасно!)\n"
 
 #: src/dvdisaster.c:1048
 #, fuzzy
@@ -1048,7 +1059,7 @@ msgid ""
 " it\n"
 msgstr ""
 "--show-header n — предполагает, что данный сектор является заголовком ecc, и"
-" печатает его"
+" печатает его\n"
 
 #: src/dvdisaster.c:1049
 #, fuzzy
@@ -1057,7 +1068,7 @@ msgid ""
 "file\n"
 msgstr ""
 "--show-sector n — показывает шестнадцатеричный дамп данного сектора в файле "
-"изображения"
+"изображения\n"
 
 #: src/dvdisaster.c:1050
 #, fuzzy
@@ -1066,24 +1077,24 @@ msgid ""
 " by the ISO image\n"
 msgstr ""
 "--sim-cd image — имитировать компакт-диск уровня SCSI с содержимым, "
-"предоставленным ISO-образом"
+"предоставленным ISO-образом\n"
 
 #: src/dvdisaster.c:1051
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "  --sim-defects n          - simulate n%% defective sectors on medium\n"
-msgstr "--sim-defects n — имитировать n%% дефектных секторов на носителе"
+msgstr "--sim-defects n — имитировать n%% дефектных секторов на носителе\n"
 
 #: src/dvdisaster.c:1052
 #, fuzzy
 msgid "  --truncate n             - truncates image to n sectors\n"
-msgstr "--truncate n — обрезать изображение до n секторов"
+msgstr "--truncate n — обрезать изображение до n секторов\n"
 
 #: src/dvdisaster.c:1053
 #, fuzzy
 msgid ""
 "  --zero-unreadable        - replace the \"unreadable sector\" markers with zeros\n"
 "\n"
-msgstr "--zero-unreadable — заменить маркеры «нечитаемых секторов» нулями"
+msgstr "--zero-unreadable — заменить маркеры «нечитаемых секторов» нулями\n"
 
 #: src/dvdisaster.c:1083
 msgid "Optical drive 52X FW 1.02"
@@ -1097,7 +1108,7 @@ msgid ""
 msgstr ""
 "Использование режима графического интерфейса: большинство параметров "
 "командной строки игнорируются. Вместо этого посмотрите настройки в "
-"графическом интерфейсе."
+"графическом интерфейсе.\n"
 
 #: src/ecc-rs01.c:43
 msgid "Error correction file (RS01)"
@@ -1134,7 +1145,9 @@ msgid ""
 "\n"
 "Contents of Ecc Header:\n"
 "\n"
-msgstr "Содержание заголовка Ecc:"
+msgstr ""
+"\n"
+"Содержание заголовка Ecc:\n"
 
 #: src/help-dialogs.c:157 src/help-dialogs.c:559 src/help-dialogs.c:742
 #: src/medium-info.c:333 src/preferences.c:1202
@@ -1178,7 +1191,7 @@ msgstr ""
 "отсутствует"
 
 #: src/help-dialogs.c:527
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "File\n"
 "%s\n"
@@ -1193,7 +1206,9 @@ msgstr ""
 msgid ""
 "\n"
 "<- Error: Text file truncated here"
-msgstr "<- Ошибка: здесь текстовый файл обрезан."
+msgstr ""
+"\n"
+"<- Ошибка: здесь текстовый файл обрезан."
 
 #: src/help-dialogs.c:740
 msgid "windowtitle|About dvdisaster"
@@ -1237,7 +1252,9 @@ msgstr ""
 msgid ""
 "\n"
 "e-mail: support@dvdisaster.org"
-msgstr "электронная почта: support@dvdisaster.org"
+msgstr ""
+"\n"
+"электронная почта: support@dvdisaster.org"
 
 #: src/help-dialogs.c:783
 #, fuzzy
@@ -1252,6 +1269,7 @@ msgid ""
 "Please do not bother the original authors of dvdisaster,\n"
 "submit bugreports against [GitHub] instead.\n"
 msgstr ""
+"\n"
 "Эта версия <b>не является оригинальной</b>. Он был усовершенствован главным образом для\n"
 "добавить поддержку BD-R TL/QL и HD-DVD, добавить поддержку удаления ECC из ISO,\n"
 "добавить возможность генерировать образы BD-R RS03 с большей избыточностью,\n"
@@ -1259,7 +1277,7 @@ msgstr ""
 "портировать графический интерфейс на GTK3 и многое другое.\n"
 "\n"
 "Пожалуйста, не беспокойте первоначальных авторов dvdisaster,\n"
-"Вместо этого отправляйте отчеты об ошибках на [GitHub]."
+"Вместо этого отправляйте отчеты об ошибках на [GitHub].\n"
 
 #: src/help-dialogs.c:793
 msgid ""
@@ -1270,16 +1288,18 @@ msgstr ""
 "Порт на NetBSD: Sergey Svishchev &lt;svs@ropnet.ru&gt;"
 
 #: src/image.c:156 src/image.c:161
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Image file %s not present or permission denied.\n"
-msgstr "Файл изображения %s отсутствует или в разрешении отказано."
+msgstr "Файл изображения %s отсутствует или в разрешении отказано.\n"
 
 #: src/image.c:172 src/image.c:177
 #, fuzzy
 msgid ""
 "\n"
 "Error correction file type unknown.\n"
-msgstr "Тип файла исправления ошибок неизвестен."
+msgstr ""
+"\n"
+"Тип файла исправления ошибок неизвестен.\n"
 
 #: src/image.c:188 src/image.c:194
 #, fuzzy
@@ -1287,7 +1307,8 @@ msgid ""
 "\n"
 "Permission denied on ecc file (perhaps not writeable?).\n"
 msgstr ""
-"Разрешение на файл ECC запрещено (возможно, он недоступен для записи?)."
+"\n"
+"Разрешение на файл ECC запрещено (возможно, он недоступен для записи?).\n"
 
 #: src/image.c:206 src/image.c:212
 #, fuzzy
@@ -1296,8 +1317,9 @@ msgid ""
 "No error correction file present.\n"
 "No error correction data recognized in image.\n"
 msgstr ""
+"\n"
 "Файл исправления ошибок отсутствует.\n"
-"На изображении не обнаружены данные для исправления ошибок."
+"На изображении не обнаружены данные для исправления ошибок.\n"
 
 #: src/large-io.c:185
 #, fuzzy
@@ -1325,9 +1347,9 @@ msgstr ""
 "Вы можете повторить эту операцию после того, как освободите место."
 
 #: src/main-window.c:70
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "log: %s\n"
-msgstr "журнал: %s"
+msgstr "журнал: %s\n"
 
 #: src/main-window.c:97
 #, fuzzy
@@ -1553,9 +1575,9 @@ msgid "%s, %d roots, %4.1f%% redundancy.\n"
 msgstr "%s, %d корней, избыточность %4.1f%%.\n"
 
 #: src/medium-info.c:217
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRIu64> sectors (%<PRId64> MiB)\n"
-msgstr "%<PRIu64> секторов (%<PRId64> MiB)"
+msgstr "%<PRIu64> секторов (%<PRId64> MiB)\n"
 
 #: src/medium-info.c:229
 #, fuzzy
@@ -1847,6 +1869,41 @@ msgstr ""
 "Список имеющихся методов:\n"
 "\n"
 
+#: src/misc-gui.c:241
+#, fuzzy, c-format
+msgid ""
+"The error correction file is already present:\n"
+"\n"
+"%s\n"
+"\n"
+"Overwrite it?"
+msgstr ""
+"Файл исправления ошибок уже присутствует:\n"
+"\n"
+"%s\n"
+"\n"
+"Перезаписать?"
+
+#: src/misc-gui.c:609
+#, fuzzy
+msgid "Do not ask again"
+msgstr "Не спрашивай больше"
+
+#: src/misc-gui.c:629
+#, fuzzy, c-format
+msgid ""
+"Image file already exists and does not match the medium:\n"
+"\n"
+"%s\n"
+"\n"
+"The existing image file will be deleted."
+msgstr ""
+"Файл изображения уже существует и не соответствует носителю:\n"
+"\n"
+"%s\n"
+"\n"
+"Существующий файл изображения будет удален."
+
 #: src/misc.c:225
 msgid ""
 "This software comes with  ABSOLUTELY NO WARRANTY.  This\n"
@@ -1888,12 +1945,12 @@ msgid "Image is not augmented (no dvdisaster signature found)."
 msgstr "Изображение не дополнено (подпись dvdisaster не найдена)."
 
 #: src/misc.c:779
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Invalid end data sector (%<PRId64>), aborting"
 msgstr "Неверный конечный сектор данных (%<PRId64>), прерывание"
 
 #: src/misc.c:788
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "We're about to truncate the image from %<PRId64> sectors (%<PRId64> MiB)\n"
 "to %<PRId64> sectors (%<PRId64> MiB), removing any dvdisaster-added ECC data.\n"
@@ -1911,47 +1968,12 @@ msgstr "Прервано по запросу пользователя"
 #: src/misc.c:804
 #, fuzzy
 msgid "Image successfully truncated back to its original size.\n"
-msgstr "Изображение успешно обрезано до исходного размера."
+msgstr "Изображение успешно обрезано до исходного размера.\n"
 
 #: src/misc.c:808
 #, fuzzy
 msgid "Image successfully truncated"
 msgstr "Изображение успешно обрезано"
-
-#: src/misc-gui.c:241
-#, c-format, fuzzy
-msgid ""
-"The error correction file is already present:\n"
-"\n"
-"%s\n"
-"\n"
-"Overwrite it?"
-msgstr ""
-"Файл исправления ошибок уже присутствует:\n"
-"\n"
-"%s\n"
-"\n"
-"Перезаписать?"
-
-#: src/misc-gui.c:609
-#, fuzzy
-msgid "Do not ask again"
-msgstr "Не спрашивай больше"
-
-#: src/misc-gui.c:629
-#, c-format, fuzzy
-msgid ""
-"Image file already exists and does not match the medium:\n"
-"\n"
-"%s\n"
-"\n"
-"The existing image file will be deleted."
-msgstr ""
-"Файл изображения уже существует и не соответствует носителю:\n"
-"\n"
-"%s\n"
-"\n"
-"Существующий файл изображения будет удален."
 
 #: src/preferences.c:409
 msgid "Switched to the linear reading strategy."
@@ -2658,7 +2680,7 @@ msgid ""
 msgstr ""
 "<b>Метод исправления ошибок</b>\n"
 "\n"
-"dvdisaster создает данные для исправления ошибок, которые используются для восстановления нечитаемых секторов, если диск впоследствии будет поврежден. Существуют различные кодеки и способы хранения информации для исправления ошибок:"
+"dvdisaster создает данные для исправления ошибок, которые используются для восстановления нечитаемых секторов, если диск впоследствии будет поврежден. Существуют различные кодеки и способы хранения информации для исправления ошибок:\n"
 
 #: src/preferences.c:2341
 #, fuzzy
@@ -2667,7 +2689,7 @@ msgid ""
 "RS01 is the recommended codec for storing error correction data in separate files.\n"
 msgstr ""
 "Кодек RS01\n"
-"RS01 — рекомендуемый кодек для хранения данных исправления ошибок в отдельных файлах."
+"RS01 — рекомендуемый кодек для хранения данных исправления ошибок в отдельных файлах.\n"
 
 #: src/preferences.c:2344
 #, fuzzy
@@ -2676,7 +2698,7 @@ msgid ""
 "RS02 is the currently recommended codec for augmenting images with error correction data.\n"
 msgstr ""
 "Кодек RS02\n"
-"RS02 в настоящее время является рекомендуемым кодеком для дополнения изображений данными для исправления ошибок."
+"RS02 в настоящее время является рекомендуемым кодеком для дополнения изображений данными для исправления ошибок.\n"
 
 #: src/preferences.c:2348
 #, fuzzy
@@ -3289,6 +3311,36 @@ msgstr ""
 " [Добавлено %d/%d секторов к буферному файлу %s; LBA=%<PRId64>, размер "
 "с.=%d, %d секторов]\n"
 
+#: src/read-adaptive-window.c:77
+msgid "Adaptive reading:"
+msgstr "Адаптивное чтение:"
+
+#: src/read-adaptive-window.c:105
+msgid "Sectors processed"
+msgstr "Обработанные сектора"
+
+#: src/read-adaptive-window.c:108 src/scsi-layer.c:1800
+msgid "readable"
+msgstr "можно прочитать"
+
+#: src/read-adaptive-window.c:113
+msgid "correctable"
+msgstr "можно исправить"
+
+#: src/read-adaptive-window.c:118
+msgid "missing"
+msgstr "отсутствует"
+
+#: src/read-adaptive-window.c:129
+#, c-format
+msgid "Readable: %d.%d%% / %d.%d%% required"
+msgstr "Можно прочитать: %d.%d%% / %d.%d%% требуется"
+
+#: src/read-adaptive-window.c:137
+#, c-format
+msgid "Total recoverable: %d.%d%%"
+msgstr "Всего можно восстановить: %d.%d%%"
+
 #: src/read-adaptive.c:57 src/rs01-create.c:1023
 #, c-format
 msgid ""
@@ -3312,7 +3364,7 @@ msgstr ""
 "%s"
 
 #: src/read-adaptive.c:121 src/read-linear.c:867
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* Warning: This ecc file requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
@@ -3323,7 +3375,7 @@ msgstr ""
 "* Внимание: для этого файла ecc требуется dvdisaster-%d.%d!\n"
 "*Процедура может спровоцировать некорректное поведение.\n"
 "* Пожалуйста, прочитайте изображение, не используя этот файл ECC.\n"
-"* или обновите dvdisaster."
+"* или обновите dvdisaster.\n"
 
 #: src/read-adaptive.c:154 src/rs01-common.c:82 src/rs01-common.c:237
 #: src/rs01-create.c:304 src/rs01-verify.c:817
@@ -3361,12 +3413,12 @@ msgstr ""
 
 #: src/read-adaptive.c:659 src/read-adaptive.c:669 src/read-adaptive.c:687
 #: src/read-adaptive.c:717
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%s-type ECC found\n"
-msgstr "Обнаружен ECC типа %s"
+msgstr "Обнаружен ECC типа %s\n"
 
 #: src/read-adaptive.c:672
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* Warning: This ecc file requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
@@ -3375,10 +3427,10 @@ msgid ""
 msgstr ""
 "* Внимание: для этого файла ecc требуется dvdisaster-%d.%d!\n"
 "*Процедура может спровоцировать некорректное поведение.\n"
-"* Пожалуйста, обновите dvdisaster."
+"* Пожалуйста, обновите dvdisaster.\n"
 
 #: src/read-adaptive.c:690 src/read-linear.c:874
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* Warning: This image requires dvdisaster-%d.%d!\n"
 "*          Proceeding could trigger incorrect behaviour.\n"
@@ -3387,7 +3439,7 @@ msgid ""
 msgstr ""
 "* Внимание: для этого образа требуется dvdisaster-%d.%d!\n"
 "*Процедура может спровоцировать некорректное поведение.\n"
-"* Пожалуйста, обновите dvdisaster."
+"* Пожалуйста, обновите dvdisaster.\n"
 
 #: src/read-adaptive.c:719
 #, fuzzy
@@ -3402,7 +3454,7 @@ msgstr ""
 "Метод чтения «разделяй и властвуй» по-прежнему будет применяться, пытаясь обнаружить и пропустить\n"
 "сильно поврежденные зоны и в первую очередь отдавать приоритет хорошим зонам. Однако мы не перестанем читать автоматически\n"
 "как только будет восстановлено достаточно данных и данных ECC, чтобы можно было восстановить образ, как мы это делаем для RS02.\n"
-"Вам следует остановить чтение и время от времени запускать «проверку», чтобы убедиться, что это так."
+"Вам следует остановить чтение и время от времени запускать «проверку», чтобы убедиться, что это так.\n"
 
 #: src/read-adaptive.c:726 src/read-adaptive.c:785 src/read-adaptive.c:800
 #: src/read-adaptive.c:864 src/read-adaptive.c:953 src/read-adaptive.c:1014
@@ -3574,7 +3626,7 @@ msgstr ""
 "* имеет небольшое преимущество перед линейным чтением, но может\n"
 "* вызвать значительный износ привода из-за чрезмерного\n"
 "* искать операции.\n"
-"* Вместо этого рассмотрите возможность использования линейного чтения."
+"* Вместо этого рассмотрите возможность использования линейного чтения.\n"
 
 #: src/read-adaptive.c:1502 src/read-linear.c:277
 #, c-format
@@ -3677,35 +3729,44 @@ msgstr ""
 "%s\n"
 "%2d.%1d%% образа прочитано (%<PRId64> секторов).\n"
 
-#: src/read-adaptive-window.c:77
-msgid "Adaptive reading:"
-msgstr "Адаптивное чтение:"
-
-#: src/read-adaptive-window.c:105
-msgid "Sectors processed"
-msgstr "Обработанные сектора"
-
-#: src/read-adaptive-window.c:108 src/scsi-layer.c:1800
-msgid "readable"
-msgstr "можно прочитать"
-
-#: src/read-adaptive-window.c:113
-msgid "correctable"
-msgstr "можно исправить"
-
-#: src/read-adaptive-window.c:118
-msgid "missing"
-msgstr "отсутствует"
-
-#: src/read-adaptive-window.c:129
+#: src/read-linear-window.c:97
 #, c-format
-msgid "Readable: %d.%d%% / %d.%d%% required"
-msgstr "Можно прочитать: %d.%d%% / %d.%d%% требуется"
+msgid "Current Speed: %d.%dx"
+msgstr "Текущая скорость: %d.%dx"
 
-#: src/read-adaptive-window.c:137
+#: src/read-linear-window.c:104 src/read-linear.c:515
 #, c-format
-msgid "Total recoverable: %d.%d%%"
-msgstr "Всего можно восстановить: %d.%d%%"
+msgid "Unreadable / skipped sectors: %<PRId64>"
+msgstr "Нечитаемые / пропущенные сектора: %<PRId64>"
+
+#: src/read-linear-window.c:261
+msgid "Medium state"
+msgstr "Состояние носителя"
+
+#: src/read-linear-window.c:268
+msgid "Not touched this time"
+msgstr "В этот раз не затронут"
+
+#: src/read-linear-window.c:272
+msgid "Already present"
+msgstr "Уже есть"
+
+#: src/read-linear-window.c:275
+msgid "Successfully read"
+msgstr "Успешно прочитано"
+
+#: src/read-linear-window.c:279 src/read-linear-window.c:306
+#: src/rs01-verify.c:132 src/rs02-verify.c:125 src/rs03-verify.c:135
+msgid "Sectors with CRC errors"
+msgstr "Сектора с CRC-ошибками"
+
+#: src/read-linear-window.c:282
+msgid "Unreadable / skipped"
+msgstr "Нечитаемый / пропущенный"
+
+#: src/read-linear-window.c:404
+msgid "Speed"
+msgstr "Скорость"
 
 #: src/read-linear.c:122
 #, c-format
@@ -3764,11 +3825,6 @@ msgstr "готово.\n"
 msgid "Waiting %d seconds for drive to spin up...\n"
 msgstr "Задержка на %d секунд для раскручивания привода...\n"
 
-#: src/read-linear.c:515 src/read-linear-window.c:104
-#, c-format
-msgid "Unreadable / skipped sectors: %<PRId64>"
-msgstr "Нечитаемые / пропущенные сектора: %<PRId64>"
-
 #: src/read-linear.c:605
 #, c-format
 msgid "Sector %<PRId64>: Speed increased to %4.1fx\n"
@@ -3780,7 +3836,7 @@ msgid "Sector %<PRId64>: Speed dropped to %4.1fx\n"
 msgstr "Сектор %<PRId64>: Скорость снижена до %4.1fx\n"
 
 #: src/read-linear.c:614
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Read position: %3d.%1d%% (nn.nx), sector %<PRId64>/%<PRId64>, %<PRId64> "
 "sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
@@ -3789,7 +3845,7 @@ msgstr ""
 "секторы читаются нормально, %<PRId64> ошибки чтения, %<PRId64> ошибки crc"
 
 #: src/read-linear.c:615
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Read position: %3d.%1d%% (%4.1fx), sector %<PRId64>/%<PRId64>, %<PRId64> "
 "sectors read OK, %<PRId64> read errors, %<PRId64> crc errors"
@@ -3803,7 +3859,7 @@ msgid "* CRC error, sector: %lld\n"
 msgstr "* CRC-ошибка, сектор: %lld\n"
 
 #: src/read-linear.c:841
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "This ecc file requires dvdisaster-%d.%d!\n"
 "\n"
@@ -3816,10 +3872,10 @@ msgstr ""
 "\n"
 "Процедура может спровоцировать некорректное поведение.\n"
 "Пожалуйста, прочитайте изображение, не используя этот файл ECC.\n"
-"или обновите dvdisaster."
+"или обновите dvdisaster.\n"
 
 #: src/read-linear.c:849
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "This image requires dvdisaster-%d.%d!\n"
 "\n"
@@ -3830,7 +3886,7 @@ msgstr ""
 "Для этого образа требуется dvdisaster-%d.%d!\n"
 "\n"
 "Процедура может спровоцировать некорректное поведение.\n"
-"Пожалуйста, обновите dvdisaster."
+"Пожалуйста, обновите dvdisaster.\n"
 
 #: src/read-linear.c:858 src/read-linear.c:973 src/read-linear.c:1106
 #, c-format
@@ -3885,7 +3941,7 @@ msgid "%<PRId64> sectors read; %<PRId64> unreadable sectors."
 msgstr "%<PRId64> секторов прочитано; %<PRId64> нечитаемых секторов."
 
 #: src/read-linear.c:1367
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "All sectors are readable, but %d contain defective content."
 msgstr "Все сектора доступны для чтения, но %d содержит дефектное содержимое."
 
@@ -3923,7 +3979,7 @@ msgid "%<PRId64> unreadable sectors."
 msgstr "%<PRId64> нечитаемых секторов."
 
 #: src/read-linear.c:1400
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> CRC errors and a md5sum mismatch in the CRC section."
 msgstr "%<PRId64> Ошибки CRC и несоответствие суммы md5 в разделе CRC."
 
@@ -3946,7 +4002,7 @@ msgid "Reading finished: "
 msgstr "Чтение завершено: "
 
 #: src/read-linear.c:1432 src/read-linear.c:1443
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "%d sectors missing at the end of the disc.\n"
 "This is okay if the CD was written in TAO (track at once) mode.\n"
@@ -3959,14 +4015,14 @@ msgstr ""
 #: src/read-linear.c:1437
 #, fuzzy
 msgid "See the manual for details.\n"
-msgstr "Подробности смотрите в руководстве."
+msgstr "Подробности смотрите в руководстве.\n"
 
 #: src/read-linear.c:1439
 #, fuzzy
 msgid "The Image will be truncated accordingly. See the manual for details.\n"
 msgstr ""
 "Изображение будет соответственно обрезано. Подробности смотрите в "
-"руководстве."
+"руководстве.\n"
 
 #: src/read-linear.c:1448
 #, fuzzy
@@ -3975,7 +4031,7 @@ msgid ""
 "Use the --dao option to disable this message.\n"
 msgstr ""
 "Подробности смотрите в руководстве.\n"
-"Используйте опцию --dao, чтобы отключить это сообщение."
+"Используйте опцию --dao, чтобы отключить это сообщение.\n"
 
 #: src/read-linear.c:1451
 #, fuzzy
@@ -3984,41 +4040,7 @@ msgid ""
 "Use the --dao option to disable image truncating.\n"
 msgstr ""
 "Изображение будет соответственно обрезано. Подробности смотрите в руководстве.\n"
-"Используйте опцию --dao, чтобы отключить усечение изображения."
-
-#: src/read-linear-window.c:97
-#, c-format
-msgid "Current Speed: %d.%dx"
-msgstr "Текущая скорость: %d.%dx"
-
-#: src/read-linear-window.c:261
-msgid "Medium state"
-msgstr "Состояние носителя"
-
-#: src/read-linear-window.c:268
-msgid "Not touched this time"
-msgstr "В этот раз не затронут"
-
-#: src/read-linear-window.c:272
-msgid "Already present"
-msgstr "Уже есть"
-
-#: src/read-linear-window.c:275
-msgid "Successfully read"
-msgstr "Успешно прочитано"
-
-#: src/read-linear-window.c:279 src/read-linear-window.c:306
-#: src/rs01-verify.c:132 src/rs02-verify.c:125 src/rs03-verify.c:135
-msgid "Sectors with CRC errors"
-msgstr "Сектора с CRC-ошибками"
-
-#: src/read-linear-window.c:282
-msgid "Unreadable / skipped"
-msgstr "Нечитаемый / пропущенный"
-
-#: src/read-linear-window.c:404
-msgid "Speed"
-msgstr "Скорость"
+"Используйте опцию --dao, чтобы отключить усечение изображения.\n"
 
 #: src/recover-raw.c:66
 #, c-format
@@ -4051,9 +4073,9 @@ msgid "Error writing CRC information: %s"
 msgstr "Ошибка записи CRC-информации: %s"
 
 #: src/rs01-common.c:353 src/rs02-verify.c:799 src/rs03-verify.c:1143
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* CRC error, sector: %<PRId64>\n"
-msgstr "* Ошибка CRC, сектор: %<PRId64>"
+msgstr "* Ошибка CRC, сектор: %<PRId64>\n"
 
 #: src/rs01-create.c:65
 #, c-format
@@ -4067,7 +4089,7 @@ msgstr ""
 "Размер %<PRId64>m ecc-файла вне полезного диапазона [%<PRId64> .. %<PRId64>]"
 
 #: src/rs01-create.c:91 src/rs03-common.c:487
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Invalid redundancy specification '%s'.\n"
 "Valid formats: normal, high, <number>%%, <number>r, <number>m"
@@ -4119,19 +4141,19 @@ msgstr ""
 "<i>%s</i>"
 
 #: src/rs01-create.c:257 src/rs03-create.c:284
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Aborted to keep existing ecc file.</span>"
 msgstr "<span %s>Прервано, чтобы сохранить существующий файл ECC.</span>"
 
 #: src/rs01-create.c:272 src/rs02-create.c:1036 src/rs03-create.c:1289
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Image file %s: %s."
 msgstr "Файл изображения %s: %s."
 
 #: src/rs01-create.c:280 src/rs03-create.c:1308
 #, fuzzy
 msgid "No error correction file specified!\n"
-msgstr "Не указан файл исправления ошибок!"
+msgstr "Не указан файл исправления ошибок!\n"
 
 #: src/rs01-create.c:293
 #, c-format
@@ -4595,7 +4617,7 @@ msgstr "<span %s>Плохой образ.</span>"
 #: src/rs01-verify.c:510 src/rs02-verify.c:710 src/rs03-verify.c:998
 #, fuzzy
 msgid "* quick mode        : image NOT scanned\n"
-msgstr "* быстрый режим: изображение НЕ сканируется"
+msgstr "* быстрый режим: изображение НЕ сканируется\n"
 
 #: src/rs01-verify.c:518
 #, c-format
@@ -4647,27 +4669,27 @@ msgstr "Нет файла для исправления ошибок."
 #: src/rs01-verify.c:562
 #, fuzzy
 msgid "permission denied\n"
-msgstr "доступ запрещен"
+msgstr "доступ запрещен\n"
 
 #: src/rs01-verify.c:568
 #, fuzzy
 msgid "invalid\n"
-msgstr "неверный"
+msgstr "неверный\n"
 
 #: src/rs01-verify.c:571
 #, fuzzy
 msgid "defective header (unusable)\n"
-msgstr "дефектный заголовок (непригоден для использования)"
+msgstr "дефектный заголовок (непригоден для использования)\n"
 
 #: src/rs01-verify.c:574
 #, fuzzy
 msgid "unknown codec (unusable)\n"
-msgstr "неизвестный кодек (невозможно использовать)"
+msgstr "неизвестный кодек (невозможно использовать)\n"
 
 #: src/rs01-verify.c:577
 #, fuzzy
 msgid "unusable\n"
-msgstr "непригодный для использования"
+msgstr "непригодный для использования\n"
 
 #: src/rs01-verify.c:605 src/rs01-verify.c:615 src/rs02-verify.c:954
 #: src/rs02-verify.c:965
@@ -4694,7 +4716,7 @@ msgid "- requires         : dvdisaster-%d.%d (good)\n"
 msgstr "- требуется         : dvdisaster-%d.%d (хорошо)\n"
 
 #: src/rs01-verify.c:652 src/rs02-verify.c:999
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* requires         : dvdisaster-%d.%d (BAD)\n"
 "* Warning          : The following output might be incorrect.\n"
@@ -4702,7 +4724,7 @@ msgid ""
 msgstr ""
 "* требуется: dvdisaster-%d.%d (ПЛОХО)\n"
 "* Внимание: следующий вывод может быть неправильным.\n"
-"* : Пожалуйста, обновите dvdisaster."
+"* : Пожалуйста, обновите dvdisaster.\n"
 
 #: src/rs01-verify.c:664 src/rs02-verify.c:1013 src/rs03-verify.c:849
 #, c-format
@@ -4813,7 +4835,7 @@ msgstr "хорошо"
 #: src/rs01-verify.c:790
 #, fuzzy
 msgid "* quick mode        : ecc file NOT scanned\n"
-msgstr "* быстрый режим: файл ECC НЕ сканируется"
+msgstr "* быстрый режим: файл ECC НЕ сканируется\n"
 
 #: src/rs01-verify.c:798
 #, c-format
@@ -5101,7 +5123,7 @@ msgid "Failed expanding the image: %s\n"
 msgstr "Не удалось увеличить образ: %s\n"
 
 #: src/rs02-create.c:303 src/rs02-create.c:313
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Preparing image (checksums taken from cache, adding space): %3d%%"
 msgstr ""
 "Подготовка изображения (контрольные суммы взяты из кеша, добавление места): "
@@ -5144,7 +5166,7 @@ msgstr ""
 " %<PRId64> МБ данных, %<PRId64> МБ ecc (%d корней; избыточность %4.1f%%)."
 
 #: src/rs02-create.c:1086
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Not enough space on medium left for error correction data.\n"
 "Data portion of image: %<PRId64> sect.; maximum possible size: %<PRId64> sect.\n"
@@ -5157,13 +5179,11 @@ msgstr ""
 "это не вариант, создайте отдельный файл для исправления ошибок."
 
 #: src/rs02-create.c:1096 src/rs03-create.c:1382
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Using redundancies below 20% may not give\n"
 "the expected data loss protection.\n"
 msgstr ""
-"Использование резервирования ниже 20% может не дать\n"
-"ожидаемая защита от потери данных."
 
 #: src/rs02-create.c:1128 src/rs02-create.c:1136 src/rs03-create.c:1421
 #: src/rs03-create.c:1444
@@ -5685,7 +5705,7 @@ msgid "BDXL 3 layers:"
 msgstr "BDXL 3 слоя:"
 
 #: src/rs02-window.c:1169
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Three layered BDXL medium size</b>\n"
 "\n"
@@ -5704,7 +5724,7 @@ msgstr ""
 "Вы можете ввести размер носителя в секторах по 2 КБ каждый или нажать кнопку «запросить носитель», чтобы использовать размер чистого носителя, вставленного в данный момент в выбранный диск.\n"
 "Используйте кнопку со стрелкой, чтобы вернуться к последнему сохраненному значению.\n"
 "\n"
-"Обратите внимание, что увеличенные изображения увеличиваются не более чем в три раза, поскольку максимально возможная избыточность составляет 200 %.\n"
+"Обратите внимание, что увеличенные изображения увеличиваются не более чем в три раза, поскольку максимально возможная избыточность составляет 200 %%.\n"
 "Даже если этот предел не достигнут, расширенное изображение может оказаться на несколько секторов меньше указанного по техническим причинам."
 
 #: src/rs02-window.c:1188
@@ -5713,7 +5733,7 @@ msgid "BDXL 4 layers:"
 msgstr "BDXL 4 слоя:"
 
 #: src/rs02-window.c:1232
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<b>Four layered BDXL medium size</b>\n"
 "\n"
@@ -5732,7 +5752,7 @@ msgstr ""
 "Вы можете ввести размер носителя в секторах по 2 КБ каждый или нажать кнопку «запросить носитель», чтобы использовать размер чистого носителя, вставленного в данный момент в выбранный диск.\n"
 "Используйте кнопку со стрелкой, чтобы вернуться к последнему сохраненному значению.\n"
 "\n"
-"Обратите внимание, что увеличенные изображения увеличиваются не более чем в три раза, поскольку максимально возможная избыточность составляет 200 %.\n"
+"Обратите внимание, что увеличенные изображения увеличиваются не более чем в три раза, поскольку максимально возможная избыточность составляет 200 %%.\n"
 "Даже если этот предел не достигнут, расширенное изображение может оказаться на несколько секторов меньше указанного по техническим причинам."
 
 #: src/rs02-window.c:1294
@@ -5764,27 +5784,27 @@ msgid "Image file %s not present."
 msgstr "Файл образа %s отсутствует."
 
 #: src/rs03-common.c:459
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Redundancy %4.1f%% out of useful range [3.2%%..200%%]"
 msgstr "Избыточность %4.1f%% вне полезного диапазона [3,2%%..200%%]"
 
 #: src/rs03-common.c:495
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Redundancy %d out of useful range [8..170]."
 msgstr "Избыточность %d вне полезного диапазона [8..170]."
 
 #: src/rs03-common.c:533
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Medium size smaller than image size (%<PRId64> &lt; %<PRId64>)"
 msgstr "Средний размер меньше размера изображения (%<PRId64> &lt; %<PRId64>)"
 
 #: src/rs03-common.c:535
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Medium size too small (%<PRId64> sectors, minimum is %d)"
 msgstr "Средний размер слишком мал (%<PRId64> секторов, минимум – %d)"
 
 #: src/rs03-common.c:537
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Not enough space for error correction data on the specified medium "
 "(%<PRId64> sectors). Increase the medium size or use a smaller image."
@@ -5794,27 +5814,27 @@ msgstr ""
 "меньшего размера."
 
 #: src/rs03-create.c:418
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed expanding the ecc file: %s\n"
-msgstr "Не удалось расширить файл ECC: %s."
+msgstr "Не удалось расширить файл ECC: %s.\n"
 
 #: src/rs03-create.c:419
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Preparing ecc file: %3d%%"
 msgstr "Подготовка файла ECC: %3d%%"
 
 #: src/rs03-create.c:424
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Preparing image: %3d%%"
 msgstr "Подготовка изображения: %3d%%"
 
 #: src/rs03-create.c:661
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed mmap()ing layer %d: %s\n"
-msgstr "Ошибка mmap() слоя %d: %s"
+msgstr "Ошибка mmap() слоя %d: %s\n"
 
 #: src/rs03-create.c:690
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Incomplete image\n"
 "\n"
@@ -5840,8 +5860,9 @@ msgid ""
 "Perform a \"Verify\" action for more information.\n"
 "\n"
 msgstr ""
+"\n"
 "Вероятно, это изображение было создано из дефектного источника(ов).\n"
-"Для получения дополнительной информации выполните действие «Проверить»."
+"Для получения дополнительной информации выполните действие «Проверить».\n"
 
 #: src/rs03-create.c:906
 #, fuzzy
@@ -5854,17 +5875,17 @@ msgid "I/O bound"
 msgstr "Привязка ввода/вывода"
 
 #: src/rs03-create.c:1117
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%5.2fMiB/s current"
-msgstr "%5,2фМиБ/с ток"
+msgstr ""
 
 #: src/rs03-create.c:1168
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d threads with %s encoding and %s I/O"
 msgstr "%d потоков с кодировкой %s и вводом-выводом %s"
 
 #: src/rs03-create.c:1326
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Encoding with Method RS03: %<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; "
 "%4.1f%% redundancy), %<PRId64> MiB padding."
@@ -5882,7 +5903,7 @@ msgstr ""
 "избыточность %4.1f%%)."
 
 #: src/rs03-create.c:1350
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy), %<PRId64> MiB padding."
@@ -5891,7 +5912,7 @@ msgstr ""
 "Данные %<PRId64> MiB, %<PRId64> MiB ecc (корни %d; избыточность %4.1f%%), заполнение %<PRId64> MiB."
 
 #: src/rs03-create.c:1355
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Augmenting image with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
@@ -5900,7 +5921,7 @@ msgstr ""
 "Данные %<PRId64> MiB, %<PRId64> MiB ecc (корни %d; избыточность %4.1f%%)."
 
 #: src/rs03-create.c:1361
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Creating the error correction file with Method RS03 [%d threads, %s, %s I/O]:\n"
 "%<PRId64> MiB data, %<PRId64> MiB ecc (%d roots; %4.1f%% redundancy)."
@@ -5909,7 +5930,7 @@ msgstr ""
 "Данные %<PRId64> MiB, %<PRId64> MiB ecc (корни %d; избыточность %4.1f%%)."
 
 #: src/rs03-create.c:1372
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Not enough space on medium left for error correction data.\n"
 "Data portion of image: %<PRId64> sect.; maximum possible size: %<PRId64> sect.\n"
@@ -5928,7 +5949,7 @@ msgid ""
 "remember it should you need to repair this image later!\n"
 msgstr ""
 "Размер BD-R без включенного управления дефектами,\n"
-"помните об этом, если вам понадобится восстановить это изображение позже!"
+"помните об этом, если вам понадобится восстановить это изображение позже!\n"
 
 #: src/rs03-create.c:1432
 #, c-format
@@ -5936,17 +5957,17 @@ msgid "Avg performance: %5.2fs (%5.2fMiB/s) total\n"
 msgstr "Ср. производительность: %5.2fs (%5.2fМБ/с) в сумме\n"
 
 #: src/rs03-create.c:1435
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%5.2fMiB/s average"
-msgstr "%5,2фМиБ/с в среднем"
+msgstr ""
 
 #: src/rs03-create.c:1437
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d times CPU bound; %d times I/O bound"
 msgstr "%d раз связано с ЦП; %d раз связано с вводом-выводом"
 
 #: src/rs03-fix.c:217
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Error correction file using Method RS03, %d roots, %4.1f%% redundancy."
 msgstr ""
 "Файл исправления ошибок с использованием метода RS03, корни %d, избыточность"
@@ -5967,30 +5988,30 @@ msgid "; ecc file: "
 msgstr "; ecc-файл:"
 
 #: src/rs03-fix.c:745
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "-> CRC-predicted error in sector %lld%s at byte %4d (value %02x '%c', "
 "expected %02x '%c')\n"
 msgstr ""
 "-> Ошибка, предсказанная CRC в секторе %lld%s в байте %4d (значение %02x "
-"'%c', ожидаемое %02x '%c')"
+"'%c', ожидаемое %02x '%c')\n"
 
 #: src/rs03-fix.c:748
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "-> Non-predicted error in sector %lld%s at byte %4d (value %02x '%c', "
 "expected %02x '%c')\n"
 msgstr ""
 "-> Непрогнозированная ошибка в секторе %lld%s в байте %4d (значение %02x "
-"'%c', ожидаемое %02x '%c')"
+"'%c', ожидаемое %02x '%c')\n"
 
 #: src/rs03-fix.c:849
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed seeking to sector %<PRId64> in ecc file [%s]: %s"
 msgstr "Не удалось найти сектор %<PRId64> в файле ecc [%s]: %s"
 
 #: src/rs03-fix.c:854
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "could not write ecc file sector %<PRId64>:\n"
 "%s"
@@ -6005,13 +6026,13 @@ msgstr "Целевая среда для дополненного изображ
 
 #: src/rs03-preferences.c:500 src/rs03-preferences.c:1098
 #: src/rs03-preferences.c:1104 src/rs03-preferences.c:1105
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d sectors"
 msgstr "%d секторов"
 
 #: src/rs03-preferences.c:519 src/rs03-preferences.c:1214
 #: src/rs03-preferences.c:1220 src/rs03-preferences.c:1221
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d threads"
 msgstr "%d тем"
 
@@ -6039,7 +6060,7 @@ msgid ""
 msgstr ""
 "<b>Хранение данных для исправления ошибок</b>\n"
 "\n"
-"Выберите один из двух способов хранения информации для исправления ошибок:"
+"Выберите один из двух способов хранения информации для исправления ошибок:\n"
 
 #: src/rs03-preferences.c:695
 #, fuzzy
@@ -6050,7 +6071,7 @@ msgid ""
 msgstr ""
 "Дополненное изображение (рекомендуется)\n"
 "Данные для исправления ошибок будут храниться вместе с пользовательскими данными на том же носителе. Для этого необходимо создать файл изображения перед записью на носитель. Данные для исправления ошибок будут добавлены к этому изображению и заполнят оставшееся пространство.\n"
-"Поврежденные сектора в информации для исправления ошибок уменьшают возможность восстановления данных, но не делают восстановление невозможным — второй носитель для хранения или защиты информации для исправления ошибок не требуется."
+"Поврежденные сектора в информации для исправления ошибок уменьшают возможность восстановления данных, но не делают восстановление невозможным — второй носитель для хранения или защиты информации для исправления ошибок не требуется.\n"
 
 #: src/rs03-preferences.c:705
 #, fuzzy
@@ -6059,7 +6080,7 @@ msgid ""
 "Error correction files are the only way of protecting existing media as they can be stored somewhere else. They are kept on a separate medium which must also be protected by dvdisaster. This prevents from losing the error correction files in case of a medium defect.\n"
 msgstr ""
 "Файл исправления ошибок\n"
-"Файлы исправления ошибок — единственный способ защитить существующие носители, поскольку они могут храниться где-то еще. Они хранятся на отдельном носителе, который также должен быть защищен с помощью dvdisaster. Это предотвращает потерю файлов исправления ошибок в случае дефекта носителя."
+"Файлы исправления ошибок — единственный способ защитить существующие носители, поскольку они могут храниться где-то еще. Они хранятся на отдельном носителе, который также должен быть защищен с помощью dvdisaster. Это предотвращает потерю файлов исправления ошибок в случае дефекта носителя.\n"
 
 #: src/rs03-preferences.c:748
 #, fuzzy
@@ -6206,7 +6227,7 @@ msgstr ""
 #: src/rs03-preferences.c:1211 src/rs03-preferences.c:1215
 #, fuzzy
 msgid "Multithreading"
-msgstr "Многопоточность"
+msgstr ""
 
 #: src/rs03-preferences.c:1256
 #, fuzzy
@@ -6287,7 +6308,7 @@ msgstr "Свойства исправления ошибок"
 #: src/rs03-verify.c:221
 #, fuzzy
 msgid "Type:"
-msgstr "Тип:"
+msgstr ""
 
 #: src/rs03-verify.c:292
 #, fuzzy
@@ -6310,7 +6331,7 @@ msgid "- Checking ecc blocks (deep verify) -"
 msgstr "- Проверка блоков ecc (глубокая проверка) -"
 
 #: src/rs03-verify.c:538
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Out of memory; try reducing sector prefetch!</span>"
 msgstr ""
 "<span %s>Недостаточно памяти; попробуйте уменьшить предварительную выборку "
@@ -6321,25 +6342,25 @@ msgstr ""
 msgid "* Ecc block test   : out of memory; try reducing sector prefetch!\n"
 msgstr ""
 "* Тест блока Ecc: недостаточно памяти; попробуйте уменьшить предварительную "
-"выборку сектора!"
+"выборку сектора!\n"
 
 #: src/rs03-verify.c:621 src/rs03-verify.c:1182
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d%% tested"
 msgstr "%d%% проверено"
 
 #: src/rs03-verify.c:623
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- Ecc block test   : %d%% tested"
 msgstr "- Тест блока Ecc: протестировано %d%%"
 
 #: src/rs03-verify.c:628
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>%<PRId64> good, %<PRId64> bad; %d%% tested</span>"
 msgstr "<span %s>%<PRId64> хорошо, %<PRId64> плохо; %d%% проверено</span>"
 
 #: src/rs03-verify.c:630
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* Ecc block test   : %<PRId64> good, %<PRId64> bad; %d%% tested"
 msgstr "* Тест блока Ecc: %<PRId64> хорошо, %<PRId64> плохо; %d%% проверено"
 
@@ -6351,10 +6372,10 @@ msgstr "проходить"
 #: src/rs03-verify.c:641
 #, fuzzy
 msgid "- Ecc block test   : pass\n"
-msgstr "- Тест блока Ecc: пройден"
+msgstr "- Тест блока Ecc: пройден\n"
 
 #: src/rs03-verify.c:645
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "<span %s>%<PRId64> good, %<PRId64> bad; %<PRId64> bad sub blocks</span>"
 msgstr ""
@@ -6362,64 +6383,70 @@ msgstr ""
 "подблоки</span>"
 
 #: src/rs03-verify.c:647
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* Ecc block test   : %<PRId64> good, %<PRId64> bad; %<PRId64> bad sub "
 "blocks\n"
 msgstr ""
 "* Тест блока Ecc: %<PRId64> хорошо, %<PRId64> плохо; %<PRId64> неверные "
-"подблоки"
+"подблоки\n"
 
 #: src/rs03-verify.c:713
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "%s present.\n"
-msgstr "%s присутствует."
+msgstr ""
+"\n"
+"%s присутствует.\n"
 
 #: src/rs03-verify.c:716
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "\n"
 "%s not present.\n"
-msgstr "%s отсутствует."
+msgstr ""
+"\n"
+"%s отсутствует.\n"
 
 #: src/rs03-verify.c:727
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%s present.\n"
-msgstr "%s присутствует."
+msgstr "%s присутствует.\n"
 
 #: src/rs03-verify.c:744
 #, fuzzy
 msgid ""
 "\n"
 "Error correction properties:\n"
-msgstr "Свойства исправления ошибок:"
+msgstr ""
+"\n"
+"Свойства исправления ошибок:\n"
 
 #: src/rs03-verify.c:756
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Ecc file is %<PRId64> sectors shorter than expected."
 msgstr "В файле Ecc секторов на %<PRId64> короче, чем ожидалось."
 
 #: src/rs03-verify.c:758
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Ecc file is %<PRId64> sectors longer than expected."
 msgstr "Файл Ecc имеет на %<PRId64> секторов длиннее, чем ожидалось."
 
 #: src/rs03-verify.c:764
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* Warning          : %s\n"
-msgstr "* Внимание: %s"
+msgstr "* Внимание: %s\n"
 
 #: src/rs03-verify.c:773
 #, fuzzy
 msgid "- type             : Error correction file\n"
-msgstr "- тип: файл исправления ошибок."
+msgstr "- тип: файл исправления ошибок.\n"
 
 #: src/rs03-verify.c:774
 #, fuzzy
 msgid "- type             : Augmented image\n"
-msgstr "- тип: Дополненное изображение"
+msgstr "- тип: Дополненное изображение\n"
 
 #: src/rs03-verify.c:777
 #, fuzzy
@@ -6437,12 +6464,12 @@ msgid "- created by       : dvdisaster"
 msgstr "- создатель: dvdisaster"
 
 #: src/rs03-verify.c:835
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- requires         : dvdisaster-%s\n"
-msgstr "- требуется: dvdisaster-%s"
+msgstr "- требуется: dvdisaster-%s\n"
 
 #: src/rs03-verify.c:840
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "* requires         : dvdisaster-%s (BAD)\n"
 "* Warning          : The following output might be incorrect.\n"
@@ -6450,7 +6477,7 @@ msgid ""
 msgstr ""
 "* требуется: dvdisaster-%s (ПЛОХО)\n"
 "* Внимание: следующий вывод может быть неправильным.\n"
-"* : Пожалуйста, обновите dvdisaster."
+"* : Пожалуйста, обновите dvdisaster.\n"
 
 #: src/rs03-verify.c:860
 #, fuzzy
@@ -6462,72 +6489,74 @@ msgstr "нет доступных"
 msgid ""
 "\n"
 "Data integrity:\n"
-msgstr "Целостность данных:"
+msgstr ""
+"\n"
+"Целостность данных:\n"
 
 #: src/rs03-verify.c:935
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> in image; %<PRId64> in ecc file"
 msgstr "%<PRId64> в изображении; %<PRId64> в файле ecc"
 
 #: src/rs03-verify.c:939
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> sectors + %d bytes in image; %<PRId64> in ecc file"
 msgstr "%<PRId64> секторов + %d байт в изображении; %<PRId64> в файле ecc"
 
 #: src/rs03-verify.c:944
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- sectors          : %<PRId64> in image; "
 msgstr "- сектора: %<PRId64> в изображении;"
 
 #: src/rs03-verify.c:945
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- sectors          : %<PRId64> sectors + %d bytes in image; "
 msgstr "- сектора: %<PRId64> секторов + %d байтов в изображении;"
 
 #: src/rs03-verify.c:947
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> in ecc file\n"
-msgstr "%<PRId64> в файле ecc"
+msgstr "%<PRId64> в файле ecc\n"
 
 #: src/rs03-verify.c:950
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%<PRId64> total / %<PRId64> data"
 msgstr "%<PRId64> всего / %<PRId64> данных"
 
 #: src/rs03-verify.c:952
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "- medium sectors   : %<PRId64> total / %<PRId64> data\n"
-msgstr "- средние сектора: %<PRId64> всего / %<PRId64> данных"
+msgstr "- средние сектора: %<PRId64> всего / %<PRId64> данных\n"
 
 #: src/rs03-verify.c:968
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>%s (%s expected)</span>"
 msgstr "<span %s>%s (ожидается %s)</span>"
 
 #: src/rs03-verify.c:973
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Image file is %d bytes shorter than expected.</span>"
 msgstr "<span %s>Файл изображения на %d байт короче ожидаемого.</span>"
 
 #: src/rs03-verify.c:975
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Image file is %d bytes longer than expected.</span>"
 msgstr "<span %s>Файл изображения на %d байт длиннее, чем ожидалось.</span>"
 
 #: src/rs03-verify.c:988
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* sectors          : %s (%s expected); %<PRId64> sectors in ecc file\n"
-msgstr "* секторы: %s (ожидается %s); %<PRId64> секторов в файле ecc"
+msgstr "* секторы: %s (ожидается %s); %<PRId64> секторов в файле ecc\n"
 
 #: src/rs03-verify.c:991
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* medium sectors   : %s (%s expected)\n"
-msgstr "* средние сектора: %s (ожидается %s)"
+msgstr "* средние сектора: %s (ожидается %s)\n"
 
 #: src/rs03-verify.c:1019
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Failed seeking to start of ecc file: %s\n"
-msgstr "Не удалось запустить файл ECC: %s."
+msgstr "Не удалось запустить файл ECC: %s.\n"
 
 #: src/rs03-verify.c:1118
 #, fuzzy
@@ -6535,17 +6564,17 @@ msgid " (in ecc file)"
 msgstr "(в ecc-файле)"
 
 #: src/rs03-verify.c:1126
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* missing sector   : %<PRId64>%s\n"
-msgstr "* отсутствующий сектор: %<PRId64>%s"
+msgstr "* отсутствующий сектор: %<PRId64>%s\n"
 
 #: src/rs03-verify.c:1127
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* missing sectors  : %<PRId64> - %<PRId64>%s\n"
-msgstr "* недостающие сектора: %<PRId64> - %<PRId64>%s"
+msgstr "* недостающие сектора: %<PRId64> - %<PRId64>%s\n"
 
 #: src/rs03-verify.c:1193 src/rs03-verify.c:1238
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>%<PRId64> sectors missing; %<PRId64> signature errors</span>"
 msgstr ""
 "Отсутствуют сектора <span %s>%<PRId64>; %<PRId64> ошибок подписи</span>"
@@ -6556,29 +6585,29 @@ msgid "Error correction file:"
 msgstr "Файл исправления ошибок:"
 
 #: src/rs03-verify.c:1256
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "- good image/file  : all sectors present\n"
 "- data md5sum      : %s\n"
 msgstr ""
 "- хорошее изображение/файл: присутствуют все сектора\n"
-"- сумма данных md5: %s"
+"- сумма данных md5: %s\n"
 
 #: src/rs03-verify.c:1260
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "* BAD image/file   : %<PRId64> sectors missing\n"
-msgstr "* ПЛОХОЕ изображение/файл: отсутствуют сектора %<PRId64>."
+msgstr "* ПЛОХОЕ изображение/файл: отсутствуют сектора %<PRId64>.\n"
 
 #: src/rs03-verify.c:1274
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "  ... crc section    : %<PRId64> sectors missing; %<PRId64> signature "
 "errors\n"
 msgstr ""
-"... раздел crc: отсутствуют сектора %<PRId64>; %<PRId64> ошибки подписи"
+"... раздел crc: отсутствуют сектора %<PRId64>; %<PRId64> ошибки подписи\n"
 
 #: src/rs03-verify.c:1302
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "<span %s>Skipped; not useful on known defective image</span>"
 msgstr ""
 "<span %s>Пропущено; бесполезно для известных дефектных изображений</span>"
@@ -6586,7 +6615,7 @@ msgstr ""
 #: src/rs03-verify.c:1305
 #, fuzzy
 msgid "* Ecc block test   : skipped; not useful on defective image\n"
-msgstr "* Тест блока Ecc: пропущен; бесполезно для дефектного изображения"
+msgstr "* Тест блока Ecc: пропущен; бесполезно для дефектного изображения\n"
 
 #: src/rs03-window.c:87
 #, fuzzy
@@ -6613,7 +6642,7 @@ msgid "No CD/DVD drives found."
 msgstr "CD/DVD приводов не найдено."
 
 #: src/scsi-darwin.c:229
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Could not open %s (%s)."
 msgstr "Не удалось открыть %s (%s)."
 
@@ -6632,7 +6661,7 @@ msgid ""
 "No drives will be pre-selected.\n"
 msgstr ""
 "В /dev не найдены оптические приводы.\n"
-"Ни один диск не будет предварительно выбран."
+"Ни один диск не будет предварительно выбран.\n"
 
 #: src/scsi-layer.c:106
 #, c-format
@@ -7015,10 +7044,10 @@ msgid ""
 "No drives will be pre-selected.\n"
 msgstr ""
 "Оптические приводы не найдены.\n"
-"Ни один диск не будет предварительно выбран."
+"Ни один диск не будет предварительно выбран.\n"
 
 #: src/scsi-simulated.c:39
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Simulated CD (%s)"
 msgstr "Имитация компакт-диска (%s)"
 
@@ -7040,7 +7069,7 @@ msgstr ""
 "Неправильное имя устройства \"%s\" (используйте устройства \"C:\" ... \"Z:\")"
 
 #: src/scsi-win32.c:267
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Could not open device %s."
 msgstr "Не удалось открыть устройство %s."
 
@@ -7049,7 +7078,7 @@ msgid "Documentation not installed."
 msgstr "Документация не установлена"
 
 #: src/show-manual.c:160
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "Documentation file\n"
 "%s\n"
@@ -7057,7 +7086,7 @@ msgid ""
 msgstr ""
 "Файл документации\n"
 "%s\n"
-"не найден."
+"не найден.\n"
 
 #: src/show-manual.c:176
 #, fuzzy
@@ -7080,16 +7109,16 @@ msgid "Could not fork to start xdg-open"
 msgstr "Не удалось запустить xdg-open."
 
 #: src/show-manual.c:227
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "execvp could not execute \"open\":\n"
 "%s\n"
 msgstr ""
 "execvp не смог выполнить «открыть»:\n"
-"%s"
+"%s\n"
 
 #: src/show-manual.c:231
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid ""
 "execvp could not execute \"xdg-open\":\n"
 "%s\n"
@@ -7097,7 +7126,7 @@ msgid ""
 msgstr ""
 "execvp не смог выполнить «xdg-open»:\n"
 "%s\n"
-"xdg-open установлен правильно?"
+"xdg-open установлен правильно?\n"
 
 #: src/udf.c:259
 msgid "Unnamed"
@@ -7118,8 +7147,9 @@ msgid ""
 "dvdisaster creates error correction data to protect\n"
 "optical media (CD,DVD,BD) against data loss.\n"
 msgstr ""
+"\n"
 "dvdisaster создает данные для исправления ошибок для защиты\n"
-"оптические носители (CD,DVD,BD) от потери данных."
+"оптические носители (CD,DVD,BD) от потери данных.\n"
 
 #: src/welcome-window.c:78
 #, fuzzy
@@ -7128,7 +7158,7 @@ msgid ""
 "\n"
 msgstr ""
 "Пожалуйста, ознакомьтесь с [руководством] по типичному использованию "
-"dvdisaster."
+"dvdisaster.\n"
 
 #: src/welcome-window.c:81
 msgid "<i>New in this Version:</i>"
@@ -7163,11 +7193,9 @@ msgstr ""
 msgid "Show this message again"
 msgstr "Показывать это сообщение еще раз"
 
-#, c-format
 #~ msgid "Failed seeking to sector %lld in image: %s"
 #~ msgstr "Не удалось найти сектор %lld в образе: %s"
 
-#, c-format
 #~ msgid "Failed reading sector %lld in image: %s"
 #~ msgstr "Не удалось прочитать сектор %lld в образе: %s"
 
@@ -7369,7 +7397,6 @@ msgstr "Показывать это сообщение еще раз"
 #~ "  --show-sector n   - показывает содержимое данного сектора в "
 #~ "шестнадцатеричном виде\n"
 
-#, c-format
 #~ msgid "  --sim-defects n   - simulate n%% defective sectors on medium\n"
 #~ msgstr ""
 #~ "  --sim-defects n   - смоделировать n%% поврежденных секторов на носителе\n"
